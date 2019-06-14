@@ -181,51 +181,6 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://furrybear.readthedocs.com/3. Usage/Chrome Headles使用学习笔记/</loc>
-     <lastmod>2019-06-14</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://furrybear.readthedocs.com/3. Usage/Emacs使用学习笔记/</loc>
-     <lastmod>2019-06-14</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://furrybear.readthedocs.com/3. Usage/ExifTool使用学习笔记/</loc>
-     <lastmod>2019-06-14</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://furrybear.readthedocs.com/3. Usage/ImageMagick使用学习笔记/</loc>
-     <lastmod>2019-06-14</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://furrybear.readthedocs.com/3. Usage/Microsoft Word使用学习笔记/</loc>
-     <lastmod>2019-06-14</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://furrybear.readthedocs.com/3. Usage/iOS使用学习笔记/</loc>
-     <lastmod>2019-06-14</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://furrybear.readthedocs.com/3. Usage/macOS使用学习笔记/</loc>
-     <lastmod>2019-06-14</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://furrybear.readthedocs.com/3. Usage/pipenv使用学习笔记/</loc>
-     <lastmod>2019-06-14</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://furrybear.readthedocs.com/3. Usage/科学上网学习笔记/</loc>
-     <lastmod>2019-06-14</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
      <loc>https://furrybear.readthedocs.com/3. Usage of Git/Git基础知识/</loc>
      <lastmod>2019-06-14</lastmod>
      <changefreq>daily</changefreq>
@@ -252,6 +207,51 @@
     </url>
     <url>
      <loc>https://furrybear.readthedocs.com/3. Usage of Windows/日语输入法IME使用学习笔记/</loc>
+     <lastmod>2019-06-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://furrybear.readthedocs.com/3.-Usage/Chrome Headles使用学习笔记/</loc>
+     <lastmod>2019-06-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://furrybear.readthedocs.com/3.-Usage/Emacs使用学习笔记/</loc>
+     <lastmod>2019-06-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://furrybear.readthedocs.com/3.-Usage/ExifTool使用学习笔记/</loc>
+     <lastmod>2019-06-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://furrybear.readthedocs.com/3.-Usage/ImageMagick使用学习笔记/</loc>
+     <lastmod>2019-06-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://furrybear.readthedocs.com/3.-Usage/Microsoft Word使用学习笔记/</loc>
+     <lastmod>2019-06-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://furrybear.readthedocs.com/3.-Usage/iOS使用学习笔记/</loc>
+     <lastmod>2019-06-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://furrybear.readthedocs.com/3.-Usage/macOS使用学习笔记/</loc>
+     <lastmod>2019-06-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://furrybear.readthedocs.com/3.-Usage/pipenv使用学习笔记/</loc>
+     <lastmod>2019-06-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://furrybear.readthedocs.com/3.-Usage/科学上网学习笔记/</loc>
      <lastmod>2019-06-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
