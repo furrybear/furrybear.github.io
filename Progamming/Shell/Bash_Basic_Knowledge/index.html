@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Furrybear">
+  <link rel="shortcut icon" href="../../../img/favicon.ico">
+  <title>Bash Basic Knowledge - Furrybear's Blog</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Bash Basic Knowledge";
+    var mkdocs_page_input_path = "Progamming/Shell/Bash_Basic_Knowledge.md";
+    var mkdocs_page_url = "/Progamming/Shell/Bash_Basic_Knowledge/";
+  </script>
+  
+  <script src="../../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../../../README/" class="icon icon-home"> Furrybear's Blog</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../../README/">Furrybear‘s Notes</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">1. Knowledge of Back End</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../1. Knowledge of Back End/HTTPS学习笔记/">HTTPS学习笔记</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../1. Knowledge of Back End/企业级应用学习笔记/">企业级应用学习笔记</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../1. Knowledge of Back End/分布式架构学习笔记/">分布式架构学习笔记</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../1. Knowledge of Back End/远程过程调用学习笔记/">远程过程调用学习笔记</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">1. Knowledge of Blockchain</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../1. Knowledge of Blockchain/Hyperledger Fabric 1.0 安装/">Hyperledger Fabric 1.0 安装</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../1. Knowledge of Blockchain/以太坊Sharding学习笔记/">以太坊Sharding学习笔记</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../1. Knowledge of Blockchain/以太坊学习笔记/">以太坊学习笔记</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../1. Knowledge of Blockchain/区块链共识算法学习笔记/">区块链共识算法学习笔记</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../1. Knowledge of Blockchain/常见活跃区块链/">常见区块链项目</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../1. Knowledge of Blockchain/比特币学习笔记/">比特币学习笔记</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../1. Knowledge of Blockchain/比特币脚本与地址学习笔记/">比特币脚本与地址学习笔记</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../1. Knowledge of Blockchain/比特币闪电网络学习笔记/">比特币闪电网络学习笔记</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">1. Knowledge of Chinese</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../1. Knowledge of Chinese/汉语语法学习笔记/">汉语语法学习笔记</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">1. Knowledge of Information Security</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../1. Knowledge of Information Security/Web安全学习笔记/">Web安全笔记学习笔记</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">1. Knowledge of Job Application</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../1. Knowledge of Job Application/面试笔试题整理/">面试笔试题整理</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">2. Programming in C++</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../2. Programming in C++/C++常见框架/">C++常见框架</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">2. Programming in Python</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../2. Programming in Python/Python2语法学习笔记/">Python2语法学习笔记</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../2. Programming in Python/Python3模块学习笔记之PyQt和PySide/">Python3模块学习笔记之PyQt和PySide</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../2. Programming in Python/Python3模块学习笔记之datetime/">Python3模块学习笔记之datetime</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../2. Programming in Python/Python3模块学习笔记之docxtpl/">Python3模块学习笔记之docxtpl</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../2. Programming in Python/Python3模块学习笔记之itertools/">Python3模块学习笔记之itertools</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../2. Programming in Python/Python3模块学习笔记之logging/">Python3模块学习笔记之logging</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../2. Programming in Python/Python3模块学习笔记之os/">Python3模块学习笔记之os</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../2. Programming in Python/Python3模块学习笔记之shutil/">Python3模块学习笔记之shutil</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../2. Programming in Python/Python3模块学习笔记之subprocess/">Python3模块学习笔记之subprocess</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../2. Programming in Python/Python3语法学习笔记/">Python3语法学习笔记</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../2. Programming in Python/Python3语法学习笔记之字典/">Python3语法学习笔记之字典</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../2. Programming in Python/Python3语法学习笔记之字符串/">Python3语法学习笔记之字符串</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../2. Programming in Python/Python3语法学习笔记之模块和包/">Python3语法学习笔记之模块和包</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../2. Programming in Python/Python3语法学习笔记之装饰器/">Python3语法学习笔记之装饰器</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../2. Programming in Python/Python3调试方法/">Python3调试方法学习笔记</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../2. Programming in Python/Python3项目打包和分发/">Python3项目打包和分发</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../2. Programming in Python/Windows下Python3常见坑/">Windows下Python3常见坑</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../2. Programming in Python/常见PEP/">常见PEP</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">3. Usage</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../3. Usage/Chrome Headles使用学习笔记/">Chrome Headles使用学习笔记</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../3. Usage/Emacs使用学习笔记/">Emacs使用学习笔记</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../3. Usage/ExifTool使用学习笔记/">ExifTool使用学习笔记</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../3. Usage/ImageMagick使用学习笔记/">ImageMagick使用学习笔记</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../3. Usage/Microsoft Word使用学习笔记/">Microsoft Word使用学习笔记</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../3. Usage/iOS使用学习笔记/">iOS使用学习笔记</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../3. Usage/macOS使用学习笔记/">macOS使用学习笔记</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../3. Usage/pipenv使用学习笔记/">pipenv使用学习笔记</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../3. Usage/科学上网学习笔记/">科学上网学习笔记</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">3. Usage of Git</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../3. Usage of Git/Git基础知识/">Git基础知识</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../3. Usage of Git/Git常用命令/">Git常用命令</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../3. Usage of Git/Git常见问题/">Git常见问题</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../3. Usage of Git/Git钩子/">Git钩子</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">3. Usage of Windows</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../3. Usage of Windows/Windows使用学习笔记/">Windows使用学习笔记</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../3. Usage of Windows/日语输入法IME使用学习笔记/">日语输入法IME使用学习笔记</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">4. Games</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../4. Games/部落冲突：匹配值参考/">部落冲突：匹配值参考</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Computer Knowledge</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <span class="caption-text">Computing Theory</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../Computer Knowledge/Computing Theory/P问题、NP问题、NPC问题、NPH问题/">P问题、NP问题、NPC问题、NPH问题</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../Computer Knowledge/Computing Theory/时间复杂度的通俗解释/">时间复杂度的通俗解释</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Cryptology</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../Computer Knowledge/Cryptology/Digital_Certificate_Basic_Knowledge/">Digital Certificate Basic Knowledge</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../Computer Knowledge/Cryptology/OpenSSH/">OpenSSH</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Distribution System</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../Computer Knowledge/Distribution System/一致性哈希/">参考</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../Computer Knowledge/Distribution System/分布式共识算法/">Paxos</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Mathematical Knowledge</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../Computer Knowledge/Mathematical Knowledge/Modulo_Operation/">Modulo Operation</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../Computer Knowledge/Mathematical Knowledge/Permutation_And_Combination/">Permutation And Combination</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Network</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../Computer Knowledge/Network/TCP_And_UDP/">TCP And UDP</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../Computer Knowledge/Network/TCP_And_UDP2/">TCP And UDP2</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Operating Systems</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../Computer Knowledge/Operating Systems/微内核和宏内核操作系统/">微内核和宏内核操作系统</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Principles of Composition</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../Computer Knowledge/Principles of Composition/GPT与MBR、Legacy与UEFI的关系/">GPT与MBR、Legacy与UEFI的关系</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Virtualization</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <span class="caption-text">Container</span>
+    <ul class="subnav">
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../../Computer Knowledge/Virtualization/Container/Docker：基础知识/">底层技术</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../../Computer Knowledge/Virtualization/Container/常见容器技术和容器编排技术/">容器</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Progamming</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../Latex：基础知识/">参考</a>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">C++</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../C++/C++_Basic_Knowledge/">不同数据类型内存大小</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../C++/C++_Common_Library/">boost</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../C++/C++_Common_Skills/">从标准输入流读取个数未知的整数</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../C++/C++_Compile_And_Link_Building/">C++ Compile And Link Building</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../C++/C++_Details/">C++中除以0的行为</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../C++/C++_Lvalue_And_Rvalue/">左值和右值（C++11之前）</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../C++/C++_Object_Oriented_Programming/">默认生成的成员函数</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../C++/C++_Polymorphism/">虚析构函数</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../C++/C++_RVO_And_NRVO/">简介</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <span class="caption-text">C++ Standard Library</span>
+    <ul class="subnav">
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../C++/C++_Standard_Library/C++_SL1^%_Basic_Knowledge/">标准模板库</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../C++/C++_Standard_Library/C++_SL2^%_(%tuple)%/">简介</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../C++/C++_Standard_Library/C++_SL3^%_(%memory)%/">C++ SL3^% (%memory)%</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Data Structure And Algorithm</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../Data Structure And Algorithm/Common_Algorithms/">LRU（Least Recently Used）</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../Data Structure And Algorithm/Graph_Basic_Knowledge/">概念</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../Data Structure And Algorithm/Hash_Table/">Hash Table</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../Data Structure And Algorithm/Orthogonal_Linked_List/">Orthogonal Linked List</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../Data Structure And Algorithm/Topological_Sorting/">描述</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../Data Structure And Algorithm/数据结构与算法教程/">数据结构与算法教程</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <span class="caption-text">Tree</span>
+    <ul class="subnav">
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../Data Structure And Algorithm/Tree/Tree1^%_Basic_Knowledge/">各种树关系图</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../Data Structure And Algorithm/Tree/Tree2^%_Binary_Search_Tree/">定义</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../Data Structure And Algorithm/Tree/Tree3^%_RB_Tree/">Tree3^% RB Tree</a>
+                </li>
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../Data Structure And Algorithm/Tree/Tree4^%_Heap_/">插入</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Java</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../Java/Java_Baisc_Knowledge/">环境变量</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Javascript</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../Javascript/js：Promise、async和await避免回调灾难/">js：Promise、async和await避免回调灾难</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../Javascript/js：console对象/">js：console对象</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../Javascript/js：this、global、window、new、prototype、__proto__、原型与原型链/">js：this、global、window、new、prototype、__proto__、原型与原型链</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../Javascript/js：值传递和共享传递/">js：值传递和共享传递</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../Javascript/js：字符串/">js：字符串</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Node.js</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../Node.js/npm_Basic_Knowledge/">npm install</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Regular Expression</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../Regular_Expression/Regular_Expression_Basic_Knowledge/">Regular Expression Basic Knowledge</a>
+                </li>
+    </ul>
+                </li>
+                <li class=" current">
+                    
+    <span class="caption-text">Shell</span>
+    <ul class="subnav">
+                <li class="toctree-l3 current">
+                    
+    <a class="current" href="./">Bash Basic Knowledge</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l4"><a href="#_1">数据类型</a></li>
+    
+
+    <li class="toctree-l4"><a href="#exit-codes">退出码（Exit Codes）</a></li>
+    
+
+    <li class="toctree-l4"><a href="#1-2">子语句1 &amp;&amp; 子语句2</a></li>
+    
+
+    <li class="toctree-l4"><a href="#1-2_1">子语句1 || 子语句2</a></li>
+    
+
+    <li class="toctree-l4"><a href="#1-2_2">子语句1; 子语句2</a></li>
+    
+
+    <li class="toctree-l4"><a href="#nohup">nohup和&amp;</a></li>
+    
+
+    <li class="toctree-l4"><a href="#export">export关键字</a></li>
+    
+
+    <li class="toctree-l4"><a href="#_2">各种括号</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l5" href="#12">{ &lt;命令1&gt;;&lt;命令2&gt;;……; }</a></li>
+        
+            <li><a class="toctree-l5" href="#12_1">(&lt;命令1&gt;;&lt;命令2&gt;;……)</a></li>
+        
+            <li><a class="toctree-l5" href="#12_2">$(&lt;命令1&gt;;&lt;命令2&gt;;……)</a></li>
+        
+            <li><a class="toctree-l5" href="#forif">$((表达式))、for((表达式))和if((表达式))</a></li>
+        
+            <li><a class="toctree-l5" href="#if-if-test">if [表达式]和if test 表达式</a></li>
+        
+            <li><a class="toctree-l5" href="#if">if [[表达式]]</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l4"><a href="#_3">${标识}</a></li>
+    
+
+    <li class="toctree-l4"><a href="#_4">避免重复包含</a></li>
+    
+
+    </ul>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../Bash_Common_Command/">Bash Common Command</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../Bash：代码片段/">Bash：代码片段</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../getopt/">Getopt</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Php</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../php/php7_Basic_Knowledge/">php7 Basic Knowledge</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../php/php_String/">php String</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">前端</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../前端/前端：Bootstrap的安装与使用/">前端：Bootstrap的安装与使用</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../前端/前端：div嵌套的注意点/">前端：div嵌套的注意点</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../前端/前端：form标签相关/">前端：form标签相关</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../前端/前端：在光标处插入内容/">前端：在光标处插入内容</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../前端/前端：常见CSS属性需要注意的性质/">前端：常见CSS属性需要注意的性质</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../前端/前端：常见标签需要注意的性质/">前端：常见标签需要注意的性质</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">开源协议</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../开源协议/开源协议之间的区别/">开源协议之间的区别</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Software</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../Software/Bash基础知识/">Bash基础知识</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../Software/Chocolatery Fundamental Knowlwdge/">Chocolatery Fundamental Knowlwdge</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../Software/How_To_Set_Up_Apache2/">How To Set Up Apache2</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../Software/How_To_Set_Up_Ftp/">How To Set Up Ftp</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../Software/Jetbrains IDE：基础知识/">Jetbrains IDE：基础知识</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../Software/LVM基础知识/">LVM基础知识</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../Software/Linux_screen_Command/">Linux screen Command</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../Software/Linux_service,_chkconfig_And_systemctl/">Linux service, chkconfig And systemctl</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../Software/Powershell：基础知识/">Powershell：基础知识</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../Software/Putty：基本知识/">Putty：基本知识</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../Software/Rsync基础知识/">Rsync基础知识</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../Software/Sed基础知识/">Sed基础知识</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../Software/Syncthing：基础知识/">Syncthing：基础知识</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../Software/VSCode：Tasks配置模板/">VSCode：Tasks配置模板</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../Software/Vagrant Fundmental Knowledge/">Vagrant Fundmental Knowledge</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../Software/Vmware：基本知识/">Vmware：基本知识</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../Software/Zsh基础知识/">Zsh基础知识</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../Software/apt包管理器基础知识/">Apt包管理器基础知识</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../Software/ffmpeg：基础知识/">Ffmpeg：基础知识</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../Software/pacman：基础知识/">Pacman：基础知识</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../Software/rdesktop：基础知识/">Rdesktop：基础知识</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../Software/vim基本知识/">Vim基本知识</a>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Ansible</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../Software/Ansible/Ansible：基本知识/">Ansible：基本知识</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Docker</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../Software/Docker/Dockerfile：基础知识/">Dockerfile：基础知识</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../Software/Docker/Docker：基础知识/">Docker：基础知识</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Linux</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../Software/Linux/Linux_Background_And_Foreground_Process/">Linux Background And Foreground Process</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../Software/Linux/Linux_Basic_Knowledge/">Linux Basic Knowledge</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../Software/Linux/Linux_Inter_Process_Communication/">Linux Inter Process Communication</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../Software/Linux/Linux_Signals/">Linux Signals</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../Software/Linux/Linux_Users_And_Groups/">Linux Users And Groups</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../Software/Linux/Linux_VFS/">Linux VFS</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../Software/Linux/Linux_sudo_Command/">Linux sudo Command</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../Software/Linux/Linux：UNIX套接字（UNIX socket）/">Linux：UNIX套接字（UNIX socket）</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../Software/Linux/Linux：语言环境设置/">Linux：语言环境设置</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../Software/Linux/Linux：进程的用户和用户组/">Linux：进程的用户和用户组</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../Software/Linux/Profile,_Bashrc_And_Zshrc/">Profile, Bashrc And Zshrc</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <span class="caption-text">Ubuntu</span>
+    <ul class="subnav">
+                <li class="toctree-l4">
+                    
+    <a class="" href="../../../Software/Linux/Ubuntu/Ubuntu网络配置/">Ubuntu网络配置</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">SSH</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../Software/SSH/OpenSSH：免密登录/">OpenSSH：免密登录</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../Software/SSH/OpenSSH：基本知识/">OpenSSH：基本知识</a>
+                </li>
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../Software/SSH/OpenSSH：隧道/">OpenSSH：隧道</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">SVN</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../Software/SVN/SVN版本库的创建/">SVN版本库的创建</a>
+                </li>
+    </ul>
+                </li>
+                <li class="">
+                    
+    <span class="caption-text">Systemd</span>
+    <ul class="subnav">
+                <li class="toctree-l3">
+                    
+    <a class="" href="../../../Software/systemd/systemd：基本知识/">Systemd：基本知识</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../README/">Furrybear's Blog</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../README/">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Progamming &raquo;</li>
+        
+      
+        
+          <li>Shell &raquo;</li>
+        
+      
+    
+    <li>Bash Basic Knowledge</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/furrybear/blog/edit/master/docs/Progamming/Shell/Bash_Basic_Knowledge.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p>使用help可以查看bash有哪些内建命令。</p>
+<h1 id="_1">数据类型</h1>
+<p>Shell中基本类型只有整数和字符串，没有布尔量和浮点数,也不支持浮点运算（需要依靠bc或者awk）。</p>
+<p>复杂类型有数组。使用bash内置的<code>declare</code>命令可以声明Map。</p>
+<pre><code class="sh"># 数组
+arr=(&quot;value1&quot; 2 3)
+# Map
+declare -A map=([&quot;key1&quot;]=&quot;value1&quot; [2]=&quot;value2&quot;)
+</code></pre>
+
+<h1 id="exit-codes">退出码（Exit Codes）</h1>
+<p>Shell中语句返回0表示执行成功，非0表示执行失败。非0退出码含义见<a href="http://tldp.org/LDP/abs/html/exitcodes.html">这里</a>。</p>
+<h1 id="1-2">子语句1 &amp;&amp; 子语句2</h1>
+<p>子语句返回0则执行子语句2。</p>
+<h1 id="1-2_1">子语句1 || 子语句2</h1>
+<p>子语句返回非0则执行子语句2。</p>
+<h1 id="1-2_2">子语句1; 子语句2</h1>
+<p>子语句执行完后执行子语句2。</p>
+<h1 id="nohup">nohup和&amp;</h1>
+<p>参考：<a href="https://blog.csdn.net/u011095110/article/details/78666833">https://blog.csdn.net/u011095110/article/details/78666833</a></p>
+<p>&amp;表示后台运行，不改变进程的标准输出流的定向。如果会话结束，进程会接收到SIGHUP信号而结束。</p>
+<p>nohup表示进程转到后台，标准输出流定向到\$PWD/nohup.out或者\$HOME/nohup.out，并且进程忽略进程结束的SIGHUP信号。</p>
+<p>使用<code>nohup &lt;command&gt; &amp;</code>可以让进程在后台运行而不受会话结束影响。</p>
+<h1 id="export">export关键字</h1>
+<p>不用export，定义的就是普通变量。即使修改了环境变量，子脚本也不会获得修改后的值。</p>
+<p>用export，定义的变量就变成环境变量。修改或者添加的的环境变量会被子脚本获得。</p>
+<p>/etc/profile中直接使用</p>
+<pre><code class="sh">PATH=$PATH:新路径
+</code></pre>
+
+<p>就可以，不需要export。</p>
+<h1 id="_2">各种括号</h1>
+<p><a href="https://blog.csdn.net/taiyang1987912/article/details/39551385">https://blog.csdn.net/taiyang1987912/article/details/39551385</a></p>
+<h2 id="12">{ &lt;命令1&gt;;&lt;命令2&gt;;……; }</h2>
+<p>当前shell从左到右执行命令，退出码为最后一个命令的退出码。注意每个命令后有个分号，内侧左右有空格。</p>
+<h2 id="12_1">(&lt;命令1&gt;;&lt;命令2&gt;;……)</h2>
+<p>新开一个子shell从左到右执行命令，退出码为最后一个命令的退出码。注意每个命令之间有分号就可以了，内侧左右不必有空格。</p>
+<h2 id="12_2">$(&lt;命令1&gt;;&lt;命令2&gt;;……)</h2>
+<p>获得这些命令的标准输出。这些命令必须能运行结束。</p>
+<pre><code class="sh">hehe=$(ping -c 1 &lt;不可达地址&gt;)
+echo $?
+#返回1
+</code></pre>
+
+<h2 id="forif">$((表达式))、for((表达式))和if((表达式))</h2>
+<p>C语言风格计算。</p>
+<pre><code class="sh">echo $((1+1))
+#输出2
+
+echo $((16#5f))
+#输出95
+
+a=1
+echo $((++a))
+#输出2
+
+for((i=0;i&lt;5;i++));do echo &quot;hehe&quot;;done
+#输出5个hehe
+
+i=5
+if((i&lt;6));then echo &quot;hehe&quot;;fi
+#输出hehe
+</code></pre>
+
+<h2 id="if-if-test">if [表达式]和if test 表达式</h2>
+<p>两者是等同的。</p>
+<pre><code class="sh">i=5
+if [ $i -lt 6 -a $i -gt 2 ];then echo &quot;hehe&quot;;fi
+if [ $i -lt 6 ]&amp;&amp;[ $i -gt 2 ];then echo &quot;hehe&quot;;fi
+if test $i -lt 6 -a $i -gt 2 ;then echo &quot;hehe&quot;;fi
+</code></pre>
+
+<p>可用的类C比较运算符只有<code>==</code>、<code>!=</code>、<code>\&lt;</code>、<code>\&gt;</code>，只用于字符串比较。</p>
+<p>整数只能用<code>-gt</code>、<code>-lt</code>、<code>-eq</code>这些。</p>
+<p>-a和-o表示逻辑与与逻辑或。</p>
+<h2 id="if">if [[表达式]]</h2>
+<p>[[ ]]是 bash 程序语言的关键字。并不是一个命令，[[ ]] 结构比[ ]结构更加通用。在[[和]]之间所有的字符都不会发生文件名扩展或者单词分割，但是会发生参数扩展和命令替换。</p>
+<p>&amp;&amp;、||、&lt;和&gt; 操作符能够正常存在于[[ ]]条件判断结构中，例如<code>if [[ $a != 1 &amp;&amp; $a != 2 ]]</code>。</p>
+<h1 id="_3">${标识}</h1>
+<p><img alt="" src="../Bash_Brace.png" /></p>
+<h1 id="_4">避免重复包含</h1>
+<p><a href="http://kodango.com/avoid-repeated-source-in-shell">http://kodango.com/avoid-repeated-source-in-shell</a></p>
+<pre><code class="sh">_sourced_=&quot;__sourced_$$__&quot;
+
+echo &quot;Flag variable $_sourced_=${!_sourced_}&quot;
+
+if [ -z &quot;${!_sourced_}&quot; ]; then
+    eval &quot;$_sourced_=1&quot;
+    echo &quot;It is the first time to source script&quot;
+else
+    echo &quot;The script have been sourced&quot;
+fi
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Bash_Common_Command/" class="btn btn-neutral float-right" title="Bash Common Command">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../Regular_Expression/Regular_Expression_Basic_Knowledge/" class="btn btn-neutral" title="Regular Expression Basic Knowledge"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/furrybear/blog/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../../Regular_Expression/Regular_Expression_Basic_Knowledge/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../Bash_Common_Command/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../../..';</script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/require.js"></script>
+      <script src="../../../search/search.js"></script>
+
+</body>
+</html>
