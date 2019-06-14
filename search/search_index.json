@@ -1,6 +1,21 @@
 {
     "docs": [
         {
+            "location": "/", 
+            "text": "Furrybear\u2018s Notes\n\n\nIt's Furrybear's notebook.\n\n\nSelection\n\n\n\n\n\u6bd4\u7279\u5e01\u5b66\u4e60\u7b14\u8bb0\n\n\n\u6bd4\u7279\u5e01\u811a\u672c\u4e0e\u5730\u5740\u5b66\u4e60\u7b14\u8bb0", 
+            "title": "Furrybear\u2018s Notes"
+        }, 
+        {
+            "location": "/#furrybears-notes", 
+            "text": "It's Furrybear's notebook.", 
+            "title": "Furrybear\u2018s Notes"
+        }, 
+        {
+            "location": "/#selection", 
+            "text": "\u6bd4\u7279\u5e01\u5b66\u4e60\u7b14\u8bb0  \u6bd4\u7279\u5e01\u811a\u672c\u4e0e\u5730\u5740\u5b66\u4e60\u7b14\u8bb0", 
+            "title": "Selection"
+        }, 
+        {
             "location": "/README/", 
             "text": "Furrybear\u2018s Notes\n\n\nIt's Furrybear's notebook.\n\n\nSelection\n\n\n\n\n\u6bd4\u7279\u5e01\u5b66\u4e60\u7b14\u8bb0\n\n\n\u6bd4\u7279\u5e01\u811a\u672c\u4e0e\u5730\u5740\u5b66\u4e60\u7b14\u8bb0", 
             "title": "Furrybear\u2018s Notes"
