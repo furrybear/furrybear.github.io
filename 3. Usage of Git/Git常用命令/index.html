@@ -221,16 +221,18 @@ git reset --hard origin/dev
 
 <h3 id="git-config">git config</h3>
 <p>config 配置有system级别、global（用户级别）和local（当前仓库，存储在.git/config），下层配置会覆盖上层配置。</p>
-<pre><code class="sh"># 查看配置
+<pre><code class="sh"># 查看配置。
 git config --system --list
 git config --global --list
 git config --local  --list
-# 设置用户名
+# 设置用户名。
 git config user.name &quot;Furrybear&quot;
-# 不忽略文件名大小写的修改
+# 不忽略文件名大小写的修改。
 git config core.ignorecase false
-# 允许推送分支到本仓库（非裸仓库）
+# 允许推送分支到本仓库（非裸仓库）。
 git config --local receive.denyCurrentBranch ignore
+# core.autocrlf为true时，代码检出时将LF转换为CRLF，提交时把CRLF转换为LF。在Git for Windows中这个变量初始时就是true。
+git config --local core.autocrlf true
 </code></pre>
 
 <h3 id="git-tag">git tag</h3>
