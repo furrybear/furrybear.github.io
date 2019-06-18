@@ -8,43 +8,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <meta name="author" content="Furrybear">
-    <link rel="canonical" href="https://furrybear.readthedocs.com/Software/SVN/SVN版本库的创建/">
-    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <link rel="canonical" href="https://furrybear.readthedocs.com/3. Usage of SVN/SVN版本库创建/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>SVN版本库的创建 - Furrybear's Blog</title>
-    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
-    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
-    <link href="../../../css/base.css" rel="stylesheet">
-    <link rel="stylesheet" href="../../../css/highlight.css">
+    <title>SVN版本库创建 - Furrybear's Blog</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
 
-    <script src="../../../js/jquery-3.2.1.min.js"></script>
-    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
-    <script src="../../../js/highlight.pack.js"></script>
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
     
     <base target="_top">
     <script>
-      var base_url = '../../..';
+      var base_url = '../..';
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "Ubuntu16.04\u521b\u5efaSVN\u7248\u672c\u5e93", url: "#_top", children: [
-              {title: "svnserve.conf\u793a\u4f8b\uff08\u914d\u7f6e\u9879\u524d\u4e0d\u80fd\u6709\u7a7a\u683c\uff09\uff1a", url: "#svnserveconf" },
-              {title: "passwd\u793a\u4f8b\uff08\u660e\u6587\u914d\u7f6e\uff0c\u5982\u679c\u8981\u52a0\u5bc6\u914d\u7f6e\uff0c\u53ef\u4ee5\u4f7f\u7528htpasswd\uff09\uff1a", url: "#passwdhtpasswd" },
-              {title: "authz\u793a\u4f8b", url: "#authz" },
-              {title: "\u542f\u52a8", url: "#_1" },
-              {title: "\u5176\u4ed6", url: "#_2" },
-          ]},
-          {title: "TortoiseSVN\u91cc\u7684\u51b2\u7a81\u89e3\u51b3", url: "#tortoisesvn", children: [
+          {title: "SVN\u7248\u672c\u5e93\u521b\u5efa", url: "#_top", children: [
+              {title: "Ubuntu16.04\u521b\u5efaSVN\u7248\u672c\u5e93", url: "#ubuntu1604svn" },
           ]},
         ];
 
     </script>
-    <script src="../../../js/base.js"></script> 
+    <script src="../../js/base.js"></script> 
 </head>
 
 <body>
@@ -67,20 +61,20 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../../systemd/systemd：基本知识/" class="btn btn-xs btn-default pull-right">
+      <a href="../TortoiseSVN使用学习笔记/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../../systemd/systemd：基本知识/" class="btn btn-xs btn-link">
-        Systemd：基本知识
+      <a href="../TortoiseSVN使用学习笔记/" class="btn btn-xs btn-link">
+        TortoiseSVN使用学习笔记
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../../SSH/OpenSSH：隧道/" class="btn btn-xs btn-default pull-left">
+      <a href="../SVN使用学习笔记/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../../SSH/OpenSSH：隧道/" class="btn btn-xs btn-link">
-        OpenSSH：隧道
+        Previous</a><a href="../SVN使用学习笔记/" class="btn btn-xs btn-link">
+        SVN使用学习笔记
       </a>
     </div>
     
@@ -88,12 +82,8 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <ul>
-<li>SVN</li>
-<li>Linux</li>
-</ul>
-<hr />
-<h1 id="ubuntu1604svn">Ubuntu16.04创建SVN版本库</h1>
+    <h1 id="svn">SVN版本库创建</h1>
+<h2 id="ubuntu1604svn">Ubuntu16.04创建SVN版本库</h2>
 <p>参考：<a href="http://blog.csdn.net/Eric_lmy/article/details/51942931">http://blog.csdn.net/Eric_lmy/article/details/51942931</a></p>
 <p>一种做法是，创建一个存放SVN仓库的目录，这个目录下可以存放多个SVN仓库，例如/home/svn（最好不要使用/root目录，虽然这里没什么问题，但是如果想要使用浏览器即http方式访问svn仓库，apache服务器访问仓库会出现permission denied的问题），然后使用以下命令：</p>
 <pre><code class="sh">apt-get install subversion
@@ -102,7 +92,7 @@ svnadmin create ~/svn/SVN仓库目录名
 
 <p>这样，这个仓库的根目录的URL就是“svn://hostname/SVN仓库名”。在建立其他仓库也是同样的方法。</p>
 <p>创建的SVN仓库目录下，重要的是conf目录。conf目录下，svnserve.conf是主配置文件，authz文件是设置用户权限，passwd文件是存储用户及密码。</p>
-<h2 id="svnserveconf">svnserve.conf示例（配置项前不能有空格）：</h2>
+<h3 id="svnserveconf">svnserve.conf示例（配置项前不能有空格）：</h3>
 <pre><code>[general]
 # 匿名用户不允许读写
 anon-access = none
@@ -115,7 +105,7 @@ authz-db = authz
 </code></pre>
 
 <p>多个仓库可以共用paawd文件和authz文件。</p>
-<h2 id="passwdhtpasswd">passwd示例（明文配置，如果要加密配置，可以使用htpasswd）：</h2>
+<h3 id="passwdhtpasswd">passwd示例（明文配置，如果要加密配置，可以使用htpasswd）：</h3>
 <p>明文配置：</p>
 <pre><code>[users]    
 用户名=密码  
@@ -128,7 +118,7 @@ htpasswd -c passwd 用户名
 htpasswd passwd 用户名
 </code></pre>
 
-<h2 id="authz">authz示例</h2>
+<h3 id="authz">authz示例</h3>
 <pre><code>[groups] 
 用户组 = 用户1,用户2 
 [SVN仓库名:/]
@@ -136,25 +126,14 @@ htpasswd passwd 用户名
 用户3 = r 
 </code></pre>
 
-<h2 id="_1">启动</h2>
+<h3 id="_1">启动</h3>
 <p>然后启动监听端口就好了：</p>
 <pre><code class="sh">svnserve -d -r ~/svn  
 </code></pre>
 
 <p>用TortoiseSVN（Win）、svn co（Linux）等工具从“svn://hostname/SVN仓库名”检出（checkout）仓库的工作副本就好了。</p>
-<h2 id="_2">其他</h2>
-<p>如何让Apache2访问SVN仓库，从而让SVN仓库可以用浏览器访问请看<a href="../../../笔记/Apache2#http访问SVN仓库">Apache2学习笔记</a></p>
-<h1 id="tortoisesvn">TortoiseSVN里的冲突解决</h1>
-<p>（1）commit失败后，用revert放弃工作区的修改，然后用update获得最新版本。对于非文本文件，也只能用这种方式。
-　　（2）commit失败后，用update，文件中会显示冲突内容，大概类似于这样：</p>
-<pre><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;.mine
-可爱的小熊
-=======
-毛茸茸
-&gt;&gt;&gt;&gt;&gt;&gt;&gt;.r2
-</code></pre>
-
-<p>把“&lt;&lt;&lt;&lt;&lt;&lt;&lt;.mine”、“=======”、“&gt;&gt;&gt;&gt;&gt;&gt;&gt;.r2”都处理掉，留下自己想要的最终版本的内容，再resolve，再commit就好了！</p>
+<h3 id="_2">其他</h3>
+<p>如何让Apache2访问SVN仓库，从而让SVN仓库可以用浏览器访问请看<a href="../../笔记/Apache2#http访问SVN仓库">Apache2学习笔记</a></p>
 
   <br>
     
@@ -168,20 +147,20 @@ htpasswd passwd 用户名
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../../systemd/systemd：基本知识/" class="btn btn-xs btn-default pull-right">
+      <a href="../TortoiseSVN使用学习笔记/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../../systemd/systemd：基本知识/" class="btn btn-xs btn-link">
-        Systemd：基本知识
+      <a href="../TortoiseSVN使用学习笔记/" class="btn btn-xs btn-link">
+        TortoiseSVN使用学习笔记
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../../SSH/OpenSSH：隧道/" class="btn btn-xs btn-default pull-left">
+      <a href="../SVN使用学习笔记/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../../SSH/OpenSSH：隧道/" class="btn btn-xs btn-link">
-        OpenSSH：隧道
+        Previous</a><a href="../SVN使用学习笔记/" class="btn btn-xs btn-link">
+        SVN使用学习笔记
       </a>
     </div>
     
@@ -192,7 +171,7 @@ htpasswd passwd 用户名
 
 <footer class="col-md-12 wm-page-content">
       <p>
-        <a href="https://github.com/furrybear/furrybear.github.io/edit/master/docs/Software/SVN/SVN版本库的创建.md"><i class="fa fa-github"></i>
+        <a href="https://github.com/furrybear/furrybear.github.io/edit/master/docs/3. Usage of SVN/SVN版本库创建.md"><i class="fa fa-github"></i>
 Edit on GitHub</a>
       </p>
   <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
