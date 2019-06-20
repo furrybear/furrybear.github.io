@@ -32,12 +32,12 @@
         }, 
         {
             "location": "/1. Knowledge of Back End/\u4f01\u4e1a\u7ea7\u5e94\u7528\u5b66\u4e60\u7b14\u8bb0/", 
-            "text": "\u4f01\u4e1a\u7ea7\u5e94\u7528\u5b66\u4e60\u7b14\u8bb0\n\n\n\n\nSOA\uff08Service-oriented Achitecture\uff09\n\n\nESB\uff08Enterprise Service Bus\uff09 \n\n\nMQ Middleware\uff08Message Queue Middleware\uff09 \n\n\n\n\n\u6d88\u606f\u961f\u5217\u4e2d\u95f4\u4ef6\u4e3b\u8981\u7528\u4e8e\u5404\u9879\u670d\u52a1\u8ba2\u9605\u548c\u53d1\u5e03\u6d88\u606f\u3002\n\n\n\n\nOLTP\u548cOLAP", 
+            "text": "\u4f01\u4e1a\u7ea7\u5e94\u7528\u5b66\u4e60\u7b14\u8bb0\n\n\n\n\nSOA\uff08Service-oriented Achitecture\uff09\n\n\nESB\uff08Enterprise Service Bus\uff09 \uff1a\u4f01\u4e1a\u670d\u52a1\u603b\u7ebf\n\n\nMQ Middleware\uff08Message Queue Middleware\uff09 \n\n\n\n\n\u6d88\u606f\u961f\u5217\u4e2d\u95f4\u4ef6\u4e3b\u8981\u7528\u4e8e\u5404\u9879\u670d\u52a1\u8ba2\u9605\u548c\u53d1\u5e03\u6d88\u606f\u3002\n\n\n\n\nOLTP\u548cOLAP", 
             "title": "\u4f01\u4e1a\u7ea7\u5e94\u7528\u5b66\u4e60\u7b14\u8bb0"
         }, 
         {
             "location": "/1. Knowledge of Back End/\u4f01\u4e1a\u7ea7\u5e94\u7528\u5b66\u4e60\u7b14\u8bb0/#_1", 
-            "text": "SOA\uff08Service-oriented Achitecture\uff09  ESB\uff08Enterprise Service Bus\uff09   MQ Middleware\uff08Message Queue Middleware\uff09    \u6d88\u606f\u961f\u5217\u4e2d\u95f4\u4ef6\u4e3b\u8981\u7528\u4e8e\u5404\u9879\u670d\u52a1\u8ba2\u9605\u548c\u53d1\u5e03\u6d88\u606f\u3002   OLTP\u548cOLAP", 
+            "text": "SOA\uff08Service-oriented Achitecture\uff09  ESB\uff08Enterprise Service Bus\uff09 \uff1a\u4f01\u4e1a\u670d\u52a1\u603b\u7ebf  MQ Middleware\uff08Message Queue Middleware\uff09    \u6d88\u606f\u961f\u5217\u4e2d\u95f4\u4ef6\u4e3b\u8981\u7528\u4e8e\u5404\u9879\u670d\u52a1\u8ba2\u9605\u548c\u53d1\u5e03\u6d88\u606f\u3002   OLTP\u548cOLAP", 
             "title": "\u4f01\u4e1a\u7ea7\u5e94\u7528\u5b66\u4e60\u7b14\u8bb0"
         }, 
         {
@@ -1307,13 +1307,18 @@
         }, 
         {
             "location": "/3. Usage of SVN/SVN\u4f7f\u7528\u5b66\u4e60\u7b14\u8bb0/", 
-            "text": "SVN\u4f7f\u7528\u5b66\u4e60\u7b14\u8bb0", 
+            "text": "SVN\u4f7f\u7528\u5b66\u4e60\u7b14\u8bb0\n\n\n\u5e38\u7528\u547d\u4ee4\n\n\nsvn update\n\uff1a\u66f4\u65b0\u5230\u6700\u65b0\u7248\u672c", 
             "title": "SVN\u4f7f\u7528\u5b66\u4e60\u7b14\u8bb0"
         }, 
         {
             "location": "/3. Usage of SVN/SVN\u4f7f\u7528\u5b66\u4e60\u7b14\u8bb0/#svn", 
             "text": "", 
             "title": "SVN\u4f7f\u7528\u5b66\u4e60\u7b14\u8bb0"
+        }, 
+        {
+            "location": "/3. Usage of SVN/SVN\u4f7f\u7528\u5b66\u4e60\u7b14\u8bb0/#_1", 
+            "text": "svn update \uff1a\u66f4\u65b0\u5230\u6700\u65b0\u7248\u672c", 
+            "title": "\u5e38\u7528\u547d\u4ee4"
         }, 
         {
             "location": "/3. Usage of SVN/SVN\u7248\u672c\u5e93\u521b\u5efa/", 
