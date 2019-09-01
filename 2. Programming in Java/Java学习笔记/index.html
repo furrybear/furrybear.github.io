@@ -33,7 +33,7 @@
         
         var pageToc = [
           {title: "Java\u5b66\u4e60\u7b14\u8bb0", url: "#_top", children: [
-              {title: "\u73af\u5883\u53d8\u91cf", url: "#_1" },
+              {title: "\u73af\u5883\u53d8\u91cf\u8bbe\u7f6e", url: "#_1" },
               {title: "jar\u5305", url: "#jar" },
           ]},
         ];
@@ -55,7 +55,6 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
     
-      
       
     
 
@@ -84,13 +83,13 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     
 
     <h1 id="java">Java学习笔记</h1>
-<h2 id="_1">环境变量</h2>
-<h3 id="java_home">安装目录路径JAVA_HOME</h3>
-<p>安装目录的bin子目录里有java、javac等命令的可执行文件，所以要将<code>$JAVA_HOME/bin</code>加入PATH环境变量。</p>
-<h3 id="classpath">类搜索路径CLASSPATH</h3>
-<pre><code>CLASSPATH=.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar
-</code></pre>
-
+<h2 id="_1">环境变量设置</h2>
+<h3 id="windows">Windows下设置</h3>
+<h4 id="java_homejdk">JAVA_HOME：JDK安装目录</h4>
+<p>将JAVA_HOME设置为JDK安装目录，例如<code>C:\Program Files\Java\jdk-12.0.2</code>。</p>
+<p>安装目录的bin子目录里有java、javac等命令的可执行文件，为了能在任何位置调用这些命令，所以要将<code>%JAVA_HOME%\bin</code>加入PATH环境变量。</p>
+<h4 id="classpath">CLASSPATH：类搜索路径</h4>
+<p>告诉JVM如何搜索Java的类，值设置为<code>.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar</code>。表示分别是当前目录、<code>%JAVA_HOME%\lib\dt.jar</code>和<code>%JAVA_HOME%\lib\tools.jar</code>。</p>
 <h2 id="jar">jar包</h2>
 <p>jar包是class文件的归档文件。</p>
 
@@ -99,7 +98,6 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
     
-      
       
     
 
