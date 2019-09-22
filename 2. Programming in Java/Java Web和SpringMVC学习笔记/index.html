@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="author" content="Furrybear">
+    <link rel="canonical" href="https://furrybear.readthedocs.com/2. Programming in Java/Java Web和SpringMVC学习笔记/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Java Web和SpringMVC学习笔记 - Furrybear's Blog</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Java Web\u548cSpringMVC\u5b66\u4e60\u7b14\u8bb0", url: "#_top", children: [
+              {title: "\u53c2\u8003", url: "#_1" },
+              {title: "Servlet", url: "#servlet" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../Java学习笔记/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../Java学习笔记/" class="btn btn-xs btn-link">
+        Java学习笔记
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../../2. Programming in C++/C++常见框架/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../../2. Programming in C++/C++常见框架/" class="btn btn-xs btn-link">
+        C++常见框架
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="java-webspringmvc">Java Web和SpringMVC学习笔记</h1>
+<h2 id="_1">参考</h2>
+<ol>
+<li><a href="https://blog.csdn.net/yalishadaa/article/details/70544492">servlet和Spring的DispatcherServlet详解</a></li>
+</ol>
+<h2 id="_2"></h2>
+<h2 id="servlet">Servlet</h2>
+<p>Servlet是服务器端运行的一个程序，是一个被编译好的<a href="http://lib.csdn.net/base/javaee">Java</a>类。它不是框架等。</p>
+<p>Web容器的启动，需要依赖Servlet。当web服务器开始执行时，servlet类就被初始化</p>
+<p>当用户通过浏览器访问的时候，会输入URI，这个时候，web服务器就通过Servlet来分发请求执行不同的内容。</p>
+<p>对于SpringMVC来说，在<code>/src/main/webapp/WEB-INF/web.xml</code>中是这么定义的：</p>
+<pre><code class="xml">&lt;!DOCTYPE web-app PUBLIC
+ &quot;-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN&quot;
+ &quot;http://java.sun.com/dtd/web-app_2_3.dtd&quot; &gt;
+
+&lt;web-app&gt;
+  &lt;display-name&gt;Archetype Created Web Application&lt;/display-name&gt;
+  &lt;servlet&gt;
+    &lt;servlet-name&gt;spring-dispatcher&lt;/servlet-name&gt;
+    &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;
+  &lt;/servlet&gt;
+  &lt;servlet-mapping&gt;
+    &lt;servlet-name&gt;spring-dispatcher&lt;/servlet-name&gt;
+    &lt;url-pattern&gt;/&lt;/url-pattern&gt;
+  &lt;/servlet-mapping&gt;
+&lt;/web-app&gt;
+</code></pre>
+
+<p>说明使用了SpringMVC框架的DispatcherServlet。SpringMVC从<code>spring-dispatcher-servlet.xml</code>读取配置并创建Servlet。</p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../Java学习笔记/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../Java学习笔记/" class="btn btn-xs btn-link">
+        Java学习笔记
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../../2. Programming in C++/C++常见框架/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../../2. Programming in C++/C++常见框架/" class="btn btn-xs btn-link">
+        C++常见框架
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="col-md-12 wm-page-content">
+      <p>
+        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/2. Programming in Java/Java Web和SpringMVC学习笔记.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>
