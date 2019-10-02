@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="author" content="Furrybear">
+    <link rel="canonical" href="https://furrybear.readthedocs.com/1. Knowledge of Cryptology/数字证书学习笔记/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>数字证书学习笔记 - Furrybear's Blog</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "\u6570\u5b57\u8bc1\u4e66\u5b66\u4e60\u7b14\u8bb0", url: "#_top", children: [
+              {title: "\u57fa\u672c\u6982\u5ff5", url: "#_2" },
+              {title: "\u5177\u4f53\u539f\u7406", url: "#_3" },
+              {title: "\u53c2\u8003", url: "#_5" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../签名算法学习笔记/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../签名算法学习笔记/" class="btn btn-xs btn-link">
+        签名算法学习
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../../1. Knowledge of Computing Theory/时间复杂度的通俗解释/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../../1. Knowledge of Computing Theory/时间复杂度的通俗解释/" class="btn btn-xs btn-link">
+        时间复杂度的通俗解释
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="_1">数字证书学习笔记</h1>
+<p>CA（Certificate Authority[səˈtɪfɪkət,əˈθɔ:rəti]）：证书授权中心</p>
+<h2 id="_2">基本概念</h2>
+<p>数字证书体系如图所示：　　
+<img alt="" src="../digital_certificate_system.png" /></p>
+<p>其中，证书C即所谓的根证书，它由CA（Certificate Authority[səˈtɪfɪkət,əˈθɔ:rəti]，证书授权中心）持有，体系中的其他证书由CA颁发。只要根证书是可信任的，那么树中所有证书都是可以被信任的。</p>
+<h2 id="_3">具体原理</h2>
+<p>证书中包含：</p>
+<ol>
+<li>证书的发布机构,一般是CA（个人理解就是上图中证书的父节点）</li>
+<li>有效期</li>
+<li>证书所有者</li>
+<li>所有者的公钥</li>
+<li>用CA私钥加密过的 以上内容的数字签名（指纹）</li>
+</ol>
+<h3 id="_4">流程</h3>
+<p>证书所有者申请证书时，CA会把证书的发布机构、有效期、证书所有者、所有者的公钥用某个哈希算法（指纹算法）算出哈希（指纹），并把这个哈希算法和哈希用CA的私钥加密后挂到证书后面，即上面第五条内容。</p>
+<p>用户拿到证书后，先用CA公钥解密上面第五条内容获得哈希（指纹）和哈希算法（指纹算法），然后用这个哈希算法计算其他四项内容的哈希，如果和算出的哈希（指纹）和记录的哈希（指纹）相同，那么说明证书是正确的。然后就可以开心地用证书里的所有者的公钥和证书所有者进行不可告人的通信了。</p>
+<p>申请证书一般是需要收费的。</p>
+<h2 id="_5">参考</h2>
+<ol>
+<li>
+<p><a href="http://kb.cnblogs.com/page/194742/">http://kb.cnblogs.com/page/194742/</a></p>
+</li>
+<li>
+<p><a href="http://blog.csdn.net/zbuger/article/details/51595229">http://blog.csdn.net/zbuger/article/details/51595229</a></p>
+</li>
+<li>
+<p><a href="http://blog.csdn.net/u011904605/article/details/53033449">http://blog.csdn.net/u011904605/article/details/53033449</a></p>
+</li>
+</ol>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../签名算法学习笔记/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../签名算法学习笔记/" class="btn btn-xs btn-link">
+        签名算法学习
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../../1. Knowledge of Computing Theory/时间复杂度的通俗解释/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../../1. Knowledge of Computing Theory/时间复杂度的通俗解释/" class="btn btn-xs btn-link">
+        时间复杂度的通俗解释
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="col-md-12 wm-page-content">
+      <p>
+        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/1. Knowledge of Cryptology/数字证书学习笔记.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

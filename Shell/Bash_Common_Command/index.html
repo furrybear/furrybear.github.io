@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="author" content="Furrybear">
+    <link rel="canonical" href="https://furrybear.readthedocs.com/Shell/Bash_Common_Command/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>点和source - Furrybear's Blog</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "\u70b9\u548csource", url: "#_top", children: [
+          ]},
+          {title: "set -e", url: "#set-e", children: [
+          ]},
+          {title: "pwd\u548cPWD", url: "#pwdpwd", children: [
+          ]},
+          {title: "head/tail", url: "#headtail", children: [
+          ]},
+          {title: "cut", url: "#cut", children: [
+          ]},
+          {title: "egrep\u3001xgrep\u548cfgrep", url: "#egrepxgrepfgrep", children: [
+          ]},
+          {title: "find", url: "#find", children: [
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../Bash：代码片段/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../Bash：代码片段/" class="btn btn-xs btn-link">
+        循环
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../Bash_Basic_Knowledge/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../Bash_Basic_Knowledge/" class="btn btn-xs btn-link">
+        Bash Basic Knowledge
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="source">点和source</h1>
+<pre><code class="sh">. hehe.sh
+# 上面这条和下面这条是一样的
+source hehe.sh
+</code></pre>
+
+<h1 id="set-e">set -e</h1>
+<p>sh里如果有语句返回非0，则脚本停止执行并抛出错误。</p>
+<p>但是bash里如果有语句返回非0，脚本将继续执行后续语句。</p>
+<p>如果要求bash执行完返回非0的语句后，脚本停止，那么开头添加<code>set -e</code>。</p>
+<h1 id="pwdpwd">pwd和PWD</h1>
+<p><code>pwd</code>是命令，打印工作目录绝对路径。</p>
+<p>PWD是环境变量，内容是工作目录绝对路径。</p>
+<h1 id="headtail">head/tail</h1>
+<pre><code class="sh"># 打印前5行
+head -n 5 &lt;文件名&gt;
+# 打印后5行
+tail -n 5 &lt;文件名&gt;
+# 跟踪日志，并且保持读取追加数据
+tail -f &lt;日志文件名&gt;
+# 打印后5行，跟踪日志，并且保持读取追加数据
+tail -n 5 -f &lt;日志文件名&gt;
+</code></pre>
+
+<h1 id="cut">cut</h1>
+<pre><code class="sh">#取每行第3个字符、第5到7个字符
+cut -c 3,5-6 &lt;文件名&gt;
+#以冒号为分隔符
+cat /etc/passwd | cut -d : -f 3,5-6
+</code></pre>
+
+<h1 id="egrepxgrepfgrep">egrep、xgrep和fgrep</h1>
+<p>grep的增强版，待研究。</p>
+<h1 id="find">find</h1>
+<pre><code class="sh">find &lt;搜索目录&gt; -name &lt;目标文件名&gt;
+</code></pre>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../Bash：代码片段/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../Bash：代码片段/" class="btn btn-xs btn-link">
+        循环
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../Bash_Basic_Knowledge/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../Bash_Basic_Knowledge/" class="btn btn-xs btn-link">
+        Bash Basic Knowledge
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="col-md-12 wm-page-content">
+      <p>
+        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/Shell/Bash_Common_Command.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>
