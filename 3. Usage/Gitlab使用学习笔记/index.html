@@ -8,10 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <meta name="author" content="Furrybear">
-    <link rel="canonical" href="https://furrybear.readthedocs.com/Software/Linux_service,_chkconfig_And_systemctl/">
+    <link rel="canonical" href="https://furrybear.readthedocs.com/3. Usage/Gitlab使用学习笔记/">
     <link rel="shortcut icon" href="../../img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Linux service, chkconfig And systemctl - Furrybear's Blog</title>
+    <title>Gtilab使用学习笔记 - Furrybear's Blog</title>
     <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../css/base.css" rel="stylesheet">
@@ -32,11 +32,8 @@
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "service", url: "#_top", children: [
-          ]},
-          {title: "chkconfig", url: "#chkconfig", children: [
-          ]},
-          {title: "systemctl", url: "#systemctl", children: [
+          {title: "Gtilab\u4f7f\u7528\u5b66\u4e60\u7b14\u8bb0", url: "#_top", children: [
+              {title: "\u642d\u5efa", url: "#_1" },
           ]},
         ];
 
@@ -63,20 +60,20 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../Putty：基本知识/" class="btn btn-xs btn-default pull-right">
+      <a href="../ImageMagick使用学习笔记/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../Putty：基本知识/" class="btn btn-xs btn-link">
-        Putty的免密SSH登陆
+      <a href="../ImageMagick使用学习笔记/" class="btn btn-xs btn-link">
+        ImageMagick使用学习笔记
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../Linux_screen_Command/" class="btn btn-xs btn-default pull-left">
+      <a href="../ExifTool使用学习笔记/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../Linux_screen_Command/" class="btn btn-xs btn-link">
-        Linux screen Command
+        Previous</a><a href="../ExifTool使用学习笔记/" class="btn btn-xs btn-link">
+        ExifTool使用学习笔记
       </a>
     </div>
     
@@ -84,29 +81,13 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <p>Ubuntu 16.04和CentOS7开始支持systemd启动，是一种比init更快的启动方式.了解了一下systemctl命令和原来service命令和chkconfig命令的区别。</p>
-<h1 id="service">service</h1>
-<p>类似于</p>
-<pre><code class="sh">service sshd restart
-</code></pre>
-
-<p>service会到/etc/init.d目录下执行相关脚本。</p>
-<h1 id="chkconfig">chkconfig</h1>
-<pre><code class="sh"># 设置sshd服务开机启动
-chkconfig sshd start
-</code></pre>
-
-<h1 id="systemctl">systemctl</h1>
-<p>参考：<a href="https://blog.csdn.net/yuanguozhengjust/article/details/38019923">https://blog.csdn.net/yuanguozhengjust/article/details/38019923</a></p>
-<p>systemctl脚本存放在：/usr/lib/systemd/，有系统（system）和用户（user）之分，像需要开机不登陆就能运行的程序，还是存在系统服务里，即：/usr/lib/systemd/system目录下。</p>
-<p>每一个服务以.service结尾，一般会分为3部分：[Unit]、[Service]和[Install]。</p>
-<p>例如：</p>
-<pre><code class="sh">sudo systemctl start cups.service
-sudo systemctl stop cups.service
-sudo systemctl restart cups.service
-</code></pre>
-
-<p>（具体使用时再了解）</p>
+    <h1 id="gtilab">Gtilab使用学习笔记</h1>
+<h2 id="_1">搭建</h2>
+<p>参考：</p>
+<ul>
+<li><a href="https://sxfblog.com/index.php/archives/238.html">CentOS7.4 搭建Gitlab服务器</a></li>
+<li><a href="https://blog.whsir.com/post-1490.html">gitlab仓库存储位置的修改方法</a></li>
+</ul>
 
   <br>
     
@@ -119,20 +100,20 @@ sudo systemctl restart cups.service
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../Putty：基本知识/" class="btn btn-xs btn-default pull-right">
+      <a href="../ImageMagick使用学习笔记/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../Putty：基本知识/" class="btn btn-xs btn-link">
-        Putty的免密SSH登陆
+      <a href="../ImageMagick使用学习笔记/" class="btn btn-xs btn-link">
+        ImageMagick使用学习笔记
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../Linux_screen_Command/" class="btn btn-xs btn-default pull-left">
+      <a href="../ExifTool使用学习笔记/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../Linux_screen_Command/" class="btn btn-xs btn-link">
-        Linux screen Command
+        Previous</a><a href="../ExifTool使用学习笔记/" class="btn btn-xs btn-link">
+        ExifTool使用学习笔记
       </a>
     </div>
     
@@ -143,7 +124,7 @@ sudo systemctl restart cups.service
 
 <footer class="col-md-12 wm-page-content">
       <p>
-        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/Software/Linux_service,_chkconfig_And_systemctl.md"><i class="fa fa-github"></i>
+        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/3. Usage/Gitlab使用学习笔记.md"><i class="fa fa-github"></i>
 Edit on GitHub</a>
       </p>
   <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>

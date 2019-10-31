@@ -8,10 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <meta name="author" content="Furrybear">
-    <link rel="canonical" href="https://furrybear.readthedocs.com/Software/Powershell：基础知识/">
+    <link rel="canonical" href="https://furrybear.readthedocs.com/2. Programming in Powershell/Powershell学习笔记/">
     <link rel="shortcut icon" href="../../img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>参考 - Furrybear's Blog</title>
+    <title>Powershell学习笔记 - Furrybear's Blog</title>
     <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../css/base.css" rel="stylesheet">
@@ -32,20 +32,13 @@
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "\u53c2\u8003", url: "#_top", children: [
-          ]},
-          {title: "\u5141\u8bb8\u53cc\u51fb\u6267\u884cps1\u6587\u4ef6", url: "#ps1", children: [
-          ]},
-          {title: "\u8bed\u6cd5", url: "#_2", children: [
-              {title: "\u51fd\u6570", url: "#_3" },
-          ]},
-          {title: "Windows PowerShell Profile", url: "#windows-powershell-profile", children: [
-          ]},
-          {title: "Ctrl+d\u9000\u51fapowershell", url: "#ctrldpowershell", children: [
-          ]},
-          {title: "\u7f8e\u5316", url: "#_4", children: [
-          ]},
-          {title: "\u53c2\u8003", url: "#_5", children: [
+          {title: "Powershell\u5b66\u4e60\u7b14\u8bb0", url: "#_top", children: [
+              {title: "\u53c2\u8003", url: "#_1" },
+              {title: "\u5141\u8bb8\u53cc\u51fb\u6267\u884cps1\u6587\u4ef6", url: "#ps1" },
+              {title: "\u8bed\u6cd5", url: "#_2" },
+              {title: "Windows PowerShell Profile", url: "#windows-powershell-profile" },
+              {title: "Ctrl+d\u9000\u51fapowershell", url: "#ctrldpowershell" },
+              {title: "\u7f8e\u5316", url: "#_4" },
           ]},
         ];
 
@@ -72,20 +65,20 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../Putty：基本知识/" class="btn btn-xs btn-default pull-right">
+      <a href="../../2. Programming in Python/Python2语法学习笔记/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../Putty：基本知识/" class="btn btn-xs btn-link">
-        Putty的免密SSH登陆
+      <a href="../../2. Programming in Python/Python2语法学习笔记/" class="btn btn-xs btn-link">
+        Python2语法学习笔记
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../Linux_service,_chkconfig_And_systemctl/" class="btn btn-xs btn-default pull-left">
+      <a href="../../2. Programming in Java/Java学习笔记/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../Linux_service,_chkconfig_And_systemctl/" class="btn btn-xs btn-link">
-        Linux service, chkconfig And systemctl
+        Previous</a><a href="../../2. Programming in Java/Java学习笔记/" class="btn btn-xs btn-link">
+        Java学习笔记
       </a>
     </div>
     
@@ -93,20 +86,24 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <h1 id="_1">参考</h1>
+    <h1 id="powershell">Powershell学习笔记</h1>
+<h2 id="_1">参考</h2>
 <p><a href="http://www.splaybow.com/post/powershellexecps1.html">PowerShell让系统可以执行.ps1文件</a></p>
 <p><a href="https://github.com/mbadolato/iTerm2-Color-Schemes">mbadolato/iTerm2-Color-Schemes: Over 200 terminal color schemes/themes for iTerm/iTerm2 (with ports to Terminal, Konsole, PuTTY, Xresources, XRDB, Remina, Termite, XFCE, Tilda, FreeBSD VT, Terminator, and Kitty)</a></p>
 <p><a href="https://github.com/Microsoft/console/releases">Releases · Microsoft/console</a></p>
-<h1 id="ps1">允许双击执行ps1文件</h1>
+<ul>
+<li><a href="https://segmentfault.com/a/1190000015928399">https://segmentfault.com/a/1190000015928399</a></li>
+</ul>
+<h2 id="ps1">允许双击执行ps1文件</h2>
 <p>管理员权限下执行<code>set-executionpolicy -executionpolicy RemoteSigned</code>。</p>
-<h1 id="_2">语法</h1>
-<h2 id="_3">函数</h2>
+<h2 id="_2">语法</h2>
+<h3 id="_3">函数</h3>
 <pre><code class="powershell">function doMyWork{
     ls
 }
 </code></pre>
 
-<h1 id="windows-powershell-profile">Windows PowerShell Profile</h1>
+<h2 id="windows-powershell-profile">Windows PowerShell Profile</h2>
 <p>Powershell启动时运行文件，类似于Bash的bashrc和profile、Zsh的zshrc。</p>
 <p>查看此文件位置：</p>
 <pre><code class="powershell">$profile
@@ -116,20 +113,16 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <pre><code>New-Item -Type file -Force $profile
 </code></pre>
 
-<h1 id="ctrldpowershell">Ctrl+d退出powershell</h1>
+<h2 id="ctrldpowershell">Ctrl+d退出powershell</h2>
 <pre><code class="powershell">Set-PSReadlineKeyHandler -Key ctrl+d -Function ViExit
 </code></pre>
 
-<h1 id="_4">美化</h1>
+<h2 id="_4">美化</h2>
 <p>Github上的<a href="https://github.com/Microsoft/console/releases">Microsoft/console</a>里的Color Tool可以修改配色，命令：</p>
 <pre><code>.\ColorTool.exe -b &lt;配色文件名&gt;
 </code></pre>
 
 <p>好看的配色在<a href="https://github.com/mbadolato/iTerm2-Color-Schemes">mbadolato/iTerm2-Color-Schemes</a>，比如ayu。</p>
-<h1 id="_5">参考</h1>
-<ul>
-<li><a href="https://segmentfault.com/a/1190000015928399">https://segmentfault.com/a/1190000015928399</a></li>
-</ul>
 
   <br>
     
@@ -142,20 +135,20 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../Putty：基本知识/" class="btn btn-xs btn-default pull-right">
+      <a href="../../2. Programming in Python/Python2语法学习笔记/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../Putty：基本知识/" class="btn btn-xs btn-link">
-        Putty的免密SSH登陆
+      <a href="../../2. Programming in Python/Python2语法学习笔记/" class="btn btn-xs btn-link">
+        Python2语法学习笔记
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../Linux_service,_chkconfig_And_systemctl/" class="btn btn-xs btn-default pull-left">
+      <a href="../../2. Programming in Java/Java学习笔记/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../Linux_service,_chkconfig_And_systemctl/" class="btn btn-xs btn-link">
-        Linux service, chkconfig And systemctl
+        Previous</a><a href="../../2. Programming in Java/Java学习笔记/" class="btn btn-xs btn-link">
+        Java学习笔记
       </a>
     </div>
     
@@ -166,7 +159,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
 <footer class="col-md-12 wm-page-content">
       <p>
-        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/Software/Powershell：基础知识.md"><i class="fa fa-github"></i>
+        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/2. Programming in Powershell/Powershell学习笔记.md"><i class="fa fa-github"></i>
 Edit on GitHub</a>
       </p>
   <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
