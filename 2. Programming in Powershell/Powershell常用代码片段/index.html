@@ -8,10 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <meta name="author" content="Furrybear">
-    <link rel="canonical" href="https://furrybear.readthedocs.com/2. Programming in Python/Python2语法学习笔记/">
+    <link rel="canonical" href="https://furrybear.readthedocs.com/2. Programming in Powershell/Powershell常用代码片段/">
     <link rel="shortcut icon" href="../../img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Python2语法学习笔记 - Furrybear's Blog</title>
+    <title>Powershell常用代码片段 - Furrybear's Blog</title>
     <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../css/base.css" rel="stylesheet">
@@ -32,8 +32,8 @@
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "Python2\u8bed\u6cd5\u5b66\u4e60\u7b14\u8bb0", url: "#_top", children: [
-              {title: "__init__\u3001__new__\u3001\u65b0\u5f0f\u7c7b\u548c\u65e7\u5f0f\u7c7b", url: "#__init____new__" },
+          {title: "Powershell\u5e38\u7528\u4ee3\u7801\u7247\u6bb5", url: "#_top", children: [
+              {title: "\u6279\u91cf\u91cd\u547d\u540d", url: "#_1" },
           ]},
         ];
 
@@ -60,20 +60,20 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../Python3底层实现学习笔记/" class="btn btn-xs btn-default pull-right">
+      <a href="../../2. Programming in Python/Python2语法学习笔记/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../Python3底层实现学习笔记/" class="btn btn-xs btn-link">
-        Python3底层实现学习笔记
+      <a href="../../2. Programming in Python/Python2语法学习笔记/" class="btn btn-xs btn-link">
+        Python2语法学习笔记
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../../2. Programming in Powershell/Powershell常用代码片段/" class="btn btn-xs btn-default pull-left">
+      <a href="../Powershell学习笔记/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../../2. Programming in Powershell/Powershell常用代码片段/" class="btn btn-xs btn-link">
-        Powershell常用代码片段
+        Previous</a><a href="../Powershell学习笔记/" class="btn btn-xs btn-link">
+        Powershell学习笔记
       </a>
     </div>
     
@@ -81,10 +81,17 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <h1 id="python2">Python2语法学习笔记</h1>
-<h2 id="__init____new__"><code>__init__</code>、<code>__new__</code>、新式类和旧式类</h2>
-<p>继承object的是新式类，否则是旧式类。<code>__new__</code>是object的函数。</p>
-<p><code>__new__</code>在类的实例创建前被调用，<code>__init__</code>在类的实例创建后被调用，<code>__init__</code>需要带self参数。</p>
+    <h1 id="powershell">Powershell常用代码片段</h1>
+<h2 id="_1">批量重命名</h2>
+<p>例如我想把目录下形如“WeChat Image_20191123191011.jpg”的文件重命名为形如“2019-11-23 19-10-11 WeChat Image.jpg”，首先添加<code>-WhatIf</code>参数预先查看修改结果，此时并没有实际修改：</p>
+<pre><code class="powershell">Get-Childitem | Rename-Item -NewName { $_.Name -replace '^WeChat\sImage_([0-9]{4})([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})\.jpg$', '$1-$2-$3 $4-$5-$6 Wechat Image.jpg' } -WhatIf
+</code></pre>
+
+<p>然后去掉<code>-WhatIf</code>执行：</p>
+<pre><code class="powershell">Get-Childitem | Rename-Item -NewName { $_.Name -replace '^WeChat\sImage_([0-9]{4})([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})\.jpg$', '$1-$2-$3 $4-$5-$6 Wechat Image.jpg' }
+</code></pre>
+
+<p>就成功了。</p>
 
   <br>
     
@@ -97,20 +104,20 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../Python3底层实现学习笔记/" class="btn btn-xs btn-default pull-right">
+      <a href="../../2. Programming in Python/Python2语法学习笔记/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../Python3底层实现学习笔记/" class="btn btn-xs btn-link">
-        Python3底层实现学习笔记
+      <a href="../../2. Programming in Python/Python2语法学习笔记/" class="btn btn-xs btn-link">
+        Python2语法学习笔记
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../../2. Programming in Powershell/Powershell常用代码片段/" class="btn btn-xs btn-default pull-left">
+      <a href="../Powershell学习笔记/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../../2. Programming in Powershell/Powershell常用代码片段/" class="btn btn-xs btn-link">
-        Powershell常用代码片段
+        Previous</a><a href="../Powershell学习笔记/" class="btn btn-xs btn-link">
+        Powershell学习笔记
       </a>
     </div>
     
@@ -121,7 +128,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
 <footer class="col-md-12 wm-page-content">
       <p>
-        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/2. Programming in Python/Python2语法学习笔记.md"><i class="fa fa-github"></i>
+        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/2. Programming in Powershell/Powershell常用代码片段.md"><i class="fa fa-github"></i>
 Edit on GitHub</a>
       </p>
   <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
