@@ -93,7 +93,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     
 
     <h1 id="shell">Shell语法学习笔记</h1>
-<p>使用help可以查看bash有哪些内建命令。</p>
+<p>使用help可以查看bash有哪些内建命令。<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></p>
 <h2 id="_1">数据类型</h2>
 <p>Shell中基本类型只有整数和字符串，没有布尔量和浮点数,也不支持浮点运算（需要依靠bc或者awk）。</p>
 <p>复杂类型有数组。使用bash内置的<code>declare</code>命令可以声明Map。</p>
@@ -216,7 +216,7 @@ Helene.
 EOF2
 </code></pre>
 
-<p>另外，document里面<code>$</code>开头的变量会在进入标准输入流前先被当前环境的变量替换，如果要原样进入标准输入流，需要在定位符（delimiter）前添加反斜杠<code>\</code>。<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></p>
+<p>另外，document里面<code>$</code>开头的变量会在进入标准输入流前先被当前环境的变量替换，如果要原样进入标准输入流，需要在定位符（delimiter）前添加反斜杠<code>\</code>。</p>
 <pre><code class="sh">id=foo
 cat &gt;run_pos2bed3.sh &lt;&lt;EOF
 ls 2*/peaks.txt | while read i^d;
