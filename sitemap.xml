@@ -246,7 +246,32 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
+     <loc>https://furrybear.readthedocs.com/2. Programming in Shell/Bash_Common_Command/</loc>
+     <lastmod>2019-11-29</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://furrybear.readthedocs.com/2. Programming in Shell/Bash：代码片段/</loc>
+     <lastmod>2019-11-29</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://furrybear.readthedocs.com/2. Programming in Shell/Linux_Basic_Knowledge/</loc>
+     <lastmod>2019-11-29</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://furrybear.readthedocs.com/2. Programming in Shell/Profile,_Bashrc_And_Zshrc/</loc>
+     <lastmod>2019-11-29</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
      <loc>https://furrybear.readthedocs.com/2. Programming in Shell/Shell语法学习/</loc>
+     <lastmod>2019-11-29</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://furrybear.readthedocs.com/2. Programming in Shell/getopt/</loc>
      <lastmod>2019-11-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -652,36 +677,6 @@
     </url>
     <url>
      <loc>https://furrybear.readthedocs.com/Regular_Expression/Regular_Expression_Basic_Knowledge/</loc>
-     <lastmod>2019-11-29</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://furrybear.readthedocs.com/Shell/Bash_Basic_Knowledge/</loc>
-     <lastmod>2019-11-29</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://furrybear.readthedocs.com/Shell/Bash_Common_Command/</loc>
-     <lastmod>2019-11-29</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://furrybear.readthedocs.com/Shell/Bash：代码片段/</loc>
-     <lastmod>2019-11-29</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://furrybear.readthedocs.com/Shell/Linux_Basic_Knowledge/</loc>
-     <lastmod>2019-11-29</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://furrybear.readthedocs.com/Shell/Profile,_Bashrc_And_Zshrc/</loc>
-     <lastmod>2019-11-29</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://furrybear.readthedocs.com/Shell/getopt/</loc>
      <lastmod>2019-11-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
