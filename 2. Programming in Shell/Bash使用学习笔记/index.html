@@ -8,10 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <meta name="author" content="Furrybear">
-    <link rel="canonical" href="https://furrybear.readthedocs.com/2. Programming in Shell/Profile,_Bashrc_And_Zshrc/">
+    <link rel="canonical" href="https://furrybear.readthedocs.com/2. Programming in Shell/Bash使用学习笔记/">
     <link rel="shortcut icon" href="../../img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Profile, Bashrc And Zshrc - Furrybear's Blog</title>
+    <title>Bash使用学习笔记 - Furrybear's Blog</title>
     <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../css/base.css" rel="stylesheet">
@@ -32,13 +32,8 @@
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "Bash", url: "#_top", children: [
-              {title: "\u975e\u4ea4\u4e92\u5f0fShell\uff08Non-Interactive Shell\uff09", url: "#shellnon-interactive-shell" },
-              {title: "\u4ea4\u4e92\u5f0fShekll\uff08Interactive Shell\uff09", url: "#shekllinteractive-shell" },
-              {title: "\u6267\u884c\u987a\u5e8f", url: "#_1" },
-              {title: "\u5e38\u89c1\u505a\u6cd5", url: "#_2" },
-          ]},
-          {title: "Zsh", url: "#zsh", children: [
+          {title: "Bash\u4f7f\u7528\u5b66\u4e60\u7b14\u8bb0", url: "#_top", children: [
+              {title: "\u811a\u672c\u6267\u884c\u524d\u6267\u884c\u7684\u811a\u672c", url: "#_1" },
           ]},
         ];
 
@@ -65,20 +60,20 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../Shell语法学习/" class="btn btn-xs btn-default pull-right">
+      <a href="../Shell常用代码片段/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../Shell语法学习/" class="btn btn-xs btn-link">
-        Shell语法学习笔记
+      <a href="../Shell常用代码片段/" class="btn btn-xs btn-link">
+        Shell常用代码片段
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../Linux_Basic_Knowledge/" class="btn btn-xs btn-default pull-left">
+      <a href="../../2. Programming in Python/常见PEP/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../Linux_Basic_Knowledge/" class="btn btn-xs btn-link">
-        设置全局代理
+        Previous</a><a href="../../2. Programming in Python/常见PEP/" class="btn btn-xs btn-link">
+        常见PEP
       </a>
     </div>
     
@@ -86,34 +81,37 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <p>（Ubuntu下，/etc/bash_completion和/etc/bash_completion.d下的脚本都是和使用bash时的自动补全功能有关，和本文谈的没有关系，注意无视它们。）</p>
-<p>参考：<a href="http://blog.csdn.net/wisgood/article/details/52043522">http://blog.csdn.net/wisgood/article/details/52043522</a></p>
-<p>参考： <a href="http://blog.itpub.net/24420951/viewspace-687865/">http://blog.itpub.net/24420951/viewspace-687865/</a></p>
+    <h1 id="bash">Bash使用学习笔记</h1>
+<h2 id="_1">脚本执行前执行的脚本</h2>
 <p><img alt="" src="https://raw.githubusercontent.com/furrybear/res/master/img/20190501141959.png" /></p>
-<h1 id="bash">Bash</h1>
 <p>对bash来说，每次运行前会执行一些脚本用于定义环境变量或者做其他工作。执行的方式是<code>source &lt;脚本名&gt;</code>，或者可以说是<code>. &lt;脚本名&gt;</code>。</p>
-<h2 id="shellnon-interactive-shell">非交互式Shell（Non-Interactive Shell）</h2>
+<h3 id="shellnon-interactive-shell">非交互式Shell（Non-Interactive Shell）</h3>
 <p>这种情况不会事先执行任何脚本。例如我们使用<code>ssh &lt;用户名&gt;@&lt;主机名&gt; "&lt;命令&gt;"</code>时，脚本里的PATH就仅是/etc/environment里的内容。所以有必要请修改/etc/environment。</p>
-<h2 id="shekllinteractive-shell">交互式Shekll（Interactive Shell）</h2>
+<h3 id="shekllinteractive-shell">交互式Shekll（Interactive Shell）</h3>
 <p>交互式Shell会事先执行的脚本分为Bashrc系列脚本和Profile系列脚本，前者是“Bash Resource Configuration”的意思。</p>
-<h3 id="bashrc">Bashrc系列脚本</h3>
-<h4 id="etcbashrc">/etc/bashrc</h4>
+<h4 id="bashrc">Bashrc系列脚本</h4>
+<h5 id="etcbashrc">/etc/bashrc</h5>
 <p>对所有用户生效。</p>
 <p>Debian系用/etc/bash.bashrc代替。</p>
-<h4 id="bashrc_1">~/.bashrc</h4>
+<h5 id="bashrc_1">~/.bashrc</h5>
 <p>仅对本用户生效。</p>
-<h3 id="profile">Profile系列脚本</h3>
-<h4 id="etcprofile">/etc/profile</h4>
+<h4 id="profile">Profile系列脚本</h4>
+<h5 id="etcprofile">/etc/profile</h5>
 <p>对所有用户生效。</p>
 <p>任何用户登录时都会读取。调用/etc/profile时，/etc/profile会调用<strong>/etc/profile.d</strong>下所有脚本。</p>
 <p>它被sh、bash、ksh、ash所共享使用。</p>
-<h4 id="profilebash_login">~/.profile或\~/.bash_login</h4>
+<p>/etc/profile中直接使用</p>
+<pre><code class="sh">PATH=$PATH:&lt;新路径&gt;
+</code></pre>
+
+<p>就可以，不需要export。</p>
+<h5 id="profilebash_login">~/.profile或\~/.bash_login</h5>
 <p>仅对本用户生效。</p>
 <p>每次只会读取并执行其中存在的第一个：~/.bash_profile、\~/.bash_login、\~/.profile。</p>
-<h4 id="bash_logout">~/.bash_logout</h4>
+<h5 id="bash_logout">~/.bash_logout</h5>
 <p>仅对本用户生效。</p>
 <p>注销时，且是login形式，此文件才会读取。但是GUI上用户注销时，此文件不会被读取。</p>
-<h2 id="_1">执行顺序</h2>
+<h3 id="_2">执行顺序</h3>
 <p>非登陆交互式Shell（Non-Interactive Login Shell）只会执行Bashrc系列脚本。</p>
 <p>登陆交互式脚本Shell（Interactive Login Shell）会执行Profile系列脚本,再由其调用Bashrc系列脚本。</p>
 <ul>
@@ -163,84 +161,9 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 </tr>
 </tbody>
 </table>
-<h2 id="_2">常见做法</h2>
+<h3 id="_3">常见做法</h3>
 <p>在我的经验中，Profile系列脚本一般在登录时执行一次，Bashrc系列脚本在每次打开终端都会执行。所以还是看不懂为什么要设置两套脚本。</p>
 <p>在Ubuntu下，建议把alias的命令放在~/.bash_aliases，~/.bashrc会调用这个文件。</p>
-<h1 id="zsh">Zsh</h1>
-<p>zsh加载的文件和bash没有交集。但是执行顺序在哲学上类似。</p>
-<table>
-<thead>
-<tr>
-<th align="center">脚本</th>
-<th align="center">登录交互式Shell</th>
-<th align="center">非登录交互式Shell</th>
-<th align="center">非登录非交互式式Shell</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">/etc/zshenv</td>
-<td align="center">1</td>
-<td align="center">1</td>
-<td align="center">1</td>
-</tr>
-<tr>
-<td align="center">~/.zshenv</td>
-<td align="center">2</td>
-<td align="center">2</td>
-<td align="center">2</td>
-</tr>
-<tr>
-<td align="center">/etc/zprofile</td>
-<td align="center">3</td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">~/.zprofile</td>
-<td align="center">4</td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">/etc/zshrc</td>
-<td align="center">5</td>
-<td align="center">3</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">~/.zshrc</td>
-<td align="center">6</td>
-<td align="center">4</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">/etc/zlogin</td>
-<td align="center">7</td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">~/.zlogin</td>
-<td align="center">8</td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">~/.zlogout</td>
-<td align="center">9</td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">/etc/zlogout</td>
-<td align="center">10</td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-</tbody>
-</table>
-<p>看起来文件多，其实alias什么的加入到~/.zshrc就可以了。</p>
 
   <br>
     
@@ -253,20 +176,20 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../Shell语法学习/" class="btn btn-xs btn-default pull-right">
+      <a href="../Shell常用代码片段/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../Shell语法学习/" class="btn btn-xs btn-link">
-        Shell语法学习笔记
+      <a href="../Shell常用代码片段/" class="btn btn-xs btn-link">
+        Shell常用代码片段
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../Linux_Basic_Knowledge/" class="btn btn-xs btn-default pull-left">
+      <a href="../../2. Programming in Python/常见PEP/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../Linux_Basic_Knowledge/" class="btn btn-xs btn-link">
-        设置全局代理
+        Previous</a><a href="../../2. Programming in Python/常见PEP/" class="btn btn-xs btn-link">
+        常见PEP
       </a>
     </div>
     
@@ -277,7 +200,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
 <footer class="col-md-12 wm-page-content">
       <p>
-        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/2. Programming in Shell/Profile,_Bashrc_And_Zshrc.md"><i class="fa fa-github"></i>
+        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/2. Programming in Shell/Bash使用学习笔记.md"><i class="fa fa-github"></i>
 Edit on GitHub</a>
       </p>
   <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>

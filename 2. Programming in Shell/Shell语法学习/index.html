@@ -34,14 +34,8 @@
         var pageToc = [
           {title: "Shell\u8bed\u6cd5\u5b66\u4e60\u7b14\u8bb0", url: "#_top", children: [
               {title: "\u6570\u636e\u7c7b\u578b", url: "#_1" },
-              {title: "\u9000\u51fa\u7801\uff08Exit Codes\uff09", url: "#exit-codes" },
-              {title: "\u5b50\u8bed\u53e51 &amp;&amp; \u5b50\u8bed\u53e52", url: "#1-2" },
-              {title: "\u5b50\u8bed\u53e51 || \u5b50\u8bed\u53e52", url: "#1-2_1" },
-              {title: "\u5b50\u8bed\u53e51; \u5b50\u8bed\u53e52", url: "#1-2_2" },
-              {title: "nohup\u548c&amp;", url: "#nohup" },
-              {title: "export\u5173\u952e\u5b57", url: "#export" },
-              {title: "\u5404\u79cd\u62ec\u53f7", url: "#_2" },
-              {title: "${\u6807\u8bc6}", url: "#_3" },
+              {title: "\u9000\u51fa\u7801\uff08Exit Code\uff09", url: "#exit-code" },
+              {title: "\u64cd\u4f5c\u7b26", url: "#_2" },
               {title: "\u907f\u514d\u91cd\u590d\u5305\u542b", url: "#_4" },
               {title: "\u91cd\u5b9a\u5411", url: "#_5" },
               {title: "\u53c2\u8003", url: "#_6" },
@@ -71,20 +65,20 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../getopt/" class="btn btn-xs btn-default pull-right">
+      <a href="../Zsh使用学习笔记/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../getopt/" class="btn btn-xs btn-link">
-        Getopt
+      <a href="../Zsh使用学习笔记/" class="btn btn-xs btn-link">
+        Zsh使用学习笔记
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../Profile,_Bashrc_And_Zshrc/" class="btn btn-xs btn-default pull-left">
+      <a href="../Shell常用代码片段/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../Profile,_Bashrc_And_Zshrc/" class="btn btn-xs btn-link">
-        Profile, Bashrc And Zshrc
+        Previous</a><a href="../Shell常用代码片段/" class="btn btn-xs btn-link">
+        Shell常用代码片段
       </a>
     </div>
     
@@ -93,30 +87,38 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     
 
     <h1 id="shell">Shell语法学习笔记</h1>
-<p>使用help可以查看bash有哪些内建命令。<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></p>
+<p>使用help可以查看bash有哪些内建命令。</p>
 <h2 id="_1">数据类型</h2>
 <p>Shell中基本类型只有整数和字符串，没有布尔量和浮点数,也不支持浮点运算（需要依靠bc或者awk）。</p>
-<p>复杂类型有数组。使用bash内置的<code>declare</code>命令可以声明Map。</p>
+<p>复杂数据类型有数组。</p>
+<p>另外使用Bash内置的<code>declare</code>命令可以声明Map。</p>
 <pre><code class="sh"># 数组
 arr=(&quot;value1&quot; 2 3)
 # Map
 declare -A map=([&quot;key1&quot;]=&quot;value1&quot; [2]=&quot;value2&quot;)
 </code></pre>
 
-<h2 id="exit-codes">退出码（Exit Codes）</h2>
-<p>Shell中语句返回0表示执行成功，非0表示执行失败。非0退出码含义见<a href="http://tldp.org/LDP/abs/html/exitcodes.html">这里</a>。</p>
-<h2 id="1-2">子语句1 &amp;&amp; 子语句2</h2>
-<p>子语句返回0则执行子语句2。</p>
-<h2 id="1-2_1">子语句1 || 子语句2</h2>
-<p>子语句返回非0则执行子语句2。</p>
-<h2 id="1-2_2">子语句1; 子语句2</h2>
-<p>子语句执行完后执行子语句2。</p>
-<h2 id="nohup">nohup和&amp;</h2>
+<h2 id="exit-code">退出码（Exit Code）</h2>
+<p>Shell中语句返回0表示执行成功，非0表示执行失败。</p>
+<h2 id="_2">操作符</h2>
+<h3 id="source">.和source</h3>
+<p><code>.</code>和<code>source</code>的用法是相同的，即将指定的其他Shell脚本的内容替换并执行。</p>
+<pre><code class="sh">. hehe.sh
+source hehe.sh
+</code></pre>
+
+<h3 id="1-2">&lt;命令1&gt; &amp;&amp; &lt;命令2&gt;</h3>
+<p>命令1返回0则执行命令2，否则不执行命令2。</p>
+<h3 id="1-2_1">&lt;命令1&gt; || &lt;命令2&gt;</h3>
+<p>命令1返回非0则执行命令2，否则不执行命令2。</p>
+<h3 id="1-2_2">&lt;命令1&gt; ; &lt;命令2&gt;</h3>
+<p>命令1执行完后执行命令2。</p>
+<h3 id="nohup">nohup和&amp;</h3>
 <p>参考：<a href="https://blog.csdn.net/u011095110/article/details/78666833">https://blog.csdn.net/u011095110/article/details/78666833</a></p>
 <p>&amp;表示后台运行，不改变进程的标准输出流的定向。如果会话结束，进程会接收到SIGHUP信号而结束。</p>
 <p>nohup表示进程转到后台，标准输出流定向到\$PWD/nohup.out或者\$HOME/nohup.out，并且进程忽略进程结束的SIGHUP信号。</p>
 <p>使用<code>nohup &lt;command&gt; &amp;</code>可以让进程在后台运行而不受会话结束影响。</p>
-<h2 id="export">export关键字</h2>
+<h3 id="export">export关键字</h3>
 <p>不用export，定义的就是普通变量。即使修改了环境变量，子脚本也不会获得修改后的值。</p>
 <p>用export，定义的变量就变成环境变量。修改或者添加的的环境变量会被子脚本获得。</p>
 <p>/etc/profile中直接使用</p>
@@ -124,20 +126,20 @@ declare -A map=([&quot;key1&quot;]=&quot;value1&quot; [2]=&quot;value2&quot;)
 </code></pre>
 
 <p>就可以，不需要export。</p>
-<h2 id="_2">各种括号</h2>
-<p><a href="https://blog.csdn.net/taiyang1987912/article/details/39551385">https://blog.csdn.net/taiyang1987912/article/details/39551385</a></p>
-<h3 id="12">{ &lt;命令1&gt;;&lt;命令2&gt;;……; }</h3>
+<h3 id="_3">各种括号用法</h3>
+<p>如下<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>：</p>
+<h4 id="12">{ &lt;命令1&gt;;&lt;命令2&gt;;……; }</h4>
 <p>当前shell从左到右执行命令，退出码为最后一个命令的退出码。注意每个命令后有个分号，内侧左右有空格。</p>
-<h3 id="12_1">(&lt;命令1&gt;;&lt;命令2&gt;;……)</h3>
+<h4 id="12_1">(&lt;命令1&gt;;&lt;命令2&gt;;……)</h4>
 <p>新开一个子shell从左到右执行命令，退出码为最后一个命令的退出码。注意每个命令之间有分号就可以了，内侧左右不必有空格。</p>
-<h3 id="12_2">$(&lt;命令1&gt;;&lt;命令2&gt;;……)</h3>
+<h4 id="12_2">$(&lt;命令1&gt;;&lt;命令2&gt;;……)</h4>
 <p>获得这些命令的标准输出。这些命令必须能运行结束。</p>
 <pre><code class="sh">hehe=$(ping -c 1 &lt;不可达地址&gt;)
 echo $?
 #返回1
 </code></pre>
 
-<h3 id="forif">$((表达式))、for((表达式))和if((表达式))</h3>
+<h4 id="forif">$((表达式))、for((表达式))和if((表达式))</h4>
 <p>C语言风格计算。</p>
 <pre><code class="sh">echo $((1+1))
 #输出2
@@ -157,7 +159,7 @@ if((i&lt;6));then echo &quot;hehe&quot;;fi
 #输出hehe
 </code></pre>
 
-<h3 id="if-if-test">if [表达式]和if test 表达式</h3>
+<h4 id="if-if-test">if [表达式]和if test 表达式</h4>
 <p>两者是等同的。</p>
 <pre><code class="sh">i=5
 if [ $i -lt 6 -a $i -gt 2 ];then echo &quot;hehe&quot;;fi
@@ -168,12 +170,11 @@ if test $i -lt 6 -a $i -gt 2 ;then echo &quot;hehe&quot;;fi
 <p>可用的类C比较运算符只有<code>==</code>、<code>!=</code>、<code>\&lt;</code>、<code>\&gt;</code>，只用于字符串比较。</p>
 <p>整数只能用<code>-gt</code>、<code>-lt</code>、<code>-eq</code>这些。</p>
 <p>-a和-o表示逻辑与与逻辑或。</p>
-<h3 id="if">if [[表达式]]</h3>
+<h4 id="if">if [[表达式]]</h4>
 <p>[[ ]]是 bash 程序语言的关键字。并不是一个命令，[[ ]] 结构比[ ]结构更加通用。在[[和]]之间所有的字符都不会发生文件名扩展或者单词分割，但是会发生参数扩展和命令替换。</p>
 <p>&amp;&amp;、||、&lt;和&gt; 操作符能够正常存在于[[ ]]条件判断结构中，例如<code>if [[ $a != 1 &amp;&amp; $a != 2 ]]</code>。</p>
-<h2 id="_3">${标识}</h2>
 <h2 id="_4">避免重复包含</h2>
-<p><a href="http://kodango.com/avoid-repeated-source-in-shell">http://kodango.com/avoid-repeated-source-in-shell</a></p>
+<p>如下<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>：</p>
 <pre><code class="sh">_sourced_=&quot;__sourced_$$__&quot;
 
 echo &quot;Flag variable $_sourced_=${!_sourced_}&quot;
@@ -209,7 +210,7 @@ Helene.
 EOF2
 </code></pre>
 
-<p>另外，document里面<code>$</code>开头的变量会在进入标准输入流前先被当前环境的变量替换，如果要原样进入标准输入流，需要在定位符（delimiter）前添加反斜杠<code>\</code><sup id="fnref2:1"><a class="footnote-ref" href="#fn:1">1</a></sup>。</p>
+<p>另外，document里面<code>$</code>开头的变量会在进入标准输入流前先被当前环境的变量替换，如果要原样进入标准输入流，需要在定位符（delimiter）前添加反斜杠<code>\</code><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>。</p>
 <pre><code class="sh">id=foo
 cat &gt;run_pos2bed3.sh &lt;&lt; EOF
 ls 2*/peaks.txt | while read i^d;
@@ -229,10 +230,16 @@ E&gt;OF
 <hr />
 <ol>
 <li id="fn:1">
-<p><a href="https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html#Here-Documents">Bash Reference Manual</a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p><a href="https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html#Here-Documents">Bash Reference Manual</a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
 <p><a href="https://www.runoob.com/linux/linux-shell-io-redirections.html">Shell 输入/输出重定向</a>&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p><a href="http://kodango.com/avoid-repeated-source-in-shell">http://kodango.com/avoid-repeated-source-in-shell</a>&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:4">
+<p><a href="https://blog.csdn.net/taiyang1987912/article/details/39551385">https://blog.csdn.net/taiyang1987912/article/details/39551385</a>&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>
@@ -248,20 +255,20 @@ E&gt;OF
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../getopt/" class="btn btn-xs btn-default pull-right">
+      <a href="../Zsh使用学习笔记/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../getopt/" class="btn btn-xs btn-link">
-        Getopt
+      <a href="../Zsh使用学习笔记/" class="btn btn-xs btn-link">
+        Zsh使用学习笔记
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../Profile,_Bashrc_And_Zshrc/" class="btn btn-xs btn-default pull-left">
+      <a href="../Shell常用代码片段/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../Profile,_Bashrc_And_Zshrc/" class="btn btn-xs btn-link">
-        Profile, Bashrc And Zshrc
+        Previous</a><a href="../Shell常用代码片段/" class="btn btn-xs btn-link">
+        Shell常用代码片段
       </a>
     </div>
     

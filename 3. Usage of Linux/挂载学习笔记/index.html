@@ -8,10 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <meta name="author" content="Furrybear">
-    <link rel="canonical" href="https://furrybear.readthedocs.com/2. Programming in Shell/Linux_Basic_Knowledge/">
+    <link rel="canonical" href="https://furrybear.readthedocs.com/3. Usage of Linux/挂载学习笔记/">
     <link rel="shortcut icon" href="../../img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>设置全局代理 - Furrybear's Blog</title>
+    <title>挂载学习学习笔记 - Furrybear's Blog</title>
     <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../css/base.css" rel="stylesheet">
@@ -32,11 +32,8 @@
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "\u8bbe\u7f6e\u5168\u5c40\u4ee3\u7406", url: "#_top", children: [
-          ]},
-          {title: "A example of mounting Samba directory by /etc/fstab", url: "#a-example-of-mounting-samba-directory-by-etcfstab", children: [
-          ]},
-          {title: "Unison", url: "#unison", children: [
+          {title: "\u6302\u8f7d\u5b66\u4e60\u5b66\u4e60\u7b14\u8bb0", url: "#_top", children: [
+              {title: "\u6302\u8f7d\u8fdc\u7a0bSamba\u76ee\u5f55", url: "#samba" },
           ]},
         ];
 
@@ -63,20 +60,20 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../Profile,_Bashrc_And_Zshrc/" class="btn btn-xs btn-default pull-right">
+      <a href="../../3. Usage of OpenSSH/OpenSSH使用学习笔记/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../Profile,_Bashrc_And_Zshrc/" class="btn btn-xs btn-link">
-        Profile, Bashrc And Zshrc
+      <a href="../../3. Usage of OpenSSH/OpenSSH使用学习笔记/" class="btn btn-xs btn-link">
+        OpenSSH使用学习笔记
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../Bash：代码片段/" class="btn btn-xs btn-default pull-left">
+      <a href="../../3. Usage of Git/Git钩子/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../Bash：代码片段/" class="btn btn-xs btn-link">
-        循环
+        Previous</a><a href="../../3. Usage of Git/Git钩子/" class="btn btn-xs btn-link">
+        Git钩子
       </a>
     </div>
     
@@ -84,27 +81,14 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <h1 id="_1">设置全局代理</h1>
-<p>例如，SSR的本地代理为<code>http://localhost:1080</code>：</p>
-<pre><code class="sh">export http_proxy=http://localhost:1080
-export https_proxy=http://localhost:1080
-</code></pre>
-
-<h1 id="a-example-of-mounting-samba-directory-by-etcfstab">A example of mounting Samba directory by /etc/fstab</h1>
+    <h1 id="_1">挂载学习学习笔记</h1>
+<h2 id="samba">挂载远程Samba目录</h2>
+<p>在/etc/fstab添加如下内容：</p>
 <pre><code>//&lt;IP&gt;/&lt;Directory name&gt; &lt;Mount directory&gt; cifs username=&lt;Username&gt;,password=&lt;Password&gt;,uid=1000,gid=1000,file_mode=0640,dir_mode=0750 0 0
 </code></pre>
 
-<p>If you want to enable the configuration after modifying it, use:</p>
+<p>如果想要修改后立刻生效，执行以下命令：</p>
 <pre><code class="sh">sudo mount -a
-</code></pre>
-
-<h1 id="unison">Unison</h1>
-<p>单向同步（-fat表示有个目录是Windows目录）：</p>
-<pre><code class="sh">unison -batch -fat -force &lt;源目录&gt; &lt;源目录&gt; &lt;目标目录&gt;
-</code></pre>
-
-<p>双向同步（-fat表示有个目录是Windows目录）：</p>
-<pre><code class="sh">unison -batch -fat &lt;源目录&gt; &lt;目标目录&gt;
 </code></pre>
 
   <br>
@@ -118,20 +102,20 @@ export https_proxy=http://localhost:1080
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../Profile,_Bashrc_And_Zshrc/" class="btn btn-xs btn-default pull-right">
+      <a href="../../3. Usage of OpenSSH/OpenSSH使用学习笔记/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../Profile,_Bashrc_And_Zshrc/" class="btn btn-xs btn-link">
-        Profile, Bashrc And Zshrc
+      <a href="../../3. Usage of OpenSSH/OpenSSH使用学习笔记/" class="btn btn-xs btn-link">
+        OpenSSH使用学习笔记
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../Bash：代码片段/" class="btn btn-xs btn-default pull-left">
+      <a href="../../3. Usage of Git/Git钩子/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../Bash：代码片段/" class="btn btn-xs btn-link">
-        循环
+        Previous</a><a href="../../3. Usage of Git/Git钩子/" class="btn btn-xs btn-link">
+        Git钩子
       </a>
     </div>
     
@@ -142,7 +126,7 @@ export https_proxy=http://localhost:1080
 
 <footer class="col-md-12 wm-page-content">
       <p>
-        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/2. Programming in Shell/Linux_Basic_Knowledge.md"><i class="fa fa-github"></i>
+        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/3. Usage of Linux/挂载学习笔记.md"><i class="fa fa-github"></i>
 Edit on GitHub</a>
       </p>
   <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>

@@ -8,10 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <meta name="author" content="Furrybear">
-    <link rel="canonical" href="https://furrybear.readthedocs.com/2. Programming in Python/常见PEP/">
+    <link rel="canonical" href="https://furrybear.readthedocs.com/3. Usage/Unison使用学习笔记/">
     <link rel="shortcut icon" href="../../img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>常见PEP - Furrybear's Blog</title>
+    <title>Unison使用学习笔记 - Furrybear's Blog</title>
     <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../css/base.css" rel="stylesheet">
@@ -32,10 +32,7 @@
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "\u5e38\u89c1PEP", url: "#_top", children: [
-              {title: "PEP8", url: "#pep8" },
-              {title: "PEP484\uff1a\u7c7b\u578b\u63d0\u793a", url: "#pep484" },
-              {title: "PEP526\uff1a\u53d8\u91cf\u58f0\u660e\u7684\u8bed\u6cd5", url: "#pep526" },
+          {title: "Unison\u4f7f\u7528\u5b66\u4e60\u7b14\u8bb0", url: "#_top", children: [
           ]},
         ];
 
@@ -62,20 +59,20 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../../2. Programming in Shell/Bash使用学习笔记/" class="btn btn-xs btn-default pull-right">
+      <a href="../ffmpeg使用学习笔记/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../../2. Programming in Shell/Bash使用学习笔记/" class="btn btn-xs btn-link">
-        Bash使用学习笔记
+      <a href="../ffmpeg使用学习笔记/" class="btn btn-xs btn-link">
+        ffmpeg使用学习笔记
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../Windows下Python3常见坑/" class="btn btn-xs btn-default pull-left">
+      <a href="../Systemd使用学习笔记/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../Windows下Python3常见坑/" class="btn btn-xs btn-link">
-        Windows下Python3常见坑
+        Previous</a><a href="../Systemd使用学习笔记/" class="btn btn-xs btn-link">
+        Systemd使用学习笔记
       </a>
     </div>
     
@@ -83,13 +80,14 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <h1 id="pep">常见PEP</h1>
-<h2 id="pep8">PEP8</h2>
-<p>关于python编码风格的规定。</p>
-<h2 id="pep484">PEP484：类型提示</h2>
-<p>提示变量类型，但是对解释器运行没有影响。</p>
-<h2 id="pep526">PEP526：变量声明的语法</h2>
-<p>python3.6起生效。变量声明时指定类型的方法。</p>
+    <h1 id="unison">Unison使用学习笔记</h1>
+<p>单向同步（加<code>-fat</code>表示有目录是Windows目录）：</p>
+<pre><code class="sh">unison -batch -fat -force &lt;源目录&gt; &lt;源目录&gt; &lt;目标目录&gt;
+</code></pre>
+
+<p>双向同步：</p>
+<pre><code class="sh">unison -batch -fat &lt;源目录&gt; &lt;目标目录&gt;
+</code></pre>
 
   <br>
     
@@ -102,20 +100,20 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../../2. Programming in Shell/Bash使用学习笔记/" class="btn btn-xs btn-default pull-right">
+      <a href="../ffmpeg使用学习笔记/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../../2. Programming in Shell/Bash使用学习笔记/" class="btn btn-xs btn-link">
-        Bash使用学习笔记
+      <a href="../ffmpeg使用学习笔记/" class="btn btn-xs btn-link">
+        ffmpeg使用学习笔记
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../Windows下Python3常见坑/" class="btn btn-xs btn-default pull-left">
+      <a href="../Systemd使用学习笔记/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../Windows下Python3常见坑/" class="btn btn-xs btn-link">
-        Windows下Python3常见坑
+        Previous</a><a href="../Systemd使用学习笔记/" class="btn btn-xs btn-link">
+        Systemd使用学习笔记
       </a>
     </div>
     
@@ -126,7 +124,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
 <footer class="col-md-12 wm-page-content">
       <p>
-        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/2. Programming in Python/常见PEP.md"><i class="fa fa-github"></i>
+        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/3. Usage/Unison使用学习笔记.md"><i class="fa fa-github"></i>
 Edit on GitHub</a>
       </p>
   <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
