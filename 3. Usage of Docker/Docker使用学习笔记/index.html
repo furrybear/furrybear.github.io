@@ -33,8 +33,9 @@
         
         var pageToc = [
           {title: "Docker\u4f7f\u7528\u5b66\u4e60\u7b14\u8bb0", url: "#_top", children: [
-              {title: "\u6982\u5ff5", url: "#_1" },
-              {title: "\u547d\u4ee4", url: "#_3" },
+              {title: "\u5e95\u5c42\u6280\u672f", url: "#_1" },
+              {title: "\u6982\u5ff5", url: "#_2" },
+              {title: "\u547d\u4ee4", url: "#_4" },
               {title: "\u8fde\u63a5\u8fdc\u7a0bdocker\u8282\u70b9\u4f5c\u4e3adaemon", url: "#dockerdaemon" },
               {title: "Docker for Windows\u4f7f\u7528\u4f53\u9a8c", url: "#docker-for-windows" },
           ]},
@@ -85,11 +86,12 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     
 
     <h1 id="docker">Docker使用学习笔记</h1>
-<h2 id="_1">概念</h2>
-<h3 id="_2">容器状态</h3>
-<p>docker容器有running和stopped两种状态。docker容器必须有一个前台进程，如果前台进程结束了，那么docker容器就进入了stopped的状态，其他后台进程也停止了。如果找不到合适的前台进程，可以使用<code>sleep infinity</code>（Debian镜像的容器）。
-　　</p>
-<h2 id="_3">命令</h2>
+<h2 id="_1">底层技术</h2>
+<p>Docker使用Google公司推出的Go语言进行开发实现，基于Linux内核的CGroup、Namespace功能，以及AUFS类的UnionFS等技术。最初实现是基于LXC，从0.7版本以后开始去除LXC，转而使用自行开发的libcontainer，从1.11开始，则进一步演进为使用runC和containerd。</p>
+<h2 id="_2">概念</h2>
+<h3 id="_3">容器状态</h3>
+<p>docker容器有running和stopped两种状态。docker容器必须有一个前台进程，如果前台进程结束了，那么docker容器就进入了stopped的状态，其他后台进程也停止了。如果找不到合适的前台进程，可以使用<code>sleep infinity</code>（Debian镜像的容器）。</p>
+<h2 id="_4">命令</h2>
 <h3 id="docker-ps">docker ps</h3>
 <p><code>docker ps</code>只是列出所有正在running的容器，使用<code>docker ps -a</code>才能列出所有容器。</p>
 <h3 id="docker-stop">docker stop</h3>

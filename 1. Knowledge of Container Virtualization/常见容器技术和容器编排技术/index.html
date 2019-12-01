@@ -8,10 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <meta name="author" content="Furrybear">
-    <link rel="canonical" href="https://furrybear.readthedocs.com/Container/Docker：基础知识/">
+    <link rel="canonical" href="https://furrybear.readthedocs.com/1. Knowledge of Container Virtualization/常见容器技术和容器编排技术/">
     <link rel="shortcut icon" href="../../img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>底层技术 - Furrybear's Blog</title>
+    <title>常见容器技术和容器编排技术 - Furrybear's Blog</title>
     <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../css/base.css" rel="stylesheet">
@@ -32,7 +32,9 @@
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "\u5e95\u5c42\u6280\u672f", url: "#_top", children: [
+          {title: "\u5e38\u89c1\u5bb9\u5668\u6280\u672f\u548c\u5bb9\u5668\u7f16\u6392\u6280\u672f", url: "#_top", children: [
+              {title: "\u5bb9\u5668", url: "#_2" },
+              {title: "\u5bb9\u5668\u7f16\u6392", url: "#_3" },
           ]},
         ];
 
@@ -59,20 +61,20 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../常见容器技术和容器编排技术/" class="btn btn-xs btn-default pull-right">
+      <a href="../../1. Knowledge of Cryptology/数字证书学习笔记/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../常见容器技术和容器编排技术/" class="btn btn-xs btn-link">
-        容器
+      <a href="../../1. Knowledge of Cryptology/数字证书学习笔记/" class="btn btn-xs btn-link">
+        数字证书学习笔记
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../../C++/C++_Standard_Library/C++_SL3^%_(%memory)%/" class="btn btn-xs btn-default pull-left">
+      <a href="../../1. Knowledge of Computing Theory/时间复杂度的通俗解释/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../../C++/C++_Standard_Library/C++_SL3^%_(%memory)%/" class="btn btn-xs btn-link">
-        C++ SL3^% (%memory)%
+        Previous</a><a href="../../1. Knowledge of Computing Theory/时间复杂度的通俗解释/" class="btn btn-xs btn-link">
+        时间复杂度的通俗解释
       </a>
     </div>
     
@@ -80,8 +82,21 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <h1 id="_1">底层技术</h1>
-<p>Docker使用Google公司推出的Go语言进行开发实现，基于Linux内核的CGroup、Namespace功能，以及AUFS类的UnionFS等技术。最初实现是基于LXC，从0.7版本以后开始去除LXC，转而使用自行开发的libcontainer，从1.11开始，则进一步演进为使用runC和containerd。</p>
+    <h1 id="_1">常见容器技术和容器编排技术</h1>
+<h2 id="_2">容器</h2>
+<ol>
+<li>LXC/LXD：最早的，模拟了操作系统，较重型 
+   <img alt="img" src="https://raw.githubusercontent.com/furrybear/res/master/img/20190304151401.png" /></li>
+<li>Docker</li>
+<li>RTK：CoreOS推动的，CoreOS是轻量级容器用OS，也是Google在推的</li>
+<li>Clean container：英特尔搞的，没人用</li>
+</ol>
+<h2 id="_3">容器编排</h2>
+<ol>
+<li>K8S</li>
+<li>Swarm</li>
+<li>Messos</li>
+</ol>
 
   <br>
     
@@ -94,20 +109,20 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../常见容器技术和容器编排技术/" class="btn btn-xs btn-default pull-right">
+      <a href="../../1. Knowledge of Cryptology/数字证书学习笔记/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../常见容器技术和容器编排技术/" class="btn btn-xs btn-link">
-        容器
+      <a href="../../1. Knowledge of Cryptology/数字证书学习笔记/" class="btn btn-xs btn-link">
+        数字证书学习笔记
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../../C++/C++_Standard_Library/C++_SL3^%_(%memory)%/" class="btn btn-xs btn-default pull-left">
+      <a href="../../1. Knowledge of Computing Theory/时间复杂度的通俗解释/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../../C++/C++_Standard_Library/C++_SL3^%_(%memory)%/" class="btn btn-xs btn-link">
-        C++ SL3^% (%memory)%
+        Previous</a><a href="../../1. Knowledge of Computing Theory/时间复杂度的通俗解释/" class="btn btn-xs btn-link">
+        时间复杂度的通俗解释
       </a>
     </div>
     
@@ -118,7 +133,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
 <footer class="col-md-12 wm-page-content">
       <p>
-        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/Container/Docker：基础知识.md"><i class="fa fa-github"></i>
+        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/1. Knowledge of Container Virtualization/常见容器技术和容器编排技术.md"><i class="fa fa-github"></i>
 Edit on GitHub</a>
       </p>
   <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
