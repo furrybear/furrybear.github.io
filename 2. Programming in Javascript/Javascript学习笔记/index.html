@@ -8,10 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <meta name="author" content="Furrybear">
-    <link rel="canonical" href="https://furrybear.readthedocs.com/2. Programming in Python/Python3模块学习笔记之PyQt和PySide/">
+    <link rel="canonical" href="https://furrybear.readthedocs.com/2. Programming in Javascript/Javascript学习笔记/">
     <link rel="shortcut icon" href="../../img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Python3模块学习笔记之PyQt和PySide - Furrybear's Blog</title>
+    <title>Javascript学习笔记 - Furrybear's Blog</title>
     <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../css/base.css" rel="stylesheet">
@@ -32,8 +32,9 @@
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "Python3\u6a21\u5757\u5b66\u4e60\u7b14\u8bb0\u4e4bPyQt\u548cPySide", url: "#_top", children: [
-              {title: "\u76f8\u5173\u94fe\u63a5", url: "#_1" },
+          {title: "Javascript\u5b66\u4e60\u7b14\u8bb0", url: "#_top", children: [
+              {title: "export", url: "#export" },
+              {title: "\u53c2\u8003", url: "#_1" },
           ]},
         ];
 
@@ -60,20 +61,20 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../Python3模块学习笔记之colorama/" class="btn btn-xs btn-default pull-right">
+      <a href="../Node.js学习笔记/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../Python3模块学习笔记之colorama/" class="btn btn-xs btn-link">
-        Python3模块学习笔记之colorama
+      <a href="../Node.js学习笔记/" class="btn btn-xs btn-link">
+        Node.js学习笔记
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../Python3底层实现学习笔记/" class="btn btn-xs btn-default pull-left">
+      <a href="../../2. Programming in Java/Java学习笔记/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../Python3底层实现学习笔记/" class="btn btn-xs btn-link">
-        Python3底层实现学习笔记
+        Previous</a><a href="../../2. Programming in Java/Java学习笔记/" class="btn btn-xs btn-link">
+        Java学习笔记
       </a>
     </div>
     
@@ -81,11 +82,29 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <h1 id="python3pyqtpyside">Python3模块学习笔记之PyQt和PySide</h1>
-<h2 id="_1">相关链接</h2>
-<ul>
-<li><a href="https://github.com/chroming/awesome-pyqt-cn">chroming/awesome-pyqt-cn: PyQt/PySide 中文开发者必备资料合集</a></li>
-</ul>
+    <h1 id="javascript">Javascript学习笔记</h1>
+<h2 id="export">export</h2>
+<p>示例如下<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>：</p>
+<pre><code class="javascript">// path.js
+export default { a:1 };
+export let b = 2;
+export let c =3;
+
+// app.js
+import somethingdefault from './path'; // somethingdefault就是{a:1}
+import { b, c } from './path'; // b就是2, c就是3
+import something, { b, c } from './path';
+</code></pre>
+
+<h2 id="_1">参考</h2>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p><a href="https://segmentfault.com/q/1010000008760434/a-1020000008760580"><a href="https://segmentfault.com/q/1010000008760434">如何用 es6 的 export 语法导出多少个类？</a></a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
 
   <br>
     
@@ -98,20 +117,20 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../Python3模块学习笔记之colorama/" class="btn btn-xs btn-default pull-right">
+      <a href="../Node.js学习笔记/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../Python3模块学习笔记之colorama/" class="btn btn-xs btn-link">
-        Python3模块学习笔记之colorama
+      <a href="../Node.js学习笔记/" class="btn btn-xs btn-link">
+        Node.js学习笔记
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../Python3底层实现学习笔记/" class="btn btn-xs btn-default pull-left">
+      <a href="../../2. Programming in Java/Java学习笔记/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../Python3底层实现学习笔记/" class="btn btn-xs btn-link">
-        Python3底层实现学习笔记
+        Previous</a><a href="../../2. Programming in Java/Java学习笔记/" class="btn btn-xs btn-link">
+        Java学习笔记
       </a>
     </div>
     
@@ -122,7 +141,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
 <footer class="col-md-12 wm-page-content">
       <p>
-        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/2. Programming in Python/Python3模块学习笔记之PyQt和PySide.md"><i class="fa fa-github"></i>
+        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/2. Programming in Javascript/Javascript学习笔记.md"><i class="fa fa-github"></i>
 Edit on GitHub</a>
       </p>
   <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>

@@ -35,6 +35,8 @@
           {title: "Java\u5b66\u4e60\u7b14\u8bb0", url: "#_top", children: [
               {title: "\u73af\u5883\u53d8\u91cf\u8bbe\u7f6e", url: "#_1" },
               {title: "jar\u5305", url: "#jar" },
+              {title: "JRE\uff08Java Runtime Environment\uff09\u5236\u4f5c", url: "#jrejava-runtime-environment" },
+              {title: "\u53c2\u8003", url: "#_2" },
           ]},
         ];
 
@@ -61,12 +63,12 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../../2. Programming in Powershell/Powershell学习笔记/" class="btn btn-xs btn-default pull-right">
+      <a href="../../2. Programming in Javascript/Javascript学习笔记/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../../2. Programming in Powershell/Powershell学习笔记/" class="btn btn-xs btn-link">
-        Powershell学习笔记
+      <a href="../../2. Programming in Javascript/Javascript学习笔记/" class="btn btn-xs btn-link">
+        Javascript学习笔记
       </a>
     </div>
     
@@ -92,6 +94,25 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p>告诉JVM如何搜索Java的类，值设置为<code>.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar</code>。表示分别是当前目录、<code>%JAVA_HOME%\lib\dt.jar</code>和<code>%JAVA_HOME%\lib\tools.jar</code>。</p>
 <h2 id="jar">jar包</h2>
 <p>jar包是class文件的归档文件。</p>
+<h2 id="jrejava-runtime-environment">JRE（Java Runtime Environment）制作</h2>
+<p>Java11以后不再提供JRE下载，需要使用jlink手工定制JRE。例如：</p>
+<pre><code class="sh">jlink --module-path jmods --add-modules java.base --output myjre
+</code></pre>
+
+<p>对于例如JavaFX之类的库来说是必须的，不然运行时会提示找不到库。目前JavaFX是第一个使用Jmod的依赖，以后对于Java程序跨平台部分使用Jar，Native使用Jmod。</p>
+<blockquote>
+<p>Java平台的领导者们意识到了随着虚拟化、容器化、微服务化的普及和流行，以前庞大的JRE已经跟不上时代的发展：作为一个运行时，里面经常包含了太多不需要的东西。比如，如果一台主机上的某个JRE仅仅是用来运行Apache Tomcat，那么JRE中用来支持SWT的部分肯定是不需要的，及浪费空间又降低效率。</p>
+<p>引入Module System，使得开发者能够按自己的应用创建一个最小的运行时成为了可能——你的一个微服务的部署应用仅仅需要一个非常小的Runtime（比如仅仅20m）——而不是像以前一样不管应用复杂还是简单，都需要一个上百兆的JRE作为Runtime。横向扩展和部署的效率将能大幅提升。<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></p>
+</blockquote>
+<h2 id="_2">参考</h2>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p><a href="https://www.zhihu.com/question/296351428/answer/500599249">为什么新发布的jdk11不带jre？ - 知乎</a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
 
   <br>
     
@@ -104,12 +125,12 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../../2. Programming in Powershell/Powershell学习笔记/" class="btn btn-xs btn-default pull-right">
+      <a href="../../2. Programming in Javascript/Javascript学习笔记/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../../2. Programming in Powershell/Powershell学习笔记/" class="btn btn-xs btn-link">
-        Powershell学习笔记
+      <a href="../../2. Programming in Javascript/Javascript学习笔记/" class="btn btn-xs btn-link">
+        Javascript学习笔记
       </a>
     </div>
     
