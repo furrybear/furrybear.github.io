@@ -33,7 +33,8 @@
         
         var pageToc = [
           {title: "Javascript\u5b66\u4e60\u7b14\u8bb0", url: "#_top", children: [
-              {title: "export", url: "#export" },
+              {title: "ES6\u7279\u6027\u4e4bexport", url: "#es6export" },
+              {title: "\u5982\u4f55\u5c06\u56de\u8c03\u51fd\u6570Promise\u5316", url: "#promise" },
               {title: "\u53c2\u8003", url: "#_1" },
           ]},
         ];
@@ -83,7 +84,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     
 
     <h1 id="javascript">Javascript学习笔记</h1>
-<h2 id="export">export</h2>
+<h2 id="es6export">ES6特性之export</h2>
 <p>示例如下<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>：</p>
 <pre><code class="javascript">// path.js
 export default { a:1 };
@@ -96,12 +97,32 @@ import { b, c } from './path'; // b就是2, c就是3
 import something, { b, c } from './path';
 </code></pre>
 
+<h2 id="promise">如何将回调函数Promise化</h2>
+<p>见参考<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>。</p>
+<pre><code class="js">#!/usr/bin/env node
+&quot;use strict&quot;;
+const fs = require(&quot;fs&quot;);
+function readFileContent(filepath) {
+    return new Promise((resolve, reject) =&gt; {
+        fs.readFile(filepath, &quot;utf-8&quot;, (err, data) =&gt; {
+            if (err) return reject(err);
+            console.log(data);
+            resolve(data)
+        })
+    })
+}
+readFileContent(String.raw`C:\Windows\System32\drivers\etc\hosts`).then(data =&gt; { console.log(data) }).catch(err =&gt; { console.log(err) });
+</code></pre>
+
 <h2 id="_1">参考</h2>
 <div class="footnote">
 <hr />
 <ol>
 <li id="fn:1">
 <p><a href="https://segmentfault.com/q/1010000008760434/a-1020000008760580"><a href="https://segmentfault.com/q/1010000008760434">如何用 es6 的 export 语法导出多少个类？</a></a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p><a href="https://zellwk.com/blog/converting-callbacks-to-promises/">Converting callbacks to promises</a>&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>
