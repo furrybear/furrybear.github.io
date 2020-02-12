@@ -34,6 +34,7 @@
         var pageToc = [
           {title: "Powershell\u5e38\u7528\u4ee3\u7801\u7247\u6bb5", url: "#_top", children: [
               {title: "\u6279\u91cf\u91cd\u547d\u540d", url: "#_1" },
+              {title: "\u9012\u5f52\u5220\u9664\u76ee\u5f55", url: "#_2" },
           ]},
         ];
 
@@ -84,14 +85,17 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     <h1 id="powershell">Powershell常用代码片段</h1>
 <h2 id="_1">批量重命名</h2>
 <p>例如我想把目录下形如“WeChat Image_20191123191011.jpg”的文件重命名为形如“2019-11-23 19-10-11 WeChat Image.jpg”，首先添加<code>-WhatIf</code>参数预先查看修改结果，此时并没有实际修改：</p>
-<pre><code class="powershell">Get-Childitem | Rename-Item -NewName { $_.Name -replace '^WeChat\sImage_([0-9]{4})([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})\.jpg$', '$1-$2-$3 $4-$5-$6 Wechat Image.jpg' } -WhatIf
+<pre><code class="powershell">Get-Childitem | Rename-Item -NewName { $_.Name -replace '^WeChat\sImage_(\d{4})(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})\.jpg$', '$1-$2-$3 $4-$5-$6 Wechat Image.jpg' } -WhatIf
 </code></pre>
 
 <p>然后去掉<code>-WhatIf</code>执行：</p>
-<pre><code class="powershell">Get-Childitem | Rename-Item -NewName { $_.Name -replace '^WeChat\sImage_([0-9]{4})([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})\.jpg$', '$1-$2-$3 $4-$5-$6 Wechat Image.jpg' }
+<pre><code class="powershell">Get-Childitem | Rename-Item -NewName { $_.Name -replace '^WeChat\sImage_(\d{4})(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})\.jpg$', '$1-$2-$3 $4-$5-$6 Wechat Image.jpg' }
 </code></pre>
 
 <p>就成功了。</p>
+<h2 id="_2">递归删除目录</h2>
+<pre><code class="powershell">ri -Path ./node_modules -Recurse
+</code></pre>
 
   <br>
     
@@ -126,7 +130,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     <br>
 </div>
 
-<footer class="col-md-12 wm-page-content">
+<footer class="container-fluid wm-page-content">
       <p>
         <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/2. Programming in Powershell/Powershell常用代码片段.md"><i class="fa fa-github"></i>
 Edit on GitHub</a>
