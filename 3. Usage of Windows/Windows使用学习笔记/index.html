@@ -106,7 +106,7 @@ slmgr /ato
 <h3 id="_6">以太网有线连接设置流量限制</h3>
 <p>参见<a href="https://www.sysgeek.cn/windows-10-set-ethernet-connection-metered/">配置Windows 10以太网有线连接为「计量」连接类型</a></p>
 <h3 id="tpmbitlocker">无TPM模块时对系统盘进行Bitlocker加密</h3>
-<p><code>Win键+R</code>打开运行窗口，输入<code>gpedit.msc</code>进入本地组策略编辑器。展开<code>计算机配置-管理模板-Windows组件-BitLocker驱动器加密-操作系统驱动器</code>，找到“启动时需要附加身份验证”，将其配置为”已启用”并且勾选”没有兼容的TPM时允许BitLocker（在U盘上需要密码或启动密钥）”。</p>
+<p><code>Win键+R</code>打开运行窗口，输入<code>gpedit.msc</code>进入本地组策略编辑器。展开<code>计算机配置-管理模板-Windows组件-BitLocker驱动器加密-操作系统驱动器（Reqiure additional authentication at startup）</code>，找到“启动时需要附加身份验证”，将其配置为”已启用”并且勾选”没有兼容的TPM时允许BitLocker（在U盘上需要密码或启动密钥）”。</p>
 <h3 id="usb">封闭USB口</h3>
 <p>封闭USB口有好多方法,其中一个是将注册表中<code>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\USBSTOR</code>里<code>Start</code>的值改为4（禁止自动启动），默认为3（自动分配盘符）。</p>
 

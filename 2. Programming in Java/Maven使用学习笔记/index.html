@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="author" content="Furrybear">
+    <link rel="canonical" href="https://furrybear.readthedocs.com/2. Programming in Java/Maven使用学习笔记/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Maven使用学习笔记 - Furrybear's Blog</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Maven\u4f7f\u7528\u5b66\u4e60\u7b14\u8bb0", url: "#_top", children: [
+              {title: "\u6982\u5ff5", url: "#_1" },
+              {title: "\u4ed3\u5e93", url: "#_2" },
+              {title: "\u8bbe\u7f6e", url: "#_3" },
+              {title: "References", url: "#references" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../Spring Boot Basic Knowledge/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../Spring Boot Basic Knowledge/" class="btn btn-xs btn-link">
+        Spring Boot Basic Knowledge
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../Java学习笔记/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../Java学习笔记/" class="btn btn-xs btn-link">
+        Java学习笔记
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="maven">Maven使用学习笔记</h1>
+<h2 id="_1">概念</h2>
+<ul>
+<li>
+<p>Lifecycle 内置的有default、clean和site三种Lifecycle。</p>
+</li>
+<li>
+<p>Phase：每个Lifecycle有若干个Phase。</p>
+</li>
+<li>
+<p>Goal：每个Phase对于Plugin来说是一个Goal。</p>
+</li>
+<li>
+<p>Plugin：一个Plugin可以对应一个Goal，或者说一个Phase。</p>
+</li>
+</ul>
+<h2 id="_2">仓库</h2>
+<p>分为本地仓库和远程仓库。远程仓库分为中央仓库、私服和其他公共库。</p>
+<h2 id="_3">设置</h2>
+<p>Maven的设置文件<code>settings.xml</code>有全局级别和用户级别，前者位于Maven安装目录内<code>${maven.home}/conf/settings.xml</code>，后者位于用户家目录的下的<code>${user.home}/.m2/settings.xml</code>。
+  　　
+　　<code>settings.xml</code>的顶级元素如下所示<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup>：
+　　</p>
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;settings xmlns=&quot;http://maven.apache.org/SETTINGS/1.0.0&quot;
+      xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+      xsi:schemaLocation=&quot;http://maven.apache.org/SETTINGS/1.0.0
+                          https://maven.apache.org/xsd/settings-1.0.0.xsd&quot;&gt;
+  &lt;localRepository/&gt;
+  &lt;interactiveMode/&gt;
+  &lt;offline/&gt;
+  &lt;pluginGroups/&gt;
+  &lt;servers/&gt;
+  &lt;mirrors/&gt;
+  &lt;proxies/&gt;
+  &lt;profiles/&gt;
+  &lt;activeProfiles/&gt;
+&lt;/settings&gt;
+</code></pre>
+
+<h3 id="_4">设置镜像仓库</h3>
+<p>由于Maven从中央仓库下载依赖和插件的速度太慢，使用如下配置可以配置<strong>阿里源</strong>加快下载速度：
+　　</p>
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;settings xmlns=&quot;http://maven.apache.org/SETTINGS/1.0.0&quot;
+          xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+          xsi:schemaLocation=&quot;http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd&quot;&gt;
+  &lt;pluginGroups&gt;
+  &lt;/pluginGroups&gt;
+  &lt;proxies&gt;
+  &lt;/proxies&gt;
+  &lt;servers&gt;
+  &lt;/servers&gt;
+  &lt;mirrors&gt;
+      &lt;mirror&gt;
+      &lt;id&gt;alimaven&lt;/id&gt;
+      &lt;name&gt;aliyun maven&lt;/name&gt;
+      &lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public/&lt;/url&gt;
+      &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;
+    &lt;/mirror&gt;
+  &lt;/mirrors&gt;
+  &lt;profiles&gt;
+  &lt;/profiles&gt;
+&lt;/settings&gt;
+</code></pre>
+
+<h2 id="references">References</h2>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p><a href="">Introduction to the Build Lifecycle</a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p><a href="https://my.oschina.net/sunchp/blog/100634">Maven：mirror和repository 区别</a>&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p><a href="https://maven.apache.org/settings.html">https://maven.apache.org/settings.html</a>&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../Spring Boot Basic Knowledge/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../Spring Boot Basic Knowledge/" class="btn btn-xs btn-link">
+        Spring Boot Basic Knowledge
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../Java学习笔记/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../Java学习笔记/" class="btn btn-xs btn-link">
+        Java学习笔记
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/2. Programming in Java/Maven使用学习笔记.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

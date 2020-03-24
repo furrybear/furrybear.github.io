@@ -8,10 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <meta name="author" content="Furrybear">
-    <link rel="canonical" href="https://furrybear.readthedocs.com/2. Programming in Shell/命令使用学习笔记之head和tail/">
+    <link rel="canonical" href="https://furrybear.readthedocs.com/2. Programming in SQL/SQL学习笔记/">
     <link rel="shortcut icon" href="../../img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>命令使用学习笔记之head和tail - Furrybear's Blog</title>
+    <title>SQL学习笔记 - Furrybear's Blog</title>
     <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../css/base.css" rel="stylesheet">
@@ -32,7 +32,8 @@
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "\u547d\u4ee4\u4f7f\u7528\u5b66\u4e60\u7b14\u8bb0\u4e4bhead\u548ctail", url: "#_top", children: [
+          {title: "SQL\u5b66\u4e60\u7b14\u8bb0", url: "#_top", children: [
+              {title: "\u8868\u8fde\u63a5", url: "#_1" },
           ]},
         ];
 
@@ -59,20 +60,20 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../命令使用学习笔记之tar/" class="btn btn-xs btn-default pull-right">
+      <a href="../../2. Programming in Shell/Bash使用学习笔记/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../命令使用学习笔记之tar/" class="btn btn-xs btn-link">
-        命令使用学习笔记之tar
+      <a href="../../2. Programming in Shell/Bash使用学习笔记/" class="btn btn-xs btn-link">
+        Bash使用学习笔记
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../命令使用学习笔记之grep、egrep、xgrep和fgrep/" class="btn btn-xs btn-default pull-left">
+      <a href="../../2. Programming in Regular Expression/正则表达式学习笔记/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../命令使用学习笔记之grep、egrep、xgrep和fgrep/" class="btn btn-xs btn-link">
-        命令使用学习笔记之grep、egrep、xgrep和fgrep
+        Previous</a><a href="../../2. Programming in Regular Expression/正则表达式学习笔记/" class="btn btn-xs btn-link">
+        正则表达式学习笔记
       </a>
     </div>
     
@@ -80,16 +81,27 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <h1 id="headtail">命令使用学习笔记之head和tail</h1>
-<pre><code class="sh"># 打印前5行
-head -n 5 &lt;文件名&gt;
-# 打印后5行
-tail -n 5 &lt;文件名&gt;
-# 跟踪日志，并且保持读取追加数据
-tail -f &lt;日志文件名&gt;
-# 打印后5行，跟踪日志，并且保持读取追加数据
-tail -n 5 -f &lt;日志文件名&gt;
-</code></pre>
+    <h1 id="sql">SQL学习笔记</h1>
+<h2 id="_1">表连接</h2>
+<ul>
+<li>
+<p>内连接</p>
+</li>
+<li>
+<p>关键字：<code>,</code>、<code>INNER JOIN</code>、<code>JOIN</code></p>
+</li>
+<li>
+<p>自然连接</p>
+</li>
+<li>相当于内连接并隐含“WHERE A.field = B.field”</li>
+<li>关键字：<code>NATRUAL JOIN</code></li>
+<li>左连接</li>
+</ul>
+<p>关键字：<code>LEFT JOIN</code></p>
+<ul>
+<li>右连接</li>
+</ul>
+<p>关键字：<code>RIGHT JOIN</code></p>
 
   <br>
     
@@ -102,20 +114,20 @@ tail -n 5 -f &lt;日志文件名&gt;
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../命令使用学习笔记之tar/" class="btn btn-xs btn-default pull-right">
+      <a href="../../2. Programming in Shell/Bash使用学习笔记/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../命令使用学习笔记之tar/" class="btn btn-xs btn-link">
-        命令使用学习笔记之tar
+      <a href="../../2. Programming in Shell/Bash使用学习笔记/" class="btn btn-xs btn-link">
+        Bash使用学习笔记
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../命令使用学习笔记之grep、egrep、xgrep和fgrep/" class="btn btn-xs btn-default pull-left">
+      <a href="../../2. Programming in Regular Expression/正则表达式学习笔记/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../命令使用学习笔记之grep、egrep、xgrep和fgrep/" class="btn btn-xs btn-link">
-        命令使用学习笔记之grep、egrep、xgrep和fgrep
+        Previous</a><a href="../../2. Programming in Regular Expression/正则表达式学习笔记/" class="btn btn-xs btn-link">
+        正则表达式学习笔记
       </a>
     </div>
     
@@ -126,7 +138,7 @@ tail -n 5 -f &lt;日志文件名&gt;
 
 <footer class="container-fluid wm-page-content">
       <p>
-        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/2. Programming in Shell/命令使用学习笔记之head和tail.md"><i class="fa fa-github"></i>
+        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/2. Programming in SQL/SQL学习笔记.md"><i class="fa fa-github"></i>
 Edit on GitHub</a>
       </p>
   <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>

@@ -33,6 +33,7 @@
         
         var pageToc = [
           {title: "Javascript\u5b66\u4e60\u7b14\u8bb0", url: "#_top", children: [
+              {title: "\u5224\u65ad\u6570\u636e\u7c7b\u578b\u7684\u65b9\u6cd53", url: "#3" },
               {title: "ES6\u7279\u6027\u4e4bexport", url: "#es6export" },
               {title: "\u5982\u4f55\u5c06\u56de\u8c03\u51fd\u6570Promise\u5316", url: "#promise" },
               {title: "\u53c2\u8003", url: "#_1" },
@@ -72,10 +73,10 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     </div>
     
     <div class="wm-article-nav">
-      <a href="../../2. Programming in Java/Java学习笔记/" class="btn btn-xs btn-default pull-left">
+      <a href="../../2. Programming in Java/Spring Boot Basic Knowledge/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../../2. Programming in Java/Java学习笔记/" class="btn btn-xs btn-link">
-        Java学习笔记
+        Previous</a><a href="../../2. Programming in Java/Spring Boot Basic Knowledge/" class="btn btn-xs btn-link">
+        Spring Boot Basic Knowledge
       </a>
     </div>
     
@@ -84,6 +85,33 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     
 
     <h1 id="javascript">Javascript学习笔记</h1>
+<h2 id="3">判断数据类型的方法<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></h2>
+<h3 id="typeof">typeof</h3>
+<p>会返回以下几种值之一：number、boolean、symbol、string、object、undefined、function。</p>
+<pre><code class="js">typeof null;// &quot;object&quot;
+typeof Symbol();// &quot;symbol&quot;
+typeof [];// &quot;object&quot;
+</code></pre>
+
+<h3 id="instanceof">instanceof</h3>
+<pre><code class="js">[] instanceof Array; // true
+{} instanceof Object;// true
+newDate() instanceof Date;// true
+
+function Person(){};
+newPerson() instanceof Person;
+
+[] instanceof Object; // true
+newDate() instanceof Object;// true
+newPerson instanceof Object;// true
+</code></pre>
+
+<p>判断数组可以使用<code>Array.isArray()</code>：</p>
+<pre><code class="js">if(Array.isArray(value)){
+   // 对数组执行某些操作
+}
+</code></pre>
+
 <h2 id="es6export">ES6特性之export</h2>
 <p>示例如下<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>：</p>
 <pre><code class="javascript">// path.js
@@ -124,6 +152,9 @@ readFileContent(String.raw`C:\Windows\System32\drivers\etc\hosts`).then(data =&g
 <li id="fn:2">
 <p><a href="https://zellwk.com/blog/converting-callbacks-to-promises/">Converting callbacks to promises</a>&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
+<li id="fn:3">
+<p><a href="https://www.cnblogs.com/onepixel/p/5126046.html">判断JS数据类型的四种方法</a>&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
 </ol>
 </div>
 
@@ -148,10 +179,10 @@ readFileContent(String.raw`C:\Windows\System32\drivers\etc\hosts`).then(data =&g
     </div>
     
     <div class="wm-article-nav">
-      <a href="../../2. Programming in Java/Java学习笔记/" class="btn btn-xs btn-default pull-left">
+      <a href="../../2. Programming in Java/Spring Boot Basic Knowledge/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../../2. Programming in Java/Java学习笔记/" class="btn btn-xs btn-link">
-        Java学习笔记
+        Previous</a><a href="../../2. Programming in Java/Spring Boot Basic Knowledge/" class="btn btn-xs btn-link">
+        Spring Boot Basic Knowledge
       </a>
     </div>
     

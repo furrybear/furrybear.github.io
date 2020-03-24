@@ -8,10 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <meta name="author" content="Furrybear">
-    <link rel="canonical" href="https://furrybear.readthedocs.com/2. Programming in Java/Java Web和SpringMVC学习笔记/">
+    <link rel="canonical" href="https://furrybear.readthedocs.com/2. Programming in Java/Java Web Basic Knowledge/">
     <link rel="shortcut icon" href="../../img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Java Web和SpringMVC学习笔记 - Furrybear's Blog</title>
+    <title>Java Web Basic Knowledge - Furrybear's Blog</title>
     <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../css/base.css" rel="stylesheet">
@@ -32,9 +32,9 @@
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "Java Web\u548cSpringMVC\u5b66\u4e60\u7b14\u8bb0", url: "#_top", children: [
-              {title: "\u53c2\u8003", url: "#_1" },
-              {title: "Servlet", url: "#servlet" },
+          {title: "Java Web Basic Knowledge", url: "#_top", children: [
+              {title: "Servlet1", url: "#servlet1" },
+              {title: "References", url: "#references" },
           ]},
         ];
 
@@ -82,17 +82,12 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <h1 id="java-webspringmvc">Java Web和SpringMVC学习笔记</h1>
-<h2 id="_1">参考</h2>
-<ol>
-<li><a href="https://blog.csdn.net/yalishadaa/article/details/70544492">servlet和Spring的DispatcherServlet详解</a></li>
-</ol>
-<h2 id="_2"></h2>
-<h2 id="servlet">Servlet</h2>
-<p>Servlet是服务器端运行的一个程序，是一个被编译好的<a href="http://lib.csdn.net/base/javaee">Java</a>类。它不是框架等。</p>
-<p>Web容器的启动，需要依赖Servlet。当web服务器开始执行时，servlet类就被初始化</p>
-<p>当用户通过浏览器访问的时候，会输入URI，这个时候，web服务器就通过Servlet来分发请求执行不同的内容。</p>
-<p>对于SpringMVC来说，在<code>/src/main/webapp/WEB-INF/web.xml</code>中是这么定义的：</p>
+    <h1 id="java-web-basic-knowledge">Java Web Basic Knowledge</h1>
+<h2 id="servlet1">Servlet<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></h2>
+<p>Servlet是服务器端运行的一个程序，是一个被编译好的<a href="http://lib.csdn.net/base/javaee">Java</a>类。它不是框架等。Web容器的启动需要依赖Servlet，当Web服务器开始执行时，Servlet类就被初始化。
+　　
+　　当用户通过浏览器访问输入URI的时候，这个时候Web服务器就通过Servlet来分发请求执行不同的内容。</p>
+<p>对于SpringMVC来说，一般可以采用如下方式载入Servlet。在<code>/src/main/webapp/WEB-INF/web.xml</code>中如下定义：</p>
 <pre><code class="xml">&lt;!DOCTYPE web-app PUBLIC
  &quot;-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN&quot;
  &quot;http://java.sun.com/dtd/web-app_2_3.dtd&quot; &gt;
@@ -110,7 +105,17 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 &lt;/web-app&gt;
 </code></pre>
 
-<p>说明使用了SpringMVC框架的DispatcherServlet。SpringMVC从<code>spring-dispatcher-servlet.xml</code>读取配置并创建Servlet。</p>
+<p>这里使用了SpringMVC框架的DispatcherServlet。运行时SpringMVC从<code>spring-dispatcher-servlet.xml</code>读取配置并创建Servlet。
+　　</p>
+<h2 id="references">References</h2>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p><a href="https://blog.csdn.net/yalishadaa/article/details/70544492">servlet和Spring的DispatcherServlet详解</a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
 
   <br>
     
@@ -147,7 +152,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
 <footer class="container-fluid wm-page-content">
       <p>
-        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/2. Programming in Java/Java Web和SpringMVC学习笔记.md"><i class="fa fa-github"></i>
+        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/2. Programming in Java/Java Web Basic Knowledge.md"><i class="fa fa-github"></i>
 Edit on GitHub</a>
       </p>
   <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
