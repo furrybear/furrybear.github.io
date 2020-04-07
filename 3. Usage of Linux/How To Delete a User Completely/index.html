@@ -8,10 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <meta name="author" content="Furrybear">
-    <link rel="canonical" href="https://furrybear.readthedocs.com/3. Usage of Linux/挂载学习笔记/">
+    <link rel="canonical" href="https://furrybear.readthedocs.com/3. Usage of Linux/How To Delete a User Completely/">
     <link rel="shortcut icon" href="../../img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>挂载学习学习笔记 - Furrybear's Blog</title>
+    <title>How To Delete a User Completely - Furrybear's Blog</title>
     <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../css/base.css" rel="stylesheet">
@@ -32,8 +32,7 @@
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "\u6302\u8f7d\u5b66\u4e60\u5b66\u4e60\u7b14\u8bb0", url: "#_top", children: [
-              {title: "\u6302\u8f7d\u8fdc\u7a0bSamba\u76ee\u5f55", url: "#samba" },
+          {title: "How To Delete a User Completely", url: "#_top", children: [
           ]},
         ];
 
@@ -60,12 +59,12 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../../3. Usage of OpenSSH/OpenSSH使用学习笔记/" class="btn btn-xs btn-default pull-right">
+      <a href="../How To Mount Filesystem to Directory/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../../3. Usage of OpenSSH/OpenSSH使用学习笔记/" class="btn btn-xs btn-link">
-        OpenSSH使用学习笔记
+      <a href="../How To Mount Filesystem to Directory/" class="btn btn-xs btn-link">
+        How To Mount Filesystem to Directory
       </a>
     </div>
     
@@ -81,14 +80,11 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <h1 id="_1">挂载学习学习笔记</h1>
-<h2 id="samba">挂载远程Samba目录</h2>
-<p>在/etc/fstab添加如下内容：</p>
-<pre><code>//&lt;IP&gt;/&lt;Directory name&gt; &lt;Mount directory&gt; cifs username=&lt;Username&gt;,password=&lt;Password&gt;,uid=1000,gid=1000,file_mode=0640,dir_mode=0750 0 0
-</code></pre>
-
-<p>如果想要修改后立刻生效，执行以下命令：</p>
-<pre><code class="sh">sudo mount -a
+    <h1 id="how-to-delete-a-user-completely">How To Delete a User Completely</h1>
+<pre><code class="sh"># Delete the user from file /etc/passwd and delete home folder and the mail folder of the user.
+userdel -r &lt;user to be deleted&gt;
+# Delelte the primary group (defalut group) of the deleted user.
+groupdel &lt;user
 </code></pre>
 
   <br>
@@ -102,12 +98,12 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../../3. Usage of OpenSSH/OpenSSH使用学习笔记/" class="btn btn-xs btn-default pull-right">
+      <a href="../How To Mount Filesystem to Directory/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../../3. Usage of OpenSSH/OpenSSH使用学习笔记/" class="btn btn-xs btn-link">
-        OpenSSH使用学习笔记
+      <a href="../How To Mount Filesystem to Directory/" class="btn btn-xs btn-link">
+        How To Mount Filesystem to Directory
       </a>
     </div>
     
@@ -126,7 +122,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
 <footer class="container-fluid wm-page-content">
       <p>
-        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/3. Usage of Linux/挂载学习笔记.md"><i class="fa fa-github"></i>
+        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/3. Usage of Linux/How To Delete a User Completely.md"><i class="fa fa-github"></i>
 Edit on GitHub</a>
       </p>
   <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>

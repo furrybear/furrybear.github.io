@@ -38,6 +38,9 @@
               {title: "\u547d\u4ee4", url: "#_4" },
               {title: "\u8fde\u63a5\u8fdc\u7a0bdocker\u8282\u70b9\u4f5c\u4e3adaemon", url: "#dockerdaemon" },
               {title: "Docker for Windows\u4f7f\u7528\u4f53\u9a8c", url: "#docker-for-windows" },
+              {title: "Docker Capabilities", url: "#docker-capabilities" },
+              {title: "Bind Propagation\uff08\u7ed1\u5b9a\u4f20\u64ad\uff09", url: "#bind-propagation" },
+              {title: "References", url: "#references" },
           ]},
         ];
 
@@ -115,10 +118,70 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
 <h2 id="docker-for-windows">Docker for Windows使用体验</h2>
 <ul>
-<li>使用host网络模式的时候，访问localhost并不是访问本机，可能是访问了虚拟机。</li>
-<li>开机无法自启动。</li>
-<li>经常会升级失败。</li>
+<li>
+<p>使用host网络模式的时候，访问localhost并不是访问本机，可能是访问了虚拟机。</p>
+</li>
+<li>
+<p>开机无法自启动。</p>
+</li>
+<li>
+<p>经常会升级失败。</p>
+</li>
 </ul>
+<h2 id="docker-capabilities">Docker Capabilities</h2>
+<p>虽然docker容器内运行程序的用户是root，但是对于宿主机来说，其权限是小于容器外的root用户的<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>。因为Linux将用户权限分入了更小的组中，而目前Docker容器启动时默认只有以下的权限：CHOWN、DAC_OVERRIDE、FSETID、FOWNER、MKNOD、NET_RAW、SETGID、SETUID、SETFCAP、SETPCAP、NET_BIND_SERVICE、SYS_CHROOT、KILL、AUDIT_WRITE。所有Linux权限的列表见<a href="http://man7.org/linux/man-pages/man7/capabilities.7.html">http://man7.org/linux/man-pages/man7/capabilities.7.html</a>。增加或减少Docker的Linux权限可以在<code>docker run</code>的时候使用<code>--cap-add</code>或者<code>--cap-drop</code>。或者使用<code>--cap-add ALL</code>或者<code>--cap-drop ALL</code>增加或者去掉所有Linux权限。</p>
+<h2 id="bind-propagation">Bind Propagation（绑定传播）</h2>
+<p>例子：</p>
+<pre><code class="sh">docker run \
+  -v /mnt:/tmp:rshared \
+  --mount type=bind,source=&quot;$(pwd)&quot;/target,target=/app2,readonly,bind-propagation=rslave \
+</code></pre>
+
+<p>控制某个挂载点也被挂载到其他目录时，其子目录也成为挂载点时在其他目录的行为。它有以下6个值：</p>
+<table>
+<thead>
+<tr>
+<th align="left">Propagation setting</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>shared</code></td>
+<td align="left">Sub-mounts of the original mount are exposed to replica mounts, and sub-mounts of replica mounts are also propagated to the original mount.</td>
+</tr>
+<tr>
+<td align="left"><code>slave</code></td>
+<td align="left">similar to a shared mount, but only in one direction. If the original mount exposes a sub-mount, the replica mount can see it. However, if the replica mount exposes a sub-mount, the original mount cannot see it.</td>
+</tr>
+<tr>
+<td align="left"><code>private</code></td>
+<td align="left">The mount is private. Sub-mounts within it are not exposed to replica mounts, and sub-mounts of replica mounts are not exposed to the original mount.</td>
+</tr>
+<tr>
+<td align="left"><code>rshared</code></td>
+<td align="left">The same as shared, but the propagation also extends to and from mount points nested within any of the original or replica mount points.</td>
+</tr>
+<tr>
+<td align="left"><code>rslave</code></td>
+<td align="left">The same as slave, but the propagation also extends to and from mount points nested within any of the original or replica mount points.</td>
+</tr>
+<tr>
+<td align="left"><code>rprivate</code></td>
+<td align="left">The default. The same as private, meaning that no mount points anywhere within the original or replica mount points propagate in either direction.</td>
+</tr>
+</tbody>
+</table>
+<p>其中<code>r</code>为recursive的意思。</p>
+<h2 id="references">References</h2>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p><a href="https://opensource.com/business/15/3/docker-security-tuning">Tuning Docker with the newest security enhancements</a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
 
   <br>
     
