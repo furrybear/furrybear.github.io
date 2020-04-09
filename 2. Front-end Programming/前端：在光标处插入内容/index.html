@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="author" content="Furrybear">
+    <link rel="canonical" href="https://furrybear.readthedocs.com/2. Front-end Programming/前端：在光标处插入内容/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>前端：在光标处插入内容 - Furrybear's Blog</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../前端：常见CSS属性需要注意的性质/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../前端：常见CSS属性需要注意的性质/" class="btn btn-xs btn-link">
+        常见CSS属性需要注意的性质
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../前端：form标签相关/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../前端：form标签相关/" class="btn btn-xs btn-link">
+        前端：form标签
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <p>参考：<a href="https://www.cnblogs.com/yeminglong/p/3914386.html">https://www.cnblogs.com/yeminglong/p/3914386.html</a></p>
+<pre><code class="js">$(function(){
+    //给jquery对象添加成员变量insertAtCaret
+    $.fn.extend({
+        insertAtCaret : function (myValue) {
+            var $t = $(this)[0];
+            //傻逼IE
+            if (document.selection) {
+                this.focus();
+                sel = document.selection.createRange();
+                sel.text = myValue;
+                this.focus();
+            }else//现代浏览器
+                if ($t.selectionStart || $t.selectionStart == '0') {
+                    //没有选中的时候，startPos和endPos相等，指的是光标之前有多少字符
+                    //选中部分文本时，startPos指的是选中的文本之前有多少字符，endPos指的是选中的文本之前字符数量和选中文本字符数量 
+                    var startPos = $t.selectionStart;
+                    var endPos = $t.selectionEnd;
+                    //垂直偏移的像素值
+                    var scrollTop = $t.scrollTop;
+                    //将插入字符串插入到原字符串的里面
+                    $t.value = $t.value.substring(0, startPos) + myValue + $t.value.substring(endPos, $t.value.length);
+                    //使得输入框成为焦点
+                    this.focus();
+                    //光标停留在插入字符串的后面
+                    $t.selectionStart = startPos + myValue.length;
+                    $t.selectionEnd = startPos + myValue.length;
+                    //保持垂直偏移
+                    $t.scrollTop = scrollTop;
+                } else {
+                    this.value += myValue;
+                    this.focus();
+                }
+        }
+    })
+});
+</code></pre>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../前端：常见CSS属性需要注意的性质/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../前端：常见CSS属性需要注意的性质/" class="btn btn-xs btn-link">
+        常见CSS属性需要注意的性质
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../前端：form标签相关/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../前端：form标签相关/" class="btn btn-xs btn-link">
+        前端：form标签
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/2. Front-end Programming/前端：在光标处插入内容.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="author" content="Furrybear">
+    <link rel="canonical" href="https://furrybear.readthedocs.com/1. Knowledge of Data Structure And Algorithm/Tree3^%_RB_Tree/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Tree3^% RB Tree - Furrybear's Blog</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "\u5b9a\u4e49", url: "#_top", children: [
+          ]},
+          {title: "\u67e5\u627e", url: "#_2", children: [
+          ]},
+          {title: "\u63d2\u5165", url: "#_3", children: [
+          ]},
+          {title: "\u5220\u9664", url: "#_4", children: [
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../Tree4^%_Heap_/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../Tree4^%_Heap_/" class="btn btn-xs btn-link">
+        插入
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../Tree2^%_Binary_Search_Tree/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../Tree2^%_Binary_Search_Tree/" class="btn btn-xs btn-link">
+        定义
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <p>参考：<a href="https://baike.baidu.com/item/%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91/10905079?fr=aladdin&amp;fromid=7077965&amp;fromtitle=%E4%BA%8C%E5%8F%89%E6%9F%A5%E6%89%BE%E6%A0%91">https://baike.baidu.com/item/%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91/10905079?fr=aladdin&amp;fromid=7077965&amp;fromtitle=%E4%BA%8C%E5%8F%89%E6%9F%A5%E6%89%BE%E6%A0%91</a></p>
+<p>参考：<a href="http://www.cnblogs.com/skywang12345/p/3245399.html">http://www.cnblogs.com/skywang12345/p/3245399.html</a></p>
+<h1 id="_1">定义</h1>
+<p><img alt="" src="../RB_tree_sample.jpg" /></p>
+<p>红黑树的特性:</p>
+<ol>
+<li>
+<p>每个节点或者是黑色，或者是红色。</p>
+</li>
+<li>
+<p>根节点是黑色。</p>
+</li>
+<li>
+<p>每个叶子节点（NIL）是黑色。 这里叶子节点，是指为空(NIL或NULL)的叶子节点。</p>
+</li>
+<li>
+<p>如果一个节点是红色的，则它的子节点必须是黑色的。</p>
+</li>
+<li>
+<p>从一个节点到该节点的子孙节点的所有路径上包含相同数目的黑节点。</p>
+</li>
+</ol>
+<p>注意：</p>
+<p>(1)特性3中的叶子节点，是只为空(NIL或null)的节点。</p>
+<p>(2)特性5确保没有一条路径会比其他路径长出俩倍。因而，红黑树是相对是接近平衡的二叉树。</p>
+<p>(3)一棵含有n个节点的红黑树的高度至多为2log(n+1)。</p>
+<h1 id="_2">查找</h1>
+<p>时间复杂度为O(logN)。</p>
+<h1 id="_3">插入</h1>
+<p>时间复杂度为O(logN)。</p>
+<h1 id="_4">删除</h1>
+<p>时间复杂度为O(logN)。</p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../Tree4^%_Heap_/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../Tree4^%_Heap_/" class="btn btn-xs btn-link">
+        插入
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../Tree2^%_Binary_Search_Tree/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../Tree2^%_Binary_Search_Tree/" class="btn btn-xs btn-link">
+        定义
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/1. Knowledge of Data Structure And Algorithm/Tree3^%_RB_Tree.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

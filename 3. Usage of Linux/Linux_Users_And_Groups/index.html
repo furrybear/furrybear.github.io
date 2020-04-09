@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="author" content="Furrybear">
+    <link rel="canonical" href="https://furrybear.readthedocs.com/3. Usage of Linux/Linux_Users_And_Groups/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Linux下用户权限和用户组 - Furrybear's Blog</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "\u67d0\u4e2a\u7528\u6237\u6240\u5728\u7684\u7ec4", url: "#_top", children: [
+              {title: "\u5c06\u67d0\u4e2a\u7528\u6237\u52a0\u5165\u67d0\u4e2a\u7ec4", url: "#_2" },
+              {title: "\u6539\u53d8\u67d0\u4e2a\u7528\u6237\u6240\u5728\u7684\u7ec4", url: "#_3" },
+          ]},
+          {title: "\u67e5\u770b\u672c\u673a\u6709\u54ea\u4e9b\u7528\u6237", url: "#_4", children: [
+          ]},
+          {title: "\u67e5\u770b\u672c\u673a\u6709\u54ea\u4e9b\u7528\u6237\u7ec4", url: "#_5", children: [
+          ]},
+          {title: "\u5220\u9664\u7528\u6237\u548c\u4ed6\u7684\u5bb6\u76ee\u5f55", url: "#_6", children: [
+          ]},
+          {title: "\u5220\u9664\u67d0\u4e2a\u7528\u6237\u7ec4", url: "#_7", children: [
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../Linux_VFS/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../Linux_VFS/" class="btn btn-xs btn-link">
+        Linux VFS
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../Linux_Signals/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../Linux_Signals/" class="btn btn-xs btn-link">
+        Linux Signals
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="_1">某个用户所在的组</h1>
+<h2 id="_2">将某个用户加入某个组</h2>
+<pre><code class="shell">usermod -a -G 组名 用户名
+</code></pre>
+
+<h2 id="_3">改变某个用户所在的组</h2>
+<pre><code class="shell">usermod ‐g 组名 用户名
+</code></pre>
+
+<h1 id="_4">查看本机有哪些用户</h1>
+<pre><code class="sh">cat /etc/passwd|grep bash
+</code></pre>
+
+<p>有bash的是正常人类使用的用户</p>
+<h1 id="_5">查看本机有哪些用户组</h1>
+<pre><code class="sh">cat /etc/group
+</code></pre>
+
+<h1 id="_6">删除用户和他的家目录</h1>
+<pre><code class="shell">userdel –r 用户
+</code></pre>
+
+<h1 id="_7">删除某个用户组</h1>
+<pre><code class="shell">groupdel 用户组
+</code></pre>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../Linux_VFS/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../Linux_VFS/" class="btn btn-xs btn-link">
+        Linux VFS
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../Linux_Signals/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../Linux_Signals/" class="btn btn-xs btn-link">
+        Linux Signals
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/3. Usage of Linux/Linux_Users_And_Groups.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>
