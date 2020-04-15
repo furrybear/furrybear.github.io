@@ -8,10 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <meta name="author" content="Furrybear">
-    <link rel="canonical" href="https://furrybear.readthedocs.com/1. Knowledge of Data Structure And Algorithm/Hash_Table/">
+    <link rel="canonical" href="https://furrybear.readthedocs.com/1. Knowledge of Data Structure And Algorithm/Online Tutorial about Data Structure and Algorithms/">
     <link rel="shortcut icon" href="../../img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Hash Table - Furrybear's Blog</title>
+    <title>Online Tutorial about Data Structure and Algorithms - Furrybear's Blog</title>
     <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../css/base.css" rel="stylesheet">
@@ -32,9 +32,7 @@
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "\u57fa\u672c", url: "#_top", children: [
-          ]},
-          {title: "\u6269\u5bb9\uff08\u91cd\u54c8\u5e0c\uff09", url: "#_2", children: [
+          {title: "Online Tutorial about Data Structure and Algorithms", url: "#_top", children: [
           ]},
         ];
 
@@ -61,20 +59,20 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../Orthogonal_Linked_List/" class="btn btn-xs btn-default pull-right">
+      <a href="../Orthogonal Linked List Basics/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../Orthogonal_Linked_List/" class="btn btn-xs btn-link">
-        Orthogonal Linked List
+      <a href="../Orthogonal Linked List Basics/" class="btn btn-xs btn-link">
+        Orthogonal Linked List Basics
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../Graph_Basic_Knowledge/" class="btn btn-xs btn-default pull-left">
+      <a href="../Hash Table Basics/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../Graph_Basic_Knowledge/" class="btn btn-xs btn-link">
-        概念
+        Previous</a><a href="../Hash Table Basics/" class="btn btn-xs btn-link">
+        Hash Table Basics
       </a>
     </div>
     
@@ -82,32 +80,10 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <p>参考：<a href="https://www.cnblogs.com/chinajava/p/5808416.html">https://www.cnblogs.com/chinajava/p/5808416.html</a></p>
-<h1 id="_1">基本</h1>
-<p>综合数组与链表的优点。</p>
-<p>哈希表的数组中每一个元素称为一个箱子(bin)，箱子中存放的是键值对。新插入的键值对放在下标为<strong>键的哈希值/箱子数目（数组长度）</strong>的箱子中。</p>
-<p>哈希表的查询的时间复杂度是O(桶的数目)、插入、删除的时间复杂度都为O(1)。</p>
-<p>插入时如果遇到冲突，有两种方式解决冲突：</p>
-<ol>
-<li>链接法</li>
-</ol>
-<p><img alt="" src="../hash_table_with_linked_lists.png" /></p>
-<ol>
-<li>开放寻址法</li>
-</ol>
-<p>最典型的就是<strong>线性寻址</strong>，即插入时从冲突的箱子出往后找，将键值对放到后面第一个空箱子。</p>
-<ol>
-<li>二次探测法</li>
-</ol>
-<p>若当前key与原来key产生相同的哈希地址，则当前key存在该地址后偏移量为（1,2,3...）的二次方地址处
-key1：hash(key)+0
-key2：hash(key)+1^2
-key3：hash(key)+2^2</p>
-<h1 id="_2">扩容（重哈希）</h1>
-<blockquote>
-<p>负载因子 = 总键值对数 / 箱子个数</p>
-</blockquote>
-<p>负载因子大于0.75或者1就要对哈希表进行扩容（重哈希）</p>
+    <h1 id="online-tutorial-about-data-structure-and-algorithms">Online Tutorial about Data Structure and Algorithms</h1>
+<ul>
+<li><a href="https://github.com/TheAlgorithms/Python">TheAlgorithms/Python: All Algorithms implemented in Python</a></li>
+</ul>
 
   <br>
     
@@ -120,20 +96,20 @@ key3：hash(key)+2^2</p>
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../Orthogonal_Linked_List/" class="btn btn-xs btn-default pull-right">
+      <a href="../Orthogonal Linked List Basics/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../Orthogonal_Linked_List/" class="btn btn-xs btn-link">
-        Orthogonal Linked List
+      <a href="../Orthogonal Linked List Basics/" class="btn btn-xs btn-link">
+        Orthogonal Linked List Basics
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../Graph_Basic_Knowledge/" class="btn btn-xs btn-default pull-left">
+      <a href="../Hash Table Basics/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../Graph_Basic_Knowledge/" class="btn btn-xs btn-link">
-        概念
+        Previous</a><a href="../Hash Table Basics/" class="btn btn-xs btn-link">
+        Hash Table Basics
       </a>
     </div>
     
@@ -144,7 +120,7 @@ key3：hash(key)+2^2</p>
 
 <footer class="container-fluid wm-page-content">
       <p>
-        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/1. Knowledge of Data Structure And Algorithm/Hash_Table.md"><i class="fa fa-github"></i>
+        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/1. Knowledge of Data Structure And Algorithm/Online Tutorial about Data Structure and Algorithms.md"><i class="fa fa-github"></i>
 Edit on GitHub</a>
       </p>
   <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>

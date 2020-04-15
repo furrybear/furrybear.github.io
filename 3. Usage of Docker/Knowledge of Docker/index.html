@@ -8,10 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <meta name="author" content="Furrybear">
-    <link rel="canonical" href="https://furrybear.readthedocs.com/3. Usage of Docker/Docker使用学习笔记/">
+    <link rel="canonical" href="https://furrybear.readthedocs.com/3. Usage of Docker/Knowledge of Docker/">
     <link rel="shortcut icon" href="../../img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Docker使用学习笔记 - Furrybear's Blog</title>
+    <title>Knowledge of Docker - Furrybear's Blog</title>
     <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../css/base.css" rel="stylesheet">
@@ -32,13 +32,13 @@
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "Docker\u4f7f\u7528\u5b66\u4e60\u7b14\u8bb0", url: "#_top", children: [
+          {title: "Knowledge of Docker", url: "#_top", children: [
               {title: "\u5e95\u5c42\u6280\u672f", url: "#_1" },
               {title: "\u6982\u5ff5", url: "#_2" },
-              {title: "\u547d\u4ee4", url: "#_4" },
               {title: "\u8fde\u63a5\u8fdc\u7a0bdocker\u8282\u70b9\u4f5c\u4e3adaemon", url: "#dockerdaemon" },
               {title: "Docker for Windows\u4f7f\u7528\u4f53\u9a8c", url: "#docker-for-windows" },
               {title: "Docker Capabilities", url: "#docker-capabilities" },
+              {title: "\u5b89\u5168\u9009\u9879", url: "#_4" },
               {title: "Bind Propagation\uff08\u7ed1\u5b9a\u4f20\u64ad\uff09", url: "#bind-propagation" },
               {title: "References", url: "#references" },
           ]},
@@ -77,10 +77,10 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     </div>
     
     <div class="wm-article-nav">
-      <a href="../Dockerfile学习笔记/" class="btn btn-xs btn-default pull-left">
+      <a href="../How to Write Dockerfile/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../Dockerfile学习笔记/" class="btn btn-xs btn-link">
-        Dockerfile学习笔记
+        Previous</a><a href="../How to Write Dockerfile/" class="btn btn-xs btn-link">
+        How to Write Dockerfile
       </a>
     </div>
     
@@ -88,30 +88,12 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <h1 id="docker">Docker使用学习笔记</h1>
+    <h1 id="knowledge-of-docker">Knowledge of Docker</h1>
 <h2 id="_1">底层技术</h2>
 <p>Docker使用Google公司推出的Go语言进行开发实现，基于Linux内核的CGroup、Namespace功能，以及AUFS类的UnionFS等技术。最初实现是基于LXC，从0.7版本以后开始去除LXC，转而使用自行开发的libcontainer，从1.11开始，则进一步演进为使用runC和containerd。</p>
 <h2 id="_2">概念</h2>
 <h3 id="_3">容器状态</h3>
 <p>docker容器有running和stopped两种状态。docker容器必须有一个前台进程，如果前台进程结束了，那么docker容器就进入了stopped的状态，其他后台进程也停止了。如果找不到合适的前台进程，可以使用<code>sleep infinity</code>（Debian镜像的容器）。</p>
-<h2 id="_4">命令</h2>
-<h3 id="docker-ps">docker ps</h3>
-<p><code>docker ps</code>只是列出所有正在running的容器，使用<code>docker ps -a</code>才能列出所有容器。</p>
-<h3 id="docker-stop">docker stop</h3>
-<p>使用<code>docker stop &lt;容器名/容器ID&gt;</code>可以使一个running的容器停止。</p>
-<h3 id="docker-run">docker run</h3>
-<p>如果启动docker容器时使用了<code>--name</code>这个参数给容器设置了名字，那么就不能再创建同名容器了。</p>
-<h3 id="docker-exec">docker exec</h3>
-<p><code>docker exec -it &lt;容器名/容器ID&gt; &lt;命令&gt; &lt;参数&gt;</code>和<code>docker exec -d &lt;容器名/容器ID&gt; &lt;命令&gt; &lt;参数&gt;</code>可以在容器中执行相关命令，区别是前者分配伪终端在命令行前台执行，后者在后台执行。</p>
-<p>例如，<code>docker exec -it &lt;容器名/容器ID&gt; /bin/sh</code>就可以进入容器。</p>
-<h3 id="docker-restart">docker restart</h3>
-<p><code>docker restart &lt;容器名/容器ID&gt;</code>、<code>docker stop &lt;容器名/容器ID&gt; &amp; docker start &lt;容器名/容器ID&gt;</code>或者重启宿主机可以重启容器。</p>
-<p>值得注意的是，一个容器的文件系统里的内容不会因为容器running和stopped状态的切换而被重置，只要写入了，就是持久的。但是通过<code>docker exec</code>在容器内增加的进程在容器重启后不会保留。容器重启后只会保留镜像中指定的进程。因此不能通过<code>docker exec</code>在容器内增加进程，现在来看只能用Dockerfile等手段重做镜像。
-　　</p>
-<h3 id="docker-rm">docker rm</h3>
-<p>删除所有容器：<code>docker rm -f $(docker ps -a -q)</code></p>
-<h3 id="docker-rmi">docker rmi</h3>
-<p>删除所有容器镜像：<code>docker rmi -f $(docker images -q)</code></p>
 <h2 id="dockerdaemon">连接远程docker节点作为daemon</h2>
 <pre><code class="sh">export DOCKER_HOST=localhost:2375
 </code></pre>
@@ -129,7 +111,23 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 </li>
 </ul>
 <h2 id="docker-capabilities">Docker Capabilities</h2>
-<p>虽然docker容器内运行程序的用户是root，但是对于宿主机来说，其权限是小于容器外的root用户的<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>。因为Linux将用户权限分入了更小的组中，而目前Docker容器启动时默认只有以下的权限：CHOWN、DAC_OVERRIDE、FSETID、FOWNER、MKNOD、NET_RAW、SETGID、SETUID、SETFCAP、SETPCAP、NET_BIND_SERVICE、SYS_CHROOT、KILL、AUDIT_WRITE。所有Linux权限的列表见<a href="http://man7.org/linux/man-pages/man7/capabilities.7.html">http://man7.org/linux/man-pages/man7/capabilities.7.html</a>。增加或减少Docker的Linux权限可以在<code>docker run</code>的时候使用<code>--cap-add</code>或者<code>--cap-drop</code>。或者使用<code>--cap-add ALL</code>或者<code>--cap-drop ALL</code>增加或者去掉所有Linux权限。</p>
+<p>虽然docker容器内运行程序的用户是root，但是对于宿主机来说，其权限是小于容器外的root用户的<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>。因为Linux将用户权限分入了更小的组中，而目前Docker容器启动时默认只有以下14中权限：CHOWN、DAC_OVERRIDE、FSETID、FOWNER、MKNOD、NET_RAW、SETGID、SETUID、SETFCAP、SETPCAP、NET_BIND_SERVICE、SYS_CHROOT、KILL、AUDIT_WRITE。所有Linux权限的列表见<a href="http://man7.org/linux/man-pages/man7/capabilities.7.html">overview of Linux capabilities</a>。增加或减少Docker的Linux权限可以在<code>docker run</code>的时候使用<code>--cap-add</code>或者<code>--cap-drop</code>。或者使用<code>--cap-add ALL</code>或者<code>--cap-drop ALL</code>增加或者去掉所有Linux权限。另外如果将<code>docker run</code>命令的<code>privileged</code>参数设为<code>true</code>，那么 Docker 容器的root权限将得到大幅度的提升。此时，容器的root用户将获得 37 项权限，将完全拥有内核的管理权限。<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></p>
+<p>因此在不开启其他Linux权限时容器内进程的运行用户为root时安全的。如果需要开启其他Linux权限，建议在<code>docker run</code>命令时添加<code>--user</code>参数将容器内进程运行用户改为普通用户以避免安全风险。</p>
+<h2 id="_4">安全选项</h2>
+<h3 id="selinux">SELinux安全配置</h3>
+<pre><code class="sh">docker run
+--security-opt=&quot;label=user:USER&quot;     : Set the label user for the container
+--security-opt=&quot;label=role:ROLE&quot;     : Set the label role for the container
+--security-opt=&quot;label=type:TYPE&quot;     : Set the label type for the container
+--security-opt=&quot;label=level:LEVEL&quot;   : Set the label level for the container
+--security-opt=&quot;label=disable&quot;       : Turn off label confinement for the container
+</code></pre>
+
+<h3 id="apparmorapparmor-security-profiles">AppArmor安全配置（AppArmor security profiles）</h3>
+<p>AppArmor (Application Armor) 是一个Linux安全模块，用于控制进程对文件资源（包括设备等）的访问，与SELinux类似，受到了Canonical公司的支持。使用<code>docker run</code>命令时加<code>--security-opt="apparmor=PROFILE"</code>参数来指定访问规则；加<code>--security-opt apparmor=unconfined</code>不限制访问。</p>
+<h3 id="seccompseccomp-security-profiles">Seccomp安全模式（Seccomp security profiles）</h3>
+<p>Secure computing mode（seccomp）是一个Linux安全特性，用于限制进程使用的系统调用。</p>
+<p>在启用Seccomp的Linux系统中，使用<code>docker run</code>命令时加<code>--security-opt seccomp=/path/to/seccomp/profile.json</code>参数来指定进程可以使用的系统调用。默认情况下有44个系统调用不能使用，可以加<code>--security-opt seccomp=unconfined</code>不限制系统调用。</p>
 <h2 id="bind-propagation">Bind Propagation（绑定传播）</h2>
 <p>例子：</p>
 <pre><code class="sh">docker run \
@@ -180,6 +178,9 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <li id="fn:1">
 <p><a href="https://opensource.com/business/15/3/docker-security-tuning">Tuning Docker with the newest security enhancements</a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
+<li id="fn:2">
+<p><a href="https://guide.daocloud.io/dcs/docker-root-9153994.html">Docker 容器的 root 安全吗？</a>&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
 </ol>
 </div>
 
@@ -204,10 +205,10 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     </div>
     
     <div class="wm-article-nav">
-      <a href="../Dockerfile学习笔记/" class="btn btn-xs btn-default pull-left">
+      <a href="../How to Write Dockerfile/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../Dockerfile学习笔记/" class="btn btn-xs btn-link">
-        Dockerfile学习笔记
+        Previous</a><a href="../How to Write Dockerfile/" class="btn btn-xs btn-link">
+        How to Write Dockerfile
       </a>
     </div>
     
@@ -218,7 +219,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
 <footer class="container-fluid wm-page-content">
       <p>
-        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/3. Usage of Docker/Docker使用学习笔记.md"><i class="fa fa-github"></i>
+        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/3. Usage of Docker/Knowledge of Docker.md"><i class="fa fa-github"></i>
 Edit on GitHub</a>
       </p>
   <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>

@@ -8,10 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <meta name="author" content="Furrybear">
-    <link rel="canonical" href="https://furrybear.readthedocs.com/1. Knowledge of Data Structure And Algorithm/Graph_Basic_Knowledge/">
+    <link rel="canonical" href="https://furrybear.readthedocs.com/1. Knowledge of Data Structure And Algorithm/Graph Basics/">
     <link rel="shortcut icon" href="../../img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>概念 - Furrybear's Blog</title>
+    <title>Graph Basics - Furrybear's Blog</title>
     <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../css/base.css" rel="stylesheet">
@@ -32,11 +32,9 @@
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "\u6982\u5ff5", url: "#_top", children: [
-          ]},
-          {title: "\u6700\u5c0f\u751f\u6210\u6811\u7b97\u6cd5", url: "#_2", children: [
-              {title: "Prim\u7b97\u6cd5", url: "#prim" },
-              {title: "Kruskal\u7b97\u6cd5", url: "#kruskal" },
+          {title: "Graph Basics", url: "#_top", children: [
+              {title: "\u6982\u5ff5", url: "#_1" },
+              {title: "\u6700\u5c0f\u751f\u6210\u6811\u7b97\u6cd5", url: "#_2" },
           ]},
         ];
 
@@ -63,20 +61,20 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../Hash_Table/" class="btn btn-xs btn-default pull-right">
+      <a href="../Hash Table Basics/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../Hash_Table/" class="btn btn-xs btn-link">
-        Hash Table
+      <a href="../Hash Table Basics/" class="btn btn-xs btn-link">
+        Hash Table Basics
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../Common_Algorithms/" class="btn btn-xs btn-default pull-left">
+      <a href="../Common Algorithms/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../Common_Algorithms/" class="btn btn-xs btn-link">
-        LRU（Least Recently Used）
+        Previous</a><a href="../Common Algorithms/" class="btn btn-xs btn-link">
+        Common Alogorithms
       </a>
     </div>
     
@@ -84,7 +82,8 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <h1 id="_1">概念</h1>
+    <h1 id="graph-basics">Graph Basics</h1>
+<h2 id="_1">概念</h2>
 <ul>
 <li>
 <p>顶点（Vertex ([pl.]Vertices)）</p>
@@ -108,12 +107,12 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p>最小生成树（Minimum Spanning Tree）：同个连通加权无向图的生成树中，所有边的权值和最小的生成树。</p>
 </li>
 </ul>
-<h1 id="_2">最小生成树算法</h1>
+<h2 id="_2">最小生成树算法</h2>
 <p>最小生成树算法可以用来生成最小生成树和最大生成树：</p>
-<h2 id="prim">Prim算法</h2>
+<h3 id="prim">Prim算法</h3>
 <p>针对顶点展开的，适合于边数较多的情况。</p>
 <p>具体做法：从任意顶点开始，将该定点放入集合S，再找到距离集合S最近的顶点，加入S集合。直到所有定点都加入进来。</p>
-<h2 id="kruskal">Kruskal算法</h2>
+<h3 id="kruskal">Kruskal算法</h3>
 <p>针对边展开的，适合于边的数量较少的情况。</p>
 <p>具体做法：遍历权值从小到大的边，如果边的两个顶点属于不同连通分量（利用并查集），那么将边加入G'，最后G'就是最小生成树。</p>
 
@@ -128,20 +127,20 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../Hash_Table/" class="btn btn-xs btn-default pull-right">
+      <a href="../Hash Table Basics/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../Hash_Table/" class="btn btn-xs btn-link">
-        Hash Table
+      <a href="../Hash Table Basics/" class="btn btn-xs btn-link">
+        Hash Table Basics
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../Common_Algorithms/" class="btn btn-xs btn-default pull-left">
+      <a href="../Common Algorithms/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../Common_Algorithms/" class="btn btn-xs btn-link">
-        LRU（Least Recently Used）
+        Previous</a><a href="../Common Algorithms/" class="btn btn-xs btn-link">
+        Common Alogorithms
       </a>
     </div>
     
@@ -152,7 +151,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
 <footer class="container-fluid wm-page-content">
       <p>
-        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/1. Knowledge of Data Structure And Algorithm/Graph_Basic_Knowledge.md"><i class="fa fa-github"></i>
+        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/1. Knowledge of Data Structure And Algorithm/Graph Basics.md"><i class="fa fa-github"></i>
 Edit on GitHub</a>
       </p>
   <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
