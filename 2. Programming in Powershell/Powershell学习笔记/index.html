@@ -188,7 +188,14 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
 <p>好看的配色在<a href="https://github.com/mbadolato/iTerm2-Color-Schemes">mbadolato/iTerm2-Color-Schemes</a>，比如ayu。</p>
 <h2 id="_5">设置代理</h2>
-<pre><code class="powershell">netsh winhttp set proxy 127.0.0.1:1080
+<pre><code class="powershell">netsh winhttp set proxy proxy-server=&quot;http=localhost:7890;https=localhost:7890&quot;
+# Cancel
+netsh winhttp reset proxy
+</code></pre>
+
+<p>For some programs migrated from UNIX-like platform:</p>
+<pre><code class="sh">$env:HTTPS_PROXY=&quot;http://localhost:7890&quot;
+$env:HTTP_PROXY=&quot;http://localhost:7890&quot;
 </code></pre>
 
   <br>

@@ -8,10 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <meta name="author" content="Furrybear">
-    <link rel="canonical" href="https://furrybear.readthedocs.com/1. Knowledge of Job Application/面试经验整理/">
+    <link rel="canonical" href="https://furrybear.readthedocs.com/2. Programming in Javascript/How to use yarn/">
     <link rel="shortcut icon" href="../../img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>面试经验整理 - Furrybear's Blog</title>
+    <title>How to use yarn - Furrybear's Blog</title>
     <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../css/base.css" rel="stylesheet">
@@ -32,8 +32,9 @@
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "\u9762\u8bd5\u7ecf\u9a8c\u6574\u7406", url: "#_top", children: [
-              {title: "\u53c2\u8003", url: "#_2" },
+          {title: "How to use yarn", url: "#_top", children: [
+              {title: "\u5b89\u88c5", url: "#_1" },
+              {title: "\u8f6f\u4ef6\u6e90\u6539\u4e3a\u56fd\u5185\u955c\u50cf\u6e90", url: "#_2" },
           ]},
         ];
 
@@ -60,20 +61,20 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../../1. Knowledge of Mathematics/Modulo_Operation/" class="btn btn-xs btn-default pull-right">
+      <a href="../Javascript Basics/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../../1. Knowledge of Mathematics/Modulo_Operation/" class="btn btn-xs btn-link">
-        Modulo Operation
+      <a href="../Javascript Basics/" class="btn btn-xs btn-link">
+        Javascript Basics
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../面试笔试题整理/" class="btn btn-xs btn-default pull-left">
+      <a href="../How to use npm/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../面试笔试题整理/" class="btn btn-xs btn-link">
-        面试笔试题整理
+        Previous</a><a href="../How to use npm/" class="btn btn-xs btn-link">
+        How to use npm
       </a>
     </div>
     
@@ -81,9 +82,24 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <h1 id="_1">面试经验整理</h1>
-<h2 id="_2">参考</h2>
-<p><a href="https://www.toutiao.com/i6709703344018948622/?tt_from=weixin&amp;utm_campaign=client_share&amp;wxshare_count=2&amp;from=groupmessage&amp;timestamp=1562286764&amp;app=news_article&amp;utm_source=weixin&amp;isappinstalled=0&amp;utm_medium=toutiao_android&amp;req_id=20190705083243010027041153899D5EC&amp;group_id=6709703344018948622&amp;pbid=6709217619948553740">蚂蚁金服2020金融核心部门面经（Redis+AOP+中间件+分布式锁等）</a></p>
+    <h1 id="how-to-use-yarn">How to use yarn</h1>
+<h2 id="_1">安装</h2>
+<pre><code class="sh">npm install yarn -g
+</code></pre>
+
+<h2 id="_2">软件源改为国内镜像源</h2>
+<pre><code class="sh">yarn config set registry https://registry.npm.taobao.org/
+yarn config set sass_binary_site http://cdn.npm.taobao.org/dist/node-sass
+</code></pre>
+
+<p>或者使用 YARN registry manager，</p>
+<pre><code class="sh"># 安装
+npm install -g yrm
+# 切换软件源
+yrm use taobao
+# 测速
+yrm test taobao
+</code></pre>
 
   <br>
     
@@ -96,20 +112,20 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../../1. Knowledge of Mathematics/Modulo_Operation/" class="btn btn-xs btn-default pull-right">
+      <a href="../Javascript Basics/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../../1. Knowledge of Mathematics/Modulo_Operation/" class="btn btn-xs btn-link">
-        Modulo Operation
+      <a href="../Javascript Basics/" class="btn btn-xs btn-link">
+        Javascript Basics
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../面试笔试题整理/" class="btn btn-xs btn-default pull-left">
+      <a href="../How to use npm/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../面试笔试题整理/" class="btn btn-xs btn-link">
-        面试笔试题整理
+        Previous</a><a href="../How to use npm/" class="btn btn-xs btn-link">
+        How to use npm
       </a>
     </div>
     
@@ -120,7 +136,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
 <footer class="container-fluid wm-page-content">
       <p>
-        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/1. Knowledge of Job Application/面试经验整理.md"><i class="fa fa-github"></i>
+        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/2. Programming in Javascript/How to use yarn.md"><i class="fa fa-github"></i>
 Edit on GitHub</a>
       </p>
   <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>

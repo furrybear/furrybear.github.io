@@ -8,10 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <meta name="author" content="Furrybear">
-    <link rel="canonical" href="https://furrybear.readthedocs.com/2. Programming in Javascript/Javascript学习笔记/">
+    <link rel="canonical" href="https://furrybear.readthedocs.com/2. Programming in Javascript/Javascript Basics/">
     <link rel="shortcut icon" href="../../img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Javascript学习笔记 - Furrybear's Blog</title>
+    <title>Javascript Basics - Furrybear's Blog</title>
     <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../css/base.css" rel="stylesheet">
@@ -32,11 +32,13 @@
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "Javascript\u5b66\u4e60\u7b14\u8bb0", url: "#_top", children: [
+          {title: "Javascript Basics", url: "#_top", children: [
+              {title: "\u53c2\u6570\u4f20\u9012", url: "#_1" },
+              {title: "\u5b57\u7b26\u4e32", url: "#_2" },
               {title: "\u5224\u65ad\u6570\u636e\u7c7b\u578b\u7684\u65b9\u6cd53", url: "#3" },
               {title: "ES6\u7279\u6027\u4e4bexport", url: "#es6export" },
               {title: "\u5982\u4f55\u5c06\u56de\u8c03\u51fd\u6570Promise\u5316", url: "#promise" },
-              {title: "\u53c2\u8003", url: "#_1" },
+              {title: "\u53c2\u8003", url: "#_5" },
           ]},
         ];
 
@@ -63,20 +65,20 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../Node.js学习笔记/" class="btn btn-xs btn-default pull-right">
+      <a href="../Javascript Built-in Objects/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../Node.js学习笔记/" class="btn btn-xs btn-link">
-        Node.js学习笔记
+      <a href="../Javascript Built-in Objects/" class="btn btn-xs btn-link">
+        Javascript Built-in Objects
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../../2. Programming in Java/Usage of Common Libraries/" class="btn btn-xs btn-default pull-left">
+      <a href="../How to use yarn/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../../2. Programming in Java/Usage of Common Libraries/" class="btn btn-xs btn-link">
-        Usage of Common Libraries
+        Previous</a><a href="../How to use yarn/" class="btn btn-xs btn-link">
+        How to use yarn
       </a>
     </div>
     
@@ -84,7 +86,35 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <h1 id="javascript">Javascript学习笔记</h1>
+    <h1 id="javascript-basics">Javascript Basics</h1>
+<h2 id="_1">参数传递</h2>
+<p>准确的说，JS中的基本类型按值传递，对象类型按共享传递。所谓共享传递：</p>
+<pre><code>'use strict'
+let v1={a:'Old value'};
+let v1a=v1.a;
+let v2=v1;
+v1a='New value';
+console.log(v1);
+v2.a='New value';
+console.log(v1);
+</code></pre>
+
+<p>输出为：</p>
+<pre><code>{ a: 'Old value' }
+{ a: 'New value' }
+</code></pre>
+
+<p>v1a没能改变v1.a的值，v2.a成功改变v1.a的值。</p>
+<p>利用共享传递的机制应该能避免了传值还是传引用的问题。</p>
+<h2 id="_2">字符串</h2>
+<h3 id="_3">引号（'）</h3>
+<p>单引号包裹的字符串里会转义所有转义字符，但是双引号可以不用转义。</p>
+<p>单引号包裹的字符串是单行字符串。</p>
+<h3 id="_4">双引号（"）</h3>
+<p>双引号包裹的字符串里会转义所有转义字符，但是单引号可以不用转义。</p>
+<p>双引号包裹的字符串是单行字符串。</p>
+<h3 id="html">嵌入html时</h3>
+<p><code>&lt;a onclick="alert(\"可爱的小熊\");"&gt;</code>是不可以的，要用<code>&lt;a onclick="alert('可爱的小熊');"&gt;</code>。</p>
 <h2 id="3">判断数据类型的方法<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup></h2>
 <h3 id="typeof">typeof</h3>
 <p>会返回以下几种值之一：number、boolean、symbol、string、object、undefined、function。</p>
@@ -142,7 +172,7 @@ function readFileContent(filepath) {
 readFileContent(String.raw`C:\Windows\System32\drivers\etc\hosts`).then(data =&gt; { console.log(data) }).catch(err =&gt; { console.log(err) });
 </code></pre>
 
-<h2 id="_1">参考</h2>
+<h2 id="_5">参考</h2>
 <div class="footnote">
 <hr />
 <ol>
@@ -169,20 +199,20 @@ readFileContent(String.raw`C:\Windows\System32\drivers\etc\hosts`).then(data =&g
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../Node.js学习笔记/" class="btn btn-xs btn-default pull-right">
+      <a href="../Javascript Built-in Objects/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../Node.js学习笔记/" class="btn btn-xs btn-link">
-        Node.js学习笔记
+      <a href="../Javascript Built-in Objects/" class="btn btn-xs btn-link">
+        Javascript Built-in Objects
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../../2. Programming in Java/Usage of Common Libraries/" class="btn btn-xs btn-default pull-left">
+      <a href="../How to use yarn/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../../2. Programming in Java/Usage of Common Libraries/" class="btn btn-xs btn-link">
-        Usage of Common Libraries
+        Previous</a><a href="../How to use yarn/" class="btn btn-xs btn-link">
+        How to use yarn
       </a>
     </div>
     
@@ -193,7 +223,7 @@ readFileContent(String.raw`C:\Windows\System32\drivers\etc\hosts`).then(data =&g
 
 <footer class="container-fluid wm-page-content">
       <p>
-        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/2. Programming in Javascript/Javascript学习笔记.md"><i class="fa fa-github"></i>
+        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/2. Programming in Javascript/Javascript Basics.md"><i class="fa fa-github"></i>
 Edit on GitHub</a>
       </p>
   <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>

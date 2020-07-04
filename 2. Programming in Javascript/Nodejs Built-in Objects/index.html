@@ -8,10 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <meta name="author" content="Furrybear">
-    <link rel="canonical" href="https://furrybear.readthedocs.com/3. Usage/yarn使用学习笔记/">
+    <link rel="canonical" href="https://furrybear.readthedocs.com/2. Programming in Javascript/Nodejs Built-in Objects/">
     <link rel="shortcut icon" href="../../img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>yarn使用学习笔记 - Furrybear's Blog</title>
+    <title>Node.js Built-in Objects - Furrybear's Blog</title>
     <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../css/base.css" rel="stylesheet">
@@ -32,8 +32,8 @@
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "yarn\u4f7f\u7528\u5b66\u4e60\u7b14\u8bb0", url: "#_top", children: [
-              {title: "\u8bbe\u7f6e\u56fd\u5185\u955c\u50cf", url: "#_1" },
+          {title: "Node.js Built-in Objects", url: "#_top", children: [
+              {title: "global", url: "#global" },
           ]},
         ];
 
@@ -60,20 +60,20 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../包管理器apt使用学习笔记/" class="btn btn-xs btn-default pull-right">
+      <a href="../../2. Programming in PHP/php7_Basic_Knowledge/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../包管理器apt使用学习笔记/" class="btn btn-xs btn-link">
-        包管理器apt使用学习笔记
+      <a href="../../2. Programming in PHP/php7_Basic_Knowledge/" class="btn btn-xs btn-link">
+        一些超全局变量
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../vim基本知识/" class="btn btn-xs btn-default pull-left">
+      <a href="../Nodejs Basics/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../vim基本知识/" class="btn btn-xs btn-link">
-        查找和替换
+        Previous</a><a href="../Nodejs Basics/" class="btn btn-xs btn-link">
+        Node.js Basics
       </a>
     </div>
     
@@ -81,11 +81,9 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <h1 id="yarn">yarn使用学习笔记</h1>
-<h2 id="_1">设置国内镜像</h2>
-<pre><code class="cmd">yarn config set registry https://registry.npm.taobao.org -g
-yarn config set sass_binary_site http://cdn.npm.taobao.org/dist/node-sass -g
-</code></pre>
+    <h1 id="nodejs-built-in-objects">Node.js Built-in Objects</h1>
+<h2 id="global">global</h2>
+<p><code>global</code>是Node.js中的全局对象，全局作用域下<code>this</code>即指向这个对象。</p>
 
   <br>
     
@@ -98,20 +96,20 @@ yarn config set sass_binary_site http://cdn.npm.taobao.org/dist/node-sass -g
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../包管理器apt使用学习笔记/" class="btn btn-xs btn-default pull-right">
+      <a href="../../2. Programming in PHP/php7_Basic_Knowledge/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../包管理器apt使用学习笔记/" class="btn btn-xs btn-link">
-        包管理器apt使用学习笔记
+      <a href="../../2. Programming in PHP/php7_Basic_Knowledge/" class="btn btn-xs btn-link">
+        一些超全局变量
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../vim基本知识/" class="btn btn-xs btn-default pull-left">
+      <a href="../Nodejs Basics/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../vim基本知识/" class="btn btn-xs btn-link">
-        查找和替换
+        Previous</a><a href="../Nodejs Basics/" class="btn btn-xs btn-link">
+        Node.js Basics
       </a>
     </div>
     
@@ -122,7 +120,7 @@ yarn config set sass_binary_site http://cdn.npm.taobao.org/dist/node-sass -g
 
 <footer class="container-fluid wm-page-content">
       <p>
-        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/3. Usage/yarn使用学习笔记.md"><i class="fa fa-github"></i>
+        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/2. Programming in Javascript/Nodejs Built-in Objects.md"><i class="fa fa-github"></i>
 Edit on GitHub</a>
       </p>
   <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>

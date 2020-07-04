@@ -8,10 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <meta name="author" content="Furrybear">
-    <link rel="canonical" href="https://furrybear.readthedocs.com/2. Programming in Javascript/js：Promise、async和await避免回调灾难/">
+    <link rel="canonical" href="https://furrybear.readthedocs.com/2. Programming in Javascript/Javascript How to Avoid Callback Hell/">
     <link rel="shortcut icon" href="../../img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>js：Promise、async和await避免回调灾难 - Furrybear's Blog</title>
+    <title>Javascript: How to Avoid Callback Hell - Furrybear's Blog</title>
     <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../css/base.css" rel="stylesheet">
@@ -32,9 +32,9 @@
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "Promise", url: "#_top", children: [
-          ]},
-          {title: "Promise.all", url: "#promiseall", children: [
+          {title: "Javascript: How to Avoid Callback Hell", url: "#_top", children: [
+              {title: "Promise", url: "#promise" },
+              {title: "Promise.all", url: "#promiseall" },
           ]},
           {title: "Generator\u548cyield", url: "#generatoryield", children: [
           ]},
@@ -65,20 +65,20 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../js：console对象/" class="btn btn-xs btn-default pull-right">
+      <a href="../Javascript Prototype and Prototype Chain Explained/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../js：console对象/" class="btn btn-xs btn-link">
-        js：console对象
+      <a href="../Javascript Prototype and Prototype Chain Explained/" class="btn btn-xs btn-link">
+        Javascript Prototype and Prototype Chain Explained
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../Node.js学习笔记/" class="btn btn-xs btn-default pull-left">
+      <a href="../Javascript Built-in Objects/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../Node.js学习笔记/" class="btn btn-xs btn-link">
-        Node.js学习笔记
+        Previous</a><a href="../Javascript Built-in Objects/" class="btn btn-xs btn-link">
+        Javascript Built-in Objects
       </a>
     </div>
     
@@ -86,7 +86,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <p>回调函数多层嵌套不好看。</p>
+    <h1 id="javascript-how-to-avoid-callback-hell">Javascript: How to Avoid Callback Hell</h1>
 <h2 id="promise">Promise</h2>
 <p>参考：<a href="https://segmentfault.com/a/1190000002395343">https://segmentfault.com/a/1190000002395343</a></p>
 <pre><code class="js">var val = 1;
@@ -236,20 +236,20 @@ test();
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../js：console对象/" class="btn btn-xs btn-default pull-right">
+      <a href="../Javascript Prototype and Prototype Chain Explained/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../js：console对象/" class="btn btn-xs btn-link">
-        js：console对象
+      <a href="../Javascript Prototype and Prototype Chain Explained/" class="btn btn-xs btn-link">
+        Javascript Prototype and Prototype Chain Explained
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../Node.js学习笔记/" class="btn btn-xs btn-default pull-left">
+      <a href="../Javascript Built-in Objects/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../Node.js学习笔记/" class="btn btn-xs btn-link">
-        Node.js学习笔记
+        Previous</a><a href="../Javascript Built-in Objects/" class="btn btn-xs btn-link">
+        Javascript Built-in Objects
       </a>
     </div>
     
@@ -260,7 +260,7 @@ test();
 
 <footer class="container-fluid wm-page-content">
       <p>
-        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/2. Programming in Javascript/js：Promise、async和await避免回调灾难.md"><i class="fa fa-github"></i>
+        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/2. Programming in Javascript/Javascript How to Avoid Callback Hell.md"><i class="fa fa-github"></i>
 Edit on GitHub</a>
       </p>
   <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>

@@ -33,8 +33,10 @@
         
         var pageToc = [
           {title: "Spring Boot Basic Knowledge", url: "#_top", children: [
+              {title: "CLI Helper", url: "#cli-helper" },
               {title: "Controller", url: "#controller" },
               {title: "RestController", url: "#restcontroller" },
+              {title: "References", url: "#references" },
           ]},
         ];
 
@@ -83,10 +85,27 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     
 
     <h1 id="spring-boot-basic-knowledge">Spring Boot Basic Knowledge</h1>
+<h2 id="cli-helper">CLI Helper</h2>
+<p>Download Spring Boot CLI from <a href="https://docs.spring.io/spring-boot/docs/current/reference/html/getting-started.html#getting-started-manual-cli-installation">Installing the Spring Boot CLI</a><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>. Then run the following command after add the executable file to the environment variable <code>PATH</code>:</p>
+<pre><code class="sh">spring init --groupId org.fbcll --boot-version 2.3.1 --build maven --dependencies web --java-version 11 --artifactId demo --name demo
+</code></pre>
+
 <h2 id="controller">Controller</h2>
 <p>Usually return generally view (HTML + CSS + JavaScript).</p>
 <h2 id="restcontroller">RestController</h2>
 <p>Usually return data in form of JSON or XML as REST API.</p>
+<h2 id="references">References</h2>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p><a href="https://docs.spring.io/spring-boot/docs/current/reference/html/getting-started.html#getting-started-manual-cli-installation">Installing the Spring Boot CLI</a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p><a href="https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-cli.html#cli-init">Initialize a New Project</a>&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
 
   <br>
     

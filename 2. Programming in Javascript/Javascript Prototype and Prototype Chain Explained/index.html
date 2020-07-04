@@ -8,10 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <meta name="author" content="Furrybear">
-    <link rel="canonical" href="https://furrybear.readthedocs.com/2. Programming in Javascript/Node.js学习笔记/">
+    <link rel="canonical" href="https://furrybear.readthedocs.com/2. Programming in Javascript/Javascript Prototype and Prototype Chain Explained/">
     <link rel="shortcut icon" href="../../img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Node.js学习笔记 - Furrybear's Blog</title>
+    <title>Javascript Prototype and Prototype Chain Explained - Furrybear's Blog</title>
     <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../css/base.css" rel="stylesheet">
@@ -32,8 +32,9 @@
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "Node.js\u5b66\u4e60\u7b14\u8bb0", url: "#_top", children: [
-              {title: "\u6267\u884c\u5916\u90e8\u547d\u4ee4", url: "#_1" },
+          {title: "Javascript Prototype and Prototype Chain Explained", url: "#_top", children: [
+              {title: "new\u3001prototype\u3001__proto__\u3001\u539f\u578b\u4e0e\u539f\u578b\u94fe", url: "#newprototype9595proto9595" },
+              {title: "References", url: "#references" },
           ]},
         ];
 
@@ -60,20 +61,20 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../js：Promise、async和await避免回调灾难/" class="btn btn-xs btn-default pull-right">
+      <a href="../Nodejs Basics/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../js：Promise、async和await避免回调灾难/" class="btn btn-xs btn-link">
-        js：Promise、async和await避免回调灾难
+      <a href="../Nodejs Basics/" class="btn btn-xs btn-link">
+        Node.js Basics
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../Javascript学习笔记/" class="btn btn-xs btn-default pull-left">
+      <a href="../Javascript How to Avoid Callback Hell/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../Javascript学习笔记/" class="btn btn-xs btn-link">
-        Javascript学习笔记
+        Previous</a><a href="../Javascript How to Avoid Callback Hell/" class="btn btn-xs btn-link">
+        Javascript: How to Avoid Callback Hell
       </a>
     </div>
     
@@ -81,14 +82,17 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <h1 id="nodejs">Node.js学习笔记</h1>
-<h2 id="_1">执行外部命令</h2>
-<pre><code class="js">const child_process = require(&quot;child_process&quot;);
-// 直接执行命令
-child_process.spawnSync(&quot;&lt;命令&gt;&quot;,[&lt;参数&gt;]);
-// UNIX下通过Shell或者Win下通过cmd执行命令，退出码为非零时会抛出错误
-child_process.execSync(&quot;&lt;命令&gt; &lt;参数&gt;&quot;);                         
-</code></pre>
+    <h1 id="javascript-prototype-and-prototype-chain-explained">Javascript Prototype and Prototype Chain Explained</h1>
+<h2 id="newprototype9595proto9595">new、prototype、__proto__、原型与原型链</h2>
+<p><img alt="" src="../1.jpg" /></p>
+<p>js的对象分为普通对象和函数对象。</p>
+<p>凡是通过<strong>new Function()</strong>创建的对象都是函数对象，其他的都是普通对象。</p>
+<p><strong>定律</strong>：每个对象都有<strong>__proto__</strong>属性，但只有函数对象才有<strong>prototype</strong>属性，它初始是个空对象。</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://www.jianshu.com/p/dee9f8b14771">https://www.jianshu.com/p/dee9f8b14771</a></li>
+<li><a href="https://www.zhihu.com/question/34183746">https://www.zhihu.com/question/34183746</a></li>
+</ul>
 
   <br>
     
@@ -101,20 +105,20 @@ child_process.execSync(&quot;&lt;命令&gt; &lt;参数&gt;&quot;);
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../js：Promise、async和await避免回调灾难/" class="btn btn-xs btn-default pull-right">
+      <a href="../Nodejs Basics/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../js：Promise、async和await避免回调灾难/" class="btn btn-xs btn-link">
-        js：Promise、async和await避免回调灾难
+      <a href="../Nodejs Basics/" class="btn btn-xs btn-link">
+        Node.js Basics
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../Javascript学习笔记/" class="btn btn-xs btn-default pull-left">
+      <a href="../Javascript How to Avoid Callback Hell/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../Javascript学习笔记/" class="btn btn-xs btn-link">
-        Javascript学习笔记
+        Previous</a><a href="../Javascript How to Avoid Callback Hell/" class="btn btn-xs btn-link">
+        Javascript: How to Avoid Callback Hell
       </a>
     </div>
     
@@ -125,7 +129,7 @@ child_process.execSync(&quot;&lt;命令&gt; &lt;参数&gt;&quot;);
 
 <footer class="container-fluid wm-page-content">
       <p>
-        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/2. Programming in Javascript/Node.js学习笔记.md"><i class="fa fa-github"></i>
+        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/2. Programming in Javascript/Javascript Prototype and Prototype Chain Explained.md"><i class="fa fa-github"></i>
 Edit on GitHub</a>
       </p>
   <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>

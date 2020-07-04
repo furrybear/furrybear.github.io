@@ -8,10 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <meta name="author" content="Furrybear">
-    <link rel="canonical" href="https://furrybear.readthedocs.com/2. Programming in Javascript/js：值传递和共享传递/">
+    <link rel="canonical" href="https://furrybear.readthedocs.com/2. Programming in Javascript/Javascript Built-in Objects/">
     <link rel="shortcut icon" href="../../img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>js：值传递和共享传递 - Furrybear's Blog</title>
+    <title>Javascript Built-in Objects - Furrybear's Blog</title>
     <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../css/base.css" rel="stylesheet">
@@ -32,6 +32,10 @@
       var is_top_frame = false;
         
         var pageToc = [
+          {title: "Javascript Built-in Objects", url: "#_top", children: [
+              {title: "window", url: "#window" },
+              {title: "console", url: "#console" },
+          ]},
         ];
 
     </script>
@@ -57,20 +61,20 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../js：字符串/" class="btn btn-xs btn-default pull-right">
+      <a href="../Javascript How to Avoid Callback Hell/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../js：字符串/" class="btn btn-xs btn-link">
-        js：字符串
+      <a href="../Javascript How to Avoid Callback Hell/" class="btn btn-xs btn-link">
+        Javascript: How to Avoid Callback Hell
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../js：this、global、window、new、prototype、__proto__、原型与原型链/" class="btn btn-xs btn-default pull-left">
+      <a href="../Javascript Basics/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../js：this、global、window、new、prototype、__proto__、原型与原型链/" class="btn btn-xs btn-link">
-        js：this、global、window、new、prototype、__proto__、原型与原型链
+        Previous</a><a href="../Javascript Basics/" class="btn btn-xs btn-link">
+        Javascript Basics
       </a>
     </div>
     
@@ -78,24 +82,20 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <p>准确的说，JS中的基本类型按值传递，对象类型按共享传递。所谓共享传递：</p>
-<pre><code>'use strict'
-let v1={a:'Old value'};
-let v1a=v1.a;
-let v2=v1;
-v1a='New value';
-console.log(v1);
-v2.a='New value';
-console.log(v1);
+    <h1 id="javascript-built-in-objects">Javascript Built-in Objects</h1>
+<h2 id="window">window</h2>
+<p><code>window</code>是Node.js中的全局对象，全局作用域下<code>this</code>即指向这个对象。</p>
+<h2 id="console">console</h2>
+<pre><code class="js">// Verbose Level
+console.debug('123');
+// Info Level
+console.log('123');
+console.info('123');
+// Warning Level
+console.warn('123');
+// Error Level
+console.error('123');
 </code></pre>
-
-<p>输出为：</p>
-<pre><code>{ a: 'Old value' }
-{ a: 'New value' }
-</code></pre>
-
-<p>v1a没能改变v1.a的值，v2.a成功改变v1.a的值。</p>
-<p>利用共享传递的机制应该能避免了传值还是传引用的问题。</p>
 
   <br>
     
@@ -108,20 +108,20 @@ console.log(v1);
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../js：字符串/" class="btn btn-xs btn-default pull-right">
+      <a href="../Javascript How to Avoid Callback Hell/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../js：字符串/" class="btn btn-xs btn-link">
-        js：字符串
+      <a href="../Javascript How to Avoid Callback Hell/" class="btn btn-xs btn-link">
+        Javascript: How to Avoid Callback Hell
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../js：this、global、window、new、prototype、__proto__、原型与原型链/" class="btn btn-xs btn-default pull-left">
+      <a href="../Javascript Basics/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../js：this、global、window、new、prototype、__proto__、原型与原型链/" class="btn btn-xs btn-link">
-        js：this、global、window、new、prototype、__proto__、原型与原型链
+        Previous</a><a href="../Javascript Basics/" class="btn btn-xs btn-link">
+        Javascript Basics
       </a>
     </div>
     
@@ -132,7 +132,7 @@ console.log(v1);
 
 <footer class="container-fluid wm-page-content">
       <p>
-        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/2. Programming in Javascript/js：值传递和共享传递.md"><i class="fa fa-github"></i>
+        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/2. Programming in Javascript/Javascript Built-in Objects.md"><i class="fa fa-github"></i>
 Edit on GitHub</a>
       </p>
   <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>

@@ -8,10 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <meta name="author" content="Furrybear">
-    <link rel="canonical" href="https://furrybear.readthedocs.com/2. Programming in Javascript/npm使用学习笔记/">
+    <link rel="canonical" href="https://furrybear.readthedocs.com/2. Programming in Javascript/Nodejs Basics/">
     <link rel="shortcut icon" href="../../img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>npm使用学习笔记 - Furrybear's Blog</title>
+    <title>Node.js Basics - Furrybear's Blog</title>
     <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../css/base.css" rel="stylesheet">
@@ -32,9 +32,8 @@
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "npm\u4f7f\u7528\u5b66\u4e60\u7b14\u8bb0", url: "#_top", children: [
-              {title: "\u8f6f\u4ef6\u6e90\u6539\u4e3a\u56fd\u5185\u955c\u50cf\u6e90", url: "#_1" },
-              {title: "Command Line Options", url: "#command-line-options" },
+          {title: "Node.js Basics", url: "#_top", children: [
+              {title: "\u6267\u884c\u5916\u90e8\u547d\u4ee4", url: "#_1" },
           ]},
         ];
 
@@ -61,20 +60,20 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../yarn使用学习笔记/" class="btn btn-xs btn-default pull-right">
+      <a href="../Nodejs Built-in Objects/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../yarn使用学习笔记/" class="btn btn-xs btn-link">
-        yarn使用学习笔记
+      <a href="../Nodejs Built-in Objects/" class="btn btn-xs btn-link">
+        Node.js Built-in Objects
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../js：字符串/" class="btn btn-xs btn-default pull-left">
+      <a href="../Javascript Prototype and Prototype Chain Explained/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../js：字符串/" class="btn btn-xs btn-link">
-        js：字符串
+        Previous</a><a href="../Javascript Prototype and Prototype Chain Explained/" class="btn btn-xs btn-link">
+        Javascript Prototype and Prototype Chain Explained
       </a>
     </div>
     
@@ -82,21 +81,14 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <h1 id="npm">npm使用学习笔记</h1>
-<h2 id="_1">软件源改为国内镜像源</h2>
-<pre><code class="sh">npm config set registry https://registry.npm.taobao.org
+    <h1 id="nodejs-basics">Node.js Basics</h1>
+<h2 id="_1">执行外部命令</h2>
+<pre><code class="js">const child_process = require(&quot;child_process&quot;);
+// 直接执行命令
+child_process.spawnSync(&quot;&lt;命令&gt;&quot;,[&lt;参数&gt;]);
+// UNIX下通过Shell或者Win下通过cmd执行命令，退出码为非零时会抛出错误
+child_process.execSync(&quot;&lt;命令&gt; &lt;参数&gt;&quot;);                         
 </code></pre>
-
-<h2 id="command-line-options">Command Line Options</h2>
-<h3 id="npm-install">npm install</h3>
-<ul>
-<li>
-<p><code>--save</code>：安装时将包机器版本信息写入package.json的dependencies，表示发布时的依赖。</p>
-</li>
-<li>
-<p><code>--save-dev</code>：安装时将包机器版本信息写入package.json的devDependencies，表示开发时的依赖。</p>
-</li>
-</ul>
 
   <br>
     
@@ -109,20 +101,20 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../yarn使用学习笔记/" class="btn btn-xs btn-default pull-right">
+      <a href="../Nodejs Built-in Objects/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../yarn使用学习笔记/" class="btn btn-xs btn-link">
-        yarn使用学习笔记
+      <a href="../Nodejs Built-in Objects/" class="btn btn-xs btn-link">
+        Node.js Built-in Objects
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../js：字符串/" class="btn btn-xs btn-default pull-left">
+      <a href="../Javascript Prototype and Prototype Chain Explained/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../js：字符串/" class="btn btn-xs btn-link">
-        js：字符串
+        Previous</a><a href="../Javascript Prototype and Prototype Chain Explained/" class="btn btn-xs btn-link">
+        Javascript Prototype and Prototype Chain Explained
       </a>
     </div>
     
@@ -133,7 +125,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
 <footer class="container-fluid wm-page-content">
       <p>
-        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/2. Programming in Javascript/npm使用学习笔记.md"><i class="fa fa-github"></i>
+        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/2. Programming in Javascript/Nodejs Basics.md"><i class="fa fa-github"></i>
 Edit on GitHub</a>
       </p>
   <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>

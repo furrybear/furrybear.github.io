@@ -8,10 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <meta name="author" content="Furrybear">
-    <link rel="canonical" href="https://furrybear.readthedocs.com/2. Programming in Javascript/js：this、global、window、new、prototype、__proto__、原型与原型链/">
+    <link rel="canonical" href="https://furrybear.readthedocs.com/1. Knowledge of Data Structure And Algorithm/Stack Basics/">
     <link rel="shortcut icon" href="../../img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>js：this、global、window、new、prototype、__proto__、原型与原型链 - Furrybear's Blog</title>
+    <title>Stack Basics - Furrybear's Blog</title>
     <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../css/base.css" rel="stylesheet">
@@ -32,11 +32,8 @@
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "global\u548cwindow", url: "#_top", children: [
-          ]},
-          {title: "this", url: "#this", children: [
-          ]},
-          {title: "new\u3001prototype\u3001__proto__\u3001\u539f\u578b\u4e0e\u539f\u578b\u94fe", url: "#newprototype9595proto9595", children: [
+          {title: "Stack Basics", url: "#_top", children: [
+              {title: "Corresponding Libraries", url: "#corresponding-libraries" },
           ]},
         ];
 
@@ -63,20 +60,20 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../js：值传递和共享传递/" class="btn btn-xs btn-default pull-right">
+      <a href="../Topological Sorting Basics/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../js：值传递和共享传递/" class="btn btn-xs btn-link">
-        js：值传递和共享传递
+      <a href="../Topological Sorting Basics/" class="btn btn-xs btn-link">
+        Topological Sorting Basics
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../js：console对象/" class="btn btn-xs btn-default pull-left">
+      <a href="../Orthogonal Linked List Basics/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../js：console对象/" class="btn btn-xs btn-link">
-        js：console对象
+        Previous</a><a href="../Orthogonal Linked List Basics/" class="btn btn-xs btn-link">
+        Orthogonal Linked List Basics
       </a>
     </div>
     
@@ -84,19 +81,16 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <h1 id="globalwindow">global和window</h1>
-<p>global是Node.js的全局对象、window是浏览器端的全局对象。</p>
-<h1 id="this">this</h1>
-<p>在全局函数被全局调用时指的是全局对象（在node.js和浏览器中表现差异）。</p>
-<h1 id="newprototype9595proto9595">new、prototype、__proto__、原型与原型链</h1>
-<p>参考：
-<a href="https://www.jianshu.com/p/dee9f8b14771">https://www.jianshu.com/p/dee9f8b14771</a>
-<a href="https://www.zhihu.com/question/34183746">https://www.zhihu.com/question/34183746</a></p>
-<p><img alt="" src="../1.jpg" /></p>
-<p>js的对象分为普通对象和函数对象。</p>
-<p>凡是通过<strong>new Function()</strong>创建的对象都是函数对象，其他的都是普通对象。</p>
-<p><strong>定律</strong>：每个对象都有<strong>__proto__</strong>属性，但只有函数对象才有<strong>prototype</strong>属性，它初始是个空对象。</p>
-<p>具体还看实践、太复杂了，记不住。</p>
+    <h1 id="stack-basics">Stack Basics</h1>
+<h2 id="corresponding-libraries">Corresponding Libraries</h2>
+<h3 id="java">Java</h3>
+<pre><code class="java">private Stack&lt;Integer&gt; stack = new Stack&lt;&gt;();
+// Some operations.
+stack.push(1);
+var size = stack.size();
+vat topVar = stack.peek();
+topVar = stack.pop();
+</code></pre>
 
   <br>
     
@@ -109,20 +103,20 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../js：值传递和共享传递/" class="btn btn-xs btn-default pull-right">
+      <a href="../Topological Sorting Basics/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../js：值传递和共享传递/" class="btn btn-xs btn-link">
-        js：值传递和共享传递
+      <a href="../Topological Sorting Basics/" class="btn btn-xs btn-link">
+        Topological Sorting Basics
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../js：console对象/" class="btn btn-xs btn-default pull-left">
+      <a href="../Orthogonal Linked List Basics/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../js：console对象/" class="btn btn-xs btn-link">
-        js：console对象
+        Previous</a><a href="../Orthogonal Linked List Basics/" class="btn btn-xs btn-link">
+        Orthogonal Linked List Basics
       </a>
     </div>
     
@@ -133,7 +127,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
 <footer class="container-fluid wm-page-content">
       <p>
-        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/2. Programming in Javascript/js：this、global、window、new、prototype、__proto__、原型与原型链.md"><i class="fa fa-github"></i>
+        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/1. Knowledge of Data Structure And Algorithm/Stack Basics.md"><i class="fa fa-github"></i>
 Edit on GitHub</a>
       </p>
   <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>

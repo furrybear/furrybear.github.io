@@ -34,7 +34,7 @@
         var pageToc = [
           {title: "Tree Basics (Part 4): Heap", url: "#_top", children: [
               {title: "Basics", url: "#basics" },
-              {title: "Implementation in Programming Language", url: "#implementation-in-programming-language" },
+              {title: "Corresponding Libraries", url: "#corresponding-libraries" },
           ]},
         ];
 
@@ -85,13 +85,13 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     <h1 id="tree-basics-part-4-heap">Tree Basics (Part 4): Heap</h1>
 <h2 id="basics">Basics</h2>
 <p>时间复杂度为O(logN)。</p>
-<h2 id="implementation-in-programming-language">Implementation in Programming Language</h2>
+<h2 id="corresponding-libraries">Corresponding Libraries</h2>
 <h3 id="java">Java</h3>
-<pre><code class="java">// Minimum Heap
+<pre><code class="java">// Minimum heap.
 Queue&lt;Integer&gt; minHeap = new PriorityQueue&lt;&gt;();
-// Maximum Heap
+// Maximum heap.
 Queue&lt;Integer&gt; maxHeap = new PriorityQueue&lt;&gt;((o1, o2) -&gt; o2 - o1);
-// Some Operations
+// Some operations.
 maxHeap.add(132423);
 var size = maxHeap.size();
 var maxVar = maxHeap.peek();

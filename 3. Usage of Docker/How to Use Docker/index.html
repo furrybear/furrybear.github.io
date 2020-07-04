@@ -8,10 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <meta name="author" content="Furrybear">
-    <link rel="canonical" href="https://furrybear.readthedocs.com/3. Usage of Docker/How to Use Docker Commond/">
+    <link rel="canonical" href="https://furrybear.readthedocs.com/3. Usage of Docker/How to Use Docker/">
     <link rel="shortcut icon" href="../../img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>How to Use Docker Commond - Furrybear's Blog</title>
+    <title>How to Use Docker - Furrybear's Blog</title>
     <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../css/base.css" rel="stylesheet">
@@ -32,15 +32,9 @@
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "How to Use Docker Commond", url: "#_top", children: [
-              {title: "docker ps", url: "#docker-ps" },
-              {title: "docker stop", url: "#docker-stop" },
-              {title: "docker kill", url: "#docker-kill" },
-              {title: "docker run", url: "#docker-run" },
-              {title: "docker exec", url: "#docker-exec" },
-              {title: "docker restart", url: "#docker-restart" },
-              {title: "docker rm", url: "#docker-rm" },
-              {title: "docker rmi", url: "#docker-rmi" },
+          {title: "How to Use Docker", url: "#_top", children: [
+              {title: "Command Line", url: "#command-line" },
+              {title: "Configuration", url: "#configuration" },
           ]},
         ];
 
@@ -88,26 +82,37 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <h1 id="how-to-use-docker-commond">How to Use Docker Commond</h1>
-<h2 id="docker-ps">docker ps</h2>
+    <h1 id="how-to-use-docker">How to Use Docker</h1>
+<h2 id="command-line">Command Line</h2>
+<h3 id="docker-ps">docker ps</h3>
 <p><code>docker ps</code>只是列出所有正在running的容器，使用<code>docker ps -a</code>才能列出所有容器。</p>
-<h2 id="docker-stop">docker stop</h2>
+<h3 id="docker-stop">docker stop</h3>
 <p>使用<code>docker stop &lt;容器名/容器ID&gt;</code>可以使一个running的容器停止。<code>docker stop</code>和<code>docker-compose down</code>都是向容器中PID为1的进程发送系统信号SIGTERM，进程收到信号后做一些后续处理操作，然后结束。如果进程不在默认的10秒内结束的话，Docker会发送SIGKILL信号杀掉进程。</p>
-<h2 id="docker-kill">docker kill</h2>
+<h3 id="docker-kill">docker kill</h3>
 <p>发送SIGKILL信号杀掉进程。</p>
-<h2 id="docker-run">docker run</h2>
+<h3 id="docker-run">docker run</h3>
 <p>如果启动docker容器时使用了<code>--name</code>这个参数给容器设置了名字，那么就不能再创建同名容器了。</p>
-<h2 id="docker-exec">docker exec</h2>
+<h3 id="docker-exec">docker exec</h3>
 <p><code>docker exec -it &lt;容器名/容器ID&gt; &lt;命令&gt; &lt;参数&gt;</code>和<code>docker exec -d &lt;容器名/容器ID&gt; &lt;命令&gt; &lt;参数&gt;</code>可以在容器中执行相关命令，区别是前者分配伪终端在命令行前台执行，后者在后台执行。</p>
 <p>例如，<code>docker exec -it &lt;容器名/容器ID&gt; /bin/sh</code>就可以进入容器。</p>
-<h2 id="docker-restart">docker restart</h2>
+<h3 id="docker-restart">docker restart</h3>
 <p><code>docker restart &lt;容器名/容器ID&gt;</code>、<code>docker stop &lt;容器名/容器ID&gt; &amp; docker start &lt;容器名/容器ID&gt;</code>或者重启宿主机可以重启容器。</p>
 <p>值得注意的是，一个容器的文件系统里的内容不会因为容器running和stopped状态的切换而被重置，只要写入了，就是持久的。但是通过<code>docker exec</code>在容器内增加的进程在容器重启后不会保留。容器重启后只会保留镜像中指定的进程。因此不能通过<code>docker exec</code>在容器内增加进程，现在来看只能用Dockerfile等手段重做镜像。
 　　</p>
-<h2 id="docker-rm">docker rm</h2>
+<h3 id="docker-rm">docker rm</h3>
 <p>删除所有容器：<code>docker rm -f $(docker ps -a -q)</code></p>
-<h2 id="docker-rmi">docker rmi</h2>
+<h3 id="docker-rmi">docker rmi</h3>
 <p>删除所有容器镜像：<code>docker rmi -f $(docker images -q)</code></p>
+<h2 id="configuration">Configuration</h2>
+<p>​    For using mirror while pulling container images, add the following content to <code>/etc/docker/daemon.json</code>:</p>
+<pre><code class="json">{
+  &quot;registry-mirrors&quot; : [
+    &quot;http://docker.mirrors.ustc.edu.cn&quot;,
+    &quot;http://hub-mirror.c.163.com&quot;,
+    &quot;http://ovfftd6p.mirror.aliyuncs.com&quot;
+  ]
+}
+</code></pre>
 
   <br>
     
@@ -144,7 +149,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
 <footer class="container-fluid wm-page-content">
       <p>
-        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/3. Usage of Docker/How to Use Docker Commond.md"><i class="fa fa-github"></i>
+        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/3. Usage of Docker/How to Use Docker.md"><i class="fa fa-github"></i>
 Edit on GitHub</a>
       </p>
   <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
