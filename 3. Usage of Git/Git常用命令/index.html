@@ -253,7 +253,7 @@ git symbolic-ref HEAD refs/heads/devel
 
 <h3 id="git-submodule">git submodule</h3>
 <pre><code class="sh"># 添加子模块
-git submodule add &lt;仓库名&gt; [&lt;目录名&gt;]
+git submodule add &lt;仓库URL&gt; [&lt;目录名&gt;]
 </code></pre>
 
 <p>克隆新项目后如何克隆子模块：</p>
@@ -263,6 +263,8 @@ git submodule
 git submodule init
 # 更新子模块到最新版本
 git submodule update
+# 修改.gitmodules文件后更新子模块信息
+git submodule sync --recursive
 </code></pre>
 
 <h2 id="_2">常见用法</h2>

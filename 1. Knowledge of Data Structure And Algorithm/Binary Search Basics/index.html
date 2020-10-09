@@ -34,7 +34,7 @@
         var pageToc = [
           {title: "Binary Search Basics", url: "#_top", children: [
               {title: "\u4e8c\u5206\u67e5\u627e\u6cd5", url: "#_1" },
-              {title: "\u53c2\u8003", url: "#_2" },
+              {title: "\u53c2\u8003", url: "#_4" },
           ]},
         ];
 
@@ -85,12 +85,75 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     <h1 id="binary-search-basics">Binary Search Basics</h1>
 <h2 id="_1">二分查找法</h2>
 <p>二分查找法典型的有三种模式，可以参考<a href="https://zhuanlan.zhihu.com/p/25906225">《二分法的三个区间控制套路》</a>。</p>
-<p>我觉得比较自然的一种形式是以下这种：</p>
-<pre><code class="java">public int searchGreaterEqual(int[] nums, int target) {
-    int l = 0;
-    int r = nums.length;
-    while (l &lt; r) {
+<h3 id="_2">第一种形式</h3>
+<p>基本形式如下：</p>
+<pre><code class="java">public int search(int[] nums, int target) {
+    int l = 0;// 左边界
+    int r = nums.length-1;// 右边界
+    while (l &lt;= r) {
+        int m = l + (r - l) / 2;//避免溢出
+        // System.out.println(String.format(&quot;%d,%d,%d&quot;, l, r, m));
+        if (nums[m] &lt; target) {
+            l = m + 1;
+        } else {// nums[m] &gt;= target
+            r = m - 1;
+        }
+    }
+    return l;
+}
+</code></pre>
+
+<p>以上这个函数返回数组中第一个不小于target的元素的下标，其搜索区间是[l,r]，循环终止条件是l-r=1。如果搜索数组[1, 2, 2, 5, 6]，搜索举例如下：</p>
+<ul>
+<li>
+<p>如果targe为-1，返回0。</p>
+</li>
+<li>
+<p>如果target为1，返回0。</p>
+</li>
+<li>
+<p>如果target为2，返回1。</p>
+</li>
+<li>
+<p>如果target为3，返回3。</p>
+</li>
+<li>
+<p>如果target为5，返回3。</p>
+</li>
+<li>
+<p>如果target为6，返回4。</p>
+</li>
+<li>
+<p>如果target为8，返回5。</p>
+</li>
+</ul>
+<p>如果在不重复的数组中查找某个特定的数：</p>
+<pre><code class="java">public int search(int[] nums, int target) {
+    int l = 0;// 左边界
+    int r = nums.length - 1;// 右边界
+    while (l &lt;= r) {
         int m = l + (r - l) / 2;//这种算法一定程度避免溢出
+        // System.out.println(String.format(&quot;%d,%d,%d&quot;, l, r, m));
+        if (nums[m] == target) {
+            return m;
+        } else if (nums[m] &lt; target) {
+            l = m + 1;
+        } else {// nums[m] &gt; target
+            r = m - 1;
+        }
+    }
+    // 如果搜索区间收缩到最后从循环里出来了，需要进行判断。因为l可能停留在nums.length，同时若target不在数组中，nums[l]为不小于target的那个数，所以需要进一步判断。
+    return l == nums.length ? -1 : (nums[l] == target ? l : -1);
+}
+</code></pre>
+
+<h3 id="_3">第二种形式</h3>
+<p>基本形式如下：</p>
+<pre><code class="java">public int searchGreaterEqual(int[] nums, int target) {
+    int l = 0;// 左边界
+    int r = nums.length;// 右边界
+    while (l &lt; r) {
+        int m = l + (r - l) / 2;//避免溢出
         // System.out.println(String.format(&quot;%d,%d,%d&quot;, l, r, m));
         if (nums[m] &lt; target) {
             l = m + 1;
@@ -104,18 +167,32 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
 <p>以上这个函数返回数组中第一个不小于target的元素的下标，其搜索区间是[l,r)，循环终止条件是l==r。如果搜索数组[1, 2, 2, 5, 6]，搜索举例如下：</p>
 <ul>
-<li>如果targe为-1，返回0。</li>
-<li>如果target为1，返回0。</li>
-<li>如果target为2，返回1。</li>
-<li>如果target为3，返回3。</li>
-<li>如果target为5，返回3。</li>
-<li>如果target为6，返回4。</li>
-<li>如果target为8，返回4。</li>
+<li>
+<p>如果targe为-1，返回0。</p>
+</li>
+<li>
+<p>如果target为1，返回0。</p>
+</li>
+<li>
+<p>如果target为2，返回1。</p>
+</li>
+<li>
+<p>如果target为3，返回3。</p>
+</li>
+<li>
+<p>如果target为5，返回3。</p>
+</li>
+<li>
+<p>如果target为6，返回4。</p>
+</li>
+<li>
+<p>如果target为8，返回5。</p>
+</li>
 </ul>
-<p>如果查找某个特定的数：</p>
+<p>如果在不重复的数组中查找某个特定的数：</p>
 <pre><code class="java">public int search(int[] nums, int target) {
-        int l = 0;
-        int r = nums.length;
+        int l = 0;// 左边界
+        int r = nums.length;// 右边界
         while (l &lt; r) {
             int m = l + (r - l) / 2;//这种算法一定程度避免溢出
             // System.out.println(String.format(&quot;%d,%d,%d&quot;, l, r, m));
@@ -127,12 +204,12 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
                 r = m;
             }
         }
-        // 如果搜索区间收缩到最后从循环里出来了，需要进行判断
+        // 如果搜索区间收缩到最后从循环里出来了，需要进行判断。因为l可能停留在nums.length，同时若target不在数组中，nums[l]为不小于target的那个数，所以需要进一步判断。
         return l == nums.length ? -1; (nums[l] == target ? l : -1);
     }
 </code></pre>
 
-<h2 id="_2">参考</h2>
+<h2 id="_4">参考</h2>
 <div class="footnote">
 <hr />
 <ol>

@@ -34,6 +34,7 @@
         var pageToc = [
           {title: "ffmpeg\u4f7f\u7528\u5b66\u4e60\u7b14\u8bb0", url: "#_top", children: [
               {title: "mp4\u8f6cmp3", url: "#mp4mp3" },
+              {title: "flac\u8f6cmp3", url: "#flacmp3" },
           ]},
         ];
 
@@ -84,6 +85,10 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     <h1 id="ffmpeg">ffmpeg使用学习笔记</h1>
 <h2 id="mp4mp3">mp4转mp3</h2>
 <pre><code class="sh">ffmpeg -i video.mp4 -vn  -acodec libmp3lame -ac 2 -qscale:a 4 -ar 48000  audio.mp3
+</code></pre>
+
+<h2 id="flacmp3">flac转mp3</h2>
+<pre><code>ffmpeg -i input.flac -ab 320k -map_metadata 0 -id3v2_version 3 output.mp3
 </code></pre>
 
   <br>
