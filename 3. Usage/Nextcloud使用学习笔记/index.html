@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="author" content="Furrybear">
+    <link rel="canonical" href="https://furrybear.readthedocs.com/3. Usage/Nextcloud使用学习笔记/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Nextcloud使用学习笔记 - Furrybear's Blog</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Nextcloud\u4f7f\u7528\u5b66\u4e60\u7b14\u8bb0", url: "#_top", children: [
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../Putty：基本知识/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../Putty：基本知识/" class="btn btn-xs btn-link">
+        Putty的免密SSH登陆
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../Microsoft Word使用学习笔记/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../Microsoft Word使用学习笔记/" class="btn btn-xs btn-link">
+        Microsoft Word使用学习笔记
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="nextcloud">Nextcloud使用学习笔记</h1>
+<p>Nextcloud是GPL协议开源的自建网盘软件</p>
+<p>使用Docker来在Linux系统下部署Nextcloud服务端便于迁移。</p>
+<p>Nextcloud服务端在运行时有三个容器，分别是运行于Apache和php解释器中的Nexcloud应用，MariaDB数据库和Nginx服务器。其中的Nginx服务器作用是Nextcloud应用前的反向代理，以将http转化为https，证书来自于Let‘s Encrypt，因此需要有解析到宿主机的域名。如果不需要在数据传输过程中加密，可以不需要这个反向代理。</p>
+<p>使用Docker Compose管理这些容器，<code>docker-compose.yml</code>的内容为：</p>
+<pre><code class="yaml">version: '3'
+
+services:
+  db:
+    image: mariadb
+    command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW
+    restart: always
+    volumes:
+      - ./db:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=&lt;密码&gt;
+    env_file:
+      - db.env
+
+  app:
+    image: nextcloud:apache
+    restart: always
+    volumes:
+      - ./nextcloud_data:/var/www/html
+    environment:
+      - MYSQL_HOST=db
+    ports:
+      - &lt;以HTTP协议访问Nextcloud应用的端口&gt;:80
+    env_file:
+      - db.env
+    depends_on:
+      - db
+
+  proxy:
+    image: nginx:1.15-alpine
+    restart: always
+    ports:
+      - &lt;以HTTPS协议访问Nextcloud应用的端口&gt;:443
+    volumes:
+      - ../letsencrypt/&lt;证书所在目录&gt;:/etc/nginx/certs:ro
+      - ./nginx-conf:/etc/nginx/conf.d:ro
+</code></pre>
+
+<p>db.env文件的内容为：</p>
+<pre><code class="ini">MYSQL_PASSWORD=&lt;密码&gt;
+MYSQL_DATABASE=nextcloud
+MYSQL_USER=nextcloud
+</code></pre>
+
+<p>可以注意到，<code>docker-compose.yml</code>中把Nextcloud应用的http端口暴露出来了，这本来不应该暴露出来，而是给Nginx服务器用的，这里是为了调试用。生产时应该用防火墙封上，或者修改<code>docker-compose.yml</code>停止暴露http端口。</p>
+<p>Nextcloud应用应该持久化的数据（包括配置文件和存储的文档、图片等）存储于<code>/var/www/html</code>和MariaDB数据库，所以把Nextcloud应用app的<code>/var/www/html</code>目录和MariaDB数据库db的<code>/var/lib/mysql</code>单独挂载到宿主机上。</p>
+<p>对于Nginx服务器，将HTTPS需要用到的从Let's Encrypt申请的证书挂载到<code>/etc/nginx/certs</code>目录下（我这里是<code>&lt;域名&gt;.key</code>和<code>fullchain.cer</code>）。将Nginx服务器的配置文件<code>app.conf</code>放在当前目录的<code>`nginx-conf</code>目录下，这个目录挂载为容器下的<code>/etc/nginx/conf.d</code>目录，容器启动时会读取这个配置文件。</p>
+<p><code>app.conf</code>的内容为：</p>
+<pre><code class="nginx">server {
+    listen 443 ssl;
+    server_name  &lt;域名&gt;;
+
+    access_log /var/log/nginx/fbcll.top.access.log;
+    error_log /var/log/nginx/fbcll.top.error.log;
+    ssl_certificate          /etc/nginx/certs/fullchain.cer;
+    ssl_certificate_key      /etc/nginx/certs/&lt;域名&gt;.key;
+
+    ssl_session_timeout  5m;
+
+    ssl_ciphers HIGH:!aNULL:!MD5;
+    ssl_protocols SSLv3 TLSv1 TLSv1.1 TLSv1.2;
+    ssl_prefer_server_ciphers   on;
+    client_max_body_size 0;
+    underscores_in_headers on;
+    location / {
+        proxy_pass http://app;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        add_header Front-End-Https on;
+
+        proxy_headers_hash_max_size 512;
+        proxy_headers_hash_bucket_size 64;
+
+        proxy_buffering off;
+        proxy_redirect off;
+        proxy_max_temp_file_size 0;
+    }
+}
+</code></pre>
+
+<p>启动后可以访问http端口，但是无法访问https端口。</p>
+<p>参考<a href="https://felixbreuer.me/tutorial/Setup-NextCloud-FrontEnd-Nginx-SSL-Backend-Apache2.html">《Setup NextCloud Server with Nginx SSL Reverse-Proxy and Apache2 Backend》</a>的做法，在Nextcloud应用的配置文件（路径为<code>./nextcloud_data/config/config.php</code>）中添加以下内容（根据实际情况修改）：</p>
+<pre><code class="php">//...
+'trusted_domains' =&gt;
+array (
+    0 =&gt; '127.0.0.1:8080',
+    1 =&gt; 'cloud.example.com',
+),
+'overwritehost' =&gt; 'cloud.example.com',
+'overwriteprotocol' =&gt; 'https',
+'overwritewebroot' =&gt; '/',
+'overwrite.cli.url' =&gt; 'https://cloud.example.com/',
+'htaccess.RewriteBase' =&gt; '/',
+'trusted_proxies' =&gt; ['127.0.0.1'],
+//...
+</code></pre>
+
+<p>就可以用https访问了。</p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../Putty：基本知识/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../Putty：基本知识/" class="btn btn-xs btn-link">
+        Putty的免密SSH登陆
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../Microsoft Word使用学习笔记/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../Microsoft Word使用学习笔记/" class="btn btn-xs btn-link">
+        Microsoft Word使用学习笔记
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/3. Usage/Nextcloud使用学习笔记.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

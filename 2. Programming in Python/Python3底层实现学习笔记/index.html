@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="author" content="Furrybear">
+    <link rel="canonical" href="https://furrybear.readthedocs.com/2. Programming in Python/Python3底层实现学习笔记/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Python3底层实现学习笔记 - Furrybear's Blog</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Python3\u5e95\u5c42\u5b9e\u73b0\u5b66\u4e60\u7b14\u8bb0", url: "#_top", children: [
+              {title: "\u53c2\u8003", url: "#_1" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../Python3模块学习笔记之PyQt和PySide/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../Python3模块学习笔记之PyQt和PySide/" class="btn btn-xs btn-link">
+        Python3模块学习笔记之PyQt和PySide
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../Python2语法学习笔记/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../Python2语法学习笔记/" class="btn btn-xs btn-link">
+        Python2语法学习笔记
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="python3">Python3底层实现学习笔记</h1>
+<h2 id="_1">参考</h2>
+<p><a href="https://zhuanlan.zhihu.com/p/73426505?utm_source=wechat_session&amp;utm_medium=social&amp;utm_oi=589883777908609024">为什么Python 3.6以后字典有序并且效率更高？</a></p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../Python3模块学习笔记之PyQt和PySide/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../Python3模块学习笔记之PyQt和PySide/" class="btn btn-xs btn-link">
+        Python3模块学习笔记之PyQt和PySide
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../Python2语法学习笔记/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../Python2语法学习笔记/" class="btn btn-xs btn-link">
+        Python2语法学习笔记
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/2. Programming in Python/Python3底层实现学习笔记.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

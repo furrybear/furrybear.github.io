@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="author" content="Furrybear">
+    <link rel="canonical" href="https://furrybear.readthedocs.com/1. Knowledge of Distribution System/分布式共识算法/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Paxos - Furrybear's Blog</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Paxos", url: "#_top", children: [
+          ]},
+          {title: "2PC\u30013PC\u548cPaxos\u7684\u5173\u7cfb", url: "#2pc3pcpaxos", children: [
+          ]},
+          {title: "Raft", url: "#raft", children: [
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../../1. Knowledge of Information Security/Web安全学习笔记/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../../1. Knowledge of Information Security/Web安全学习笔记/" class="btn btn-xs btn-link">
+        Web安全笔记学习笔记
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../一致性哈希/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../一致性哈希/" class="btn btn-xs btn-link">
+        参考
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="paxos">Paxos</h1>
+<p>没太了解过，Leslie Lamport在1990年公开发表在了自己的网站上，是最老的共识算法？</p>
+<h1 id="2pc3pcpaxos">2PC、3PC和Paxos的关系</h1>
+<p>2PC协议用于保证属于多个数据分片上的操作的原子性。这些数据分片可能分布在不同的服务器上，2PC协议保证多台服务器上的操作要么全部成功，要么全部失败。 
+　　Paxos协议用于保证同一个数据分片的多个副本之间的数据一致性。当这些副本分布到不同的数据中心时，这个需求尤其强烈。</p>
+<h1 id="raft">Raft</h1>
+<p>在一个由 Raft 协议组织的集群中有三类角色：</p>
+<ul>
+<li>Leader（领袖）</li>
+<li>Follower（群众）</li>
+<li>Candidate（候选人）</li>
+</ul>
+<p>一开始群众都是候选人，定期选举出一个领袖。以后所有新增数据都发给领袖，由领袖发给其他群众，其他群众给领袖发确认，最后达成一致。领袖用心跳保持存在感，领袖在任意时候挂了，都有解决方案。（所以数据是串行加入共识的？）BCOS说RAFT协议设计本身无法防止拜占庭错误。</p>
+<p>参考：<a href="https://www.cnblogs.com/mindwind/p/5231986.html">https://www.cnblogs.com/mindwind/p/5231986.html</a></p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../../1. Knowledge of Information Security/Web安全学习笔记/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../../1. Knowledge of Information Security/Web安全学习笔记/" class="btn btn-xs btn-link">
+        Web安全笔记学习笔记
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../一致性哈希/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../一致性哈希/" class="btn btn-xs btn-link">
+        参考
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/1. Knowledge of Distribution System/分布式共识算法.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

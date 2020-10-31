@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="author" content="Furrybear">
+    <link rel="canonical" href="https://furrybear.readthedocs.com/3. Usage of Windows/Windows使用学习笔记/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Windows使用学习笔记 - Furrybear's Blog</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Windows\u4f7f\u7528\u5b66\u4e60\u7b14\u8bb0", url: "#_top", children: [
+              {title: "KMS\u6fc0\u6d3b\u65b9\u6cd5", url: "#kms" },
+              {title: "\u5e38\u7528\u5feb\u6377\u952e", url: "#_1" },
+              {title: "\u5e38\u7528\u8bbe\u7f6e", url: "#_2" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../日语输入法IME使用学习笔记/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../日语输入法IME使用学习笔记/" class="btn btn-xs btn-link">
+        日语输入法IME使用学习笔记
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../../3. Usage of SVN/TortoiseSVN使用学习笔记/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../../3. Usage of SVN/TortoiseSVN使用学习笔记/" class="btn btn-xs btn-link">
+        TortoiseSVN使用学习笔记
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="windows">Windows使用学习笔记</h1>
+<h2 id="kms">KMS激活方法</h2>
+<pre><code class="cmd">slmgr /skms kms.moeclub.org
+slmgr /ato
+</code></pre>
+
+<h2 id="_1">常用快捷键</h2>
+<ul>
+<li>Win+p：显示选项，外接屏幕时用到。</li>
+</ul>
+<h2 id="_2">常用设置</h2>
+<h3 id="_3">更新后不重启</h3>
+<p>gpedit.msc &gt; 计算机配置 &gt; 管理模板 &gt; Windows组件 &gt; Windows 更新 &gt; 对于有已登录用户的计算机，计划的自动更新安装不执行重新启动。</p>
+<h3 id="hosts">hosts文件</h3>
+<p><code>C:\Windows\System32\drivers\etc\hosts</code></p>
+<h3 id="_4">开始菜单</h3>
+<p>所有用户：<code>%ProgramData%\Microsoft\Windows\Start Menu</code></p>
+<p>单用户：<code>%AppData%\Microsoft\Windows\Start Menu</code></p>
+<h3 id="_5">开机启动</h3>
+<p>Put executed files into <code>C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp</code>.</p>
+<h3 id="_6">以太网有线连接设置流量限制</h3>
+<p>参见<a href="https://www.sysgeek.cn/windows-10-set-ethernet-connection-metered/">配置Windows 10以太网有线连接为「计量」连接类型</a></p>
+<h3 id="tpmbitlocker">无TPM模块时对系统盘进行Bitlocker加密</h3>
+<p><code>Win键+R</code>打开运行窗口，输入<code>gpedit.msc</code>进入本地组策略编辑器。展开<code>计算机配置-管理模板-Windows组件-BitLocker驱动器加密-操作系统驱动器（Reqiure additional authentication at startup）</code>，找到“启动时需要附加身份验证”，将其配置为”已启用”并且勾选”没有兼容的TPM时允许BitLocker（在U盘上需要密码或启动密钥）”。</p>
+<h3 id="usb">封闭USB口</h3>
+<p>封闭USB口有好多方法,其中一个是将注册表中<code>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\USBSTOR</code>里<code>Start</code>的值改为4（禁止自动启动），默认为3（自动分配盘符）。</p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../日语输入法IME使用学习笔记/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../日语输入法IME使用学习笔记/" class="btn btn-xs btn-link">
+        日语输入法IME使用学习笔记
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../../3. Usage of SVN/TortoiseSVN使用学习笔记/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../../3. Usage of SVN/TortoiseSVN使用学习笔记/" class="btn btn-xs btn-link">
+        TortoiseSVN使用学习笔记
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/3. Usage of Windows/Windows使用学习笔记.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

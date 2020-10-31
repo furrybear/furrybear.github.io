@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="author" content="Furrybear">
+    <link rel="canonical" href="https://furrybear.readthedocs.com/2. Node.js-Electron/Electron Basics/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Electron Basics - Furrybear's Blog</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Electron Basics", url: "#_top", children: [
+              {title: "How to Solve the Problem of Downloading Failure while Using electron-builder", url: "#how-to-solve-the-problem-of-downloading-failure-while-using-electron-builder" },
+              {title: "How to Solve the Problem of Error: Electron failed to install correctly, please delete node_modules/electron and try installing again", url: "#how-to-solve-the-problem-of-error-electron-failed-to-install-correctly-please-delete-node_moduleselectron-and-try-installing-again" },
+              {title: "How to Solve the Problem of Compiling Error of package sqlite3 with electron-rebuild", url: "#how-to-solve-the-problem-of-compiling-error-of-package-sqlite3-with-electron-rebuild" },
+              {title: "Why remote module is not recommended?", url: "#why-remote-module-is-not-recommended" },
+              {title: "References", url: "#references" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../../2. Programming in C#/C#学习笔记/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../../2. Programming in C#/C#学习笔记/" class="btn btn-xs btn-link">
+        C#学习笔记
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../../2. Node.js/Nodejs Basics/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../../2. Node.js/Nodejs Basics/" class="btn btn-xs btn-link">
+        Node.js Basics
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="electron-basics">Electron Basics</h1>
+<h2 id="how-to-solve-the-problem-of-downloading-failure-while-using-electron-builder">How to Solve the Problem of Downloading Failure while Using <code>electron-builder</code></h2>
+<p>Encountered the following problem while using <code>electron-builder</code>:</p>
+<pre><code class="sh">  • downloading     url=https://github.com/electron/electron/releases/download/v8.2.3/electron-v8.2.3-win32-x64.zip size=71 MB parts=8
+  • retrying        attempt=1
+  • retrying        attempt=2
+  • retrying        attempt=3
+  ⨯ part download request failed with status code 403
+github.com/develar/app-builder/pkg/download.(*Part).doRequest
+        /Volumes/data/Documents/app-builder/pkg/download/Part.go:126
+github.com/develar/app-builder/pkg/download.(*Part).download
+        /Volumes/data/Documents/app-builder/pkg/download/Part.go:67
+github.com/develar/app-builder/pkg/download.(*Downloader).DownloadResolved.func1.1
+        /Volumes/data/Documents/app-builder/pkg/download/downloader.go:107
+github.com/develar/app-builder/pkg/util.MapAsyncConcurrency.func2
+        /Volumes/data/Documents/app-builder/pkg/util/async.go:68
+runtime.goexit
+        /usr/local/Cellar/go/1.12.7/libexec/src/runtime/asm_amd64.s:1337  
+</code></pre>
+
+<p>Just download the file manually and move it to this path <code>%USERPROFILE%\AppData\Local\electron\Cache</code>.</p>
+<h2 id="how-to-solve-the-problem-of-error-electron-failed-to-install-correctly-please-delete-node_moduleselectron-and-try-installing-again">How to Solve the Problem of <code>Error: Electron failed to install correctly, please delete node_modules/electron and try installing again</code></h2>
+<p>Sometimes it is due to failure downloading of electron executor as a result of poor internet connection to Github in China. Solve it as follow:<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></p>
+<pre><code class="sh"># Use mirror source.
+export ELECTRON_MIRROR=&quot;https://cdn.npm.taobao.org/dist/electron/&quot;
+# Or
+npm config set electron_mirror https://cdn.npm.taobao.org/dist/electron/
+# Or
+yarn config set electron_mirror https://cdn.npm.taobao.org/dist/electron/
+</code></pre>
+
+<h2 id="how-to-solve-the-problem-of-compiling-error-of-package-sqlite3-with-electron-rebuild">How to Solve the Problem of Compiling Error of package <code>sqlite3</code> with <code>electron-rebuild</code></h2>
+<p>While re-compiling sqlite3 with <code>electron-rebuild</code>, errors occured as the following:</p>
+<pre><code>× Rebuild Failed
+
+An unhandled error occurred inside electron-rebuild
+Building the projects in this solution one at a time. To enable parallel build, please add the &quot;/m&quot; switch.
+  unpack_sqlite_dep
+  sqlite3.c
+  win_delay_load_hook.cc
+  sqlite3.vcxproj -&gt; D:\Bear\bear-campsite\code-private\20200418-BearUnifiedMgr\bear_unified_mgr\packages\plugin-contact_mgr\node_modules\sqlite3\
+build\Release\\sqlite3.lib
+  backup.cc
+  database.cc
+  node_sqlite3.cc
+  statement.cc
+  win_delay_load_hook.cc
+c:\users\bear\.electron-gyp\8.2.3\include\node\v8.h(8923): warning C4996: 'v8::MicrotasksCompletedCallback': Use *WithData version. (compiling sou
+rce file ..\src\statement.cc) [&lt;PROJECT_PATH&gt;\node_module
+s\sqlite3\build\node_sqlite3.vcxproj]
+</code></pre>
+
+<p>I solved it as the follows:</p>
+<pre><code class="sh">npm install windows-build-tools -g
+cd ./node_modules/sqlite3
+node-gyp rebuild --target=&lt;ELECTRON_VERSION&gt; --arch=x64 --target_platform=win32 --dist-url=https://atom.io/download/atom-shell --module_name=node_sqlite3 --module_path=../lib/binding/electron-v&lt;ELECTRON_VERSION&gt;-win32-ia32
+</code></pre>
+
+<h2 id="why-remote-module-is-not-recommended">Why <code>remote</code> module is not recommended?</h2>
+<p>Because it is slow and sometimes confusing.<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup>You'd better use <code>ipcMain</code> and <code>ipcRender</code>.</p>
+<h2 id="references">References</h2>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p><a href="https://github.com/electron-userland/electron-builder/issues/3115">https://github.com/electron-userland/electron-builder/issues/3115</a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p><a href="https://www.cnblogs.com/Zev_Fung/p/12421858.html">https://www.cnblogs.com/Zev_Fung/p/12421858.html</a>&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p><a href="https://blog.csdn.net/zoepriselife316/article/details/89954383">https://blog.csdn.net/zoepriselife316/article/details/89954383</a>&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:4">
+<p><a href="https://medium.com/@nornagon/electrons-remote-module-considered-harmful-70d69500f31">Electron’s ‘remote’ module considered harmful</a>&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../../2. Programming in C#/C#学习笔记/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../../2. Programming in C#/C#学习笔记/" class="btn btn-xs btn-link">
+        C#学习笔记
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../../2. Node.js/Nodejs Basics/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../../2. Node.js/Nodejs Basics/" class="btn btn-xs btn-link">
+        Node.js Basics
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/2. Node.js-Electron/Electron Basics.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="author" content="Furrybear">
+    <link rel="canonical" href="https://furrybear.readthedocs.com/2. Programming in C++/C++_Compile_And_Link_Building/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>C++ Compile And Link Building - Furrybear's Blog</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "\u7f16\u8bd1\u5668\uff08Compiler\uff09", url: "#_top", children: [
+              {title: "LLVM", url: "#llvm" },
+              {title: "GCC", url: "#gcc" },
+              {title: "\u76ee\u6807\u6587\u4ef6", url: "#_2" },
+              {title: "\u52a8\u6001\u94fe\u63a5\u5e93\uff08.so\uff09\u548c\u9759\u6001\u94fe\u63a5\u5e93\uff08.a\uff09", url: "#soa" },
+          ]},
+          {title: "\u6784\u5efa\u5de5\u5177", url: "#_3", children: [
+              {title: "make", url: "#make" },
+          ]},
+          {title: "\u9879\u76ee\u7ba1\u7406\u5de5\u5177", url: "#_4", children: [
+              {title: "qmake", url: "#qmake" },
+              {title: "cmake", url: "#cmake" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../C++_Details/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../C++_Details/" class="btn btn-xs btn-link">
+        C++中除以0的行为
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../C++_Common_Skills/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../C++_Common_Skills/" class="btn btn-xs btn-link">
+        从标准输入流读取个数未知的整数
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <p>参考 ：<a href="https://www.zhihu.com/question/27455963">https://www.zhihu.com/question/27455963</a></p>
+<h1 id="compiler">编译器（Compiler）</h1>
+<h2 id="llvm">LLVM</h2>
+<p>在Windows下由于clang自己不带工具链，生成可执行文件的方法需要使用其他头文件，例如使用MingGW头文件</p>
+<pre><code class="sh">clang++ --target=i686-pc-mingw32 hello-world.cpp
+</code></pre>
+
+<p>clang和LLVM的关系：</p>
+<p><img alt="" src="../LLVM_structure.png" /></p>
+<h2 id="gcc">GCC</h2>
+<h3 id="_1">简介</h3>
+<p>GCC是the GNU Compiler Collection，<code>gcc</code>命令会根据源文件后缀名选择编译器进行编译，<code>g++</code>是C++编译器。</p>
+<h3 id="g">g++使用和常见中间生成文件</h3>
+<pre><code class="sh">#直接生成可执行文件
+g++ hello.cpp -o hello
+#预处理，生成预编译文件（是文本文件）
+g++ –E hello.cpp –o hello.ii
+#编译，生成汇编代码（是文本文件）
+g++ –S hello.ii –o hello.s
+#汇编，生成目标文件（是二进制文件）
+g++ –c hello.s –o hello.o
+#链接，生成可执行文件：
+g++ hello.o –o hello
+</code></pre>
+
+<p>另外，.i为预处理过的C源代码文件。</p>
+<p>上述语句中，<code>-c</code>、<code>-E</code>、<code>-S</code>只是指示要生成什么文件，g++会根据源文件扩展名决定怎么处理源文件，例如<code>g++ –c hello.cpp –o hello.o</code>这样也是可以的。clang++接口基本与g++一致。</p>
+<h2 id="_2">目标文件</h2>
+<p>Linux下动态链接库是<code>.o</code>。（Windows下是<code>.obj</code>。）</p>
+<p>Linux目标文件格式为ELF类型。</p>
+<p>目标文件为二进制文件，但是其中插入了编译的时候引用到的符号（函数，全局变量等），这些内容为文本。</p>
+<h2 id="soa">动态链接库（.so）和静态链接库（.a）</h2>
+<p>Linux下动态链接库是.so（指Shared Object File），静态链接库是.a（指Archive File）,两者都是由多个目标文件（.o）组成的（Windows下动态链接库是.dll，静态链接库是.lib。）</p>
+<p>静态链接库在链接时把库文件的代码加入到可执行文件中，动态链接库在程序执行时加载库。</p>
+<p>Linux下静态链接库命名为<code>lib什么什么.a</code>，动态链接库命名为<code>lib什么什么.so</code>。</p>
+<pre><code class="sh"># 生成目标文件func.o
+clang++ -c func.cpp
+# 生成目标文件func2.o
+clang++ -c func2.cpp
+# 添加或替换指定的文件到静态库
+ar -r libfunc.a func.o func2.o
+# 生成动态库
+clang++ func.o func2.o -shared -fPIC -o libfunc.so
+# 链接组建可执行文件main。添加-L.使得搜索库的路径包括当前目录。-ltest表示使用libfunc.so（优先）或者libfunc.a。
+clang++ main.cpp -L. -lfunc -o main
+# 或者
+clang++ libfunc.a main.cpp -o main
+</code></pre>
+
+<p>如果使用动态库，编译生成的可执行文件是不能跑的。因为和Windows不同，Linux下搜索动态库的默认路径为/lib和/usr/lib。可以通过<code>export LD_LIBRARY_PATH=./</code>设置额外搜索路径。另外/etc/ld.so.conf中可以添加额外搜索路径（绝对路径）。</p>
+<p>那么为什么平时使用标准库的时候不需要在链接时写入链接的静态库的名称呢？标准库的头文件里做什么手脚呢？（cl可以使用#pragma comment制定链接的库。）</p>
+<h1 id="_3">构建工具</h1>
+<h2 id="make">make</h2>
+<p>类unix环境下的项目管理工具，根据<strong>Makefile</strong>编译组建多个源文件。</p>
+<h1 id="_4">项目管理工具</h1>
+<p><img alt="" src="../abstraction_level_of_compiler_make_cmake_qmake.jpg" /></p>
+<h2 id="qmake">qmake</h2>
+<p>qmake是Qt专用的项目管理工具，对应的工程文件是*.pro，在Linux下面它也会生成Makefile。</p>
+<h2 id="cmake">cmake</h2>
+<p>cmake是跨平台项目管理工具，cmake命令执行<strong>CMakeLists.txt</strong>文件。Linux下它会生成Makefile、eclipse工程文件等，Win下会生成Visual Studio的工程文件。</p>
+<pre><code class="sh"># 将构建生成的文件放到build目录下，以和源码分离
+mkdir build
+cd build
+#生成Makefile
+cmake .. -G &quot;MinGW Makefiles&quot;
+#构建
+make
+</code></pre>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../C++_Details/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../C++_Details/" class="btn btn-xs btn-link">
+        C++中除以0的行为
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../C++_Common_Skills/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../C++_Common_Skills/" class="btn btn-xs btn-link">
+        从标准输入流读取个数未知的整数
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/2. Programming in C++/C++_Compile_And_Link_Building.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

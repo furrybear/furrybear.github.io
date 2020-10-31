@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="author" content="Furrybear">
+    <link rel="canonical" href="https://furrybear.readthedocs.com/3. Usage of SVN/SVN版本库创建/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>SVN版本库创建 - Furrybear's Blog</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "SVN\u7248\u672c\u5e93\u521b\u5efa", url: "#_top", children: [
+              {title: "Ubuntu16.04\u521b\u5efaSVN\u7248\u672c\u5e93", url: "#ubuntu1604svn" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../TortoiseSVN使用学习笔记/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../TortoiseSVN使用学习笔记/" class="btn btn-xs btn-link">
+        TortoiseSVN使用学习笔记
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../SVN使用学习笔记/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../SVN使用学习笔记/" class="btn btn-xs btn-link">
+        SVN使用学习笔记
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="svn">SVN版本库创建</h1>
+<h2 id="ubuntu1604svn">Ubuntu16.04创建SVN版本库</h2>
+<p>参考：<a href="http://blog.csdn.net/Eric_lmy/article/details/51942931">http://blog.csdn.net/Eric_lmy/article/details/51942931</a></p>
+<p>一种做法是，创建一个存放SVN仓库的目录，这个目录下可以存放多个SVN仓库，例如/home/svn（最好不要使用/root目录，虽然这里没什么问题，但是如果想要使用浏览器即http方式访问svn仓库，apache服务器访问仓库会出现permission denied的问题），然后使用以下命令：</p>
+<pre><code class="sh">apt-get install subversion
+svnadmin create ~/svn/SVN仓库目录名
+</code></pre>
+
+<p>这样，这个仓库的根目录的URL就是“svn://hostname/SVN仓库名”。在建立其他仓库也是同样的方法。</p>
+<p>创建的SVN仓库目录下，重要的是conf目录。conf目录下，svnserve.conf是主配置文件，authz文件是设置用户权限，passwd文件是存储用户及密码。</p>
+<h3 id="svnserveconf">svnserve.conf示例（配置项前不能有空格）：</h3>
+<pre><code>[general]
+# 匿名用户不允许读写
+anon-access = none
+# 授权用户允许读写
+auth-access = write
+# 密码文件使用本目录的passwd文件
+password-db = passwd
+# 用户文件使用本目录的authz
+authz-db = authz  
+</code></pre>
+
+<p>多个仓库可以共用paawd文件和authz文件。</p>
+<h3 id="passwdhtpasswd">passwd示例（明文配置，如果要加密配置，可以使用htpasswd）：</h3>
+<p>明文配置：</p>
+<pre><code>[users]    
+用户名=密码  
+</code></pre>
+
+<p>使用htpasswd加密配置：</p>
+<pre><code class="sh">#创建或者重写passwd文件
+htpasswd -c passwd 用户名
+#向passwd文件增加用户名密码
+htpasswd passwd 用户名
+</code></pre>
+
+<h3 id="authz">authz示例</h3>
+<pre><code>[groups] 
+用户组 = 用户1,用户2 
+[SVN仓库名:/]
+@用户组 = rw
+用户3 = r 
+</code></pre>
+
+<h3 id="_1">启动</h3>
+<p>然后启动监听端口就好了：</p>
+<pre><code class="sh">svnserve -d -r ~/svn  
+</code></pre>
+
+<p>用TortoiseSVN（Win）、svn co（Linux）等工具从“svn://hostname/SVN仓库名”检出（checkout）仓库的工作副本就好了。</p>
+<h3 id="_2">其他</h3>
+<p>如何让Apache2访问SVN仓库，从而让SVN仓库可以用浏览器访问请看<a href="/笔记/Apache2#http访问SVN仓库">Apache2学习笔记</a></p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../TortoiseSVN使用学习笔记/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../TortoiseSVN使用学习笔记/" class="btn btn-xs btn-link">
+        TortoiseSVN使用学习笔记
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../SVN使用学习笔记/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../SVN使用学习笔记/" class="btn btn-xs btn-link">
+        SVN使用学习笔记
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/3. Usage of SVN/SVN版本库创建.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

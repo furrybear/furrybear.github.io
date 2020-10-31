@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="author" content="Furrybear">
+    <link rel="canonical" href="https://furrybear.readthedocs.com/3. Usage/How_To_Set_Up_Apache2/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Apache2学习笔记 - Furrybear's Blog</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "\u91cd\u8981\u7684\u914d\u7f6e\u6587\u4ef6", url: "#_top", children: [
+          ]},
+          {title: "http\u65b9\u5f0f\u8bbf\u95eeSVN\u4ed3\u5e93", url: "#httpsvn", children: [
+          ]},
+          {title: "\u4e3aphp\u8bbe\u7f6e\u6dfb\u52a0$_SERVER\u670d\u52a1\u5668\u73af\u5883\u53d8\u91cf", url: "#php_server", children: [
+          ]},
+          {title: "htaccess", url: "#htaccess", children: [
+              {title: "Options\u9009\u9879", url: "#options" },
+              {title: "\u7981\u6b62\u8bbf\u95ee\u67d0\u4e9b\u76ee\u5f55\u6216\u8005\u6587\u4ef6", url: "#_2" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../How_To_Set_Up_Ftp/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../How_To_Set_Up_Ftp/" class="btn btn-xs btn-link">
+        Win
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../Gitlab使用学习笔记/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../Gitlab使用学习笔记/" class="btn btn-xs btn-link">
+        Gtilab使用学习笔记
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="_1">重要的配置文件</h1>
+<p>Ubuntu下比较重要的配置文件在</p>
+<ul>
+<li>/etc/apache2/apache2.conf</li>
+<li>/etc/apache2/ports.conf</li>
+<li>/etc/apache2/sites-available</li>
+<li>/etc/apache2/sites-enable</li>
+</ul>
+<p>Win下配置网站根目录的文件是</p>
+<ul>
+<li>https-vhosts.conf</li>
+</ul>
+<h1 id="httpsvn">http方式访问SVN仓库</h1>
+<p>我是在root下操作的。首先安装插件，让Apache2能够处理SVN的相关事务：</p>
+<pre><code class="sh">apt-get install libapache2-svn 
+</code></pre>
+
+<p>假设<code>/home/svn</code>下有一至多个SVN仓库，我们要操作的SVN版本库在<code>/home/svn/repos</code>，首先先改变文件权限让它可以被Apache2操作：</p>
+<pre><code class="sh">chown -R www-data:www-data /home/svn/repos 
+</code></pre>
+
+<p>然后做个从<code>/etc/apache2/mods-available/dav_svn.conf</code>到<code>/etc/apache2/mods-enabled/dav_svn.conf</code>的符号链接（使用绝对路径），启用这个模块：</p>
+<pre><code class="sh">ln -s /etc/apache2/mods-available/dav_svn.conf /etc/apache2/mods-enabled/dav_svn.conf
+</code></pre>
+
+<p>编辑<code>/etc/apache2/mods-enabled/dav_svn.conf</code>为：</p>
+<pre><code>&lt;Location /svn&gt;
+  DAV svn
+
+  #SVNPath、SVNParentPath不能共存（分别对应单仓库和多仓库）
+  #不知道为什么设置这个不可行
+  #SVNPath /home/repos
+  SVNParentPath /home/svn
+
+  AuthType Basic
+  AuthName &quot;Bear's SVN&quot;
+  #存密码的文件
+  AuthUserFile /home/svn/repos/conf/passwd
+  #存用户权限的文件
+  AuthzSVNAccessFile /home/svn/repos/conf/authz
+  Require valid-user
+</code></pre>
+
+<p>注意密码文件<code>/home/svn/repos/conf/passwd</code>不能用明文形式，要用<code>htpasswd</code>命令生成的那种。</p>
+<p>注意在<code>/etc/apache2/ports.conf</code>中设置要监听80端口。</p>
+<p>然后重启Apache2，就可以从<code>http://主机名/svn/repos</code>访问SVN仓库了。</p>
+<h1 id="php_server">为php设置添加$_SERVER服务器环境变量</h1>
+<p>参考：<a href="https://segmentfault.com/a/1190000004634251">https://segmentfault.com/a/1190000004634251</a></p>
+<pre><code>SetEnv 变量名 变量值
+</code></pre>
+
+<p>示例：</p>
+<pre><code>&lt;VirtualHost *:80&gt;
+    ServerAdmin webmaster@demo.com
+    DocumentRoot &quot;e:\wwwroot\demo&quot;
+    ServerName my.demo.com
+    ErrorLog &quot;logs/my.demo.com-error.log&quot;
+    CustomLog &quot;logs/my.demo.com-access.log&quot; common
+    SetEnv RUNTIME_ENVIROMENT DEV
+
+    &lt;Directory &quot;e:\wwwroot\demo&quot;&gt;
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+    &lt;/Directory&gt;
+&lt;/VirtualHost&gt;
+</code></pre>
+
+<h1 id="htaccess">htaccess</h1>
+<h2 id="options">Options选项</h2>
+<pre><code>Options Indexes FollowSymLinks
+</code></pre>
+
+<ul>
+<li>
+<p>Indexes：目录下没有index.html的话，浏览器会显示该目录的目录结构，列出该目录下的文件和子目录</p>
+</li>
+<li>
+<p>FollowSymLinks：允许在此目录中使用符号连接</p>
+</li>
+</ul>
+<h2 id="_2">禁止访问某些目录或者文件</h2>
+<p>首先在服务器全局配置文件（我这里是<code>/etc/apache2/apache2.conf</code>）或者站点配置文件（<code>/etc/apache2/sites-available/什么什么.conf</code>）里设置，使得网站根目录下的<code>.htaccess</code>文件可以生效：</p>
+<pre><code>&lt;Directory /&gt;
+...
+AllowOverride All
+...
+&lt;/Directory&gt;
+</code></pre>
+
+<p>我现在的做法是在要被禁止访问的文件旁创建.htaccess文件，添加</p>
+<pre><code>&lt;Files 文件名&gt; 
+    Require all denied
+&lt;/Files&gt; 
+</code></pre>
+
+<p>在被禁止访问的目录下创建.htaccess文件，添加</p>
+<pre><code>Require all denied
+</code></pre>
+
+<p>注意，“Require all denied”应该只有Apache2.4及以上支持。</p>
+<p>例如，只允许访问index.php：在旁创建.htaccess文件</p>
+<pre><code>```
+&lt;Files ~ "^(?!index.php$)"&gt;
+    Require all denied
+&lt;/Files&gt;
+```
+</code></pre>
+<p>“~”是指启用正则，以上是指文件名或者目录名不是index.php的都禁止访问。</p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../How_To_Set_Up_Ftp/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../How_To_Set_Up_Ftp/" class="btn btn-xs btn-link">
+        Win
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../Gitlab使用学习笔记/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../Gitlab使用学习笔记/" class="btn btn-xs btn-link">
+        Gtilab使用学习笔记
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/3. Usage/How_To_Set_Up_Apache2.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

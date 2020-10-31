@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="author" content="Furrybear">
+    <link rel="canonical" href="https://furrybear.readthedocs.com/2. Programming in Python/Python3模块学习笔记之subprocess/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Python3模块学习笔记之subprocess - Furrybear's Blog</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Python3\u6a21\u5757\u5b66\u4e60\u7b14\u8bb0\u4e4bsubprocess", url: "#_top", children: [
+              {title: "\u53c2\u8003", url: "#_1" },
+              {title: "\u963b\u585e\u65b9\u5f0f\u542f\u52a8\u8fdb\u7a0b\uff08subprocess.run\uff09", url: "#subprocessrun" },
+              {title: "\u975e\u963b\u585e\u65b9\u5f0f\u542f\u52a8\u8fdb\u7a0b\uff08subprocess.Popen\uff09", url: "#subprocesspopen" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../Python3语法学习笔记/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../Python3语法学习笔记/" class="btn btn-xs btn-link">
+        Python3语法学习笔记
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../Python3模块学习笔记之shutil/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../Python3模块学习笔记之shutil/" class="btn btn-xs btn-link">
+        Python3模块学习笔记之shutil
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="python3subprocess">Python3模块学习笔记之subprocess</h1>
+<p>subprocess模块是python从2.4版本开始引入的模块。主要用来取代一些旧的模块方法，如<code>os.system</code>、<code>os.spawn*</code>、<code>os.popen*</code>、<code>commands.*</code>等。subprocess通过子进程来执行外部指令，并通过input/output/error管道，获取子进程的执行的返回信息。</p>
+<h2 id="_1">参考</h2>
+<ul>
+<li><a href="https://www.cnblogs.com/breezey/p/6673901.html">https://www.cnblogs.com/breezey/p/6673901.html</a></li>
+</ul>
+<h2 id="subprocessrun">阻塞方式启动进程（subprocess.run）</h2>
+<p>（<code>subprocess.run</code>是python3.5引入的，以前用<code>subprocess.call</code>。）</p>
+<p>根据<code>help(subprocess.run)</code>的介绍，可以这样使用：</p>
+<pre><code class="python">//Windows下
+subprocess.run(&quot;dir&quot;,shell=True)//使用shell来执行dir命令，dir命令表示列出所有子文件
+subprocess.run([&quot;dir&quot;],shell=True)//使用shell来执行dir命令，dir命令表示列出所有子文件
+subprocess.run(&quot;dir&quot;)//会报错，找不到该文件
+</code></pre>
+
+<p>它会返回一个类似于<code>CompletedProcess(args='dir', returncode=0)</code>的对象，表示执行结果。</p>
+<p>高级用法:</p>
+<pre><code class="python">subprocess.run([&quot;dir&quot;],shell=True,stdout=subprocess.PIPE)//子进程标准输出的内容不打印在本进程的标准输出，而是存在返回的CompletedProcess对象的stdout属性中
+subprocess.run([&quot;dir&quot;],shell=True,stdout=subprocess.DEVNULL)//子进程标准输出的内容不打印在本进程的标准输出
+subprocess.run([&quot;dir&quot;],shell=True,stderr=subprocess.STDOUT)//子进程标准错误流重定向到标准输出流
+</code></pre>
+
+<h2 id="subprocesspopen">非阻塞方式启动进程（subprocess.Popen）</h2>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../Python3语法学习笔记/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../Python3语法学习笔记/" class="btn btn-xs btn-link">
+        Python3语法学习笔记
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../Python3模块学习笔记之shutil/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../Python3模块学习笔记之shutil/" class="btn btn-xs btn-link">
+        Python3模块学习笔记之shutil
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/2. Programming in Python/Python3模块学习笔记之subprocess.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

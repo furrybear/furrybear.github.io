@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="author" content="Furrybear">
+    <link rel="canonical" href="https://furrybear.readthedocs.com/1. Knowledge of Data Structure And Algorithm/Tree Basics  (Part 2) Binary Search Tree/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Tree Basics (Part 2): Binary Search Tree - Furrybear's Blog</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Tree Basics (Part 2): Binary Search Tree", url: "#_top", children: [
+              {title: "\u5b9a\u4e49", url: "#_1" },
+              {title: "\u63d2\u5165", url: "#_2" },
+              {title: "\u5220\u9664", url: "#_3" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../Tree Basics  (Part 3) RB Tree/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../Tree Basics  (Part 3) RB Tree/" class="btn btn-xs btn-link">
+        Tree Basics (Part 3): RB Tree
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../Tree Basics  (Part 1) Relationship between Various Trees/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../Tree Basics  (Part 1) Relationship between Various Trees/" class="btn btn-xs btn-link">
+        Tree Basics (Part 1): Relationship between Various Trees
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="tree-basics-part-2-binary-search-tree">Tree Basics (Part 2): Binary Search Tree</h1>
+<h2 id="_1">定义</h2>
+<p>二叉排序树或者是一棵空树，或者是具有下列性质的二叉树：</p>
+<ol>
+<li>若左子树不空，则左子树上所有结点的值均小于或等于它的根结点的值；</li>
+<li>若右子树不空，则右子树上所有结点的值均大于或等于它的根结点的值；</li>
+<li>左、右子树也分别为二叉排序树；</li>
+</ol>
+<h2 id="_2">插入</h2>
+<p>节点插入从根节点开始判断，插入时肯定是一个叶子结点。</p>
+<h2 id="_3">删除</h2>
+<p>在二叉排序树删去一个结点，分三种情况讨论：</p>
+<ol>
+<li>
+<p>若*p结点为叶子结点，即PL(左子树)和PR(右子树)均为空树。由于删去叶子结点不破坏整棵树的结构，则可以直接删除此子结点。</p>
+</li>
+<li>
+<p>若<em>p结点只有左子树PL或右子树PR，此时只要令PL或PR直接成为其双亲结点</em>f的左子树（当<em>p是左子树）或右子树（当</em>p是右子树）即可，作此修改也不破坏二叉排序树的特性。</p>
+</li>
+<li>
+<p>若<em>p结点的左子树和右子树均不空。在删去</em>p之后，为保持其它元素之间的相对位置不变，可按中序遍历保持有序进行调整，可以有两种做法：</p>
+</li>
+<li>
+<p>其一是令<em>p的左子树为</em>f的左/右(依<em>p是</em>f的左子树还是右子树而定)子树，<em>s为</em>p左子树的最右下的结点，而<em>p的右子树为</em>s的右子树；</p>
+</li>
+<li>
+<p>其二是令<em>p的直接前驱（或直接后继）替代</em>p，然后再从二叉排序树中删去它的直接前驱（或直接后继）－即让<em>f的左子树(如果有的话)成为</em>p左子树的最左下结点(如果有的话)，再让<em>f成为</em>p的左右结点的父结点。</p>
+</li>
+</ol>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../Tree Basics  (Part 3) RB Tree/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../Tree Basics  (Part 3) RB Tree/" class="btn btn-xs btn-link">
+        Tree Basics (Part 3): RB Tree
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../Tree Basics  (Part 1) Relationship between Various Trees/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../Tree Basics  (Part 1) Relationship between Various Trees/" class="btn btn-xs btn-link">
+        Tree Basics (Part 1): Relationship between Various Trees
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/1. Knowledge of Data Structure And Algorithm/Tree Basics  (Part 2) Binary Search Tree.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

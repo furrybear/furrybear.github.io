@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="author" content="Furrybear">
+    <link rel="canonical" href="https://furrybear.readthedocs.com/3. Usage of Docker/How to Use Docker/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>How to Use Docker - Furrybear's Blog</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "How to Use Docker", url: "#_top", children: [
+              {title: "Command Line", url: "#command-line" },
+              {title: "Configuration", url: "#configuration" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../How to Write Dockerfile/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../How to Write Dockerfile/" class="btn btn-xs btn-link">
+        How to Write Dockerfile
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../../3. Usage/科学上网学习笔记/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../../3. Usage/科学上网学习笔记/" class="btn btn-xs btn-link">
+        科学上网学习笔记
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="how-to-use-docker">How to Use Docker</h1>
+<h2 id="command-line">Command Line</h2>
+<h3 id="docker-ps">docker ps</h3>
+<p><code>docker ps</code>只是列出所有正在running的容器，使用<code>docker ps -a</code>才能列出所有容器。</p>
+<h3 id="docker-stop">docker stop</h3>
+<p>使用<code>docker stop &lt;容器名/容器ID&gt;</code>可以使一个running的容器停止。<code>docker stop</code>和<code>docker-compose down</code>都是向容器中PID为1的进程发送系统信号SIGTERM，进程收到信号后做一些后续处理操作，然后结束。如果进程不在默认的10秒内结束的话，Docker会发送SIGKILL信号杀掉进程。</p>
+<h3 id="docker-kill">docker kill</h3>
+<p>发送SIGKILL信号杀掉进程。</p>
+<h3 id="docker-run">docker run</h3>
+<p>如果启动docker容器时使用了<code>--name</code>这个参数给容器设置了名字，那么就不能再创建同名容器了。</p>
+<h3 id="docker-exec">docker exec</h3>
+<p><code>docker exec -it &lt;容器名/容器ID&gt; &lt;命令&gt; &lt;参数&gt;</code>和<code>docker exec -d &lt;容器名/容器ID&gt; &lt;命令&gt; &lt;参数&gt;</code>可以在容器中执行相关命令，区别是前者分配伪终端在命令行前台执行，后者在后台执行。</p>
+<p>例如，<code>docker exec -it &lt;容器名/容器ID&gt; /bin/sh</code>就可以进入容器。</p>
+<h3 id="docker-restart">docker restart</h3>
+<p><code>docker restart &lt;容器名/容器ID&gt;</code>、<code>docker stop &lt;容器名/容器ID&gt; &amp; docker start &lt;容器名/容器ID&gt;</code>或者重启宿主机可以重启容器。</p>
+<p>值得注意的是，一个容器的文件系统里的内容不会因为容器running和stopped状态的切换而被重置，只要写入了，就是持久的。但是通过<code>docker exec</code>在容器内增加的进程在容器重启后不会保留。容器重启后只会保留镜像中指定的进程。因此不能通过<code>docker exec</code>在容器内增加进程，现在来看只能用Dockerfile等手段重做镜像。
+　　</p>
+<h3 id="docker-rm">docker rm</h3>
+<p>删除所有容器：<code>docker rm -f $(docker ps -a -q)</code></p>
+<h3 id="docker-rmi">docker rmi</h3>
+<p>删除所有容器镜像：<code>docker rmi -f $(docker images -q)</code></p>
+<h2 id="configuration">Configuration</h2>
+<p>​    For using mirror while pulling container images, add the following content to <code>/etc/docker/daemon.json</code>:</p>
+<pre><code class="json">{
+  &quot;registry-mirrors&quot; : [
+    &quot;http://docker.mirrors.ustc.edu.cn&quot;,
+    &quot;http://hub-mirror.c.163.com&quot;,
+    &quot;http://ovfftd6p.mirror.aliyuncs.com&quot;
+  ]
+}
+</code></pre>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../How to Write Dockerfile/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../How to Write Dockerfile/" class="btn btn-xs btn-link">
+        How to Write Dockerfile
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../../3. Usage/科学上网学习笔记/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../../3. Usage/科学上网学习笔记/" class="btn btn-xs btn-link">
+        科学上网学习笔记
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/3. Usage of Docker/How to Use Docker.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

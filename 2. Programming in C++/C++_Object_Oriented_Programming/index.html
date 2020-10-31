@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="author" content="Furrybear">
+    <link rel="canonical" href="https://furrybear.readthedocs.com/2. Programming in C++/C++_Object_Oriented_Programming/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>默认生成的成员函数 - Furrybear's Blog</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "\u9ed8\u8ba4\u751f\u6210\u7684\u6210\u5458\u51fd\u6570", url: "#_top", children: [
+          ]},
+          {title: "\u6784\u9020\u51fd\u6570\u548c\u8d4b\u503c\u51fd\u6570", url: "#_2", children: [
+              {title: "\u6784\u9020\u51fd\u6570", url: "#_3" },
+              {title: "\u8d4b\u503c\u51fd\u6570\uff08\u8fd8\u672a\u6df1\u5165\u7814\u7a76\uff09", url: "#_4" },
+          ]},
+          {title: "\u6790\u6784\u51fd\u6570", url: "#_5", children: [
+          ]},
+          {title: "\u6784\u9020\u51fd\u6570\u548c\u6790\u6784\u51fd\u6570\u662f\u5426\u53ef\u4ee5\u629b\u51fa\u5f02\u5e38", url: "#_6", children: [
+          ]},
+          {title: "friend\u5173\u952e\u5b57", url: "#friend", children: [
+          ]},
+          {title: "\u9759\u6001\u6210\u5458\u51fd\u6570", url: "#_7", children: [
+          ]},
+          {title: "\u805a\u5408\u7c7b\u578b", url: "#_8", children: [
+          ]},
+          {title: "\u5e38\u6210\u5458\u51fd\u6570\u548c\u5e38\u5bf9\u8c61", url: "#_9", children: [
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../C++_Polymorphism/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../C++_Polymorphism/" class="btn btn-xs btn-link">
+        虚析构函数
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../C++_Lvalue_And_Rvalue/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../C++_Lvalue_And_Rvalue/" class="btn btn-xs btn-link">
+        左值和右值（C++11之前）
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="_1">默认生成的成员函数</h1>
+<p>对于C++的的类，如果用户没有写，会自动生成这些成员函数。</p>
+<pre><code class="C++">class A {};
+//其实等价于：
+class A {
+public:
+    //默认构造函数（Default Constructor）
+    A();
+    //析构函数（Destructor）
+    ~A();
+    //拷贝构造函数（Copy Constructor）
+    A(const A&amp; other);
+    //拷贝赋值函数（Copy Assignment）
+    A&amp; operator=(const A&amp; other);
+};
+</code></pre>
+
+<p>没有任何构造函数时会生成默认构造函数，一旦用户写了任何构造函数，默认构造函数不会生成。</p>
+<h1 id="_2">构造函数和赋值函数</h1>
+<h2 id="_3">构造函数</h2>
+<ul>
+<li>构造函数可以重载。</li>
+<li>构造函数可以声明为私有。</li>
+</ul>
+<p>特殊的构造函数有以下几种：</p>
+<pre><code class="cpp">class A {
+public:
+    //默认构造函数（Default Constructor）
+    A();
+    //参数为常引用的拷贝构造函数（Copy Constructor）
+    A(const A&amp; other);
+    //参数为非常引用的拷贝构造函数（Copy Constructor）
+    A(A&amp; other);
+    //移动构造函数（Move Constructor）
+    A(A&amp;&amp; other);
+};
+</code></pre>
+
+<p><strong>拷贝构造函数</strong>被调用的情形（被赋值对象不存在）：</p>
+<ul>
+<li>一个对象以值传递的方式传入函数体</li>
+<li>一个对象以值传递的方式从函数返回</li>
+<li>一个对象需要通过另一个对象进行初始化</li>
+</ul>
+<pre><code class="C++">A a;
+A b(a);
+A b=a;
+</code></pre>
+
+<p>禁用<strong>拷贝构造函数</strong>和<strong>拷贝赋值函数</strong>只需将它们声明为私有，并且不需要实现。</p>
+<h2 id="_4">赋值函数（还未深入研究）</h2>
+<p>总是调用等号左侧的对象的赋值函数。</p>
+<pre><code class="cpp">class A {
+public:
+    //拷贝赋值函数（Copy Assignment）
+    A&amp; operator=(const A&amp; other) { return *this; }
+    //拷贝赋值函数（Copy Assignment）
+    A&amp; operator=(A&amp; other) { return *this; }
+    //拷贝赋值函数（Copy Assignment）
+    A&amp; operator=(A&amp;&amp; other) { return *this; }
+    //...
+};
+</code></pre>
+
+<p><strong>拷贝赋值函数</strong>被调用的情形（被赋值对象存在）：</p>
+<pre><code class="C++">A a;
+A b;
+b=a;
+</code></pre>
+
+<h1 id="_5">析构函数</h1>
+<ul>
+<li>析构函数不可以重载。</li>
+<li>析构函数不可以声明为私有。</li>
+</ul>
+<p>析构函数一般需要是虚函数。为了避免以下情况：</p>
+<pre><code class="cpp">Base *p=new Derived();
+//如果析构函数不是虚函数，析构时只会调用基类的析构函数，而不会调用派生类的析构函数
+delete p;
+</code></pre>
+
+<p>从C++11起，析构函数默认有noexcept修饰符，即不抛出任何异常，如果内部抛出异常，则会调用std::termminate。</p>
+<h1 id="_6">构造函数和析构函数是否可以抛出异常</h1>
+<p>构造函数和析构函数都可以抛出异常。</p>
+<p>构造函数向外抛出异常视为该对象没有构造成功，所以析构函数不会被调用。因此一种观点认为构造函数内不能申请任何资源，需要再来个普通函数（例如init）来分配资源，这样可能造成：</p>
+<ol>
+<li>忘了调用init。</li>
+<li>init调用两次。</li>
+</ol>
+<p>等问题。另一种观点认为构造函数申请资源都应该采取RAII的方式，例如用智能指针对象包裹指针，这样即使构造失败，资源也能正常释放。</p>
+<p>析构函数最好不要向外抛出异常，即使内部有异常也要内部消化。例如vector\&lt;A>析构的时候，如果A的析构函数抛出了异常，这时候要处理异常还是继续析构vector？其实C++11起，析构函数自动声明为noexcept，如果析构函数执行时胆敢抛出异常，会自动调用std::terminate。</p>
+<h1 id="friend">friend关键字</h1>
+<p>类内friend函数不属于成员函数。</p>
+<h1 id="_7">静态成员函数</h1>
+<p><a href="https://github.com/zfengzhen/Blog/blob/master/article/%E3%80%8A%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%B4%A2C%2B%2B%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0.md"></a></p>
+<p>不能声明为const、volatile或virtual。</p>
+<h1 id="_8">聚合类型</h1>
+<p><a href="https://blog.csdn.net/wind19/article/details/8210875">https://blog.csdn.net/wind19/article/details/8210875</a></p>
+<p>聚合类型是一种没有用户定义的构造函数，没有private和protected的非静态数据成员，没有基类，没有虚函数。这样的类可以由封闭的大括号用逗号分隔开初始化列表。</p>
+<pre><code class="cpp">struct C
+{
+  int a;
+  double b;
+};
+struct D
+{
+  int a; 
+  double b;
+  C c;
+};
+C c{ 1, 2 };
+D d{ 10, 20, { 1, 2 } };
+</code></pre>
+
+<h1 id="_9">常成员函数和常对象</h1>
+<p>C++里常对象只能调用常成员函数，常函数只能调用常成员函数。非常对象优先调用非常成员函数。以下都视为常对象：</p>
+<pre><code>const Hehe h;
+//指向常量的指针
+const Hehe *p = &amp;h;
+//指向常量的引用
+const Hehe &amp;r = h;
+</code></pre>
+
+<p>需要注意的是：指向常量的指针和指向常量的引用可以指向普通的对象，仍然视为常对象；普通指针或者普通引用不能指向常对象，编译报错。</p>
+<pre><code>Hehe h;
+//常量指针，不能改变指向
+Hehe *const p = &amp;h;
+//引用本来就不能改变指向
+</code></pre>
+
+<p><a href="https://www.cnblogs.com/lihuidashen/p/4378884.html">https://www.cnblogs.com/lihuidashen/p/4378884.html</a></p>
+<p>加上mutable修饰符的数据成员,对于任何情况下通过任何手段都可修改,自然此时的常成员函数是可以修改它的。</p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../C++_Polymorphism/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../C++_Polymorphism/" class="btn btn-xs btn-link">
+        虚析构函数
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../C++_Lvalue_And_Rvalue/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../C++_Lvalue_And_Rvalue/" class="btn btn-xs btn-link">
+        左值和右值（C++11之前）
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/2. Programming in C++/C++_Object_Oriented_Programming.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

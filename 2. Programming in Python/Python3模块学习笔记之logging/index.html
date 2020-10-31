@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="author" content="Furrybear">
+    <link rel="canonical" href="https://furrybear.readthedocs.com/2. Programming in Python/Python3模块学习笔记之logging/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Python3模块学习笔记之logging - Furrybear's Blog</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Python3\u6a21\u5757\u5b66\u4e60\u7b14\u8bb0\u4e4blogging", url: "#_top", children: [
+              {title: "\u4f7f\u7528\u9ed8\u8ba4\u65e5\u5fd7\u5bf9\u8c61", url: "#_1" },
+              {title: "\u4f7f\u7528\u81ea\u5b9a\u4e49\u65e5\u5fd7\u5bf9\u8c61", url: "#_2" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../Python3模块学习笔记之os/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../Python3模块学习笔记之os/" class="btn btn-xs btn-link">
+        Python3模块学习笔记之os
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../Python3模块学习笔记之itertools/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../Python3模块学习笔记之itertools/" class="btn btn-xs btn-link">
+        Python3模块学习笔记之itertools
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="python3logging">Python3模块学习笔记之logging</h1>
+<h2 id="_1">使用默认日志对象</h2>
+<pre><code class="python3">import logging
+logging.basicConfig(level=logging.WARN, format=&quot;%(levelname)s:%(message)s&quot;)
+# DEBUG级别
+logging.debug('Debugging')
+# INFO级别
+logging.info('Finished')
+# WARN级别/WARNING级别
+logging.warning('Warning exists')
+# ERROR级别
+logging.error('Error Occurred')
+# CRITICAL级别/FATAL级别
+logging.critical('Critical Something')
+</code></pre>
+
+<h2 id="_2">使用自定义日志对象</h2>
+<pre><code class="python3">logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
+console_handler = logging.StreamHandler()
+console_handler.setFormatter(logging.Formatter('%(levelname)s %(asctime)s %(name)s|%(message)s'))
+logger.addHandler(console_handler)
+logger.debug('hehe')
+</code></pre>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../Python3模块学习笔记之os/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../Python3模块学习笔记之os/" class="btn btn-xs btn-link">
+        Python3模块学习笔记之os
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../Python3模块学习笔记之itertools/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../Python3模块学习笔记之itertools/" class="btn btn-xs btn-link">
+        Python3模块学习笔记之itertools
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/2. Programming in Python/Python3模块学习笔记之logging.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

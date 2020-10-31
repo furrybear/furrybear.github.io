@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="author" content="Furrybear">
+    <link rel="canonical" href="https://furrybear.readthedocs.com/1. Knowledge of Data Structure And Algorithm/Topological Sorting Basics/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Topological Sorting Basics - Furrybear's Blog</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Topological Sorting Basics", url: "#_top", children: [
+              {title: "\u63cf\u8ff0", url: "#_1" },
+              {title: "\u751f\u6210\u7b97\u6cd5", url: "#_2" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../Tree Basics  (Part 1) Relationship between Various Trees/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../Tree Basics  (Part 1) Relationship between Various Trees/" class="btn btn-xs btn-link">
+        Tree Basics (Part 1): Relationship between Various Trees
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../Stack Basics/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../Stack Basics/" class="btn btn-xs btn-link">
+        Stack Basics
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="topological-sorting-basics">Topological Sorting Basics</h1>
+<h2 id="_1">描述</h2>
+<p><a href="https://songlee24.github.io/2015/05/07/topological-sorting/">https://songlee24.github.io/2015/05/07/topological-sorting/</a></p>
+<p>有向无环图（Directed Acyclic Graph，DAG）的所有节点的线性序列。若存在一条从A到B的路径，那么在序列中A出现在B的前面。</p>
+<h2 id="_2">生成算法</h2>
+<p>维护一个队列q存放入度为0的节点，维护一个数组记录每个节点的入度。</p>
+<ol>
+<li>
+<p>将节点集合中入度为0的节点放到队列中。</p>
+</li>
+<li>
+<p>队列弹出一个节点进入拓扑序列，剩余节点中和这个节点有关的节点的入度减1。</p>
+</li>
+<li>
+<p>剩余节点中入度为0的节点入队q。</p>
+</li>
+<li>
+<p>直到队列弹不出节点。</p>
+</li>
+</ol>
+<p>时间复杂度是O(节点数+边数)？</p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../Tree Basics  (Part 1) Relationship between Various Trees/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../Tree Basics  (Part 1) Relationship between Various Trees/" class="btn btn-xs btn-link">
+        Tree Basics (Part 1): Relationship between Various Trees
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../Stack Basics/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../Stack Basics/" class="btn btn-xs btn-link">
+        Stack Basics
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/1. Knowledge of Data Structure And Algorithm/Topological Sorting Basics.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

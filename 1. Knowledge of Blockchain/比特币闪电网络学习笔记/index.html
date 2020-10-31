@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="author" content="Furrybear">
+    <link rel="canonical" href="https://furrybear.readthedocs.com/1. Knowledge of Blockchain/比特币闪电网络学习笔记/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>比特币闪电网络学习笔记 - Furrybear's Blog</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "\u6bd4\u7279\u5e01\u95ea\u7535\u7f51\u7edc\u5b66\u4e60\u7b14\u8bb0", url: "#_top", children: [
+              {title: "RSMC\uff08Recoverable Sequence Maturity Contract\uff0c\u53ef\u91cd\u83b7\u987a\u5e8f\u6210\u719f\u5408\u7ea6\uff09", url: "#rsmcrecoverable-sequence-maturity-contract" },
+              {title: "HTLC\uff08Hashed Timelock Contract\uff0c\u54c8\u5e0c\u9501\u5b9a\u5408\u7ea6\uff09", url: "#htlchashed-timelock-contract" },
+              {title: "\u53c2\u8003", url: "#_2" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../../1. Knowledge of Chinese/汉语语法学习笔记/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../../1. Knowledge of Chinese/汉语语法学习笔记/" class="btn btn-xs btn-link">
+        汉语语法学习笔记
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../比特币脚本与地址学习笔记/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../比特币脚本与地址学习笔记/" class="btn btn-xs btn-link">
+        比特币脚本与地址学习笔记
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="_1">比特币闪电网络学习笔记</h1>
+<h2 id="rsmcrecoverable-sequence-maturity-contract">RSMC（Recoverable Sequence Maturity Contract，可重获顺序成熟合约）</h2>
+<p>双向支付微通道。
+　　双方都预存一部分资金到“微支付通道”里，之后每次交易，就对交易后的资金分配方案共同进行确认，同时签字作废旧的版本。当需要提现时，将最终交易结果写到区块链网络中，被最终确认。可以看到，只有在提现时候才需要通过区块链。
+　　任何一个版本的方案都需要经过双方的签名认证才合法。任何一方在任何时候都可以提出提现，提现需要提供一个双方都签名过的资金分配方案（意味着肯定是某次交易后的结果）。在一定时间内，如果另外一方提出证明表明这个方案其实之前被作废了（非最新的交易结果），则资金罚没给质疑成功方。这就确保了没人会拿一个旧的交易结果来提现。
+　　另外，即使双方都确认了某次提现，首先提出提现一方的资金到账时间要晚于对方，这就鼓励大家尽量都在链外完成交易。
+　　</p>
+<h2 id="htlchashed-timelock-contract">HTLC（Hashed Timelock Contract，哈希锁定合约）</h2>
+<p>对于没有支付微通道的双方，可以使用HTLC建立虚拟通道进行转账。</p>
+<h2 id="_2">参考</h2>
+<ul>
+<li><xinsheng.huawei.com/cn/index.php?app=forum&mod=Detail&act=index&id=3700315></li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../../1. Knowledge of Chinese/汉语语法学习笔记/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../../1. Knowledge of Chinese/汉语语法学习笔记/" class="btn btn-xs btn-link">
+        汉语语法学习笔记
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../比特币脚本与地址学习笔记/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../比特币脚本与地址学习笔记/" class="btn btn-xs btn-link">
+        比特币脚本与地址学习笔记
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/1. Knowledge of Blockchain/比特币闪电网络学习笔记.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

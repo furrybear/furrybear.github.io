@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="author" content="Furrybear">
+    <link rel="canonical" href="https://furrybear.readthedocs.com/2. Frontend-React/React Router Basics/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>React Router Basics - Furrybear's Blog</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "React Router Basics", url: "#_top", children: [
+              {title: "Route\u6807\u7b7e", url: "#route" },
+              {title: "URL\u53c2\u6570", url: "#url" },
+              {title: "props.match.path\u4e0eprops.match.url\u7684\u533a\u522b", url: "#propsmatchpathpropsmatchurl" },
+              {title: "\u53c2\u8003", url: "#_1" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../../2. Java/Java Basics/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../../2. Java/Java Basics/" class="btn btn-xs btn-link">
+        Java Basics
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../React Basics/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../React Basics/" class="btn btn-xs btn-link">
+        React Basics
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="react-router-basics">React Router Basics</h1>
+<h2 id="route">Route标签</h2>
+<pre><code class="jsx">&lt;Route exact path=&quot;/&quot; render={() =&gt; &lt;Redirect to=&quot;/app/dashboard&quot; /&gt;} /&gt;
+&lt;Route exact path=&quot;/app&quot; render={() =&gt; &lt;Redirect to=&quot;/app/dashboard&quot; /&gt;} /&gt;
+&lt;Route exact path=&quot;/app&quot; render={props =&gt; &lt;Foo {...props} /&gt;} /&gt;
+</code></pre>
+
+<p>其中<code>render</code>、<code>component</code>属性都可以指定该路由下展示的组件。如果要展示的组件是一个inline component，例如<code>props =&gt; &lt;Foo {...props} /&gt;</code>，<code>component</code>会造成每次状态更新时会挂载和解挂载，而<code>render</code>只会更新已存在的组件。<code>render</code>不能用于展示非匿名函数组件。具体区别可以看看<a href="https://stackoverflow.com/questions/48150567/react-router-difference-between-component-and-render">react router difference between component and render</a>。</p>
+<h2 id="url">URL参数</h2>
+<p>可以通过路由传递参数，示例如下<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>：</p>
+<pre><code class="jsx">import React from &quot;react&quot;;
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useParams
+} from &quot;react-router-dom&quot;;
+
+// URL参数是URL中以冒号开头的占位符，
+// 例如在此示例的路由中定义的`id`参数
+// 类似的约定也同样用于匹配其他流行的Web框架（如Rails和Express）中的动态段
+export default function ParamsExample() {
+  return (
+    &lt;Router&gt;
+      &lt;div&gt;
+        &lt;h2&gt;Accounts&lt;/h2&gt;
+
+        &lt;ul&gt;
+          &lt;li&gt;
+            &lt;Link to=&quot;/netflix&quot;&gt;Netflix&lt;/Link&gt;
+          &lt;/li&gt;
+          &lt;li&gt;
+            &lt;Link to=&quot;/zillow-group&quot;&gt;Zillow Group&lt;/Link&gt;
+          &lt;/li&gt;
+          &lt;li&gt;
+            &lt;Link to=&quot;/yahoo&quot;&gt;Yahoo&lt;/Link&gt;
+          &lt;/li&gt;
+          &lt;li&gt;
+            &lt;Link to=&quot;/modus-create&quot;&gt;Modus Create&lt;/Link&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+
+        &lt;Switch&gt;
+          &lt;Route path=&quot;/:id&quot; children={&lt;Child /&gt;} /&gt;
+        &lt;/Switch&gt;
+      &lt;/div&gt;
+    &lt;/Router&gt;
+  );
+}
+
+function Child() {
+  // 我们可以在这里使用`useParams`钩子来访问
+  // URL的动态段
+  let { id } = useParams();
+  return (
+    &lt;div&gt;
+      &lt;h3&gt;ID: {id}&lt;/h3&gt;
+    &lt;/div&gt;
+  );
+}
+</code></pre>
+
+<h2 id="propsmatchpathpropsmatchurl">props.match.path与props.match.url的区别</h2>
+<p>使用URL参数的时候，在路由的子模块中<code>props.match.path</code>为路由，例如<code>/:id</code>，而<code>props.match.url</code>为实际路径，如<code>/netflix</code>。未使用URL参数时两者值相同。</p>
+<h2 id="_1">参考</h2>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p><a href="https://itbilu.com/nodejs/npm/react-router.html">React Router(react-router&amp;react-router-dom)相关整理</a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../../2. Java/Java Basics/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../../2. Java/Java Basics/" class="btn btn-xs btn-link">
+        Java Basics
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../React Basics/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../React Basics/" class="btn btn-xs btn-link">
+        React Basics
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/2. Frontend-React/React Router Basics.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

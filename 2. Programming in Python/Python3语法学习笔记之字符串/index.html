@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="author" content="Furrybear">
+    <link rel="canonical" href="https://furrybear.readthedocs.com/2. Programming in Python/Python3语法学习笔记之字符串/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Python3语法学习笔记之字符串 - Furrybear's Blog</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Python3\u8bed\u6cd5\u5b66\u4e60\u7b14\u8bb0\u4e4b\u5b57\u7b26\u4e32", url: "#_top", children: [
+              {title: "\u5355\u5f15\u53f7\uff08'\uff09", url: "#_1" },
+              {title: "\u53cc\u5f15\u53f7\uff08\"\uff09", url: "#_2" },
+              {title: "\u4e09\u5f15\u53f7\uff08'''\u6216\u8005\"\"\"\uff09", url: "#_3" },
+              {title: "\u5b57\u7b26\u4e32\u8de8\u884c", url: "#_4" },
+              {title: "r/R\u4fee\u9970", url: "#rr" },
+              {title: "u/U\u4fee\u9970", url: "#uu" },
+              {title: "b\u4fee\u9970", url: "#b" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../Python3语法学习笔记之模块和包/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../Python3语法学习笔记之模块和包/" class="btn btn-xs btn-link">
+        Python3语法学习笔记之模块和包
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../Python3语法学习笔记之字典/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../Python3语法学习笔记之字典/" class="btn btn-xs btn-link">
+        Python3语法学习笔记之字典
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="python3">Python3语法学习笔记之字符串</h1>
+<h2 id="_1">单引号（'）</h2>
+<p>单引号包裹的字符串里会转义所有转义字符，但是双引号可以不用转义。</p>
+<p>单引号包裹的字符串是单行字符串，但是每行末尾添加反斜杠可以将字符串分割成多行。</p>
+<h2 id="_2">双引号（"）</h2>
+<p>双引号包裹的字符串里会转义所有转义字符，但是单引号可以不用转义。</p>
+<p>双引号包裹的字符串是单行字符串，但是每行末尾添加反斜杠可以将字符串分割成多行。</p>
+<h2 id="_3">三引号（'''或者"""）</h2>
+<p>三引号包裹的字符串里会转义所有转义字符，但是单引号和双引号都可以不用转义。值得注意的是，出现<strong>三单引号/三双引号</strong>后，解释器会寻找下一个<strong>三单引号/三双引号</strong>作为字符串的结束的标志。所以要避免在字符串中出现<strong>三单引号/三双引号</strong>（有必要的话需要进行转义）。</p>
+<p>三引号包裹的字符串是多行字符串，不怕换行符。</p>
+<h2 id="_4">字符串跨行</h2>
+<p>对于双引号字符串和单引号字符串，如果需要跨行，需要在跨行点增加<strong>反斜杠</strong>。</p>
+<pre><code class="python3">print('miaomiao \
+hehe')
+</code></pre>
+
+<p>输出“miaomiao hehe”。</p>
+<h2 id="rr">r/R修饰</h2>
+<p>在字符串前添加个<code>r</code>修饰，表示字符串不转义，（\n、\t就是\n、\t,而不是回车和制表符）。这一般用于正则表达式。当然我发现写Windows风格的路径时也可以用。</p>
+<h2 id="uu">u/U修饰</h2>
+<p>表示字符串是Utf-8编码。当然现在写python3一般全文都是用Utf-8编码，加个u没什么意义。</p>
+<h2 id="b">b修饰</h2>
+<p>表示bytes。</p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../Python3语法学习笔记之模块和包/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../Python3语法学习笔记之模块和包/" class="btn btn-xs btn-link">
+        Python3语法学习笔记之模块和包
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../Python3语法学习笔记之字典/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../Python3语法学习笔记之字典/" class="btn btn-xs btn-link">
+        Python3语法学习笔记之字典
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+      <p>
+        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/2. Programming in Python/Python3语法学习笔记之字符串.md"><i class="fa fa-github"></i>
+Edit on GitHub</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>
