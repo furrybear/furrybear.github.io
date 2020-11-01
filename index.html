@@ -1,848 +1,186 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  
-  
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="None">
-    <meta name="author" content="Furrybear">
-    <link rel="canonical" href="https://furrybear.readthedocs.com/">
-    <link rel="shortcut icon" href="./img/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Furrybear's Blog</title>
-    <link href="./css/bootstrap-3.3.7.min.css" rel="stylesheet">
-    <link href="./css/font-awesome-4.7.0.css" rel="stylesheet">
-    <link href="./css/base.css" rel="stylesheet">
-    <link rel="stylesheet" href="./css/highlight.css">
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Furrybear's Blog</title><meta name="author" content="Furrybear"><meta name="copyright" content="Furrybear"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="Don&#39;t want to work, but to play.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Furrybear&#39;s Blog">
+<meta property="og:url" content="https://furrybear.github.io/index.html">
+<meta property="og:site_name" content="Furrybear&#39;s Blog">
+<meta property="og:description" content="Don&#39;t want to work, but to play.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://furrybear.github.io/images/favicon.ico">
+<meta property="article:author" content="Furrybear">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://furrybear.github.io/images/favicon.ico"><link rel="shortcut icon" href="/images/favicon.ico"><link rel="canonical" href="https://furrybear.github.io/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  ClickShowText: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: true
+};
 
-    <script src="./js/jquery-3.2.1.min.js"></script>
-    <script src="./js/bootstrap-3.3.7.min.js"></script>
-    <script src="./js/highlight.pack.js"></script>
-    
-      <script src="./js/elasticlunr.min.js"></script>
-    
-    <base target="_top">
-    <script>
-      var base_url = '.';
-      var is_top_frame = (window === window.parent);
-        
-        var pageToc = [
-          {title: "Furrybear\u2018s Notes", url: "#_top", children: [
-              {title: "Selection", url: "#selection" },
-          ]},
-        ];
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
 
-    </script>
-    <script src="./js/base.js"></script> 
-</head>
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
 
-<body>
-<script>
-if (is_top_frame) { $('body').addClass('wm-top-page'); }
-</script>
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
 
-<nav class="navbar wm-page-top-frame">
-  <div class="container-fluid wm-top-container">
-    
-    <div class="wm-top-tool pull-right wm-vcenter">
-      <form class="dropdown wm-vcentered" id="wm-search-form" action="./search.html">
-        
-        <button id="wm-search-show" class="btn btn-sm btn-default" type="submit"
-          ><i class="fa fa-search" aria-hidden="true"></i></button>
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2020-11-01 14:19:30'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
 
-        <div class="input-group input-group-sm wm-top-search">
-          <input type="text" name="q" class="form-control" id="mkdocs-search-query" placeholder="Search" autocomplete="off">
-          <span class="input-group-btn" role="search">
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}})()</script><meta name="generator" content="Hexo 5.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/images/favicon.ico" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">184</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">3</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">41</div></a></div></div></div><hr/></div></div><div id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(/images/default_index_img.jpg)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Furrybear's Blog</a></span><span id="menus"><span class="close" id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="site-info"><h1 id="site-title">Furrybear's Blog</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/furrybear" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:fbcll@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/11/01/3.%20Usage/Putty%EF%BC%9A%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86/" title="Putty：基本知识">     <img class="post_bg" src="/images/cover/64937418_p0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Putty：基本知识"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/11/01/3.%20Usage/Putty%EF%BC%9A%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86/" title="Putty：基本知识">Putty：基本知识</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-11-01T03:36:12.000Z" title="Created 2020-11-01 11:36:12">2020-11-01</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/3-Usage/">3. Usage</a></span></div><div class="content">Putty的免密SSH登陆参考：https://jingyan.baidu.com/article/17bd8e5259dab585aa2bb853.html
+　　用puttygen.exe这个工具，生成.ppk文件（里面有公钥和私钥）和公钥。先把公钥给服务端。然后putty载入.ppk文件（Connection→SSH→Auth），就可以免密码登录了。
+　　在putty的Connection→Data里设置用户名，还可以免输入用户名。
+连接保活
+</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/11/01/3.%20Usage/Sed%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" title="Sed基础知识">     <img class="post_bg" src="/images/cover/ae10f7433043bd8c2fd898ed1bb05b2c.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Sed基础知识"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/11/01/3.%20Usage/Sed%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" title="Sed基础知识">Sed基础知识</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-11-01T03:36:12.000Z" title="Created 2020-11-01 11:36:12">2020-11-01</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/3-Usage/">3. Usage</a></span></div><div class="content">参考
+Sed 命令完全指南 - Linux 中国
+
+</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/11/01/3.%20Usage/Study%20Notes%20of%20Usage%20of%20Chocolatery/" title="Study Notes of Usage of Chocolatery">     <img class="post_bg" src="/images/cover/psalms_of_planets_eureka_seven-045.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Study Notes of Usage of Chocolatery"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/11/01/3.%20Usage/Study%20Notes%20of%20Usage%20of%20Chocolatery/" title="Study Notes of Usage of Chocolatery">Study Notes of Usage of Chocolatery</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-11-01T03:36:12.000Z" title="Created 2020-11-01 11:36:12">2020-11-01</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/3-Usage/">3. Usage</a></span></div><div class="content">Study Notes of  Usage of ChocolateryYou must ensure Get-ExecutionPolicy is not Restricted. If not, type the following command:
+1Set-ExecutionPolicy Bypass -Scope Process
+
+Type the following command in powershell.
+1Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString(&#x27;https://chocolatey.org/install.ps1&#x27;))
+
+</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/11/01/3.%20Usage/Study%20Notes%20of%20Usage%20of%20Vagrant/" title="Study Notes of Usage of Vagrant">     <img class="post_bg" src="/images/cover/200802152441.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Study Notes of Usage of Vagrant"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/11/01/3.%20Usage/Study%20Notes%20of%20Usage%20of%20Vagrant/" title="Study Notes of Usage of Vagrant">Study Notes of Usage of Vagrant</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-11-01T03:36:12.000Z" title="Created 2020-11-01 11:36:12">2020-11-01</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/3-Usage/">3. Usage</a></span></div><div class="content">Study Notes of Usage of VagrantBasic Usage12345# Add ubuntu 18.04 boxvagrant box add https://mirrors.tuna.tsinghua.edu.cn/ubuntu-cloud-images/bionic/current/bionic-server-cloudimg-amd64-vagrant.box --name ubuntu/bionic# Create Vagrantfilevagrant init
+
+Modify the vagrantfile like this:
+123...config.vm.box &#x3D; &quot;ubuntu&#x2F;bionic&quot;...
+
+Then:
+1vagrant up
+
+References
+https://segmentfault.com/q/1010000011063709
+https://www.jianshu.com/p/95cc72fbb430
+
+</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/11/01/3.%20Usage/Syncthing%EF%BC%9A%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" title="Syncthing：基础知识">     <img class="post_bg" src="/images/cover/200916152417.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Syncthing：基础知识"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/11/01/3.%20Usage/Syncthing%EF%BC%9A%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" title="Syncthing：基础知识">Syncthing：基础知识</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-11-01T03:36:12.000Z" title="Created 2020-11-01 11:36:12">2020-11-01</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/3-Usage/">3. Usage</a></span></div><div class="content">参考搭建和配置Syncthing发现和中继服务器
+</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/11/01/3.%20Usage/Systemd%E4%BD%BF%E7%94%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="Systemd使用学习笔记">     <img class="post_bg" src="/images/cover/200524164545.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Systemd使用学习笔记"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/11/01/3.%20Usage/Systemd%E4%BD%BF%E7%94%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="Systemd使用学习笔记">Systemd使用学习笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-11-01T03:36:12.000Z" title="Created 2020-11-01 11:36:12">2020-11-01</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/3-Usage/">3. Usage</a></span></div><div class="content">Systemd使用学习笔记简述　　Systemd是模仿macOS下的Launchd设计的，作为Linux系统下内核之后启动的第一个进程，用来管理各种系统资源，有例如开机启动服务、开关机等很多功能。虽然有违背UNIX的”一个工具只做一件事“的设计风格，还有指责作者Lennart Poettering不靠谱，但是现在大部分Linux发行版已经从原来的sysvinit切换到Systemd。　　　　Systemd的操作有系统级的（需要root权限）和用户级的（需要加--user参数）两种。
+Service模板12345678[Unit]Description=hehe daemon[Service]ExecStart=/usr/bin/touch /home/bear/hehe[Install]WantedBy=multi-users.target
+
+　　命名为hehe.service后放入/lib/systemd/system目录下。
+systemctl命令systemctl enable --user &lt;服务名&gt;：执行Install字段，一般用于开机启动（hehe服务加入mul ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/11/01/3.%20Usage/Unison%E4%BD%BF%E7%94%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="Unison使用学习笔记">     <img class="post_bg" src="/images/cover/65736419_p0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Unison使用学习笔记"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/11/01/3.%20Usage/Unison%E4%BD%BF%E7%94%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="Unison使用学习笔记">Unison使用学习笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-11-01T03:36:12.000Z" title="Created 2020-11-01 11:36:12">2020-11-01</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/3-Usage/">3. Usage</a></span></div><div class="content">Unison使用学习笔记　　单向同步（加-fat表示有目录是Windows目录）：
+1unison -batch -fat -force &lt;源目录&gt; &lt;源目录&gt; &lt;目标目录&gt;
+
+　　双向同步：
+1unison -batch -fat &lt;源目录&gt; &lt;目标目录&gt;
+</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/11/01/3.%20Usage/VSCode%EF%BC%9ATasks%E9%85%8D%E7%BD%AE%E6%A8%A1%E6%9D%BF/" title="VSCode：Tasks配置模板">     <img class="post_bg" src="/images/cover/71252854_p0.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="VSCode：Tasks配置模板"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/11/01/3.%20Usage/VSCode%EF%BC%9ATasks%E9%85%8D%E7%BD%AE%E6%A8%A1%E6%9D%BF/" title="VSCode：Tasks配置模板">VSCode：Tasks配置模板</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-11-01T03:36:12.000Z" title="Created 2020-11-01 11:36:12">2020-11-01</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/3-Usage/">3. Usage</a></span></div><div class="content">123456789101112131415161718192021222324252627282930313233343536&#123;    // See https://go.microsoft.com/fwlink/?LinkId=733558    // for the documentation about the tasks.json format    &quot;version&quot;: &quot;2.0.0&quot;,    &quot;tasks&quot;: [        &#123;            &quot;label&quot;: &quot;Deploy&quot;,            &quot;type&quot;: &quot;shell&quot;,            &quot;linux&quot;: &#123;                &quot;command&quot;: &quot;clear &amp;&amp; python3 deploy.py&quot;            &#125;  ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/11/01/3.%20Usage/Vmware%EF%BC%9A%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86/" title="Vmware：基本知识">     <img class="post_bg" src="/images/cover/66385385_p0.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Vmware：基本知识"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/11/01/3.%20Usage/Vmware%EF%BC%9A%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86/" title="Vmware：基本知识">Vmware：基本知识</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-11-01T03:36:12.000Z" title="Created 2020-11-01 11:36:12">2020-11-01</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/3-Usage/">3. Usage</a></span></div><div class="content">1&quot;C:\Program Files (x86)\VMware\VMware Workstation\vmrun.exe&quot; start &quot;&lt;vmx&gt;&quot; nogui
+
+</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/11/01/3.%20Usage/Zsh%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" title="Zsh基础知识">     <img class="post_bg" src="/images/cover/71252854_p0.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Zsh基础知识"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/11/01/3.%20Usage/Zsh%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" title="Zsh基础知识">Zsh基础知识</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-11-01T03:36:12.000Z" title="Created 2020-11-01 11:36:12">2020-11-01</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/3-Usage/">3. Usage</a></span></div><div class="content">常用设置12# 关闭智能cd功能unsetopt AUTO_CD
+
+</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="extend next" rel="next" href="/page/2/"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="/images/favicon.ico" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Furrybear</div><div class="author-info__description">Don't want to work, but to play.</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">184</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">3</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">41</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/furrybear"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/furrybear" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:fbcll@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>Announcement</span></div><div class="announcement_content">Hi there!</div></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2020/11/01/3.%20Usage/Putty%EF%BC%9A%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86/" title="Putty：基本知识"><img src="/images/cover/64937418_p0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Putty：基本知识"/></a><div class="content"><a class="title" href="/2020/11/01/3.%20Usage/Putty%EF%BC%9A%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86/" title="Putty：基本知识">Putty：基本知识</a><time datetime="2020-11-01T03:36:12.000Z" title="Created 2020-11-01 11:36:12">2020-11-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/11/01/3.%20Usage/Sed%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" title="Sed基础知识"><img src="/images/cover/ae10f7433043bd8c2fd898ed1bb05b2c.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Sed基础知识"/></a><div class="content"><a class="title" href="/2020/11/01/3.%20Usage/Sed%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" title="Sed基础知识">Sed基础知识</a><time datetime="2020-11-01T03:36:12.000Z" title="Created 2020-11-01 11:36:12">2020-11-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/11/01/3.%20Usage/Study%20Notes%20of%20Usage%20of%20Chocolatery/" title="Study Notes of Usage of Chocolatery"><img src="/images/cover/psalms_of_planets_eureka_seven-045.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Study Notes of Usage of Chocolatery"/></a><div class="content"><a class="title" href="/2020/11/01/3.%20Usage/Study%20Notes%20of%20Usage%20of%20Chocolatery/" title="Study Notes of Usage of Chocolatery">Study Notes of Usage of Chocolatery</a><time datetime="2020-11-01T03:36:12.000Z" title="Created 2020-11-01 11:36:12">2020-11-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/11/01/3.%20Usage/Study%20Notes%20of%20Usage%20of%20Vagrant/" title="Study Notes of Usage of Vagrant"><img src="/images/cover/200802152441.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Study Notes of Usage of Vagrant"/></a><div class="content"><a class="title" href="/2020/11/01/3.%20Usage/Study%20Notes%20of%20Usage%20of%20Vagrant/" title="Study Notes of Usage of Vagrant">Study Notes of Usage of Vagrant</a><time datetime="2020-11-01T03:36:12.000Z" title="Created 2020-11-01 11:36:12">2020-11-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/11/01/3.%20Usage/Syncthing%EF%BC%9A%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" title="Syncthing：基础知识"><img src="/images/cover/200916152417.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Syncthing：基础知识"/></a><div class="content"><a class="title" href="/2020/11/01/3.%20Usage/Syncthing%EF%BC%9A%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" title="Syncthing：基础知识">Syncthing：基础知识</a><time datetime="2020-11-01T03:36:12.000Z" title="Created 2020-11-01 11:36:12">2020-11-01</time></div></div></div></div></div><div class="card-widget card-categories"><div class="card-content"><div class="item-headline"><i class="fas fa-folder-open"></i><span>Categories</span></div><ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Knowledge-of-Back-End/"><span class="card-category-list-name">1. Knowledge of Back End</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Knowledge-of-Blockchain/"><span class="card-category-list-name">1. Knowledge of Blockchain</span><span class="card-category-list-count">8</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Knowledge-of-Chinese/"><span class="card-category-list-name">1. Knowledge of Chinese</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Knowledge-of-Computing-Theory/"><span class="card-category-list-name">1. Knowledge of Computing Theory</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Knowledge-of-Container-Virtualization/"><span class="card-category-list-name">1. Knowledge of Container Virtualization</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Knowledge-of-Cryptology/"><span class="card-category-list-name">1. Knowledge of Cryptology</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Knowledge-of-Data-Structure-And-Algorithm/"><span class="card-category-list-name">1. Knowledge of Data Structure And Algorithm</span><span class="card-category-list-count">14</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Knowledge-of-Distribution-System/"><span class="card-category-list-name">1. Knowledge of Distribution System</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Knowledge-of-Information-Security/"><span class="card-category-list-name">1. Knowledge of Information Security</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Knowledge-of-Job-Application/"><span class="card-category-list-name">1. Knowledge of Job Application</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Knowledge-of-Mathematics/"><span class="card-category-list-name">1. Knowledge of Mathematics</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Knowledge-of-Network/"><span class="card-category-list-name">1. Knowledge of Network</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Knowledge-of-Open-Source/"><span class="card-category-list-name">1. Knowledge of Open Source</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Knowledge-of-Operating-Systems/"><span class="card-category-list-name">1. Knowledge of Operating Systems</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Knowledge-of-Principles-of-Computer-Composition/"><span class="card-category-list-name">1. Knowledge of Principles of Computer Composition</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Knowledge-of-System-Safety/"><span class="card-category-list-name">1. Knowledge of System Safety</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Frontend/"><span class="card-category-list-name">2. Frontend</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Frontend-Bootstrap/"><span class="card-category-list-name">2. Frontend-Bootstrap</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Frontend-React/"><span class="card-category-list-name">2. Frontend-React</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Java/"><span class="card-category-list-name">2. Java</span><span class="card-category-list-count">6</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Javascript/"><span class="card-category-list-name">2. Javascript</span><span class="card-category-list-count">6</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Node-js/"><span class="card-category-list-name">2. Node.js</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Node-js-Electron/"><span class="card-category-list-name">2. Node.js-Electron</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Programming-in-C/"><span class="card-category-list-name">2. Programming in C#</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Programming-in-C/"><span class="card-category-list-name">2. Programming in C++</span><span class="card-category-list-count">13</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Programming-in-PHP/"><span class="card-category-list-name">2. Programming in PHP</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Programming-in-Powershell/"><span class="card-category-list-name">2. Programming in Powershell</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Programming-in-Python/"><span class="card-category-list-name">2. Programming in Python</span><span class="card-category-list-count">22</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Programming-in-Regular-Expression/"><span class="card-category-list-name">2. Programming in Regular Expression</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Programming-in-SQL/"><span class="card-category-list-name">2. Programming in SQL</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Programming-in-Shell/"><span class="card-category-list-name">2. Programming in Shell</span><span class="card-category-list-count">10</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Writing-in-Latex/"><span class="card-category-list-name">2. Writing in Latex</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/3-Usage/"><span class="card-category-list-name">3. Usage</span><span class="card-category-list-count">35</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/3-Usage-of-Docker/"><span class="card-category-list-name">3. Usage of Docker</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/3-Usage-of-Git/"><span class="card-category-list-name">3. Usage of Git</span><span class="card-category-list-count">4</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/3-Usage-of-Linux/"><span class="card-category-list-name">3. Usage of Linux</span><span class="card-category-list-count">12</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/3-Usage-of-OpenSSH/"><span class="card-category-list-name">3. Usage of OpenSSH</span><span class="card-category-list-count">7</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/3-Usage-of-SVN/"><span class="card-category-list-name">3. Usage of SVN</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/3-Usage-of-Windows/"><span class="card-category-list-name">3. Usage of Windows</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/4-Games/"><span class="card-category-list-name">4. Games</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/4-Music-Theory/"><span class="card-category-list-name">4. Music Theory</span><span class="card-category-list-count">1</span></a></li>
             
-            <button class="btn btn-default dropdown-toggle collapse" data-toggle="dropdown" type="button"><span class="caret"></span></button>
-            <ul id="mkdocs-search-results" class="dropdown-menu dropdown-menu-right"></ul>
-            <button id="wm-search-go" class="btn btn-default" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-          </span>
-        </div>
-      </form>
-    </div>
-
-    
-    <div class="wm-top-tool wm-vcenter pull-right wm-small-left">
-      <button id="wm-toc-button" type="button" class="btn btn-sm btn-default wm-vcentered"><i class="fa fa-th-list" aria-hidden="true"></i></button>
-    </div>
-
-    
-    
-
-    
-    <a href="" class="wm-top-brand wm-top-link wm-vcenter">
-      
-      <div class="wm-top-title">
-        Furrybear's Blog<br>
-        
-      </div>
-    </a>
-  </div>
-</nav>
-
-  <div id="main-content" class="wm-page-top-frame">
-    
-<nav class="wm-toc-pane">
-  
-    <ul class="wm-toctree wm-toc-repo">
-      <li class="wm-toc-li wm-toc-lev1">
-      <a class="wm-article-link wm-toc-text" href="https://github.com/furrybear/furrybear.github.io/">
-        <i class="fa fa-github"></i>
-
-        GitHub
-      </a>
-      </li>
-    </ul>
-  <ul class="wm-toctree">
-        <li class="wm-toc-li wm-toc-lev1 "><a href="" class="wm-article-link wm-toc-text">Furrybear‘s Notes</a>
-</li>
-        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">1. Knowledge of Back End</span>
-</li>
-<li class="wm-toc-li-nested collapse">
-  <ul class="wm-toctree">
-      <li class="wm-toc-li wm-toc-lev2 "><a href="1. Knowledge of Back End/HTTPS学习笔记/" class="wm-article-link wm-toc-text">HTTPS学习笔记</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="1. Knowledge of Back End/企业级应用学习笔记/" class="wm-article-link wm-toc-text">企业级应用学习笔记</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="1. Knowledge of Back End/企业级应用学习笔记之微服务/" class="wm-article-link wm-toc-text">企业级应用学习笔记之微服务</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="1. Knowledge of Back End/分布式架构学习笔记/" class="wm-article-link wm-toc-text">分布式架构学习笔记</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="1. Knowledge of Back End/远程过程调用学习笔记/" class="wm-article-link wm-toc-text">远程过程调用学习笔记</a>
-</li>
-  </ul>
-</li>
-
-        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">1. Knowledge of Blockchain</span>
-</li>
-<li class="wm-toc-li-nested collapse">
-  <ul class="wm-toctree">
-      <li class="wm-toc-li wm-toc-lev2 "><a href="1. Knowledge of Blockchain/Hyperledger Fabric 1.0 安装/" class="wm-article-link wm-toc-text">Hyperledger Fabric 1.0 安装</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="1. Knowledge of Blockchain/以太坊Sharding学习笔记/" class="wm-article-link wm-toc-text">以太坊Sharding学习笔记</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="1. Knowledge of Blockchain/以太坊学习笔记/" class="wm-article-link wm-toc-text">以太坊学习笔记</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="1. Knowledge of Blockchain/区块链共识算法学习笔记/" class="wm-article-link wm-toc-text">区块链共识算法学习笔记</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="1. Knowledge of Blockchain/常见活跃区块链/" class="wm-article-link wm-toc-text">常见区块链项目</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="1. Knowledge of Blockchain/比特币学习笔记/" class="wm-article-link wm-toc-text">比特币学习笔记</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="1. Knowledge of Blockchain/比特币脚本与地址学习笔记/" class="wm-article-link wm-toc-text">比特币脚本与地址学习笔记</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="1. Knowledge of Blockchain/比特币闪电网络学习笔记/" class="wm-article-link wm-toc-text">比特币闪电网络学习笔记</a>
-</li>
-  </ul>
-</li>
-
-        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">1. Knowledge of Chinese</span>
-</li>
-<li class="wm-toc-li-nested collapse">
-  <ul class="wm-toctree">
-      <li class="wm-toc-li wm-toc-lev2 "><a href="1. Knowledge of Chinese/汉语语法学习笔记/" class="wm-article-link wm-toc-text">汉语语法学习笔记</a>
-</li>
-  </ul>
-</li>
-
-        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">1. Knowledge of Computing Theory</span>
-</li>
-<li class="wm-toc-li-nested collapse">
-  <ul class="wm-toctree">
-      <li class="wm-toc-li wm-toc-lev2 "><a href="1. Knowledge of Computing Theory/P问题、NP问题、NPC问题、NPH问题/" class="wm-article-link wm-toc-text">P问题、NP问题、NPC问题、NPH问题</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="1. Knowledge of Computing Theory/时间复杂度的通俗解释/" class="wm-article-link wm-toc-text">时间复杂度的通俗解释</a>
-</li>
-  </ul>
-</li>
-
-        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">1. Knowledge of Container Virtualization</span>
-</li>
-<li class="wm-toc-li-nested collapse">
-  <ul class="wm-toctree">
-      <li class="wm-toc-li wm-toc-lev2 "><a href="1. Knowledge of Container Virtualization/常见容器技术和容器编排技术/" class="wm-article-link wm-toc-text">常见容器技术和容器编排技术</a>
-</li>
-  </ul>
-</li>
-
-        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">1. Knowledge of Cryptology</span>
-</li>
-<li class="wm-toc-li-nested collapse">
-  <ul class="wm-toctree">
-      <li class="wm-toc-li wm-toc-lev2 "><a href="1. Knowledge of Cryptology/数字证书学习笔记/" class="wm-article-link wm-toc-text">数字证书学习笔记</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="1. Knowledge of Cryptology/签名算法学习笔记/" class="wm-article-link wm-toc-text">签名算法学习</a>
-</li>
-  </ul>
-</li>
-
-        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">1. Knowledge of Data Structure And Algorithm</span>
-</li>
-<li class="wm-toc-li-nested collapse">
-  <ul class="wm-toctree">
-      <li class="wm-toc-li wm-toc-lev2 "><a href="1. Knowledge of Data Structure And Algorithm/Binary Search Basics/" class="wm-article-link wm-toc-text">Binary Search Basics</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="1. Knowledge of Data Structure And Algorithm/Common Algorithms/" class="wm-article-link wm-toc-text">Common Alogorithms</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="1. Knowledge of Data Structure And Algorithm/DFS and BFS Basics/" class="wm-article-link wm-toc-text">DFS and BFS Basics</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="1. Knowledge of Data Structure And Algorithm/Graph Basics/" class="wm-article-link wm-toc-text">Graph Basics</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="1. Knowledge of Data Structure And Algorithm/Hash Table Basics/" class="wm-article-link wm-toc-text">Hash Table Basics</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="1. Knowledge of Data Structure And Algorithm/Online Tutorial about Data Structure and Algorithms/" class="wm-article-link wm-toc-text">Online Tutorial about Data Structure and Algorithms</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="1. Knowledge of Data Structure And Algorithm/Orthogonal Linked List Basics/" class="wm-article-link wm-toc-text">Orthogonal Linked List Basics</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="1. Knowledge of Data Structure And Algorithm/Quick Soring/" class="wm-article-link wm-toc-text">Quick Sorting</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="1. Knowledge of Data Structure And Algorithm/Stack Basics/" class="wm-article-link wm-toc-text">Stack Basics</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="1. Knowledge of Data Structure And Algorithm/Topological Sorting Basics/" class="wm-article-link wm-toc-text">Topological Sorting Basics</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="1. Knowledge of Data Structure And Algorithm/Tree Basics  (Part 1) Relationship between Various Trees/" class="wm-article-link wm-toc-text">Tree Basics (Part 1): Relationship between Various Trees</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="1. Knowledge of Data Structure And Algorithm/Tree Basics  (Part 2) Binary Search Tree/" class="wm-article-link wm-toc-text">Tree Basics (Part 2): Binary Search Tree</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="1. Knowledge of Data Structure And Algorithm/Tree Basics  (Part 3) RB Tree/" class="wm-article-link wm-toc-text">Tree Basics (Part 3): RB Tree</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="1. Knowledge of Data Structure And Algorithm/Tree Basics  (Part 4) Heap/" class="wm-article-link wm-toc-text">Tree Basics (Part 4): Heap</a>
-</li>
-  </ul>
-</li>
-
-        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">1. Knowledge of Distribution System</span>
-</li>
-<li class="wm-toc-li-nested collapse">
-  <ul class="wm-toctree">
-      <li class="wm-toc-li wm-toc-lev2 "><a href="1. Knowledge of Distribution System/一致性哈希/" class="wm-article-link wm-toc-text">参考</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="1. Knowledge of Distribution System/分布式共识算法/" class="wm-article-link wm-toc-text">Paxos</a>
-</li>
-  </ul>
-</li>
-
-        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">1. Knowledge of Information Security</span>
-</li>
-<li class="wm-toc-li-nested collapse">
-  <ul class="wm-toctree">
-      <li class="wm-toc-li wm-toc-lev2 "><a href="1. Knowledge of Information Security/Web安全学习笔记/" class="wm-article-link wm-toc-text">Web安全笔记学习笔记</a>
-</li>
-  </ul>
-</li>
-
-        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">1. Knowledge of Job Application</span>
-</li>
-<li class="wm-toc-li-nested collapse">
-  <ul class="wm-toctree">
-      <li class="wm-toc-li wm-toc-lev2 "><a href="1. Knowledge of Job Application/面试笔试题整理-操作系统/" class="wm-article-link wm-toc-text">面试笔试题整理 操作系统</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="1. Knowledge of Job Application/面试笔试题整理/" class="wm-article-link wm-toc-text">面试笔试题整理</a>
-</li>
-  </ul>
-</li>
-
-        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">1. Knowledge of Mathematics</span>
-</li>
-<li class="wm-toc-li-nested collapse">
-  <ul class="wm-toctree">
-      <li class="wm-toc-li wm-toc-lev2 "><a href="1. Knowledge of Mathematics/Modulo_Operation/" class="wm-article-link wm-toc-text">Modulo Operation</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="1. Knowledge of Mathematics/Permutation_And_Combination/" class="wm-article-link wm-toc-text">Permutation And Combination</a>
-</li>
-  </ul>
-</li>
-
-        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">1. Knowledge of Network</span>
-</li>
-<li class="wm-toc-li-nested collapse">
-  <ul class="wm-toctree">
-      <li class="wm-toc-li wm-toc-lev2 "><a href="1. Knowledge of Network/TCP协议和UDP协议学习笔记/" class="wm-article-link wm-toc-text">TCP协议和UDP协议学习笔记</a>
-</li>
-  </ul>
-</li>
-
-        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">1. Knowledge of Open Source</span>
-</li>
-<li class="wm-toc-li-nested collapse">
-  <ul class="wm-toctree">
-      <li class="wm-toc-li wm-toc-lev2 "><a href="1. Knowledge of Open Source/开源许可证学习/" class="wm-article-link wm-toc-text">开源许可证学习笔记</a>
-</li>
-  </ul>
-</li>
-
-        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">1. Knowledge of Operating Systems</span>
-</li>
-<li class="wm-toc-li-nested collapse">
-  <ul class="wm-toctree">
-      <li class="wm-toc-li wm-toc-lev2 "><a href="1. Knowledge of Operating Systems/微内核和宏内核操作系统/" class="wm-article-link wm-toc-text">微内核和宏内核操作系统</a>
-</li>
-  </ul>
-</li>
-
-        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">1. Knowledge of Principles of Computer Composition</span>
-</li>
-<li class="wm-toc-li-nested collapse">
-  <ul class="wm-toctree">
-      <li class="wm-toc-li wm-toc-lev2 "><a href="1. Knowledge of Principles of Computer Composition/GPT与MBR、Legacy与UEFI的关系/" class="wm-article-link wm-toc-text">GPT与MBR、Legacy与UEFI的关系</a>
-</li>
-  </ul>
-</li>
-
-        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">1. Knowledge of System Safety</span>
-</li>
-<li class="wm-toc-li-nested collapse">
-  <ul class="wm-toctree">
-      <li class="wm-toc-li wm-toc-lev2 "><a href="1. Knowledge of System Safety/How to Query Geolocation of an IP/" class="wm-article-link wm-toc-text">How to Query Geolocation of an IP</a>
-</li>
-  </ul>
-</li>
-
-        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">2. Frontend</span>
-</li>
-<li class="wm-toc-li-nested collapse">
-  <ul class="wm-toctree">
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Frontend/CSS Basic/" class="wm-article-link wm-toc-text">CSS Basic</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Frontend/CSS Position/" class="wm-article-link wm-toc-text">CSS Position</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Frontend/Web前端：在光标处插入内容/" class="wm-article-link wm-toc-text">Web前端：在光标处插入内容</a>
-</li>
-  </ul>
-</li>
-
-        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">2. Frontend Bootstrap</span>
-</li>
-<li class="wm-toc-li-nested collapse">
-  <ul class="wm-toctree">
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Frontend-Bootstrap/前端：Bootstrap的安装与使用/" class="wm-article-link wm-toc-text">前端：Bootstrap的安装与使用</a>
-</li>
-  </ul>
-</li>
-
-        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">2. Frontend React</span>
-</li>
-<li class="wm-toc-li-nested collapse">
-  <ul class="wm-toctree">
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Frontend-React/Material UI Basics/" class="wm-article-link wm-toc-text">Material-UI基础知识</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Frontend-React/React Basics/" class="wm-article-link wm-toc-text">React Basics</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Frontend-React/React Router Basics/" class="wm-article-link wm-toc-text">React Router Basics</a>
-</li>
-  </ul>
-</li>
-
-        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">2. Java</span>
-</li>
-<li class="wm-toc-li-nested collapse">
-  <ul class="wm-toctree">
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Java/Java Basics/" class="wm-article-link wm-toc-text">Java Basics</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Java/Java Container Basics/" class="wm-article-link wm-toc-text">Java Container Basics</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Java/Java Web Basic Knowledge/" class="wm-article-link wm-toc-text">Java Web Basic Knowledge</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Java/Maven使用学习笔记/" class="wm-article-link wm-toc-text">Maven使用学习笔记</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Java/Spring Boot Basic Knowledge/" class="wm-article-link wm-toc-text">Spring Boot Basic Knowledge</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Java/Usage of Common Libraries/" class="wm-article-link wm-toc-text">Usage of Common Libraries</a>
-</li>
-  </ul>
-</li>
-
-        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">2. Javascript</span>
-</li>
-<li class="wm-toc-li-nested collapse">
-  <ul class="wm-toctree">
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Javascript/How to use npm/" class="wm-article-link wm-toc-text">How to use npm</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Javascript/How to use yarn/" class="wm-article-link wm-toc-text">How to use yarn</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Javascript/Javascript Basics/" class="wm-article-link wm-toc-text">Javascript Basics</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Javascript/Javascript Built-in Objects/" class="wm-article-link wm-toc-text">Javascript Built-in Objects</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Javascript/Javascript How to Avoid Callback Hell/" class="wm-article-link wm-toc-text">Javascript: How to Avoid Callback Hell</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Javascript/Javascript Prototype and Prototype Chain Explained/" class="wm-article-link wm-toc-text">Javascript Prototype and Prototype Chain Explained</a>
-</li>
-  </ul>
-</li>
-
-        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">2. Node.js</span>
-</li>
-<li class="wm-toc-li-nested collapse">
-  <ul class="wm-toctree">
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Node.js/Nodejs Basics/" class="wm-article-link wm-toc-text">Node.js Basics</a>
-</li>
-  </ul>
-</li>
-
-        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">2. Node.js Electron</span>
-</li>
-<li class="wm-toc-li-nested collapse">
-  <ul class="wm-toctree">
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Node.js-Electron/Electron Basics/" class="wm-article-link wm-toc-text">Electron Basics</a>
-</li>
-  </ul>
-</li>
-
-        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">2. Programming in C#</span>
-</li>
-<li class="wm-toc-li-nested collapse">
-  <ul class="wm-toctree">
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Programming in C#/C#学习笔记/" class="wm-article-link wm-toc-text">C#学习笔记</a>
-</li>
-  </ul>
-</li>
-
-        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">2. Programming in C++</span>
-</li>
-<li class="wm-toc-li-nested collapse">
-  <ul class="wm-toctree">
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Programming in C++/C++ STL (Standard Template Library)/" class="wm-article-link wm-toc-text">C++标准模板库</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Programming in C++/C++ STL memory/" class="wm-article-link wm-toc-text">C++ STL memory</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Programming in C++/C++ STL tuple/" class="wm-article-link wm-toc-text">C++ STL tuple</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Programming in C++/C++_Basic_Knowledge/" class="wm-article-link wm-toc-text">不同数据类型内存大小</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Programming in C++/C++_Common_Library/" class="wm-article-link wm-toc-text">boost</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Programming in C++/C++_Common_Skills/" class="wm-article-link wm-toc-text">从标准输入流读取个数未知的整数</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Programming in C++/C++_Compile_And_Link_Building/" class="wm-article-link wm-toc-text">C++ Compile And Link Building</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Programming in C++/C++_Details/" class="wm-article-link wm-toc-text">C++中除以0的行为</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Programming in C++/C++_Lvalue_And_Rvalue/" class="wm-article-link wm-toc-text">左值和右值（C++11之前）</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Programming in C++/C++_Object_Oriented_Programming/" class="wm-article-link wm-toc-text">默认生成的成员函数</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Programming in C++/C++_Polymorphism/" class="wm-article-link wm-toc-text">虚析构函数</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Programming in C++/C++_RVO_And_NRVO/" class="wm-article-link wm-toc-text">简介</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Programming in C++/Common C++ Framework/" class="wm-article-link wm-toc-text">Common C++ Framework</a>
-</li>
-  </ul>
-</li>
-
-        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">2. Programming in PHP</span>
-</li>
-<li class="wm-toc-li-nested collapse">
-  <ul class="wm-toctree">
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Programming in PHP/php7_Basic_Knowledge/" class="wm-article-link wm-toc-text">一些超全局变量</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Programming in PHP/php_String/" class="wm-article-link wm-toc-text">php String</a>
-</li>
-  </ul>
-</li>
-
-        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">2. Programming in Powershell</span>
-</li>
-<li class="wm-toc-li-nested collapse">
-  <ul class="wm-toctree">
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Programming in Powershell/Powershell学习笔记/" class="wm-article-link wm-toc-text">Powershell学习笔记</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Programming in Powershell/Powershell常用代码片段/" class="wm-article-link wm-toc-text">Powershell常用代码片段</a>
-</li>
-  </ul>
-</li>
-
-        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">2. Programming in Python</span>
-</li>
-<li class="wm-toc-li-nested collapse">
-  <ul class="wm-toctree">
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Programming in Python/How to Use Pip/" class="wm-article-link wm-toc-text">How to Use Pip</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Programming in Python/Python2语法学习笔记/" class="wm-article-link wm-toc-text">Python2语法学习笔记</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Programming in Python/Python3底层实现学习笔记/" class="wm-article-link wm-toc-text">Python3底层实现学习笔记</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Programming in Python/Python3模块学习笔记之PyQt和PySide/" class="wm-article-link wm-toc-text">Python3模块学习笔记之PyQt和PySide</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Programming in Python/Python3模块学习笔记之colorama/" class="wm-article-link wm-toc-text">Python3模块学习笔记之colorama</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Programming in Python/Python3模块学习笔记之datetime/" class="wm-article-link wm-toc-text">Python3模块学习笔记之datetime</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Programming in Python/Python3模块学习笔记之docxtpl/" class="wm-article-link wm-toc-text">Python3模块学习笔记之docxtpl</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Programming in Python/Python3模块学习笔记之itertools/" class="wm-article-link wm-toc-text">Python3模块学习笔记之itertools</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Programming in Python/Python3模块学习笔记之logging/" class="wm-article-link wm-toc-text">Python3模块学习笔记之logging</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Programming in Python/Python3模块学习笔记之os/" class="wm-article-link wm-toc-text">Python3模块学习笔记之os</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Programming in Python/Python3模块学习笔记之re/" class="wm-article-link wm-toc-text">Python3模块学习笔记之re</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Programming in Python/Python3模块学习笔记之shutil/" class="wm-article-link wm-toc-text">Python3模块学习笔记之shutil</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Programming in Python/Python3模块学习笔记之subprocess/" class="wm-article-link wm-toc-text">Python3模块学习笔记之subprocess</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Programming in Python/Python3语法学习笔记/" class="wm-article-link wm-toc-text">Python3语法学习笔记</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Programming in Python/Python3语法学习笔记之字典/" class="wm-article-link wm-toc-text">Python3语法学习笔记之字典</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Programming in Python/Python3语法学习笔记之字符串/" class="wm-article-link wm-toc-text">Python3语法学习笔记之字符串</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Programming in Python/Python3语法学习笔记之模块和包/" class="wm-article-link wm-toc-text">Python3语法学习笔记之模块和包</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Programming in Python/Python3语法学习笔记之装饰器/" class="wm-article-link wm-toc-text">Python3语法学习笔记之装饰器</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Programming in Python/Python3调试方法/" class="wm-article-link wm-toc-text">Python3调试方法学习笔记</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Programming in Python/Python3项目打包和分发/" class="wm-article-link wm-toc-text">Python3项目打包和分发</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Programming in Python/Windows下Python3常见坑/" class="wm-article-link wm-toc-text">Windows下Python3常见坑</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Programming in Python/常见PEP/" class="wm-article-link wm-toc-text">常见PEP</a>
-</li>
-  </ul>
-</li>
-
-        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">2. Programming in Regular Expression</span>
-</li>
-<li class="wm-toc-li-nested collapse">
-  <ul class="wm-toctree">
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Programming in Regular Expression/正则表达式学习笔记/" class="wm-article-link wm-toc-text">正则表达式学习笔记</a>
-</li>
-  </ul>
-</li>
-
-        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">2. Programming in SQL</span>
-</li>
-<li class="wm-toc-li-nested collapse">
-  <ul class="wm-toctree">
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Programming in SQL/SQL学习笔记/" class="wm-article-link wm-toc-text">SQL学习笔记</a>
-</li>
-  </ul>
-</li>
-
-        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">2. Programming in Shell</span>
-</li>
-<li class="wm-toc-li-nested collapse">
-  <ul class="wm-toctree">
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Programming in Shell/Bash使用学习笔记/" class="wm-article-link wm-toc-text">Bash使用学习笔记</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Programming in Shell/Shell常用代码片段/" class="wm-article-link wm-toc-text">Shell常用代码片段</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Programming in Shell/Shell语法学习/" class="wm-article-link wm-toc-text">Shell语法学习笔记</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Programming in Shell/Zsh使用学习笔记/" class="wm-article-link wm-toc-text">Zsh使用学习笔记</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Programming in Shell/命令使用学习笔记之cut/" class="wm-article-link wm-toc-text">命令使用学习笔记之cut</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Programming in Shell/命令使用学习笔记之find/" class="wm-article-link wm-toc-text">命令使用学习笔记之pwd</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Programming in Shell/命令使用学习笔记之getopt/" class="wm-article-link wm-toc-text">命令使用学习笔记之getopt</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Programming in Shell/命令使用学习笔记之grep、egrep、xgrep和fgrep/" class="wm-article-link wm-toc-text">命令使用学习笔记之grep、egrep、xgrep和fgrep</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Programming in Shell/命令使用学习笔记之head和tail/" class="wm-article-link wm-toc-text">命令使用学习笔记之head和tail</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Programming in Shell/命令使用学习笔记之tar/" class="wm-article-link wm-toc-text">命令使用学习笔记之tar</a>
-</li>
-  </ul>
-</li>
-
-        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">2. Writing in Latex</span>
-</li>
-<li class="wm-toc-li-nested collapse">
-  <ul class="wm-toctree">
-      <li class="wm-toc-li wm-toc-lev2 "><a href="2. Writing in Latex/Latex学习笔记/" class="wm-article-link wm-toc-text">Latex学习笔记</a>
-</li>
-  </ul>
-</li>
-
-        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">3. Usage</span>
-</li>
-<li class="wm-toc-li-nested collapse">
-  <ul class="wm-toctree">
-      <li class="wm-toc-li wm-toc-lev2 "><a href="3. Usage/Ansible使用学习笔记/" class="wm-article-link wm-toc-text">参考</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="3. Usage/Bash基础知识/" class="wm-article-link wm-toc-text">常用快捷键</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="3. Usage/Chrome Headles使用学习笔记/" class="wm-article-link wm-toc-text">Chrome Headles使用学习笔记</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="3. Usage/Emacs使用学习笔记/" class="wm-article-link wm-toc-text">Emacs使用学习笔记</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="3. Usage/ExifTool使用学习笔记/" class="wm-article-link wm-toc-text">ExifTool使用学习笔记</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="3. Usage/Gitlab使用学习笔记/" class="wm-article-link wm-toc-text">Gtilab使用学习笔记</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="3. Usage/How_To_Set_Up_Apache2/" class="wm-article-link wm-toc-text">Apache2学习笔记</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="3. Usage/How_To_Set_Up_Ftp/" class="wm-article-link wm-toc-text">Win</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="3. Usage/ImageMagick使用学习笔记/" class="wm-article-link wm-toc-text">ImageMagick使用学习笔记</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="3. Usage/Jetbrains IDE：基础知识/" class="wm-article-link wm-toc-text">快捷键</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="3. Usage/LVM基础知识/" class="wm-article-link wm-toc-text">参考</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="3. Usage/Linux_screen_Command/" class="wm-article-link wm-toc-text">Linux screen Command</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="3. Usage/Linux_service,_chkconfig_And_systemctl/" class="wm-article-link wm-toc-text">Linux service, chkconfig And systemctl</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="3. Usage/Microsoft Word使用学习笔记/" class="wm-article-link wm-toc-text">Microsoft Word使用学习笔记</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="3. Usage/Nextcloud使用学习笔记/" class="wm-article-link wm-toc-text">Nextcloud使用学习笔记</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="3. Usage/Putty：基本知识/" class="wm-article-link wm-toc-text">Putty的免密SSH登陆</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="3. Usage/Sed基础知识/" class="wm-article-link wm-toc-text">参考</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="3. Usage/Study Notes of Usage of Chocolatery/" class="wm-article-link wm-toc-text">Study Notes of  Usage of Chocolatery</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="3. Usage/Study Notes of Usage of Vagrant/" class="wm-article-link wm-toc-text">Study Notes of Usage of Vagrant</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="3. Usage/Syncthing：基础知识/" class="wm-article-link wm-toc-text">参考</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="3. Usage/Systemd使用学习笔记/" class="wm-article-link wm-toc-text">Systemd使用学习笔记</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="3. Usage/Unison使用学习笔记/" class="wm-article-link wm-toc-text">Unison使用学习笔记</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="3. Usage/VSCode：Tasks配置模板/" class="wm-article-link wm-toc-text">VSCode：Tasks配置模板</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="3. Usage/Vmware：基本知识/" class="wm-article-link wm-toc-text">Vmware：基本知识</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="3. Usage/Zsh基础知识/" class="wm-article-link wm-toc-text">常用设置</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="3. Usage/ffmpeg使用学习笔记/" class="wm-article-link wm-toc-text">ffmpeg使用学习笔记</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="3. Usage/iOS使用学习笔记/" class="wm-article-link wm-toc-text">iOS使用学习笔记</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="3. Usage/macOS使用学习笔记/" class="wm-article-link wm-toc-text">macOS使用学习笔记</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="3. Usage/pipenv使用学习笔记/" class="wm-article-link wm-toc-text">pipenv使用学习笔记</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="3. Usage/rdesktop：基础知识/" class="wm-article-link wm-toc-text">Rdesktop：基础知识</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="3. Usage/vim基本知识/" class="wm-article-link wm-toc-text">查找和替换</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="3. Usage/包管理器apt使用学习笔记/" class="wm-article-link wm-toc-text">包管理器apt使用学习笔记</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="3. Usage/包管理器pacman使用学习笔记/" class="wm-article-link wm-toc-text">包管理器pacman使用学习笔记</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="3. Usage/如何制作ico文件/" class="wm-article-link wm-toc-text">如何制作ico文件</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="3. Usage/科学上网学习笔记/" class="wm-article-link wm-toc-text">科学上网学习笔记</a>
-</li>
-  </ul>
-</li>
-
-        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">3. Usage of Docker</span>
-</li>
-<li class="wm-toc-li-nested collapse">
-  <ul class="wm-toctree">
-      <li class="wm-toc-li wm-toc-lev2 "><a href="3. Usage of Docker/How to Use Docker/" class="wm-article-link wm-toc-text">How to Use Docker</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="3. Usage of Docker/How to Write Dockerfile/" class="wm-article-link wm-toc-text">How to Write Dockerfile</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="3. Usage of Docker/Knowledge of Docker/" class="wm-article-link wm-toc-text">Knowledge of Docker</a>
-</li>
-  </ul>
-</li>
-
-        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">3. Usage of Git</span>
-</li>
-<li class="wm-toc-li-nested collapse">
-  <ul class="wm-toctree">
-      <li class="wm-toc-li wm-toc-lev2 "><a href="3. Usage of Git/Git基础知识/" class="wm-article-link wm-toc-text">Git基础知识</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="3. Usage of Git/Git常用命令/" class="wm-article-link wm-toc-text">Git常用命令</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="3. Usage of Git/Git常见问题/" class="wm-article-link wm-toc-text">Git常见问题</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="3. Usage of Git/Git钩子/" class="wm-article-link wm-toc-text">Git钩子</a>
-</li>
-  </ul>
-</li>
-
-        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">3. Usage of Linux</span>
-</li>
-<li class="wm-toc-li-nested collapse">
-  <ul class="wm-toctree">
-      <li class="wm-toc-li wm-toc-lev2 "><a href="3. Usage of Linux/How To Delete a User Completely/" class="wm-article-link wm-toc-text">How To Delete a User Completely</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="3. Usage of Linux/How To Mount Filesystem to Directory/" class="wm-article-link wm-toc-text">How To Mount Filesystem to Directory</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="3. Usage of Linux/Linux_Background_And_Foreground_Process/" class="wm-article-link wm-toc-text">Linux Background And Foreground Process</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="3. Usage of Linux/Linux_Inter_Process_Communication/" class="wm-article-link wm-toc-text">Linux Inter Process Communication</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="3. Usage of Linux/Linux_Signals/" class="wm-article-link wm-toc-text">Linux Signals</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="3. Usage of Linux/Linux_Users_And_Groups/" class="wm-article-link wm-toc-text">Linux下用户权限和用户组</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="3. Usage of Linux/Linux_VFS/" class="wm-article-link wm-toc-text">Linux VFS</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="3. Usage of Linux/Linux_sudo_Command/" class="wm-article-link wm-toc-text">Linux：sudo命令</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="3. Usage of Linux/Linux：UNIX套接字（UNIX socket）/" class="wm-article-link wm-toc-text">Linux：UNIX套接字（UNIX socket）</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="3. Usage of Linux/Linux：语言环境设置/" class="wm-article-link wm-toc-text">locale环境变量优先级</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="3. Usage of Linux/Linux：进程的用户和用户组/" class="wm-article-link wm-toc-text">Linux：进程的用户和用户组</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="3. Usage of Linux/Ubuntu网络配置/" class="wm-article-link wm-toc-text">参考</a>
-</li>
-  </ul>
-</li>
-
-        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">3. Usage of OpenSSH</span>
-</li>
-<li class="wm-toc-li-nested collapse">
-  <ul class="wm-toctree">
-      <li class="wm-toc-li wm-toc-lev2 "><a href="3. Usage of OpenSSH/OpenSSH使用学习笔记/" class="wm-article-link wm-toc-text">OpenSSH使用学习笔记</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="3. Usage of OpenSSH/OpenSSH客户端使用学习笔记/" class="wm-article-link wm-toc-text">OpenSSH客户端使用学习笔记</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="3. Usage of OpenSSH/OpenSSH：免密登录/" class="wm-article-link wm-toc-text">原理</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="3. Usage of OpenSSH/OpenSSH：基本知识/" class="wm-article-link wm-toc-text">OpenSSH包含的工具</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="3. Usage of OpenSSH/OpenSSH：隧道/" class="wm-article-link wm-toc-text">OpenSSH：隧道</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="3. Usage of OpenSSH/使用OpenSSH免密登录/" class="wm-article-link wm-toc-text">使用OpenSSH免密登录</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="3. Usage of OpenSSH/使用OpenSSH搭建隧道/" class="wm-article-link wm-toc-text">使用OpenSSH搭建隧道</a>
-</li>
-  </ul>
-</li>
-
-        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">3. Usage of SVN</span>
-</li>
-<li class="wm-toc-li-nested collapse">
-  <ul class="wm-toctree">
-      <li class="wm-toc-li wm-toc-lev2 "><a href="3. Usage of SVN/SVN使用学习笔记/" class="wm-article-link wm-toc-text">SVN使用学习笔记</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="3. Usage of SVN/SVN版本库创建/" class="wm-article-link wm-toc-text">SVN版本库创建</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="3. Usage of SVN/TortoiseSVN使用学习笔记/" class="wm-article-link wm-toc-text">TortoiseSVN使用学习笔记</a>
-</li>
-  </ul>
-</li>
-
-        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">3. Usage of Windows</span>
-</li>
-<li class="wm-toc-li-nested collapse">
-  <ul class="wm-toctree">
-      <li class="wm-toc-li wm-toc-lev2 "><a href="3. Usage of Windows/Windows使用学习笔记/" class="wm-article-link wm-toc-text">Windows使用学习笔记</a>
-</li>
-      <li class="wm-toc-li wm-toc-lev2 "><a href="3. Usage of Windows/日语输入法IME使用学习笔记/" class="wm-article-link wm-toc-text">日语输入法IME使用学习笔记</a>
-</li>
-  </ul>
-</li>
-
-        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">4. Games</span>
-</li>
-<li class="wm-toc-li-nested collapse">
-  <ul class="wm-toctree">
-      <li class="wm-toc-li wm-toc-lev2 "><a href="4. Games/部落冲突：匹配值参考/" class="wm-article-link wm-toc-text">部落冲突：匹配值参考</a>
-</li>
-  </ul>
-</li>
-
-        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">4. Music Theory</span>
-</li>
-<li class="wm-toc-li-nested collapse">
-  <ul class="wm-toctree">
-      <li class="wm-toc-li wm-toc-lev2 "><a href="4. Music Theory/Music Theory Basics/" class="wm-article-link wm-toc-text">乐理基础</a>
-</li>
-  </ul>
-</li>
-
-  </ul>
-</nav>
-
-    <div class="wm-content-pane">
-      <iframe class="wm-article" name="article"></iframe>
-    </div>
-  </div>
-
-<div class="container-fluid wm-page-content">
-  <a name="_top"></a>
-    
-
-    
-    
-      
-    
-
-  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
-    
-    <div class="wm-article-nav pull-right">
-      <a href="1. Knowledge of Back End/HTTPS学习笔记/" class="btn btn-xs btn-default pull-right">
-        Next
-        <i class="fa fa-chevron-right" aria-hidden="true"></i>
-      </a>
-      <a href="1. Knowledge of Back End/HTTPS学习笔记/" class="btn btn-xs btn-link">
-        HTTPS学习笔记
-      </a>
-    </div>
-    
-  </div>
-
-    
-
-    <h1 id="furrybears-notes">Furrybear‘s Notes</h1>
-<p>It's Furrybear's notebook.</p>
-<h2 id="selection">Selection</h2>
-<ul>
-<li><a href="1. Knowledge of Blockchain/比特币学习笔记/">比特币学习笔记</a></li>
-<li><a href="1. Knowledge of Blockchain/比特币脚本与地址学习笔记/">比特币脚本与地址学习笔记</a></li>
-<li><a href="https://linux.cn/article-11215-1.html">如何在 Github 上创建一个拉取请求</a></li>
-</ul>
-
-  <br>
-    
-
-    
-    
-      
-    
-
-  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
-    
-    <div class="wm-article-nav pull-right">
-      <a href="1. Knowledge of Back End/HTTPS学习笔记/" class="btn btn-xs btn-default pull-right">
-        Next
-        <i class="fa fa-chevron-right" aria-hidden="true"></i>
-      </a>
-      <a href="1. Knowledge of Back End/HTTPS学习笔记/" class="btn btn-xs btn-link">
-        HTTPS学习笔记
-      </a>
-    </div>
-    
-  </div>
-
-    <br>
-</div>
-
-<footer class="container-fluid wm-page-content">
-      <p>
-        <a href="https://github.com/furrybear/furrybear.github.io/edit/src/notes/index.md"><i class="fa fa-github"></i>
-Edit on GitHub</a>
-      </p>
-  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
-</footer>
-
-</body>
-</html>
-<!--
-MkDocs version : 1.0.4
-Build Date UTC : 2020-10-31 00:33:36
--->
+            </ul></div></div><div class="card-widget card-tags"><div class="card-content"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/Apache2/" style="font-size: 1.1em; color: #999">Apache2</a> <a href="/tags/Linux/" style="font-size: 1.5em; color: #99a9bf">Linux</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 1.1em; color: #999">前端</a></div></div></div><div class="card-widget card-archives"><div class="card-content"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/11/"><span class="card-archive-list-date">November 2020</span><span class="card-archive-list-count">178</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/10/"><span class="card-archive-list-date">October 2020</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2018/04/"><span class="card-archive-list-date">April 2018</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2017/12/"><span class="card-archive-list-date">December 2017</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2017/11/"><span class="card-archive-list-date">November 2017</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2017/10/"><span class="card-archive-list-date">October 2017</span><span class="card-archive-list-count">1</span></a></li></ul></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 By Furrybear</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><div class="js-pjax"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></div></body></html>
