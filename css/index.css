@@ -3148,7 +3148,7 @@ blockquote footer cite:before {
   }
 }
 #page-header.post-bg {
-  height: 20rem;
+  height: 50rem;
 }
 @media screen and (max-width: 768px) {
   #page-header.post-bg {
@@ -3181,7 +3181,7 @@ blockquote footer cite:before {
 }
 #page-header #post-info {
   position: absolute;
-  bottom: 5rem;
+  bottom: 20rem;
   padding: 0 8%;
   width: 100%;
   text-align: center;
