@@ -2455,25 +2455,6 @@
     
     
     <entry>
-      <title>C#学习笔记</title>
-      <link href="2020/11/01/2_C_Sharp/C%20Sharp%20Basics/"/>
-      <url>2020/11/01/2_C_Sharp/C%20Sharp%20Basics/</url>
-      
-        <content type="html"><![CDATA[<h1>C#学习笔记</h1><h2 id="常见术语">常见术语</h2><ul><li>程序集：一般指的就是一个项目。一个解决方案下可以有多个项目，一个项目对应生成一个dll或者exe。</li></ul><h2 id="配置持久化">配置持久化</h2><p>使用System.Configuration命名空间下的ConfigurationManager类，使用前需要添加System.Configuration引用。如何使用见<a href="https://docs.microsoft.com/en-us/dotnet/api/system.configuration.configurationmanager.appsettings?view=netframework-4.8">例子</a>。</p><h2 id="面向对象编程">面向对象编程</h2><p>类的默认访问标识符有以下几种：</p><ul><li>public</li><li>internal（默认）：只限于本程序集内访问。</li><li>protected</li><li>private</li></ul><p>类成员的访问标识符有以下几种：</p><ul><li>private（默认）： 只限于本类成员访问。子类、实例都不能访问。</li><li>protected：只限于本类成员和子类成员访问。</li><li>internal：只限于本程序集内访问。</li><li>protected internal：只限于本程序集或子类访问。</li><li>public：不受任何限制。</li></ul><h2 id="传递值类型参数和传递引用类型参数">传递值类型参数和传递引用类型参数</h2><p>默认情况下：</p><p>对于C#中的值类型（基元类型int，float等或结构体struct等隐式派生自System.ValueType的类型），参数传递过程是拷贝值为形参再被函数使用，即“按值传递”（Call By Value）。</p><p>对于C#中的引用类型（class、interface、delegate、dynamic、object、string关键字定义的类型），C#的参数传递其实与Python、Java、Js的“按共享传递”（Call By Sharing）的参数传递方法一样，即传递的是对象的地址的值，与C++中传递指针概念类似。<br>　　<br>　　如果函数定义和函数调用中参数添加<code>ref</code>关键字的话，就和C++中的“按引用传递”（Call By Reference）一样了。</p><h2 id="本地函数">本地函数</h2><p>参考：<a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/classes-and-structs/local-functions">本地函数（C# 编程指南）</a></p><p>本地函数是一种嵌套在另一成员中的类型的私有方法，是C#7.0的新特性，<a href="http://xn--dw2at9x.Net">需要.Net</a> Framework4.6版本及以上。 仅能从其包含成员中调用它们。 可以在以下位置中声明和调用本地函数：</p><ul><li><p>方法（尤其是迭代器方法和异步方法）</p></li><li><p>构造函数</p></li><li><p>属性访问器</p></li><li><p>事件访问器</p></li><li><p>匿名方法</p></li><li><p>Lambda 表达式</p></li><li><p>终结器</p></li><li><p>其他本地函数</p></li></ul><p>本地函数像Lambda函数一样缩写为以下的形式：</p><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="built_in">int</span> <span class="title">LocalFunctionFactorial</span>(<span class="params"><span class="built_in">int</span> n</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> nthFactorial(n);</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="built_in">int</span> <span class="title">nthFactorial</span>(<span class="params"><span class="built_in">int</span> number</span>)</span> =&gt; (number &lt; <span class="number">2</span>) ? </span><br><span class="line">        <span class="number">1</span> : number * nthFactorial(number - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      <categories>
-          
-          <category> 2 C Sharp </category>
-          
-      </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>C++ STL (Standard Template Library)</title>
       <link href="2020/11/01/2_C++/C++%20STL%20(Standard%20Template%20Library)/"/>
       <url>2020/11/01/2_C++/C++%20STL%20(Standard%20Template%20Library)/</url>
@@ -2636,6 +2617,25 @@
       <categories>
           
           <category> 2 C++ </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>C#学习笔记</title>
+      <link href="2020/11/01/2_C_Sharp/C%20Sharp%20Basics/"/>
+      <url>2020/11/01/2_C_Sharp/C%20Sharp%20Basics/</url>
+      
+        <content type="html"><![CDATA[<h1>C#学习笔记</h1><h2 id="常见术语">常见术语</h2><ul><li>程序集：一般指的就是一个项目。一个解决方案下可以有多个项目，一个项目对应生成一个dll或者exe。</li></ul><h2 id="配置持久化">配置持久化</h2><p>使用System.Configuration命名空间下的ConfigurationManager类，使用前需要添加System.Configuration引用。如何使用见<a href="https://docs.microsoft.com/en-us/dotnet/api/system.configuration.configurationmanager.appsettings?view=netframework-4.8">例子</a>。</p><h2 id="面向对象编程">面向对象编程</h2><p>类的默认访问标识符有以下几种：</p><ul><li>public</li><li>internal（默认）：只限于本程序集内访问。</li><li>protected</li><li>private</li></ul><p>类成员的访问标识符有以下几种：</p><ul><li>private（默认）： 只限于本类成员访问。子类、实例都不能访问。</li><li>protected：只限于本类成员和子类成员访问。</li><li>internal：只限于本程序集内访问。</li><li>protected internal：只限于本程序集或子类访问。</li><li>public：不受任何限制。</li></ul><h2 id="传递值类型参数和传递引用类型参数">传递值类型参数和传递引用类型参数</h2><p>默认情况下：</p><p>对于C#中的值类型（基元类型int，float等或结构体struct等隐式派生自System.ValueType的类型），参数传递过程是拷贝值为形参再被函数使用，即“按值传递”（Call By Value）。</p><p>对于C#中的引用类型（class、interface、delegate、dynamic、object、string关键字定义的类型），C#的参数传递其实与Python、Java、Js的“按共享传递”（Call By Sharing）的参数传递方法一样，即传递的是对象的地址的值，与C++中传递指针概念类似。<br>　　<br>　　如果函数定义和函数调用中参数添加<code>ref</code>关键字的话，就和C++中的“按引用传递”（Call By Reference）一样了。</p><h2 id="本地函数">本地函数</h2><p>参考：<a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/programming-guide/classes-and-structs/local-functions">本地函数（C# 编程指南）</a></p><p>本地函数是一种嵌套在另一成员中的类型的私有方法，是C#7.0的新特性，<a href="http://xn--dw2at9x.Net">需要.Net</a> Framework4.6版本及以上。 仅能从其包含成员中调用它们。 可以在以下位置中声明和调用本地函数：</p><ul><li><p>方法（尤其是迭代器方法和异步方法）</p></li><li><p>构造函数</p></li><li><p>属性访问器</p></li><li><p>事件访问器</p></li><li><p>匿名方法</p></li><li><p>Lambda 表达式</p></li><li><p>终结器</p></li><li><p>其他本地函数</p></li></ul><p>本地函数像Lambda函数一样缩写为以下的形式：</p><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="built_in">int</span> <span class="title">LocalFunctionFactorial</span>(<span class="params"><span class="built_in">int</span> n</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> nthFactorial(n);</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="built_in">int</span> <span class="title">nthFactorial</span>(<span class="params"><span class="built_in">int</span> number</span>)</span> =&gt; (number &lt; <span class="number">2</span>) ? </span><br><span class="line">        <span class="number">1</span> : number * nthFactorial(number - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 2 C Sharp </category>
           
       </categories>
       
