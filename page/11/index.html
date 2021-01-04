@@ -76,7 +76,7 @@ var saveToLocal = {
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2021-01-04 20:55:08'
+  postUpdate: '2021-01-04 22:39:09'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -141,71 +141,209 @@ if (asideStatus !== undefined) {
    } else {
      document.documentElement.classList.remove('hide-aside')
    }
-}})()</script><meta name="generator" content="Hexo 5.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/images/favicon.ico" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">186</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">44</div></a></div></div></div><hr/></div></div><div id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(/images/default_index_img.jpg)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Furrybear's Blog</a></span><span id="menus"><div id="search_button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><span class="close" id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="site-info"><h1 id="site-title">Furrybear's Blog</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/furrybear" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:fbcll@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/11/01/3_Tools/Ansible%E4%BD%BF%E7%94%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="Ansible使用学习笔记">     <img class="post_bg" src="/images/cover/64937418_p0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Ansible使用学习笔记"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/11/01/3_Tools/Ansible%E4%BD%BF%E7%94%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="Ansible使用学习笔记">Ansible使用学习笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-11-01T03:36:11.000Z" title="Created 2020-11-01 11:36:11">2020-11-01</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/3-Tools/">3 Tools</a></span></div><div class="content">参考
-Ansible 简介
-探索Ansible执行原理
-Ad-hoc方式
-1ansible -i &lt;inventory文件路径（默认是/etc/ansible/hosts）&gt; &lt;组名/主机名&gt; -m &lt;模块名（默认是command）&gt; -a &lt;参数&gt;
-Playbook方式
-</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/11/01/3_Tools/Bash%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" title="Bash基础知识">     <img class="post_bg" src="/images/cover/69759328_p0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Bash基础知识"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/11/01/3_Tools/Bash%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" title="Bash基础知识">Bash基础知识</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-11-01T03:36:11.000Z" title="Created 2020-11-01 11:36:11">2020-11-01</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/3-Tools/">3 Tools</a></span></div><div class="content">常用快捷键
+}})()</script><meta name="generator" content="Hexo 5.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/images/favicon.ico" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">186</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">44</div></a></div></div></div><hr/></div></div><div id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(/images/default_index_img.jpg)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Furrybear's Blog</a></span><span id="menus"><div id="search_button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><span class="close" id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="site-info"><h1 id="site-title">Furrybear's Blog</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/furrybear" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:fbcll@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/11/01/2_Python/Python3%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8B%E5%AD%97%E7%AC%A6%E4%B8%B2/" title="Python3语法学习笔记之字符串">     <img class="post_bg" src="/images/cover/71252854_p0.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python3语法学习笔记之字符串"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/11/01/2_Python/Python3%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8B%E5%AD%97%E7%AC%A6%E4%B8%B2/" title="Python3语法学习笔记之字符串">Python3语法学习笔记之字符串</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-11-01T03:36:11.000Z" title="Created 2020-11-01 11:36:11">2020-11-01</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/2-Python/">2 Python</a></span></div><div class="content">Python3语法学习笔记之字符串
+单引号（'）
+单引号包裹的字符串里会转义所有转义字符，但是双引号可以不用转义。
+单引号包裹的字符串是单行字符串，但是每行末尾添加反斜杠可以将字符串分割成多行。
+双引号（&quot;）
+双引号包裹的字符串里会转义所有转义字符，但是单引号可以不用转义。
+双引号包裹的字符串是单行字符串，但是每行末尾添加反斜杠可以将字符串分割成多行。
+三引号（‘’'或者&quot;“”）
+三引号包裹的字符串里会转义所有转义字符，但是单引号和双引号都可以不用转义。值得注意的是，出现三单引号/三双引号后，解释器会寻找下一个三单引号/三双引号作为字符串的结束的标志。所以要避免在字符串中出现三单引号/三双引号（有必要的话需要进行转义）。
+三引号包裹的字符串是多行字符串，不怕换行符。
+字符串跨行
+对于双引号字符串和单引号字符串，如果需要跨行，需要在跨行点增加反斜杠。
+12print(&#39;miaomiao \hehe&#39;)
+输出“miaomiao hehe”。
+r/R修饰
+在字符串前添加个r修饰，表示字符串不转义，（\n、\t就是\n、\t,而不是回车和制表符）。这一般用于 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/11/01/2_Python/Python3%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8B%E6%A8%A1%E5%9D%97%E5%92%8C%E5%8C%85/" title="Python3语法学习笔记之模块和包">     <img class="post_bg" src="/images/cover/vlcsnap-2019-05-13-22h49m26s131.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python3语法学习笔记之模块和包"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/11/01/2_Python/Python3%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8B%E6%A8%A1%E5%9D%97%E5%92%8C%E5%8C%85/" title="Python3语法学习笔记之模块和包">Python3语法学习笔记之模块和包</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-11-01T03:36:11.000Z" title="Created 2020-11-01 11:36:11">2020-11-01</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/2-Python/">2 Python</a></span></div><div class="content">Python3语法学习笔记之模块和包
+包一般是目录，模块一般是文件。模块里存放变量、函数、类等。
+参考
 
-C-u：清除当前正在输入的内容
-C-a：移动光标到行首
-C-e：移动光标到行尾
-A-q：暂存命令
+https://www.cnblogs.com/kex1n/p/5977051.html
+http://www.runoob.com/python3/python3-module.html
 
-</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/11/01/3_Tools/Chrome%20Headles%E4%BD%BF%E7%94%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="Chrome Headles使用学习笔记">     <img class="post_bg" src="/images/cover/201029155001.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Chrome Headles使用学习笔记"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/11/01/3_Tools/Chrome%20Headles%E4%BD%BF%E7%94%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="Chrome Headles使用学习笔记">Chrome Headles使用学习笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-11-01T03:36:11.000Z" title="Created 2020-11-01 11:36:11">2020-11-01</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/3-Tools/">3 Tools</a></span></div><div class="content">Chrome Headles使用学习笔记
+模块
+隐式相对导入
+12import moduleimport module.something#语法错误，提示module不是一个包
+调用模块里的东东需要加上模块名：
+123module.variableName=&#x27;miaomiao&#x27;module.func()module.Classname.staticfunc()
+无法用来导入当前工作目录的包。
+显示相对导入
+1from . import moduleY # 显式相对da
+绝对导入
+12from module import *#或者from module import something
+调用模块里的东东不需要模块名了：
+123variableName=&#x27;miaomiao&#x27;func()Classna ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/11/01/2_Python/Python3%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8B%E8%A3%85%E9%A5%B0%E5%99%A8/" title="Python3语法学习笔记之装饰器">     <img class="post_bg" src="/images/cover/64937418_p0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python3语法学习笔记之装饰器"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/11/01/2_Python/Python3%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E4%B9%8B%E8%A3%85%E9%A5%B0%E5%99%A8/" title="Python3语法学习笔记之装饰器">Python3语法学习笔记之装饰器</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-11-01T03:36:11.000Z" title="Created 2020-11-01 11:36:11">2020-11-01</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/2-Python/">2 Python</a></span></div><div class="content">Python3语法学习笔记之装饰器
+装饰器可以是函数或者类。
+装饰器函数
+不带参数的装饰器函数的基本形式：
+12345678910111213def decorator(func):    def wrapper(*args, **kw):        # ...        ret = func(*args, **kw)        # ...        return ret    return wrapper@decoratordef foo(a1,a2):    # ...    foo(1,2)
+相当于：
+1234567891011121314def decorator(func):    def wrapper(*args, **kw):        # ...        ret = func(*args, **kw)        # ...        return ret    return wrapperdef foo(a1,a2):    # ...foo=decorator(foo)        foo(1,2)
+可以看出装饰器函数需要输入一个 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/11/01/2_Python/Python3%E8%B0%83%E8%AF%95%E6%96%B9%E6%B3%95/" title="Python3调试方法">     <img class="post_bg" src="/images/cover/69759328_p0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python3调试方法"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/11/01/2_Python/Python3%E8%B0%83%E8%AF%95%E6%96%B9%E6%B3%95/" title="Python3调试方法">Python3调试方法</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-11-01T03:36:11.000Z" title="Created 2020-11-01 11:36:11">2020-11-01</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/2-Python/">2 Python</a></span></div><div class="content">Python3调试方法学习笔记
+-d参数
+假设要调试一个叫hehe.py的脚本，那么执行python -d hehe.py时，sys.flags.debug的值会由默认的0变成1。
+</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/11/01/2_Python/Python3%E9%A1%B9%E7%9B%AE%E6%89%93%E5%8C%85%E5%92%8C%E5%88%86%E5%8F%91/" title="Python3项目打包和分发">     <img class="post_bg" src="/images/cover/200725194045.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python3项目打包和分发"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/11/01/2_Python/Python3%E9%A1%B9%E7%9B%AE%E6%89%93%E5%8C%85%E5%92%8C%E5%88%86%E5%8F%91/" title="Python3项目打包和分发">Python3项目打包和分发</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-11-01T03:36:11.000Z" title="Created 2020-11-01 11:36:11">2020-11-01</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/2-Python/">2 Python</a></span></div><div class="content">Python3项目打包和分发
 相关链接
 
-用Python驱动Headless Chrome
+Python Packaging User Guide
 
-</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/11/01/3_Tools/Emacs%E4%BD%BF%E7%94%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="Emacs使用学习笔记">     <img class="post_bg" src="/images/cover/WechatIMG8.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Emacs使用学习笔记"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/11/01/3_Tools/Emacs%E4%BD%BF%E7%94%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="Emacs使用学习笔记">Emacs使用学习笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-11-01T03:36:11.000Z" title="Created 2020-11-01 11:36:11">2020-11-01</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/3-Tools/">3 Tools</a></span></div><div class="content">Emacs使用学习笔记
-常用功能键
+常见项目结构
+Python3项目一般打包作为一个Python3包（Package）安装在别人在计算机上。具体项目结构和setup.py文件编写见Packaging Python Projects。
+打包分发
+为了分发Python3包，需要将项目打包为一个文件，一般使用./setup.py bdist_wheel将项目打包为wheel格式文件。在其他机器上使用pip3 install &lt;文件名&gt;.whl安装Python3包。
+如果分发时不需要将文件打包为一个wheel文件，可以在项目目录下执行pip3 install .即可以安装项目；执行pip3 install -e .为调试模式，（让人疑惑的是，调试模式下无法删除scripts文件，即无法干净卸载）。项目托管在git仓库上时，可以之间用pip3 install git+ssh://&lt;主机名&gt;/&lt;用户名&gt;/&lt;仓库名&gt;或者pip3 install git+https://&lt;主机名&gt ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/11/01/2_Python/Windows%E4%B8%8BPython3%E5%B8%B8%E8%A7%81%E5%9D%91/" title="Windows下Python3常见坑">     <img class="post_bg" src="/images/cover/201029154757.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Windows下Python3常见坑"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/11/01/2_Python/Windows%E4%B8%8BPython3%E5%B8%B8%E8%A7%81%E5%9D%91/" title="Windows下Python3常见坑">Windows下Python3常见坑</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-11-01T03:36:11.000Z" title="Created 2020-11-01 11:36:11">2020-11-01</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/2-Python/">2 Python</a></span></div><div class="content">Windows下Python3常见坑
+读写utf-8文件
+在Win下，由于默认编码为GBK，为了兼容性考虑，读写utf-8文件应该用以下方式:
+12345with open(&#39;文件名&#39;,&#39;w&#39;,encoding&#x3D;&#39;utf-8&#39;) as f:    # ...import codecswith codecs.open(&quot;文件名&quot;,&quot;w&quot;,&quot;utf-8&quot;) as f:    # ...
+</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/11/01/2_Python/%E5%B8%B8%E8%A7%81PEP/" title="常见PEP">     <img class="post_bg" src="/images/cover/71252854_p0.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="常见PEP"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/11/01/2_Python/%E5%B8%B8%E8%A7%81PEP/" title="常见PEP">常见PEP</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-11-01T03:36:11.000Z" title="Created 2020-11-01 11:36:11">2020-11-01</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/2-Python/">2 Python</a></span></div><div class="content">常见PEP
+PEP8
+关于python编码风格的规定。
+PEP484：类型提示
+提示变量类型，但是对解释器运行没有影响。
+PEP526：变量声明的语法
+python3.6起生效。变量声明时指定类型的方法。
+</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/11/01/2_Regular_Expression/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="正则表达式学习笔记">     <img class="post_bg" src="/images/cover/201029154402.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="正则表达式学习笔记"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/11/01/2_Regular_Expression/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="正则表达式学习笔记">正则表达式学习笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-11-01T03:36:11.000Z" title="Created 2020-11-01 11:36:11">2020-11-01</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/2-Regular-Expression/">2 Regular Expression</a></span></div><div class="content">正则表达式学习笔记
+特殊字符
+转自菜鸟教程。
 
-C-x+C-c：询问保存并退出
-C-x+C-s：保存
-C-x+u：撤销
-C-a+C-k：删除整行
 
-</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/11/01/3_Tools/ExifTool%E4%BD%BF%E7%94%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="ExifTool使用学习笔记">     <img class="post_bg" src="/images/cover/ae10f7433043bd8c2fd898ed1bb05b2c.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ExifTool使用学习笔记"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/11/01/3_Tools/ExifTool%E4%BD%BF%E7%94%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="ExifTool使用学习笔记">ExifTool使用学习笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-11-01T03:36:11.000Z" title="Created 2020-11-01 11:36:11">2020-11-01</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/3-Tools/">3 Tools</a></span></div><div class="content">ExifTool使用学习笔记
-ExifTool是由Phil Harvey编写的用于读写改图片和视频元信息的工具。
-使用例子
 
-清除工作目录下所有jpg图片的元信息：exiftool -all= *.jpg
+表达式
+含义
 
-</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/11/01/3_Tools/Gitlab%E4%BD%BF%E7%94%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="Gitlab使用学习笔记">     <img class="post_bg" src="/images/cover/20190629132521.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Gitlab使用学习笔记"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/11/01/3_Tools/Gitlab%E4%BD%BF%E7%94%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="Gitlab使用学习笔记">Gitlab使用学习笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-11-01T03:36:11.000Z" title="Created 2020-11-01 11:36:11">2020-11-01</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/3-Tools/">3 Tools</a></span></div><div class="content">Gtilab使用学习笔记
-搭建
-参考：
 
-CentOS7.4 搭建Gitlab服务器
-gitlab仓库存储位置的修改方法
 
-</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/11/01/3_Tools/How_To_Set_Up_Ftp/" title="How_To_Set_Up_Ftp">     <img class="post_bg" src="/images/cover/62914760_p0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="How_To_Set_Up_Ftp"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/11/01/3_Tools/How_To_Set_Up_Ftp/" title="How_To_Set_Up_Ftp">How_To_Set_Up_Ftp</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-11-01T03:36:11.000Z" title="Created 2020-11-01 11:36:11">2020-11-01</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/3-Tools/">3 Tools</a></span></div><div class="content">Win
-https://blog.csdn.net/u013943420/article/details/75103514
-Ubuntu 16.04
-参考：
-https://blog.csdn.net/bluishglc/article/details/42399439
-http://bbs.chinaunix.net/thread-2169510-1-1.html
-放在前面：这个笔记用vsftpd搭建的ftp服务器的用户是Linux的用户，不是虚拟用户，但不代表vsftpd不能创建虚拟用户。同时也意味着ftp仓库只有一个用户，更精确的权限控制需要参考其他资料。
-1apt-get install vsftpd
-可以使用下列命令来打开，关闭，重启ftp服务
-123service vsftpd startservice vsftpd stopservice vsftpd restart
-因为vsftpd的用户信息用Linux的用户信息，创建用户uftp，用/usr/sbin/nologin不让该用户登陆：
-1adduser uftp -s /usr/sbin/nologin
-一同创建的还有 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/11/01/3_Tools/ImageMagick%E4%BD%BF%E7%94%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="ImageMagick使用学习笔记">     <img class="post_bg" src="/images/cover/psalms_of_planets_eureka_seven-110.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ImageMagick使用学习笔记"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/11/01/3_Tools/ImageMagick%E4%BD%BF%E7%94%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="ImageMagick使用学习笔记">ImageMagick使用学习笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-11-01T03:36:11.000Z" title="Created 2020-11-01 11:36:11">2020-11-01</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/3-Tools/">3 Tools</a></span></div><div class="content">ImageMagick使用学习笔记
 
-缩放（例子）：convert -resize 50% screen.jpg
+^(子表达式)
+以子表达式开头的字符串
 
-</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/11/01/3_Tools/Jetbrains%20IDE%EF%BC%9A%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" title="Jetbrains IDE：基础知识">     <img class="post_bg" src="/images/cover/shingeki-no-kyojin-season-2-2017-armin-arlert-eren-yeager-mikasa-ackerman.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Jetbrains IDE：基础知识"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/11/01/3_Tools/Jetbrains%20IDE%EF%BC%9A%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" title="Jetbrains IDE：基础知识">Jetbrains IDE：基础知识</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-11-01T03:36:11.000Z" title="Created 2020-11-01 11:36:11">2020-11-01</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/3-Tools/">3 Tools</a></span></div><div class="content">快捷键
 
-格式化代码：Ctrl+Alt+L
+(子表达式)$
+以子表达式结尾的字符串
 
-</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/11/01/3_Tools/LVM%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" title="LVM基础知识">     <img class="post_bg" src="/images/cover/d477819e97d4ca792c2c49b2f6e1ee8bcc5eb887f335a553545e9fcf6a5989ca.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="LVM基础知识"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/11/01/3_Tools/LVM%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" title="LVM基础知识">LVM基础知识</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-11-01T03:36:11.000Z" title="Created 2020-11-01 11:36:11">2020-11-01</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/3-Tools/">3 Tools</a></span></div><div class="content">参考
 
-在Linux中使用LVM
+(子表达式1)|(子表达式2)
+符合子表达式1或子表达式2的字符串
 
-简单原理
-</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/10/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="extend next" rel="next" href="/page/12/"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="/images/favicon.ico" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Furrybear</div><div class="author-info__description">Don't want to work, but to play.</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">186</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">44</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/furrybear"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/furrybear" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:fbcll@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>Announcement</span></div><div class="announcement_content">Hi there!</div></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2020/12/29/7_Japanese/Japanese_Notes/" title="日语笔记"><img src="/images/cover/201101193756.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="日语笔记"/></a><div class="content"><a class="title" href="/2020/12/29/7_Japanese/Japanese_Notes/" title="日语笔记">日语笔记</a><time datetime="2020-12-29T14:36:36.000Z" title="Created 2020-12-29 22:36:36">2020-12-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/12/29/2_Java_-_Spring_Framework/Spring_Framework_Development_Practice/" title="Spring框架开发实践"><img src="/images/cover/68568145_p0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Spring框架开发实践"/></a><div class="content"><a class="title" href="/2020/12/29/2_Java_-_Spring_Framework/Spring_Framework_Development_Practice/" title="Spring框架开发实践">Spring框架开发实践</a><time datetime="2020-12-29T03:20:31.000Z" title="Created 2020-12-29 11:20:31">2020-12-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/12/26/1_Design_Pattern/Design_Pattern_Notes/" title="设计模式笔记"><img src="/images/cover/8834fac8a786c91773b03de9c73d70cf39c757a8.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="设计模式笔记"/></a><div class="content"><a class="title" href="/2020/12/26/1_Design_Pattern/Design_Pattern_Notes/" title="设计模式笔记">设计模式笔记</a><time datetime="2020-12-26T16:15:16.000Z" title="Created 2020-12-27 00:15:16">2020-12-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/11/16/2_Frontend_-_Vue/Vue%20Notes/" title="Vue笔记"><img src="/images/cover/72189536_p0.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Vue笔记"/></a><div class="content"><a class="title" href="/2020/11/16/2_Frontend_-_Vue/Vue%20Notes/" title="Vue笔记">Vue笔记</a><time datetime="2020-11-16T16:00:00.000Z" title="Created 2020-11-17 00:00:00">2020-11-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/11/04/1_Open_Source/Open_Source_License_Notes/" title="开源许可证笔记"><img src="/images/cover/Dr7Y9dnV4AAPJ_F.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="开源许可证笔记"/></a><div class="content"><a class="title" href="/2020/11/04/1_Open_Source/Open_Source_License_Notes/" title="开源许可证笔记">开源许可证笔记</a><time datetime="2020-11-04T03:36:10.000Z" title="Created 2020-11-04 11:36:10">2020-11-04</time></div></div></div></div></div><div class="card-widget card-categories"><div class="card-content"><div class="item-headline"><i class="fas fa-folder-open"></i><span>Categories</span></div><ul class="card-category-list" id="aside-cat-list">
+
+\(子表达式\)
+符合子表达式的字符串，并且保存这个字符串（之后以\N方式调用）
+
+
+
+
+
+
+表达式
+含义
+
+
+
+
+(子表达式)*
+由连续不少于0个子表达式组成的字符串
+
+
+(子表达式)+
+由连续不少于1个子表达式组成的字符串
+
+
+(子表达式)?
+由0个或者1个子表达式组成的字符串
+
+
+(子表达式){N}
+由N个子表达式组成的字符串
+
+
+(子表达式){M,N}
+由M至N个子表达式组成的字符串
+
+
+
+
+
+
+表达式
+含义
+
+
+
+
+.
+除\n之外的一个任意字符
+
+
+[字符集]
+属于字符集的一个任意字符
+
+
+[^字符集]
+属于字符集的一个任意字符
+
+
+\s
+一个空格字符
+
+
+\S
+一个非空格字符
+
+
+\d
+一个数字字符
+
+
+\D
+一个非数字字符
+
+
+
+</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/11/01/2_SQL/SQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="SQL学习笔记">     <img class="post_bg" src="/images/cover/201029153331.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="SQL学习笔记"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/11/01/2_SQL/SQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="SQL学习笔记">SQL学习笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-11-01T03:36:11.000Z" title="Created 2020-11-01 11:36:11">2020-11-01</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/2-SQL/">2 SQL</a></span></div><div class="content">SQL学习笔记
+表连接
+
+
+内连接
+
+关键字：,、INNER JOIN、JOIN
+
+
+
+自然连接
+
+相当于内连接并隐含“WHERE A.field = B.field”
+关键字：NATRUAL JOIN
+
+
+
+左连接
+关键字：LEFT JOIN
+
+
+右连接
+关键字：RIGHT JOIN
+
+
+</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/11/01/2_Shell/Bash%E4%BD%BF%E7%94%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="Bash使用学习笔记">     <img class="post_bg" src="/images/cover/Dr7Y9dnV4AAPJ_F.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Bash使用学习笔记"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/11/01/2_Shell/Bash%E4%BD%BF%E7%94%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="Bash使用学习笔记">Bash使用学习笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-11-01T03:36:11.000Z" title="Created 2020-11-01 11:36:11">2020-11-01</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/2-Shell/">2 Shell</a></span></div><div class="content">Bash使用学习笔记
+脚本执行前执行的脚本
+
+对bash来说，每次运行前会执行一些脚本用于定义环境变量或者做其他工作。执行的方式是source &lt;脚本名&gt;，或者可以说是. &lt;脚本名&gt;。
+非交互式Shell（Non-Interactive Shell）
+这种情况不会事先执行任何脚本。例如我们使用ssh &lt;用户名&gt;@&lt;主机名&gt; &quot;&lt;命令&gt;&quot;时，脚本里的PATH就仅是/etc/environment里的内容。所以有必要请修改/etc/environment。
+交互式Shekll（Interactive Shell）
+交互式Shell会事先执行的脚本分为Bashrc系列脚本和Profile系列脚本，前者是“Bash Resource Configuration”的意思。
+Bashrc系列脚本
+/etc/bashrc
+对所有用户生效。
+Debian系用/etc/bash.bashrc代替。
+~/.bashrc
+仅对本用户生效。
+Profile系列脚本
+/etc/profile
+对所有用户生效。
+任何用户登录时都会读取 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/10/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="extend next" rel="next" href="/page/12/"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="/images/favicon.ico" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Furrybear</div><div class="author-info__description">Don't want to work, but to play.</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">186</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">44</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/furrybear"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/furrybear" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:fbcll@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>Announcement</span></div><div class="announcement_content">Hi there!</div></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2020/12/29/7_Japanese/Japanese_Notes/" title="日语笔记"><img src="/images/cover/200802170727.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="日语笔记"/></a><div class="content"><a class="title" href="/2020/12/29/7_Japanese/Japanese_Notes/" title="日语笔记">日语笔记</a><time datetime="2020-12-29T14:36:36.000Z" title="Created 2020-12-29 22:36:36">2020-12-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/12/29/2_Java_-_Spring_Framework/Spring_Framework_Development_Practice/" title="Spring框架开发实践"><img src="/images/cover/20190629132018.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Spring框架开发实践"/></a><div class="content"><a class="title" href="/2020/12/29/2_Java_-_Spring_Framework/Spring_Framework_Development_Practice/" title="Spring框架开发实践">Spring框架开发实践</a><time datetime="2020-12-29T03:20:31.000Z" title="Created 2020-12-29 11:20:31">2020-12-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/12/26/1_Design_Pattern/Design_Pattern_Notes/" title="设计模式笔记"><img src="/images/cover/201101195007.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="设计模式笔记"/></a><div class="content"><a class="title" href="/2020/12/26/1_Design_Pattern/Design_Pattern_Notes/" title="设计模式笔记">设计模式笔记</a><time datetime="2020-12-26T16:15:16.000Z" title="Created 2020-12-27 00:15:16">2020-12-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/11/16/2_Frontend_-_Vue/Vue%20Notes/" title="Vue笔记"><img src="/images/cover/73286659_p0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Vue笔记"/></a><div class="content"><a class="title" href="/2020/11/16/2_Frontend_-_Vue/Vue%20Notes/" title="Vue笔记">Vue笔记</a><time datetime="2020-11-16T16:00:00.000Z" title="Created 2020-11-17 00:00:00">2020-11-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/11/04/1_Open_Source/Open_Source_License_Notes/" title="开源许可证笔记"><img src="/images/cover/201101195103.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="开源许可证笔记"/></a><div class="content"><a class="title" href="/2020/11/04/1_Open_Source/Open_Source_License_Notes/" title="开源许可证笔记">开源许可证笔记</a><time datetime="2020-11-04T03:36:10.000Z" title="Created 2020-11-04 11:36:10">2020-11-04</time></div></div></div></div></div><div class="card-widget card-categories"><div class="card-content"><div class="item-headline"><i class="fas fa-folder-open"></i><span>Categories</span></div><ul class="card-category-list" id="aside-cat-list">
             <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Back-End/"><span class="card-category-list-name">1 Back End</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Blockchain/"><span class="card-category-list-name">1 Blockchain</span><span class="card-category-list-count">8</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Computing-Theory/"><span class="card-category-list-name">1 Computing Theory</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Container-Virtualization/"><span class="card-category-list-name">1 Container Virtualization</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Cryptology/"><span class="card-category-list-name">1 Cryptology</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Data-Structure-And-Algorithm/"><span class="card-category-list-name">1 Data Structure And Algorithm</span><span class="card-category-list-count">14</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Design-Pattern/"><span class="card-category-list-name">1 Design Pattern</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Distribution-System/"><span class="card-category-list-name">1 Distribution System</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Information-Security/"><span class="card-category-list-name">1 Information Security</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Job-Application/"><span class="card-category-list-name">1 Job Application</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Mathematics/"><span class="card-category-list-name">1 Mathematics</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Network/"><span class="card-category-list-name">1 Network</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Open-Source/"><span class="card-category-list-name">1 Open Source</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Operating-System/"><span class="card-category-list-name">1 Operating System</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-Principles-of-Computer-Composition/"><span class="card-category-list-name">1 Principles of Computer Composition</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/1-System-Safety/"><span class="card-category-list-name">1 System Safety</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-C-Sharp/"><span class="card-category-list-name">2 C Sharp</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-C/"><span class="card-category-list-name">2 C++</span><span class="card-category-list-count">13</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Frontend/"><span class="card-category-list-name">2 Frontend</span><span class="card-category-list-count">6</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Frontend-Bootstrap/"><span class="card-category-list-name">2 Frontend - Bootstrap</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Frontend-React/"><span class="card-category-list-name">2 Frontend - React</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Frontend-Vue/"><span class="card-category-list-name">2 Frontend - Vue</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Java/"><span class="card-category-list-name">2 Java</span><span class="card-category-list-count">4</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Java-Spring-Framework/"><span class="card-category-list-name">2 Java - Spring Framework</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Latex/"><span class="card-category-list-name">2 Latex</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Node-js/"><span class="card-category-list-name">2 Node.js</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Node-js-Electron/"><span class="card-category-list-name">2 Node.js - Electron</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-PHP/"><span class="card-category-list-name">2 PHP</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Powershell/"><span class="card-category-list-name">2 Powershell</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Python/"><span class="card-category-list-name">2 Python</span><span class="card-category-list-count">22</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Regular-Expression/"><span class="card-category-list-name">2 Regular Expression</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-SQL/"><span class="card-category-list-name">2 SQL</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/2-Shell/"><span class="card-category-list-name">2 Shell</span><span class="card-category-list-count">10</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/3-Docker/"><span class="card-category-list-name">3 Docker</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/3-Git/"><span class="card-category-list-name">3 Git</span><span class="card-category-list-count">4</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/3-Linux/"><span class="card-category-list-name">3 Linux</span><span class="card-category-list-count">12</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/3-OpenSSH/"><span class="card-category-list-name">3 OpenSSH</span><span class="card-category-list-count">7</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/3-SVN/"><span class="card-category-list-name">3 SVN</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/3-Tools/"><span class="card-category-list-name">3 Tools</span><span class="card-category-list-count">35</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/3-Windows/"><span class="card-category-list-name">3 Windows</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/4-Chinese/"><span class="card-category-list-name">4 Chinese</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/5-Music-Theory/"><span class="card-category-list-name">5 Music Theory</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/6-Games/"><span class="card-category-list-name">6 Games</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/7-Japanese/"><span class="card-category-list-name">7 Japanese</span><span class="card-category-list-count">1</span></a></li>
             
             </ul></div></div><div class="card-widget card-archives"><div class="card-content"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/12/"><span class="card-archive-list-date">December 2020</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/11/"><span class="card-archive-list-date">November 2020</span><span class="card-archive-list-count">177</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/10/"><span class="card-archive-list-date">October 2020</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2018/04/"><span class="card-archive-list-date">April 2018</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2017/12/"><span class="card-archive-list-date">December 2017</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2017/11/"><span class="card-archive-list-date">November 2017</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2017/10/"><span class="card-archive-list-date">October 2017</span><span class="card-archive-list-count">1</span></a></li></ul></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By Furrybear</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">Local search</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div></div><hr/><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>Powered by</span> <a target="_blank" rel="noopener" href="https://github.com/wzpan/hexo-generator-search" style="color:#49B1F5;">hexo-generator-search</a></div></div></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div></div></body></html>
