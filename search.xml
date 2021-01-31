@@ -4,11 +4,30 @@
   
     
     <entry>
+      <title>you-get笔记</title>
+      <link href="2021/01/30/3_Tools/you-get_Notes/"/>
+      <url>2021/01/30/3_Tools/you-get_Notes/</url>
+      
+        <content type="html"><![CDATA[<h1>you-get笔记</h1><h2 id="安装">安装</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install you-get</span><br></pre></td></tr></table></figure><h2 id="使用">使用</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 使用HTTP代理下载（不需要加HTTP_PROXY环境变量或者HTTPS_PROXY环境变量）</span></span><br><span class="line">you-get -x &quot;localhost:1080&quot; &quot;https://www.youtube.com/watch?v=54eCvQLEZVg&quot;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 3 Tools </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>日语词汇笔记</title>
       <link href="2021/01/21/7_Japanese/Japanese_Vocabulary_Notes/"/>
       <url>2021/01/21/7_Japanese/Japanese_Vocabulary_Notes/</url>
       
-        <content type="html"><![CDATA[<h1>日语词汇笔记</h1><h2 id="数词">数词</h2><p>ひゃく・にひゃく・さんびゃく・よんひゃく・ごひゃく・ろっひゃく・ななひゃく・はっぴゃく・きゅうひゃく</p><p>せん・にせん・さんぜん・よんせん・ごせん・ろくせん・ななせん・はっせん・きゅうせん</p><p>いちまん</p><p>じゅうまん</p><p>ひゃくまん</p><p>いっせんまん</p><p>いちおく（一億）</p><h2 id="量词">量词</h2><ul><li>いくつ：ひとつ・ふたつ・みっつ・とっつ・いつつ・むっつ・ななつ・やっつ・ここのつ・とお。</li><li>なんにち（何日）：ついたち（1日）/いちにち（一日）・ふつか（2日）・みっか（3日）・よっか（4日）・いつか（5日）・むいか（6日）・なのか（7日）・ようか（8日）・ここのか（9日）・とおか（10日）・はつか（20日）。<br>　　既可以表示多少日（此时一天用いちにち），也可以表示某月的第几日（此时1日用ついたち）。</li></ul><h2 id="动词">动词</h2><h3 id="出す（だす）">出す（だす）</h3><p>释义：强调用手把东西从一个物体里拿出来。</p><p>类型：他動詞・五段動詞</p><p>变化：出します・出さない・出した・出して・出せ・出そう・出される・出させる・出せば・出せる</p><h3 id="出る（でる）">出る（でる）</h3><p>释义：出，出去，出来；出版；毕业；出现。</p><p>类型：自動詞・一段動詞</p><p>变化：出ます・出ない・出た・出て・出ろ・出よう・出させる・出れば・出られる</p><h3 id="降る（ふる）">降る（ふる）</h3><p>类型：他動詞・五段動詞</p><h3 id="降りる（おりる）">降りる（おりる）</h3><p>类型：自動詞・一段動詞</p><h3 id="借りる（かりる）">借りる（かりる）</h3><p>类型：一段動詞</p>]]></content>
+        <content type="html"><![CDATA[<h1>日语词汇笔记</h1><h2 id="数词">数词</h2><p>ひゃく・にひゃく・さんびゃく・よんひゃく・ごひゃく・ろっひゃく・ななひゃく・はっぴゃく・きゅうひゃく</p><p>せん・にせん・さんぜん・よんせん・ごせん・ろくせん・ななせん・はっせん・きゅうせん</p><p>いちまん</p><p>じゅうまん</p><p>ひゃくまん</p><p>いっせんまん</p><p>いちおく（一億）</p><h2 id="量词">量词</h2><ul><li>いくつ：ひとつ・ふたつ・みっつ・とっつ・いつつ・むっつ・ななつ・やっつ・ここのつ・とお。</li><li>なんにち（何日）：ついたち（1日）/いちにち（一日）・ふつか（2日）・みっか（3日）・よっか（4日）・いつか（5日）・むいか（6日）・なのか（7日）・ようか（8日）・ここのか（9日）・とおか（10日）・はつか（20日）。<br>　　既可以表示多少日（此时一天用いちにち），也可以表示某月的第几日（此时1日用ついたち）。</li></ul><h2 id="动词">动词</h2><table><thead><tr><th style="text-align:center">自動詞</th><th style="text-align:center">他動詞</th></tr></thead><tbody><tr><td style="text-align:center">開く</td><td style="text-align:center">開ける</td></tr><tr><td style="text-align:center">始まる</td><td style="text-align:center">始める</td></tr><tr><td style="text-align:center">出る</td><td style="text-align:center">出す</td></tr><tr><td style="text-align:center">降りる</td><td style="text-align:center">降る</td></tr></tbody></table><h3 id="出す（だす）">出す（だす）</h3><p>释义：强调用手把东西从一个物体里拿出来。</p><p>类型：他動詞・五段動詞</p><p>变化：出します・出さない・出した・出して・出せ・出そう・出される・出させる・出せば・出せる</p><h3 id="出る（でる）">出る（でる）</h3><p>释义：出，出去，出来；出版；毕业；出现。</p><p>类型：自動詞・一段動詞</p><p>变化：出ます・出ない・出た・出て・出ろ・出よう・出させる・出れば・出られる</p><h3 id="降る（ふる）">降る（ふる）</h3><p>类型：他動詞・五段動詞</p><h3 id="降りる（おりる）">降りる（おりる）</h3><p>类型：自動詞・一段動詞</p><h3 id="借りる（かりる）">借りる（かりる）</h3><p>类型：一段動詞</p>]]></content>
       
       
       <categories>
@@ -2075,11 +2094,11 @@
     
     
     <entry>
-      <title>ImageMagick使用学习笔记</title>
-      <link href="2020/11/01/3_Tools/ImageMagick%E4%BD%BF%E7%94%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-      <url>2020/11/01/3_Tools/ImageMagick%E4%BD%BF%E7%94%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+      <title>ImageMagick笔记</title>
+      <link href="2020/11/01/3_Tools/ImageMagick_Notes/"/>
+      <url>2020/11/01/3_Tools/ImageMagick_Notes/</url>
       
-        <content type="html"><![CDATA[<h1>ImageMagick使用学习笔记</h1><ul><li>缩放（例子）：<code>convert -resize 50% screen.jpg</code></li></ul>]]></content>
+        <content type="html"><![CDATA[<h1>ImageMagick笔记</h1><h2 id="安装">安装</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// Apt包管理器</span><br><span class="line">sudo apt install -y imagemagick</span><br></pre></td></tr></table></figure><h2 id="使用">使用</h2><ul><li>缩放（例子）：<code>convert -resize 50% screen.jpg</code></li><li>顺时针旋转90度：<code>convert -rotate 90 screen.jpg</code></li><li>PNG格式转JPEG格式：</li></ul>]]></content>
       
       
       <categories>
@@ -2208,11 +2227,11 @@
     
     
     <entry>
-      <title>ffmpeg使用学习笔记</title>
-      <link href="2020/11/01/3_Tools/ffmpeg%E4%BD%BF%E7%94%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-      <url>2020/11/01/3_Tools/ffmpeg%E4%BD%BF%E7%94%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+      <title>ffmpeg笔记</title>
+      <link href="2020/11/01/3_Tools/ffmpeg_Notes/"/>
+      <url>2020/11/01/3_Tools/ffmpeg_Notes/</url>
       
-        <content type="html"><![CDATA[<h1>ffmpeg使用学习笔记</h1><h2 id="mp4转mp3">mp4转mp3</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i video.mp4 -vn  -acodec libmp3lame -ac 2 -qscale:a 4 -ar 48000  audio.mp3</span><br></pre></td></tr></table></figure><h2 id="flac转mp3">flac转mp3</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i input.flac -ab 320k -map_metadata 0 -id3v2_version 3 output.mp3</span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<h1>ffmpeg笔记</h1><h2 id="常用参数">常用参数</h2><ul><li><code>-ab</code>：音频采用率</li></ul><h2 id="使用">使用</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i &lt;视频文件名&gt; -ab 320k output.mp3</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
@@ -2896,7 +2915,7 @@
       <link href="2020/11/01/2_Java/Java_Collection_Class_Notes/"/>
       <url>2020/11/01/2_Java/Java_Collection_Class_Notes/</url>
       
-        <content type="html"><![CDATA[<h1>Java集合类笔记</h1><p>Java的集合主要有Set、List、Queue和Map，这些都是接口，它们各自有自己的实现类。其中Set、List、Queue从Collection继承。</p><h2 id="Map">Map</h2><p>Map有以下实现类：</p><ul><li>HashMap：哈希表实现。</li><li>LinkedHashMap：HashMap的子类，再维护一个双向循环链表保证键的有序。</li><li>TreeMap：红黑树实现。</li></ul><h2 id="Set">Set</h2><p>（喵喵喵）</p><h2 id="List">List</h2><p>（喵喵喵）</p><h2 id="Queue">Queue</h2><p>（喵喵喵）</p>]]></content>
+        <content type="html"><![CDATA[<h1>Java集合类笔记</h1><p>Java的集合主要有Set、List、Queue和Map，这些都是接口，它们各自有自己的实现类。其中Set、List、Queue从Collection继承。</p><h2 id="Map">Map</h2><p>Map有以下实现类：</p><ul><li>HashMap：哈希表实现，线程不安全。</li><li>LinkedHashMap：HashMap的子类，再维护一个双向循环链表保证键的有序。</li><li>TreeMap：红黑树实现。</li><li>ConcurrentHashMap：哈希表实现，线程安全。</li><li>HashTable（不推荐）：较早的Map类，线程安全。</li></ul><h2 id="Set">Set</h2><p>（喵喵喵）</p><h2 id="List">List</h2><p>（喵喵喵）</p><h2 id="Queue">Queue</h2><p>（喵喵喵）</p>]]></content>
       
       
       <categories>
@@ -3462,11 +3481,11 @@
     
     
     <entry>
-      <title>Enterprize Application Basics</title>
-      <link href="2020/10/29/1_Back_End/Enterprize%20Application%20Basics/"/>
-      <url>2020/10/29/1_Back_End/Enterprize%20Application%20Basics/</url>
+      <title>企业级应用学习笔记</title>
+      <link href="2020/10/29/1_Back_End/Enterprize%20Application%20Notes/"/>
+      <url>2020/10/29/1_Back_End/Enterprize%20Application%20Notes/</url>
       
-        <content type="html"><![CDATA[<h1>企业级应用学习笔记</h1><h2 id="常见概念">常见概念</h2><ul><li>SOA（Service-oriented Achitecture）</li><li>ESB（Enterprise Service Bus） ：企业服务总线</li><li>MQ Middleware（Message Queue Middleware）</li></ul><p>消息队列中间件主要用于各项服务订阅和发布消息。</p><ul><li>OLTP和OLAP</li></ul><p><img src="https://raw.githubusercontent.com/furrybear/res/master/img/20190501141421.png" alt=""></p><p>三层架构：表现层、业务层、持久层</p><h2 id="微服务">微服务</h2><h3 id="参考">参考</h3><p><a href="https://mp.weixin.qq.com/s/SH6OqbYNA5xCmjvHqq_1xQ">一文详解微服务架构</a></p>]]></content>
+        <content type="html"><![CDATA[<h1>企业级应用笔记</h1><h2 id="常见概念">常见概念</h2><ul><li>SOA（Service-oriented Achitecture）</li><li>ESB（Enterprise Service Bus） ：企业服务总线</li><li>MQ Middleware（Message Queue Middleware）</li></ul><p>消息队列中间件主要用于各项服务订阅和发布消息。</p><ul><li>OLTP和OLAP</li></ul><p><img src="https://raw.githubusercontent.com/furrybear/res/master/img/20190501141421.png" alt=""></p><p>三层架构：表现层、业务层、持久层</p><h2 id="微服务">微服务</h2><h3 id="参考">参考</h3><p><a href="https://mp.weixin.qq.com/s/SH6OqbYNA5xCmjvHqq_1xQ">一文详解微服务架构</a></p>]]></content>
       
       
       <categories>
