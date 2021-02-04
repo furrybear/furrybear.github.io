@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>Java Lambda表达式笔记</title>
+      <link href="2021/02/03/2_Java/Java_Lambda_Notes/"/>
+      <url>2021/02/03/2_Java/Java_Lambda_Notes/</url>
+      
+        <content type="html"><![CDATA[<h1>Java Lambda表达式笔记</h1><h2 id="函数式接口">函数式接口</h2><p>由于Java是静态强类型语言，不像Javascript中一样函数是一等公民。JDK8的java.util.function包提供了很多函数式接口来支持Java的函数式编程，详见<a href="https://www.runoob.com/java/java8-functional-interfaces.html">链接</a>：</p><ul><li><code>Supplier&lt;T&gt;</code>：无参数，返回一个结果。</li><li><code>Consumer&lt;T&gt;</code>：代表了接受一个输入参数并且无返回的操作。</li></ul><p>自定义函数式接口</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Miaomiao</span></span>&#123;</span><br><span class="line">    <span class="meta">@FunctionalInterface</span></span><br><span class="line">    <span class="class"><span class="keyword">interface</span> <span class="title">Action</span></span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">int</span> <span class="title">invoke</span><span class="params">(<span class="keyword">int</span> i)</span></span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Action action = i -&gt; i;</span><br><span class="line">        System.out.println(action.invoke(<span class="number">1</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 2 Java </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>you-get笔记</title>
       <link href="2021/01/30/3_Tools/you-get_Notes/"/>
       <url>2021/01/30/3_Tools/you-get_Notes/</url>
@@ -1752,11 +1771,11 @@
     
     
     <entry>
-      <title>SQL学习笔记</title>
-      <link href="2020/11/01/2_SQL/SQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-      <url>2020/11/01/2_SQL/SQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+      <title>SQL笔记</title>
+      <link href="2020/11/01/2_SQL/SQL_Notes/"/>
+      <url>2020/11/01/2_SQL/SQL_Notes/</url>
       
-        <content type="html"><![CDATA[<h1>SQL学习笔记</h1><h2 id="表连接">表连接</h2><ul><li><p>内连接</p><ul><li>关键字：<code>,</code>、<code>INNER JOIN</code>、<code>JOIN</code></li></ul></li><li><p>自然连接</p><ul><li>相当于内连接并隐含“WHERE A.field = B.field”</li><li>关键字：<code>NATRUAL JOIN</code></li></ul></li><li><p>左连接</p><p>关键字：<code>LEFT JOIN</code></p></li><li><p>右连接</p><p>关键字：<code>RIGHT JOIN</code></p></li></ul>]]></content>
+        <content type="html"><![CDATA[<h1>SQL笔记</h1><h2 id="标准SQL">标准SQL</h2><h3 id="表连接">表连接</h3><ul><li><p>内连接</p><ul><li>关键字：<code>,</code>、<code>INNER JOIN</code>、<code>JOIN</code></li></ul></li><li><p>自然连接</p><ul><li>相当于内连接并隐含“WHERE A.field = B.field”</li><li>关键字：<code>NATRUAL JOIN</code></li></ul></li><li><p>左连接</p><p>关键字：<code>LEFT JOIN</code></p></li><li><p>右连接</p><p>关键字：<code>RIGHT JOIN</code></p></li></ul><h3 id="Oracle数据库SQL">Oracle数据库SQL</h3><p>VARCHAR和VARCHAR2相同。Oracle推荐使用VARCHAR2，因为工业要求VARCHAR可以存空字符串，但是Oracle的VARCHAR和VARCHAR2都不能存空字符串。</p>]]></content>
       
       
       <categories>
