@@ -4,6 +4,44 @@
   
     
     <entry>
+      <title>图像处理</title>
+      <link href="2021/02/21/1_Image_Processing/Image_Processing/"/>
+      <url>2021/02/21/1_Image_Processing/Image_Processing/</url>
+      
+        <content type="html"><![CDATA[<h1>图像处理</h1><h2 id="常见图片尺寸">常见图片尺寸</h2><img src="/2021/02/21/1_Image_Processing/Image_Processing/Common_Picture_Sizes.jpg" class="">]]></content>
+      
+      
+      <categories>
+          
+          <category> 1 Image Processing </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Adobe笔记</title>
+      <link href="2021/02/14/3_Tools/Adobe_Notes/"/>
+      <url>2021/02/14/3_Tools/Adobe_Notes/</url>
+      
+        <content type="html"><![CDATA[<h1>Adobe笔记</h1><h2 id="解决Adobe-CS6系列软件在高分辨率显示下缩放异常的问题">解决Adobe CS6系列软件在高分辨率显示下缩放异常的问题</h2><p>右键应用图标→属性→兼容性→更改高DPI设置→勾选替代高dpi缩放行为→ 缩放执行选为“系统”。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 3 Tools </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>日语助词笔记</title>
       <link href="2021/02/13/7_Japanese/Japanese_Auxiliary_Notes/"/>
       <url>2021/02/13/7_Japanese/Japanese_Auxiliary_Notes/</url>
