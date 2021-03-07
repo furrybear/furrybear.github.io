@@ -460,6 +460,25 @@
     
     
     <entry>
+      <title>Git常见问题</title>
+      <link href="2020/11/01/3_Git/Git%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/"/>
+      <url>2020/11/01/3_Git/Git%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</url>
+      
+        <content type="html"><![CDATA[<h1>Git常见问题</h1><ul><li><code>warning: LF will be replaced by CRLF in ＜文件名＞.The file will have its original line endings in your working directory</code><br>　　Windows下经常见到的警告。可以不用管。实际上入库的文件的行尾换行仍然是LF。<br>　　Windows下的Git希望工作区的文件行尾换行是CRLF，版本库里文件行尾换行是LF。因为实际不符合期望，所以出现这个警告。<br>　　设置core.autocrlf属性为false可以去除警告。</li></ul><p></p><ul><li>如何将<code>.git</code>目录分离出工作区</li></ul><ol><li>克隆时执行&quot;git init --separate-git-dir=&lt;git仓库位置&gt; .&quot;。</li><li>在执行任何git命令时带上<code>--git-dir=&lt;git仓库位置&gt;</code>参数。</li><li>设置环境变量<code>GIT_DIR=&lt;git仓库位置&gt;</code></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 3 Git </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Git钩子</title>
       <link href="2020/11/01/3_Git/Git%E9%92%A9%E5%AD%90/"/>
       <url>2020/11/01/3_Git/Git%E9%92%A9%E5%AD%90/</url>
@@ -527,25 +546,6 @@
       <categories>
           
           <category> 3 Linux </category>
-          
-      </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Git常见问题</title>
-      <link href="2020/11/01/3_Git/Git%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/"/>
-      <url>2020/11/01/3_Git/Git%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</url>
-      
-        <content type="html"><![CDATA[<h1>Git常见问题</h1><ul><li><code>warning: LF will be replaced by CRLF in ＜文件名＞.The file will have its original line endings in your working directory</code><br>　　Windows下经常见到的警告。可以不用管。实际上入库的文件的行尾换行仍然是LF。<br>　　Windows下的Git希望工作区的文件行尾换行是CRLF，版本库里文件行尾换行是LF。因为实际不符合期望，所以出现这个警告。<br>　　设置core.autocrlf属性为false可以去除警告。</li></ul><p></p><ul><li>如何将<code>.git</code>目录分离出工作区</li></ul><ol><li>克隆时执行&quot;git init --separate-git-dir=&lt;git仓库位置&gt; .&quot;。</li><li>在执行任何git命令时带上<code>--git-dir=&lt;git仓库位置&gt;</code>参数。</li><li>设置环境变量<code>GIT_DIR=&lt;git仓库位置&gt;</code></li></ol>]]></content>
-      
-      
-      <categories>
-          
-          <category> 3 Git </category>
           
       </categories>
       
