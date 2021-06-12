@@ -1338,7 +1338,7 @@
       <link href="2020/11/01/6_Games/Clash_of_Clan_Notes/"/>
       <url>2020/11/01/6_Games/Clash_of_Clan_Notes/</url>
       
-        <content type="html"><![CDATA[<h1>部落冲突笔记</h1><p><img src="./Clash_of_Clan_Notes/20190305151401.png" alt=""></p><p><img src="./Clash_of_Clan_Notes/20190306151401.png" alt=""></p><p>图片来源忘了，也不太准确，仅供参考。</p>]]></content>
+        <content type="html"><![CDATA[<h1>部落冲突笔记</h1><img src="/2020/11/01/6_Games/Clash_of_Clan_Notes/20190305151401.png" class=""><img src="/2020/11/01/6_Games/Clash_of_Clan_Notes/20190306151401.png" class=""><p>图片来源忘了，也不太准确，仅供参考。</p>]]></content>
       
       
       <categories>
@@ -3675,7 +3675,7 @@
       <link href="2020/10/29/1_Back_End/Enterprize_Application_Notes/"/>
       <url>2020/10/29/1_Back_End/Enterprize_Application_Notes/</url>
       
-        <content type="html"><![CDATA[<h1>企业级应用笔记</h1><h2 id="常见概念">常见概念</h2><ul><li>SOA（Service-oriented Achitecture）</li><li>ESB（Enterprise Service Bus） ：企业服务总线</li><li>MQ Middleware（Message Queue Middleware）</li></ul><p>消息队列中间件主要用于各项服务订阅和发布消息。</p><ul><li>OLTP和OLAP</li></ul><p><img src="./Enterprize_Application_Notes/20190501141421.png" alt=""></p><p>三层架构：表现层、业务层、持久层</p><h2 id="分布式架构">分布式架构</h2><ul><li><a href="Enterprize_Application_Notes/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9E%B6%E6%9E%84%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB%E5%BF%85%E8%AF%BB.pdf">分布式架构知识体系必读</a></li><li><a href="Enterprize_Application_Notes/%E5%9B%BE%E8%AF%B4%E5%88%86%E5%B8%83%E5%BC%8F%E6%9E%B6%E6%9E%84%E7%9A%84%E5%8F%91%E5%B1%95%E5%92%8C%E6%BC%94%E8%BF%9B.pdf">图说分布式架构的发展和演进</a></li></ul><h2 id="微服务">微服务</h2><h2 id="参考">参考</h2>]]></content>
+        <content type="html"><![CDATA[<h1>企业级应用笔记</h1><h2 id="常见概念">常见概念</h2><ul><li>SOA（Service-oriented Achitecture）</li><li>ESB（Enterprise Service Bus） ：企业服务总线</li><li>MQ Middleware（Message Queue Middleware）</li></ul><p>消息队列中间件主要用于各项服务订阅和发布消息。</p><ul><li>OLTP和OLAP</li></ul><img src="/2020/10/29/1_Back_End/Enterprize_Application_Notes/20190501141421.png" class=""><p>三层架构：表现层、业务层、持久层</p><h2 id="分布式架构">分布式架构</h2><ul><li><a href="Enterprize_Application_Notes/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9E%B6%E6%9E%84%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB%E5%BF%85%E8%AF%BB.pdf">分布式架构知识体系必读</a></li><li><a href="Enterprize_Application_Notes/%E5%9B%BE%E8%AF%B4%E5%88%86%E5%B8%83%E5%BC%8F%E6%9E%B6%E6%9E%84%E7%9A%84%E5%8F%91%E5%B1%95%E5%92%8C%E6%BC%94%E8%BF%9B.pdf">图说分布式架构的发展和演进</a></li></ul><h2 id="微服务">微服务</h2><h2 id="参考">参考</h2>]]></content>
       
       
       <categories>
