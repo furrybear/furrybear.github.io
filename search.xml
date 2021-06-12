@@ -2592,7 +2592,7 @@
       <link href="2020/11/01/1_Distribution_System/Consistent_Hashing_Notes/"/>
       <url>2020/11/01/1_Distribution_System/Consistent_Hashing_Notes/</url>
       
-        <content type="html"><![CDATA[<h1>一致性哈希笔记</h1><h2 id="简介">简介</h2><p>用于分布式存储负载均衡，能够减少存储节点增加或者减少的时候调整的存储节点的数量。</p><h2 id="基本原理">基本原理</h2><p>（一致性哈希模型不考虑容灾备份，每个键值只存一份。）</p><p><img src="./Consistent_Hashing_Notes/20190501143624.png" alt=""></p><p>哈希环代表0-2^32-1的哈希值。先把存储节点映射到哈希环上，再把键映射到环上。每个存储节点存储上一个存储节点到本节点之间的键值。</p><p>新加入存储节点时需要进行调整。对于从左图到右图的过程，需要将NodeA的部分键值转移到NodeD上。</p><h2 id="虚拟节点">虚拟节点</h2><p>每个物理存储节点存能力不同，虚拟为不同数量的虚拟节点再映射到环上。</p><h2 id="参考">参考</h2>]]></content>
+        <content type="html"><![CDATA[<h1>一致性哈希笔记</h1><h2 id="简介">简介</h2><p>用于分布式存储负载均衡，能够减少存储节点增加或者减少的时候调整的存储节点的数量。</p><h2 id="基本原理">基本原理</h2><p>（一致性哈希模型不考虑容灾备份，每个键值只存一份。）</p><img src="/2020/11/01/1_Distribution_System/Consistent_Hashing_Notes/20190501143624.png" class=""><p>哈希环代表0-2^32-1的哈希值。先把存储节点映射到哈希环上，再把键映射到环上。每个存储节点存储上一个存储节点到本节点之间的键值。</p><p>新加入存储节点时需要进行调整。对于从左图到右图的过程，需要将NodeA的部分键值转移到NodeD上。</p><h2 id="虚拟节点">虚拟节点</h2><p>每个物理存储节点存能力不同，虚拟为不同数量的虚拟节点再映射到环上。</p><h2 id="参考">参考</h2>]]></content>
       
       
       <categories>
@@ -3675,7 +3675,7 @@
       <link href="2020/10/29/1_Back_End/Enterprize_Application_Notes/"/>
       <url>2020/10/29/1_Back_End/Enterprize_Application_Notes/</url>
       
-        <content type="html"><![CDATA[<h1>企业级应用笔记</h1><h2 id="常见概念">常见概念</h2><ul><li>SOA（Service-oriented Achitecture）</li><li>ESB（Enterprise Service Bus） ：企业服务总线</li><li>MQ Middleware（Message Queue Middleware）</li></ul><p>消息队列中间件主要用于各项服务订阅和发布消息。</p><ul><li>OLTP和OLAP</li></ul><p><img src="./Enterprize_Application_Notes/20190501141421.png" alt=""></p><p>三层架构：表现层、业务层、持久层</p><h2 id="分布式架构">分布式架构</h2><ul><li><a href="./Enterprize_Application_Notes/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9E%B6%E6%9E%84%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB%E5%BF%85%E8%AF%BB.pdf">分布式架构知识体系必读</a></li><li><a href="./Enterprize_Application_Notes/%E5%9B%BE%E8%AF%B4%E5%88%86%E5%B8%83%E5%BC%8F%E6%9E%B6%E6%9E%84%E7%9A%84%E5%8F%91%E5%B1%95%E5%92%8C%E6%BC%94%E8%BF%9B.pdf">图说分布式架构的发展和演进</a></li></ul><h2 id="微服务">微服务</h2><h2 id="参考">参考</h2>]]></content>
+        <content type="html"><![CDATA[<h1>企业级应用笔记</h1><h2 id="常见概念">常见概念</h2><ul><li>SOA（Service-oriented Achitecture）</li><li>ESB（Enterprise Service Bus） ：企业服务总线</li><li>MQ Middleware（Message Queue Middleware）</li></ul><p>消息队列中间件主要用于各项服务订阅和发布消息。</p><ul><li>OLTP和OLAP</li></ul><p><img src="./Enterprize_Application_Notes/20190501141421.png" alt=""></p><p>三层架构：表现层、业务层、持久层</p><h2 id="分布式架构">分布式架构</h2><ul><li><a href="Enterprize_Application_Notes/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9E%B6%E6%9E%84%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB%E5%BF%85%E8%AF%BB.pdf">分布式架构知识体系必读</a></li><li><a href="Enterprize_Application_Notes/%E5%9B%BE%E8%AF%B4%E5%88%86%E5%B8%83%E5%BC%8F%E6%9E%B6%E6%9E%84%E7%9A%84%E5%8F%91%E5%B1%95%E5%92%8C%E6%BC%94%E8%BF%9B.pdf">图说分布式架构的发展和演进</a></li></ul><h2 id="微服务">微服务</h2><h2 id="参考">参考</h2>]]></content>
       
       
       <categories>
