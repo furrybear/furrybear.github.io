@@ -217,7 +217,7 @@
       <link href="2021/02/24/3_Microsoft_Office/Microsoft_Word_Notes/"/>
       <url>2021/02/24/3_Microsoft_Office/Microsoft_Word_Notes/</url>
       
-        <content type="html"><![CDATA[<h1>Miscrosoft Word笔记</h1><h2 id="更改默认模板-Normal-dotm">更改默认模板 (Normal.dotm)</h2><p>无论何时启动 Microsoft Word 都将打开 Normal.dotm 模板，且它包含确定文档基本外观的默认样式和自定义。</p><p><strong>注意:</strong> 对 Normal.dotm 所做的任何更改都将应用于以后创建的文档。</p><ol><li>在**“文件”<strong>选项卡上，单击</strong>“打开”**。</li><li>转到 <code>C:\Users\&lt;用户名&gt;\AppData\Roaming\Microsoft\Templates</code>。</li><li>打开 Normal 模板 (Normal.dotm)。</li><li>对字体、边距、间距以及其他设置进行任意所需更改。 可以使用更改文件所用的命令和功能，但请记住，对 Normal.dotm 所作的任何更改都将应用于以后创建的文档。</li><li>完成后，单击“<strong>文件</strong>”选项卡，然后单击“<strong>保存</strong>”。<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></li></ol><h2 id="参考">参考</h2><hr class="footnotes-sep"><section class="footnotes"><ol class="footnotes-list"><li id="fn1" class="footnote-item"><p><a href="https://support.microsoft.com/zh-cn/office/%E6%9B%B4%E6%94%B9-normal-%E6%A8%A1%E6%9D%BF-normal-dotm-06de294b-d216-47f6-ab77-ccb5166f98ea">更改 Normal 模板 (Normal.dotm)</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p></li></ol></section>]]></content>
+        <content type="html"><![CDATA[<h1>Miscrosoft Word笔记</h1><h2 id="更改默认模板-Normal-dotm">更改默认模板 (Normal.dotm)</h2><p>无论何时启动 Microsoft Word 都将打开 Normal.dotm 模板，且它包含确定文档基本外观的默认样式和自定义。</p><p><strong>注意:</strong> 对 Normal.dotm 所做的任何更改都将应用于以后创建的文档。</p><ol><li>在**“文件”<strong>选项卡上，单击</strong>“打开”**。</li><li>转到 <code>C:\Users\&lt;用户名&gt;\AppData\Roaming\Microsoft\Templates</code>（即<code>%APPDATA%\Microsoft\Templates</code>）。</li><li>打开 Normal 模板 (Normal.dotm)。</li><li>对字体、边距、间距以及其他设置进行任意所需更改。 可以使用更改文件所用的命令和功能，但请记住，对 Normal.dotm 所作的任何更改都将应用于以后创建的文档。</li><li>完成后，单击“<strong>文件</strong>”选项卡，然后单击“<strong>保存</strong>”。<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></li></ol><h2 id="参考">参考</h2><hr class="footnotes-sep"><section class="footnotes"><ol class="footnotes-list"><li id="fn1" class="footnote-item"><p><a href="https://support.microsoft.com/zh-cn/office/%E6%9B%B4%E6%94%B9-normal-%E6%A8%A1%E6%9D%BF-normal-dotm-06de294b-d216-47f6-ab77-ccb5166f98ea">更改 Normal 模板 (Normal.dotm)</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p></li></ol></section>]]></content>
       
       
       <categories>
@@ -555,11 +555,11 @@
     
     
     <entry>
-      <title>How to Use Docker</title>
-      <link href="2020/11/01/3_Docker/How%20to%20Use%20Docker/"/>
-      <url>2020/11/01/3_Docker/How%20to%20Use%20Docker/</url>
+      <title>Docker笔记</title>
+      <link href="2020/11/01/3_Docker/Docker_Notes/"/>
+      <url>2020/11/01/3_Docker/Docker_Notes/</url>
       
-        <content type="html"><![CDATA[<h1>How to Use Docker</h1><h2 id="Command-Line">Command Line</h2><h3 id="docker-ps">docker ps</h3><p><code>docker ps</code>只是列出所有正在running的容器，使用<code>docker ps -a</code>才能列出所有容器。</p><h3 id="docker-stop">docker stop</h3><p>使用<code>docker stop &lt;容器名/容器ID&gt;</code>可以使一个running的容器停止。<code>docker stop</code>和<code>docker-compose down</code>都是向容器中PID为1的进程发送系统信号SIGTERM，进程收到信号后做一些后续处理操作，然后结束。如果进程不在默认的10秒内结束的话，Docker会发送SIGKILL信号杀掉进程。</p><h3 id="docker-kill">docker kill</h3><p>发送SIGKILL信号杀掉进程。</p><h3 id="docker-run">docker run</h3><p>如果启动docker容器时使用了<code>--name</code>这个参数给容器设置了名字，那么就不能再创建同名容器了。</p><h3 id="docker-exec">docker exec</h3><p><code>docker exec -it &lt;容器名/容器ID&gt; &lt;命令&gt; &lt;参数&gt;</code>和<code>docker exec -d &lt;容器名/容器ID&gt; &lt;命令&gt; &lt;参数&gt;</code>可以在容器中执行相关命令，区别是前者分配伪终端在命令行前台执行，后者在后台执行。</p><p>例如，<code>docker exec -it &lt;容器名/容器ID&gt; /bin/sh</code>就可以进入容器。</p><h3 id="docker-restart">docker restart</h3><p><code>docker restart &lt;容器名/容器ID&gt;</code>、<code>docker stop &lt;容器名/容器ID&gt; &amp; docker start &lt;容器名/容器ID&gt;</code>或者重启宿主机可以重启容器。</p><p>值得注意的是，一个容器的文件系统里的内容不会因为容器running和stopped状态的切换而被重置，只要写入了，就是持久的。但是通过<code>docker exec</code>在容器内增加的进程在容器重启后不会保留。容器重启后只会保留镜像中指定的进程。因此不能通过<code>docker exec</code>在容器内增加进程，现在来看只能用Dockerfile等手段重做镜像。</p><h3 id="docker-rm">docker rm</h3><p>删除所有容器：<code>docker rm -f $(docker ps -a -q)</code></p><h3 id="docker-rmi">docker rmi</h3><p>删除所有容器镜像：<code>docker rmi -f $(docker images -q)</code></p><h2 id="Configuration">Configuration</h2><p>​    For using mirror while pulling container images, add the following content to <code>/etc/docker/daemon.json</code>:</p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;registry-mirrors&quot;</span> : [</span><br><span class="line">    <span class="string">&quot;http://docker.mirrors.ustc.edu.cn&quot;</span>,</span><br><span class="line">    <span class="string">&quot;http://hub-mirror.c.163.com&quot;</span>,</span><br><span class="line">    <span class="string">&quot;http://ovfftd6p.mirror.aliyuncs.com&quot;</span></span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<h1>Docker笔记</h1><h2 id="安装">安装</h2><h3 id="在线安装">在线安装</h3><p>在Ubuntu上安装Docker可以参考<a href="https://docs.docker.com/engine/install/ubuntu/">Install Docker Engine on Ubuntu</a>。</p><h3 id="离线安装">离线安装</h3><p>安装Docker可以参考<a href="https://www.jianshu.com/p/64a470628e49">Linux 离线安装docker（一键式安装）</a>。<br>　　<br>　　Docker安装包下载页在<a href="https://download.docker.com/linux/static/stable/x86_64/">Index of linux/static/stable/x86_64/</a>。<br>　　<br>　　获取Docker镜像可以参考<a href="https://my.oschina.net/u/3446722/blog/988807">离线环境获取Docker镜像<br>原创</a></p><h2 id="命令行">命令行</h2><h3 id="docker-ps">docker ps</h3><p><code>docker ps</code>只是列出所有正在running的容器，使用<code>docker ps -a</code>才能列出所有容器。</p><h3 id="docker-stop">docker stop</h3><p>使用<code>docker stop &lt;容器名/容器ID&gt;</code>可以使一个running的容器停止。<code>docker stop</code>和<code>docker-compose down</code>都是向容器中PID为1的进程发送系统信号SIGTERM，进程收到信号后做一些后续处理操作，然后结束。如果进程不在默认的10秒内结束的话，Docker会发送SIGKILL信号杀掉进程。</p><h3 id="docker-kill">docker kill</h3><p>发送SIGKILL信号杀掉进程。</p><h3 id="docker-run">docker run</h3><p>如果启动docker容器时使用了<code>--name</code>这个参数给容器设置了名字，那么就不能再创建同名容器了。</p><h3 id="docker-exec">docker exec</h3><p><code>docker exec -it &lt;容器名/容器ID&gt; &lt;命令&gt; &lt;参数&gt;</code>和<code>docker exec -d &lt;容器名/容器ID&gt; &lt;命令&gt; &lt;参数&gt;</code>可以在容器中执行相关命令，区别是前者分配伪终端在命令行前台执行，后者在后台执行。</p><p>例如，<code>docker exec -it &lt;容器名/容器ID&gt; /bin/sh</code>就可以进入容器。</p><h3 id="docker-restart">docker restart</h3><p><code>docker restart &lt;容器名/容器ID&gt;</code>、<code>docker stop &lt;容器名/容器ID&gt; &amp; docker start &lt;容器名/容器ID&gt;</code>或者重启宿主机可以重启容器。</p><p>值得注意的是，一个容器的文件系统里的内容不会因为容器running和stopped状态的切换而被重置，只要写入了，就是持久的。但是通过<code>docker exec</code>在容器内增加的进程在容器重启后不会保留。容器重启后只会保留镜像中指定的进程。因此不能通过<code>docker exec</code>在容器内增加进程，现在来看只能用Dockerfile等手段重做镜像。</p><h3 id="docker-rm">docker rm</h3><p>删除所有容器：<code>docker rm -f $(docker ps -a -q)</code></p><h3 id="docker-rmi">docker rmi</h3><p>删除所有容器镜像：<code>docker rmi -f $(docker images -q)</code></p><h2 id="Configuration">Configuration</h2><p>​    For using mirror while pulling container images, add the following content to <code>/etc/docker/daemon.json</code>:</p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;registry-mirrors&quot;</span> : [</span><br><span class="line">    <span class="string">&quot;http://docker.mirrors.ustc.edu.cn&quot;</span>,</span><br><span class="line">    <span class="string">&quot;http://hub-mirror.c.163.com&quot;</span>,</span><br><span class="line">    <span class="string">&quot;http://ovfftd6p.mirror.aliyuncs.com&quot;</span></span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
@@ -1984,7 +1984,7 @@
       <link href="2020/11/01/2_SQL/SQL_Notes/"/>
       <url>2020/11/01/2_SQL/SQL_Notes/</url>
       
-        <content type="html"><![CDATA[<h1>SQL笔记</h1><h2 id="标准SQL">标准SQL</h2><h3 id="表连接">表连接</h3><ul><li><p>内连接</p><ul><li>关键字：<code>,</code>、<code>INNER JOIN</code>、<code>JOIN</code></li></ul></li><li><p>自然连接</p><ul><li>相当于内连接并隐含“WHERE A.field = B.field”</li><li>关键字：<code>NATRUAL JOIN</code></li></ul></li><li><p>左连接</p><p>关键字：<code>LEFT JOIN</code></p></li><li><p>右连接</p><p>关键字：<code>RIGHT JOIN</code></p></li></ul><h3 id="Oracle数据库SQL">Oracle数据库SQL</h3><p>VARCHAR和VARCHAR2相同。Oracle推荐使用VARCHAR2，因为工业要求VARCHAR可以存空字符串，但是Oracle的VARCHAR和VARCHAR2都不能存空字符串。</p>]]></content>
+        <content type="html"><![CDATA[<h1>SQL笔记</h1><h2 id="标准SQL">标准SQL</h2><h3 id="表连接">表连接</h3><ul><li><p>内连接</p><ul><li>关键字：<code>,</code>、<code>INNER JOIN</code>、<code>JOIN</code></li></ul></li><li><p>自然连接</p><ul><li>相当于内连接并隐含“WHERE A.field = B.field”</li><li>关键字：<code>NATRUAL JOIN</code></li></ul></li><li><p>左连接</p><p>关键字：<code>LEFT JOIN</code></p></li><li><p>右连接</p><p>关键字：<code>RIGHT JOIN</code></p></li></ul><h2 id="Oracle数据库SQL">Oracle数据库SQL</h2><h3 id="VARCHAR2">VARCHAR2</h3><p>VARCHAR和VARCHAR2相同。Oracle推荐使用VARCHAR2，因为工业要求VARCHAR可以存空字符串，但是Oracle的VARCHAR和VARCHAR2都不能存空字符串。</p><h3 id="DATE类型">DATE类型</h3><p>DATE类型比较大小可以用如下的语法：</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> FOO <span class="keyword">WHERE</span> DATA_END_DATE_TIME <span class="operator">&gt;=</span> <span class="type">DATE</span> <span class="string">&#x27;2015-12-31&#x27;</span></span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
@@ -2459,7 +2459,7 @@
       <link href="2020/11/01/3_Tools/ffmpeg_Notes/"/>
       <url>2020/11/01/3_Tools/ffmpeg_Notes/</url>
       
-        <content type="html"><![CDATA[<h1>ffmpeg笔记</h1><h2 id="常用参数">常用参数</h2><ul><li><code>-ab</code>：音频采用率</li></ul><h2 id="使用">使用</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i &lt;视频文件名&gt; -ab 320k output.mp3</span><br></pre></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 截掉开头0.2秒</span></span><br><span class="line">ffmpeg -i &lt;视频文件名&gt; -ss 0.2 -ab 320k output.mp3</span><br></pre></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 只保留开头0.2秒</span></span><br><span class="line">ffmpeg -i &lt;视频文件名&gt; -t 0.2 -ab 320k output.mp3</span><br></pre></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 提取ass字幕</span></span><br><span class="line">ffmpeg -i input.mkv -an -vn -scodec copy subtitle.ass</span><br></pre></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 增加黑边，16:9转4:3，其中180等于(1920-1440)/2</span></span><br><span class="line">ffmpeg -i input.mkv -vf &quot;pad=1920:1440:0:180:black&quot; output.mp4</span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<h1>ffmpeg笔记</h1><h2 id="常用参数">常用参数</h2><ul><li><code>-ab</code>：音频采用率</li></ul><h2 id="使用">使用</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i &lt;视频文件名&gt; -ab 320k output.mp3</span><br></pre></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 截掉开头0.2秒</span></span><br><span class="line">ffmpeg -i &lt;视频文件名&gt; -ss 0.2 -ab 320k output.mp3</span><br></pre></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 只保留开头0.2秒</span></span><br><span class="line">ffmpeg -i &lt;视频文件名&gt; -t 0.2 -ab 320k output.mp3</span><br></pre></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 提取ass字幕</span></span><br><span class="line">ffmpeg -i input.mkv -an -vn -scodec copy subtitle.ass</span><br></pre></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 增加黑边，16:9转4:3，其中180等于(1920-1440)/2</span></span><br><span class="line">ffmpeg -i input.mkv -vf &quot;pad=1920:1440:0:180:black&quot; output.mp4</span><br></pre></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 将一组图片转为avi</span></span><br><span class="line">ffmpeg -framerate 5 -pattern_type glob -i &#x27;*.JPG&#x27; video.mp4</span><br></pre></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> flac转mp3</span></span><br><span class="line">ffmpeg -i input.flac -ab 320k output.mp3</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
@@ -2503,25 +2503,6 @@
       <categories>
           
           <category> 3 Tools </category>
-          
-      </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>数据结构二叉搜索树笔记</title>
-      <link href="2020/11/01/1_Data_Structure_And_Algorithm/Data_Structure_Binary_Search_Tree_Notes/"/>
-      <url>2020/11/01/1_Data_Structure_And_Algorithm/Data_Structure_Binary_Search_Tree_Notes/</url>
-      
-        <content type="html"><![CDATA[<h1>数据结构二叉搜索树笔记</h1><h2 id="定义">定义</h2><p>二叉排序树或者是一棵空树，或者是具有下列性质的二叉树：</p><ol><li>若左子树不空，则左子树上所有结点的值均小于或等于它的根结点的值；</li><li>若右子树不空，则右子树上所有结点的值均大于或等于它的根结点的值；</li><li>左、右子树也分别为二叉排序树；</li></ol><h2 id="插入">插入</h2><p>节点插入从根节点开始判断，插入时肯定是一个叶子结点。</p><h2 id="删除">删除</h2><p>在二叉排序树删去一个结点，分三种情况讨论：</p><ol><li><p>若*p结点为叶子结点，即PL(左子树)和PR(右子树)均为空树。由于删去叶子结点不破坏整棵树的结构，则可以直接删除此子结点。</p></li><li><p>若<em>p结点只有左子树PL或右子树PR，此时只要令PL或PR直接成为其双亲结点</em>f的左子树（当<em>p是左子树）或右子树（当</em>p是右子树）即可，作此修改也不破坏二叉排序树的特性。</p></li><li><p>若<em>p结点的左子树和右子树均不空。在删去</em>p之后，为保持其它元素之间的相对位置不变，可按中序遍历保持有序进行调整，可以有两种做法：</p></li><li><p>其一是令<em>p的左子树为</em>f的左/右(依<em>p是</em>f的左子树还是右子树而定)子树，<em>s为</em>p左子树的最右下的结点，而<em>p的右子树为</em>s的右子树；</p></li><li><p>其二是令<em>p的直接前驱（或直接后继）替代</em>p，然后再从二叉排序树中删去它的直接前驱（或直接后继）－即让<em>f的左子树(如果有的话)成为</em>p左子树的最左下结点(如果有的话)，再让<em>f成为</em>p的左右结点的父结点。</p></li></ol>]]></content>
-      
-      
-      <categories>
-          
-          <category> 1 Data Structure And Algorithm </category>
           
       </categories>
       
@@ -3244,6 +3225,25 @@
       <categories>
           
           <category> 2 Node.js - Electron </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>数据结构二叉搜索树笔记</title>
+      <link href="2020/11/01/1_Data_Structure_And_Algorithm/Data_Structure_Binary_Search_Tree_Notes/"/>
+      <url>2020/11/01/1_Data_Structure_And_Algorithm/Data_Structure_Binary_Search_Tree_Notes/</url>
+      
+        <content type="html"><![CDATA[<h1>数据结构二叉搜索树笔记</h1><h2 id="定义">定义</h2><p>二叉排序树或者是一棵空树，或者是具有下列性质的二叉树：</p><ol><li>若左子树不空，则左子树上所有结点的值均小于或等于它的根结点的值；</li><li>若右子树不空，则右子树上所有结点的值均大于或等于它的根结点的值；</li><li>左、右子树也分别为二叉排序树；</li></ol><h2 id="插入">插入</h2><p>节点插入从根节点开始判断，插入时肯定是一个叶子结点。</p><h2 id="删除">删除</h2><p>在二叉排序树删去一个结点，分三种情况讨论：</p><ol><li><p>若*p结点为叶子结点，即PL(左子树)和PR(右子树)均为空树。由于删去叶子结点不破坏整棵树的结构，则可以直接删除此子结点。</p></li><li><p>若<em>p结点只有左子树PL或右子树PR，此时只要令PL或PR直接成为其双亲结点</em>f的左子树（当<em>p是左子树）或右子树（当</em>p是右子树）即可，作此修改也不破坏二叉排序树的特性。</p></li><li><p>若<em>p结点的左子树和右子树均不空。在删去</em>p之后，为保持其它元素之间的相对位置不变，可按中序遍历保持有序进行调整，可以有两种做法：</p></li><li><p>其一是令<em>p的左子树为</em>f的左/右(依<em>p是</em>f的左子树还是右子树而定)子树，<em>s为</em>p左子树的最右下的结点，而<em>p的右子树为</em>s的右子树；</p></li><li><p>其二是令<em>p的直接前驱（或直接后继）替代</em>p，然后再从二叉排序树中删去它的直接前驱（或直接后继）－即让<em>f的左子树(如果有的话)成为</em>p左子树的最左下结点(如果有的话)，再让<em>f成为</em>p的左右结点的父结点。</p></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 1 Data Structure And Algorithm </category>
           
       </categories>
       
